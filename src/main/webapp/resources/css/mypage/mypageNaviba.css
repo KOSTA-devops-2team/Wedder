@@ -1,0 +1,51 @@
+.company-kind .List-search-bar input {
+  height: 20px;
+  border-radius: 5px;
+  padding: 0px;
+}
+.company-kind .List-search-bar button {
+  background-color: #eeeeee;
+  cursor: pointer;
+  height: 20px;
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+}
+.company-kind .List-search-bar button:hover {
+  cursor: pointer;
+  height: 25px;
+  color: white;
+  border: 1px solid #ca1a5a;
+  background-color: #ca1a5a;
+  border-radius: 5px;
+}
+.company-kind {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  height: 40px;
+  margin: 10px 0px 20px;
+
+  background-color: white;
+  border-radius: 4px;
+}
+.company {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.company-kind div {
+  padding: 5px 20px;
+
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.company-kind .brand {
+  height: 30px;
+}
+.company-kind .brand:hover {
+  border-bottom: 3px solid #ca1a5a;
+  font-size: 16px;
+}

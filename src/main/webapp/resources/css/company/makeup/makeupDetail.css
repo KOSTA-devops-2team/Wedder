@@ -1,0 +1,477 @@
+/*  1. 업체 설명 + 이미지 캐러셀  */
+.description {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.main-title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 30px;
+    flex: 1;
+}
+
+.main-title-container h1 {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #000000;
+    color: white;
+    border-radius: 20px;
+    font-size: 13px;
+    height: 31px;
+    font-weight: 600;
+    padding: 8px 14px 7px 14px;
+    margin: 10px 8px 20px 0px;
+}
+
+.main-title-container p {
+    word-break: keep-all;
+    margin-right: 50px;
+    line-height: 23px;
+}
+
+.carousel-container {
+    display: flex;
+    overflow: hidden;
+    width: 600px;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.company-image-item {
+    display: flex;
+    justify-content: center;
+}
+
+.company-image-item img {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* 2. 업체 정보 + 지도  */
+.information {
+    margin-top: 80px;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ca1a5a;
+}
+
+.title-container h2 {
+    font-weight: 700;
+    font-size: 22px;
+    margin-left: 30px;
+}
+
+.title-container a {
+    color: #ca1a5a;
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 30px 50px;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table th,
+.info-table td {
+    padding: 6px;
+    text-align: left;
+}
+
+.info-map img {
+    width: 450px;
+    height: 200px;
+    margin-left: 8px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons button {
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    margin: 0 10px;
+}
+
+.like-btn {
+    background-color: #ca1a5a;
+    padding: 10px 30px;
+}
+.like-btn:hover {
+    opacity: 80%;
+}
+
+.list-btn {
+    background-color: black;
+    padding: 10px 36px;
+}
+
+.list-btn:hover {
+    opacity: 80%;
+}
+
+.estimate-btn {
+    background-color: #717171;
+    padding: 10px 30px;
+}
+
+.estimate-btn:hover {
+    opacity: 80%;
+}
+
+/* 3. 예식일정 현황  */
+.schedule {
+    margin-top: 100px;
+}
+.schedule-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 30px 50px;
+}
+
+.calendar img {
+    width: 450px;
+    height: auto;
+}
+
+.schedule-choose {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.time-list {
+    background-color: #eeeeee;
+    padding: 18px 35px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.time-list-selected {
+    background-color: rgba(255, 203, 222, 0.3);
+    color: #ca1a5a;
+    border: 1px solid #ca1a5a;
+}
+
+.schedule-button {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #ca1a5a;
+    padding: 15px 30px;
+}
+
+.schedule-button:hover {
+    background-color: #f4699c;
+}
+
+/* 4. 웨딩홀 견적 계산기 */
+.estimator {
+    margin-top: 100px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 30px 50px;
+    gap: 23px 80px;
+}
+
+.section h2 {
+    margin-bottom: 13px;
+    font-size: 20px;
+    color: #ca1a5a;
+}
+
+.estimator table {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.estimator th {
+    background-color: #f2f2f2;
+    padding: 8px 0px;
+}
+
+.estimator td {
+    height: 35px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.month-grids {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin: 0 20px;
+}
+.month-grids button {
+    border: 1px solid #eeeeee;
+    height: 58px;
+}
+
+.month-grid-selected {
+    background-color: rgba(255, 203, 222, 0.3);
+    color: #ca1a5a;
+    border: 1px solid #ca1a5a;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-start;
+}
+
+.guest-num {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.result input {
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.result-sub-title {
+    font-size: 16px;
+    color: #848484;
+    margin-bottom: 10px;
+}
+
+.guest-num span {
+    width: 50%;
+}
+
+.guest-num input {
+    margin-left: 200px;
+    margin-right: 10px;
+    width: 50%;
+}
+
+.estimator-warning {
+    width: 95%;
+    border: 1px solid #ca1a5a;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+.estimator-warning p {
+    font-size: 14px;
+    word-break: keep-all;
+}
+
+.result-calc {
+    text-align: right;
+    font-size: 20px;
+}
+
+.calculate-button {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #ca1a5a;
+    padding: 13px 30px;
+    margin-bottom: 12px;
+}
+
+.calculate-button:hover {
+    background-color: #f4699c;
+}
+
+/* 5. 비슷한 가격대 웨딩홀 */
+.similar {
+    margin-top: 90px;
+    position: relative;
+}
+
+.similar-container {
+    display: flex;
+    overflow: hidden;
+}
+
+.similar-inner {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.similar-item {
+    flex: 0 0 calc(25% - 20px);
+    margin: 10px;
+}
+
+.similar-item-title {
+    margin-left: 35px;
+    font-size: 13px;
+}
+
+.similar-item-img {
+    display: flex;
+    justify-content: center;
+}
+.similar-item-img img {
+    width: 186px;
+    height: 186px;
+    margin: 10px auto;
+    object-fit: cover;
+}
+
+.similar-item-content p {
+    font-size: 13px;
+}
+
+.similar-item-title h2 {
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* 슬라이드 <, > 버튼 */
+.similar-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.similar-button {
+    cursor: pointer;
+    border: none;
+}
+
+.similar-button.left {
+    margin-right: 30px;
+}
+
+.similar-button.right {
+    margin-left: 30px;
+}
+.similar-button img {
+    width: 25px;
+    height: 30px;
+}
+
+/* 6. 다른 고객이 함께 본 상품  */
+.recommend {
+    margin-top: 90px;
+    position: relative;
+}
+
+.recommend-container {
+    display: flex;
+    overflow: hidden;
+}
+
+.recommend-inner {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.recommend-item {
+    flex: 0 0 calc(25% - 20px);
+    margin: 10px;
+}
+
+.recommend-item-title {
+    margin-left: 35px;
+    font-size: 13px;
+}
+
+.recommend-item-img {
+    display: flex;
+    justify-content: center;
+}
+.recommend-item-img img {
+    width: 186px;
+    height: 186px;
+    margin: 10px auto;
+    object-fit: cover;
+}
+
+.recommend-item-content p {
+    font-size: 13px;
+}
+
+.recommend-item-title h2 {
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* 슬라이드 <, > 버튼 */
+.recommend-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.recommend-button {
+    cursor: pointer;
+    border: none;
+}
+
+.recommend-button.left {
+    margin-right: 30px;
+}
+
+.recommend-button.right {
+    margin-left: 30px;
+}
+.recommend-button img {
+    width: 25px;
+    height: 30px;
+}
+
+.currentPage {
+    font-size: 25px;
+    margin: 0 10px;
+    font-weight: 300;
+}
+
+.totalPages {
+    margin: 0 10px;
+    font-size: 25px;
+    color: rgb(160, 160, 160);
+    font-weight: 300;
+}
+
+.slice {
+    margin: 0 15px;
+    font-size: 25px;
+    color: rgb(160, 160, 160);
+    font-weight: 300;
+}
+
+.noline {
+    border-bottom: none;
+}
