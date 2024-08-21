@@ -1,0 +1,447 @@
+/* 배너 */
+.banner {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.banner-background img {
+    width: 100%;
+}
+
+#icon {
+    position: absolute;
+    top: 27px;
+    left: 110px;
+    width: 160px;
+    height: 120px;
+}
+
+.banner-title {
+    position: absolute;
+    top: 30px;
+    left: 310px;
+    font-size: 27px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.banner-text {
+    position: absolute;
+    bottom: 55px;
+    left: 310px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* 고객 정보 확인 */
+.container {
+    display: grid;
+    grid-template-columns: 650px 400px;
+}
+
+.customer-container {
+    padding: 10px 20px;
+}
+
+.customer-info {
+    margin: 0 20px
+}
+
+.customer-info h1 {
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    padding: 15px 0 20px 20px;
+}
+
+.myinfo h3 {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    margin: 10px 20px;
+    color: #CA1A5A;
+    border-bottom: 2px solid #CA1A5A
+}
+
+.inputs {
+    display: grid;  
+    grid-template-columns: repeat(2, 120px 300px); 
+    padding: 15px 20px;
+}
+
+.inputs label {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    padding: 8px 0 0 3px;
+    margin-right: 20px;
+}
+
+.inputs input {
+    width: 408px;
+    height: 40px;
+    padding: 5px 20px;
+    border: 1px solid #7f7f7f;
+    border-radius: 8px;
+
+}
+
+.spouse-info h3 {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    margin: 40px 20px 10px 20px;
+    color: #0085FF;
+    border-bottom: 2px solid #0085FF
+}
+
+/* 선택 정보 수집 동의 */
+.consent-box {
+    position: relative;
+    padding: 15px 20px;
+    margin: 40px 20px;
+    border: 1px solid #7f7f7f;
+    border-radius: 5px;
+    align-items: center;
+}
+
+#consent {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+    accent-color: #CA1A5A;
+}
+
+.consent {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    padding-left: 22px;
+}
+
+.consent-description {
+    font-size: 12px;
+    font-weight: 400;
+    color: #898989;
+    padding-top: 5px;
+    padding-left: 22px;
+}
+
+.consent-link {
+    position: absolute;
+    top: 13px;
+    right: 19px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #CA1A5A;
+    text-decoration: none;
+}
+
+/* 전달사항 */
+.message {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    position: relative;
+}
+
+.message-title {
+    font-size: 21px;
+    font-weight: 600;
+    border-top: 2px solid #000;
+    margin: 30px 20px 15px 20px;
+    padding-top: 20px;
+}
+
+#message {
+    height: 150px;
+    margin: 0 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+}
+
+.char-count {
+    position: absolute;
+    right: 33px;
+    bottom: 10px;
+    font-size: 13px;
+    color: #898989;
+}
+
+/* 예약 참고사항 */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    margin: 20px 15px;
+}
+
+.reserve-guide {
+    margin-top: 85px;
+    padding: 25px;
+    padding-left: 30px;
+    border: 1px solid #CA1A5A;
+    border-radius: 8px;   
+}
+
+.reserve-guide h2 {
+    font-size: 17px;
+    color: #CA1A5A;
+    margin: 0;
+}
+
+.reserve-guide input {
+    accent-color: #CA1A5A;
+}
+
+.guide {
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* 예약 정보 */
+.reserve-infobox {
+    margin-top: 20px;
+    padding: 25px 40px;
+    align-content: space-between;
+    background-color: #eee;
+    border-radius: 8px;
+}
+
+.info-table {
+    width: 100%;
+}
+
+.info-table caption {
+    font-size: 18px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.info-table th, .info-table td {
+    font-size: 15px;
+    line-height: 2.5;
+    text-align: left;
+    padding-top: 10px;
+}
+
+.info-table tr:nth-of-type(4), 
+.info-table tr:nth-of-type(5) {
+    color: #CA1A5A;
+}
+
+/* 예상하객수 */
+.expect {
+    margin: 20px;
+}
+
+.expect h2 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    padding-bottom: 25px;
+}
+
+.expect-audience {
+    box-sizing: border-box;
+}
+
+.expect-table {
+    width: 100%;
+    max-width: 600px;
+    height: 120px;
+    border: 1px solid #828282;
+    border-radius: 10px;
+}
+
+.expect-table td {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    align-content: center;
+    padding: 0 20px;
+    padding-left: 40px;
+    border-right: 1px solid #828282;    
+}
+
+.expect-table tr:nth-of-type(1) {
+    border-bottom: 1px solid #828282;
+}
+
+
+/* 버튼 */
+.btn {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+}
+
+.btn-pre {
+    padding: 10px 90px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-pre:hover {
+    background-color: #ddd;
+    color: #000;
+}
+
+.btn-nxt {
+    padding: 10px 120px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+}
+
+.btn-nxt:hover {
+    background-color: #717171;
+    border: 1px solid #717171;
+}
+
+/* 예약 확인 모달창 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modal-content {
+    max-width: 450px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 45px;
+}
+
+.modal-q {
+    font-size: 19px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    color: #CA1A5A;
+}
+
+.modal-content p {
+    font-size: 13px;
+    font-weight: 400;
+    color: #545454;
+    text-align: center;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+.modal-btn {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 30px 0px 30px;
+}
+
+.check-btn {
+    font-size: 14px;
+    padding: 8px 40px;
+    border: 1px solid #CA1A5A;
+    border-radius: 7px;
+    color: #fff;
+    background-color: #CA1A5A;
+    cursor: pointer;
+}
+
+.check-btn:hover {
+    border: 1px solid rgba(202, 26, 90, 0.2);
+    background-color: rgba(202, 26, 90, 0.4);
+}
+
+.cancel-btn {
+    font-size: 14px;
+    padding: 8px 40px;
+    border: 1px solid #CA1A5A;
+    border-radius: 7px;
+    color: #CA1A5A;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: rgba(202, 26, 90, 0.1);
+}
+
+.modal.show { 
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* 예약 완료 모달창 */
+.modal2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modal-complete {
+    font-size: 21px;
+    font-weight: 600;
+    text-align: center;
+    color: #CA1A5A;
+}
+
+.modal-btn-suc {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.check-btn-suc {
+    font-size: 14px;
+    padding: 8px 50px;
+    border: 1px solid #CA1A5A;
+    border-radius: 7px;
+    color: #fff;
+    background-color: #CA1A5A;
+    cursor: pointer;
+}
+
+.check-btn-suc:hover {
+    border: 1px solid rgba(202, 26, 90, 0.2);
+    background-color: rgba(202, 26, 90, 0.4);
+}
+
+.modal2.show2 { 
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
