@@ -7,9 +7,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>dressList</title>
+        <title>studioList</title>
         <link rel="stylesheet" href="resources/css/common/reset.css" />
-        <link rel="stylesheet" href="resources/css/dress/dressList.css" />
+        <link rel="stylesheet" href="resources/css/studio/studioList.css" />
         <link
             rel="stylesheet"
             href="resources/css/common/pagination/pagination.css"
@@ -18,14 +18,14 @@
         <script defer src="resources/js/pagination/pagination.js"></script>
     </head>
     <body>
-        <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+        <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
         <div class="hd__inner1100">
             <!-- 메인 타이틀 문구 -->
             <section class="title">
                 <div class="title-sub">
-                    원하는 조건으로 나만의 드레스 업체를 찾아보세요.
+                    원하는 조건으로 나만의 스튜디오 장소를 찾아보세요.
                 </div>
-                <div class="title-main">Dress</div>
+                <div class="title-main">Studio</div>
             </section>
 
             <!-- 검색 조건 및 버튼 -->
@@ -69,12 +69,12 @@
                 </div>
                 <div class="search-btn">
                     <button class="list-search-btn dark-pink">
-                        <a href="resources/html/dress/dressList.html"
+                        <a href="resources/html/studio/studioList.html"
                             >목록으로 보기</a
                         >
                     </button>
                     <button class="map-search-btn">
-                        <a href="resources/html/dress/mapViewWithFilters.html"
+                        <a href="resources/html/studio/mapViewWithFilters.html"
                             >지도로 보기</a
                         >
                     </button>
@@ -84,15 +84,15 @@
             <!-- 업체 리스트 부분  -->
             <section class="list-all">
                 <div class="card" data-id="1">
-                    <a href="resources/html/dress/dressDetail.html">
+                    <a href="resources/html/studio/studioDetail.html">
                         <img
-                            src="resources/assets/images/dress-1.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-1.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a
                                 href="https://www.instagram.com/with_mamaa/"
                                 target="_blank"
@@ -104,9 +104,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -128,13 +130,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-2.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-2.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -142,9 +144,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -166,13 +170,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-3.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-3.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -180,9 +184,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -204,13 +210,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-4.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-4.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -218,9 +224,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -242,13 +250,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-5.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-5.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -256,9 +264,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -280,13 +290,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-6.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-6.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -294,9 +304,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -318,13 +330,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-7.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-7.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -332,9 +344,51 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
+                        <div class="like-and-score">
+                            <a href="#">
+                                <img
+                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
+                                    alt="하트 이미지"
+                                />
+                                <span>12,000</span>
+                            </a>
+                            <a href="#">
+                                <img
+                                    src="resources/assets/images/studio-1.jpg"
+                                    alt="하트 이미지"
+                                />
+                                <span>460</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-id="1">
+                    <a href="#">
+                        <img
+                            src="resources/assets/images/studio-5.jpg"
+                            alt="스튜디오 이미지1"
+                        />
+                    </a>
+                    <div class="card-info">
+                        <div class="studio-name">
+                            스튜디오 이름1
+                            <a href="#" class="instagram">
+                                <img
+                                    src="resources/assets/images/instagram2.png"
+                                    alt="인스타 이미지"
+                                />
+                            </a>
+                        </div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -356,16 +410,15 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-1.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-2.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a
                                 href="https://www.instagram.com/with_mamaa/"
-                                target="_blank"
                                 class="instagram"
                             >
                                 <img
@@ -374,9 +427,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -398,13 +453,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-2.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-2.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -412,9 +467,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -436,13 +493,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-3.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-3.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -450,9 +507,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -474,13 +533,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-4.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-4.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -488,9 +547,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -512,13 +573,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-5.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-5.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -526,9 +587,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -550,13 +613,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-6.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-6.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -564,9 +627,11 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -588,13 +653,13 @@
                 <div class="card" data-id="1">
                     <a href="#">
                         <img
-                            src="resources/assets/images/dress-7.jpg"
-                            alt="드레스 이미지1"
+                            src="resources/assets/images/studio-7.jpg"
+                            alt="스튜디오 이미지1"
                         />
                     </a>
                     <div class="card-info">
-                        <div class="dress-name">
-                            드레스 이름1
+                        <div class="studio-name">
+                            스튜디오 이름1
                             <a href="#" class="instagram">
                                 <img
                                     src="resources/assets/images/instagram2.png"
@@ -602,9 +667,52 @@
                                 />
                             </a>
                         </div>
-                        <div class="dress-address">주소1</div>
-                        <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                        <div class="minimum-guarantee">가봉 소요시간: 40분</div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
+                        <div class="like-and-score">
+                            <a href="#">
+                                <img
+                                    src="https://wd
+                                    rtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
+                                    alt="하트 이미지"
+                                />
+                                <span>12,000</span>
+                            </a>
+                            <a href="#">
+                                <img
+                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
+                                    alt="하트 이미지"
+                                />
+                                <span>460</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-id="1">
+                    <a href="#">
+                        <img
+                            src="resources/assets/images/studio-1.jpg"
+                            alt="스튜디오 이미지1"
+                        />
+                    </a>
+                    <div class="card-info">
+                        <div class="studio-name">
+                            스튜디오 이름1
+                            <a href="#" class="instagram">
+                                <img
+                                    src="resources/assets/images/instagram2.png"
+                                    alt="인스타 이미지"
+                                />
+                            </a>
+                        </div>
+                        <div class="studio-address">주소1</div>
+                        <div class="budget">촬영소요시간: 4시간</div>
+                        <div class="composition">
+                            상품 구성: 앨범1권+기본액자 1개
+                        </div>
                         <div class="like-and-score">
                             <a href="#">
                                 <img
@@ -627,7 +735,7 @@
         </div>
 
         <!-- 페이지네이션  -->
-		<div><%@ include file="/WEB-INF/views/common/pagination.jsp"%></div>
-        <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+		<div><%@ include file="/resources/components/pagination/pagination.jsp"%></div>
+        <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
     </body>
 </html>
