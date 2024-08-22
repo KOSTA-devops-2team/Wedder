@@ -9,21 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>paymentDetail</title>
       <link rel="stylesheet" href="resources/css/common/reset.css" />
-      <link rel="stylesheet" href="resources/css/myPage/paymentDetail.css" />
+      <link rel="stylesheet" href="resources/css/mypage/paymentDetail.css" />
   	  <link
         rel="stylesheet"
-        href="<c:url value='resources/css/common/sidebar/sidebarMyPage.css'/>"
+        href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
       />
       <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-      <script defer src="<c:url value='resources/js/myPage/myPageMain.js'/>"></script>
+      <script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
   </head>
-  <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+  <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
   <body>
     <div class="hd__inner1100">
       <div class="side-bar-flex">
         <section class="nav-bar" id="nav-bar">
           <aside class="payment-detail">
-            <div><%@ include file="/resources/components/sidebar/sidebarMyPage.jsp" %></div>
+          	<div> <%@ include file="/WEB-INF/views/common/sidebarMyPage.jsp" %></div>
           </aside>
         </section>
       </div>
@@ -127,5 +127,6 @@
       </div>
     </div>
   </body>
-  <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
+   <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+  
 </html>

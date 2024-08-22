@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mypage</title>
     <!-- 링크 -->
-       	<link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-        <link rel="stylesheet" href="<c:url value='resources/css/myPage/mypage.css'/>"/>
+    	<link rel="stylesheet" href="resources/css/common/reset.css"/>
+    	<link rel="stylesheet" href="resources/css/mypage/mypage.css" />
         <link
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
@@ -20,22 +20,18 @@
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
-        <link
-                rel="stylesheet"
-                href="<c:url value='resources/css/common/sidebar/sidebarMyPage.css'/>"
-        />
+        <link rel="stylesheet" href="resources/css/common/sidebar/sidebarMypage.css"/>
     <!-- 스크립트 -->
-        <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-        <script defer src="<c:url value='resources/js/myPage/mypage.js'/>"></script>
-        <script defer src="<c:url value='resources/js/myPage/myPageMain.js'/>"></script>
+        <script defer src="resources/js/main/main.js"></script>
+        <script defer src="resources/js/mypage/mypage.js"></script>
+        <script defer src="resources/js/mypage/myPageMain.js"></script>
 </head>
-
-<div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+ <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
 <body>
 <div class="myPage-container hd__inner1100">
     <!-- 0. 마이페이지 사이드 바 -->
     <aside class="myPage-sidebar">
-    	<div><%@ include file="/resources/components/sidebar/sidebarMyPage.jsp" %></div>
+    	<div> <%@ include file="/WEB-INF/views/common/sidebarMyPage.jsp" %></div>
     </aside>
 
     <!-- 1.마이페이지 메인페이지 -->
@@ -412,5 +408,5 @@
     </div>
 </div>
 </body>
-<div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
+<div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </html>

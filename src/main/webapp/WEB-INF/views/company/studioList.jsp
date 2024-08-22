@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>studioList</title>
         <link rel="stylesheet" href="resources/css/common/reset.css" />
-        <link rel="stylesheet" href="resources/css/studio/studioList.css" />
+        <link rel="stylesheet" href="resources/css/company/studio/studioList.css" />
         <link
             rel="stylesheet"
             href="resources/css/common/pagination/pagination.css"
@@ -18,7 +18,7 @@
         <script defer src="resources/js/pagination/pagination.js"></script>
     </head>
     <body>
-        <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+    	<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
         <div class="hd__inner1100">
             <!-- 메인 타이틀 문구 -->
             <section class="title">
@@ -735,7 +735,7 @@
         </div>
 
         <!-- 페이지네이션  -->
-		<div><%@ include file="/resources/components/pagination/pagination.jsp"%></div>
-        <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
+        <div> <%@ include file="/WEB-INF/views/common/pagination.jsp" %></div>
+        <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
     </body>
 </html>

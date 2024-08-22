@@ -9,9 +9,9 @@
         <title>Wedder</title>
         
         <link rel="stylesheet" href="<c:url value="resources/css/common/reset.css"/>" />
-        <link rel="stylesheet" href="<c:url value="resources/css/common/header/headerV2.css"/>" />
+        <link rel="stylesheet" href="<c:url value="resources/css/common/header/header.css"/>" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <script defer src="../../js/header/header.js"></script>
+        <script defer src="resources/js/header/header.js"></script>
     </head>
     <body>
         <header>

@@ -9,17 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wish List</title>
     
-      <link rel="stylesheet" href="<c:url value='resources/css/myPage/wishList.css'/>" />
+      <link rel="stylesheet" href="<c:url value='resources/css/mypage/wishList.css'/>" />
   		<link
                 rel="stylesheet"
-                href="<c:url value='resources/css/common/sidebar/sidebarMyPage.css'/>"
+                href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
         />
       <script defer src="resources/js/main/main.js"></script>
-      <script defer src="resources/js/myPage/wishList.js"></script>
-      <script defer src="resources/js/myPage/myPageMain.js"></script>
+      <script defer src="resources/js/mypage/wishList.js"></script>
+      <script defer src="resources/js/mypage/myPageMain.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.1/swiper-bundle.min.js"></script>
   </head>
-  <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+  <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
   <body>
     <!-- 1.헤더 설명 -->
     <section class="Wish_List-header" id="Wish_List-section1">
@@ -30,7 +30,7 @@
       <!-- 0. 마이페이지 사이드 바 -->
       <div>
         <aside class="myPage-sidebar">
-          <div><%@ include file="/resources/components/sidebar/sidebarMyPage.jsp" %></div>
+       		<div> <%@ include file="/WEB-INF/views/common/sidebarMyPage.jsp" %></div>
         </aside>
       </div>
 
@@ -349,5 +349,5 @@
       </div>
     </div>
   </body>
-  <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
+  <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </html>

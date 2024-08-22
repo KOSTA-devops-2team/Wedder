@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Wedder</title>
         <link rel="stylesheet" href="resources/css/common/reset.css" />
-        <link rel="stylesheet" href="resources/css/studio/studioDetail.css" />
+        <link rel="stylesheet" href="resources/css/company/studio/studioDetail.css" />
         <link
             rel="stylesheet"
             href="resources/css/weddingHall/reviewSearchModal.css"
@@ -18,7 +18,7 @@
         <script defer src="resources/js/studio/studioDetail.js"></script>
     </head>
     <body>
-        <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+    	<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
         <div class="hd__inner1100">
             <!-- 1. 업체 설명 + 이미지 캐러셀 -->
             <section class="description">
@@ -536,7 +536,7 @@
                 </div>
             </section>
         </div>
-        <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
+        <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
         <script src="resources/js/weddingHall/reviewSearchModal.js"></script>
     </body>
 </html>
