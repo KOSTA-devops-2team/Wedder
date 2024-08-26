@@ -17,7 +17,7 @@
     <script defer src="<c:url value='resources/js/package/packageDetail.js'/>"></script>
 </head>
 
-<%--<div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>--%>
+<div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
 <body>
     <div class="hd__inner1100">
         <div class="container">
@@ -92,5 +92,5 @@
         </div>
     </div>
 </body>
-<%--<div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>--%>
+<div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
 </html>
