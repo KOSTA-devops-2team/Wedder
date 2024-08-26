@@ -46,11 +46,7 @@
         <!-- 3.calandar -->
         <section class="calandars" id="payment-detail-section3">
             <div class="calandars-payment-list">
-                <img
-                    src="resources/assets/images/calendar-july.png"
-                    alt="달력"
-                    class="calandar"
-                />
+                <%@ include file="/WEB-INF/views/common/calendar.jsp" %>
                 <div class="calandar-Content">
                   <div class="calandar-top">상세 예약 내역</div>
                   <div class="calandar-middle">

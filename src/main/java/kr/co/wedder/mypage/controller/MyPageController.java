@@ -38,4 +38,8 @@ public class MyPageController {
 	public String wishList() {
 		return "mypage/wishList";
 	}
+	@RequestMapping(value = "calendar")
+	public String calendarTest() {
+		return "common/calendar";
+	}
 }
