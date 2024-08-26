@@ -1,0 +1,252 @@
+/* 기본 스타일 */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+    padding: 0;
+    color: rgb(51, 61, 75);
+    word-break: keep-all;
+}
+
+/* 1. 메인 */
+.main {
+    background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0) 10%,
+            rgba(255, 255, 255, 0.3) 25%,
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(255, 255, 255, 0.75) 75%,
+            rgb(255, 255, 255) 100%
+        ),
+        url(https://wdrtest1.s3.ap-northeast-2.amazonaws.com/main/main0.png)
+            no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    height: calc(100vh - 180px);
+    display: flex;
+    justify-content: center;
+}
+
+.main-content {
+    padding-top: 120px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 1.5s;
+}
+
+.main h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+    color: black;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.main h3 {
+    font-size: 25px;
+}
+
+/* 2. 웨딩홀  */
+.hall {
+    padding: 250px 0 220px 0;
+}
+
+.hall-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 120px;
+}
+
+.hall-subtitle {
+    margin-top: 190px;
+}
+
+.hall-subtitle span {
+    display: block;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: rgb(51, 61, 75);
+}
+
+.hall-subtitle p {
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: rgb(51, 61, 75);
+    margin-top: 30px;
+}
+
+.hall-subtitle-item {
+    display: flex;
+    justify-content: flex-start;
+    opacity: 0;
+    transform: translate3d(0px, 50px, 0px);
+    transition: all 1.5s;
+}
+
+.hall-subtitle-item span:nth-of-type(2) {
+    margin-left: 10px;
+}
+
+.hall-subtitle-item:last-of-type span:nth-of-type(2) {
+    margin-left: 25px;
+}
+
+.hall-image {
+    opacity: 0;
+    transform: translateX(77px);
+    transition: all 1.5s;
+}
+
+/* 3. 스드메 패키지 */
+.package {
+    background: #fff8f8;
+    padding: 180px 0px;
+}
+
+.package h1 {
+    margin-bottom: 150px;
+    text-align: left;
+    font-size: 50px;
+}
+
+.package-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 180px;
+}
+
+.package-content {
+    max-width: calc(50% - 30px);
+    opacity: 0;
+    transform: translate3d(0px, 50px, 0px);
+    transition: all 1.5s;
+}
+
+.package-content h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.package-content p {
+    margin-bottom: 22px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: rgb(107, 118, 132);
+}
+
+.package-img {
+    max-width: calc(50% - 30px);
+    height: auto;
+    border-radius: 10px;
+    box-shadow: -6px 8px 12px rgb(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: all 1.5s;
+}
+
+.package-item:nth-of-type(4) .package-img,
+.package-item:nth-of-type(2) .package-img {
+    transform: translateX(77px);
+}
+
+.package-item:nth-of-type(3) .package-img {
+    transform: translateX(-77px);
+}
+
+/* 4. 견적서  */
+.estimate {
+    padding: 250px 0 220px 0;
+}
+
+.estimate-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 130px 80px;
+    margin-bottom: 120px;
+}
+
+.estimate-item {
+    opacity: 0;
+    transform: translate3d(0px, 50px, 0px);
+    transition: all 1.5s;
+}
+
+.estimate-items img {
+    width: 120px;
+    margin-bottom: 30px;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.estimate-items h3 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: rgb(51, 61, 75);
+    margin-bottom: 10px;
+}
+
+.estimate-items p {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: rgb(107, 118, 132);
+}
+
+/* 메인 페이지 공통 버튼 */
+.main-btn {
+    display: flex;
+    justify-content: center;
+}
+.main-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ca1a5a;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.main-button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* 공통 타이틀 부분 */
+.common-title {
+    opacity: 0;
+    transform: translate3d(0px, 50px, 0px);
+    transition: all 1.5s;
+}
+.common-title h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #ca1a5a;
+    margin-bottom: 30px;
+}
+
+.common-title p {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #191f28;
+    margin-bottom: 130px;
+}

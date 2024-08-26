@@ -1,0 +1,571 @@
+/* 0. 구조 설정 */
+.myPage-container {
+  display: flex;
+  justify-content: space-between;
+}
+.myPage-sidebar {
+  width: 240px;
+}
+.hd__inner880 {
+  width: 880px;
+}
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-color: #303033;
+  height: 100px;
+}
+/* 헤더 */
+.summary h1 {
+  font-size: 24px;
+  padding-left: 40px;
+}
+.summary-lists {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-right: 30px;
+  border-left: 1px solid white;
+  padding-left: 13px;
+}
+
+.summary-title {
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.summary-count {
+  display: flex;
+  align-items: baseline;
+}
+
+.summary-count .number {
+  font-size: 26px;
+}
+
+.summary-count .unit {
+  font-size: 16px;
+  margin-left: 5px;
+}
+/* 1. 마이페이지 배너 */
+.mypage-header {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  margin: 10px;
+}
+.mypage-header-main {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 10px 100px;
+}
+
+.mypage-header-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.mypage-header-footer p:nth-of-type(1) {
+  margin: 10px;
+}
+
+.divide {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.divide p {
+  color: white;
+}
+
+.v-line {
+  border-left: 1px solid white;
+  height: 60px;
+  margin: 10px;
+  margin-left: 80px;
+  align-self: center;
+}
+
+/* 2. 견적함 제목 */
+.title-container {
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+}
+
+/* .category {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 10px;
+} */
+
+.main-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.estimate-title {
+  font-size: 21px;
+  font-weight: 600;
+  color: #ca1a5a;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.total {
+  font-size: 15px;
+  font-weight: 600;
+  padding-right: 20px;
+  padding-top: 7px;
+  margin-top: 10px;
+}
+
+/* 3. 견적함 박스 */
+.estimate-storage {
+  display: grid;
+  grid-template-columns: repeat(3, 280px);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  margin: 20px 0px;
+}
+
+.storage {
+  position: relative;
+  height: 195px;
+  border: 1px solid #757575;
+  padding: 20px;
+}
+
+.storage-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.storage-total-price {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ca1a5a;
+  margin: 0;
+  margin-top: 5px;
+}
+
+.total-product {
+  font-size: 12px;
+  font-weight: 400;
+  color: #757575;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.arrow {
+  position: absolute;
+  width: 25px;
+  height: 15px;
+  right: 38px;
+  top: 23px;
+}
+
+.company-list {
+  display: flex;
+}
+
+.company-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin: 0 2px;
+  object-fit: cover;
+}
+
+.company-list p {
+  font-size: 11px;
+  text-align: center;
+  color: #000;
+}
+
+.storage-delete {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  right: 16px;
+  top: 22px;
+  cursor: pointer;
+}
+
+/* 4. 견적서 모달창 */
+.modal {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  display: none;
+}
+
+.modal-content {
+  max-width: 900px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  height: 75vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.modal.show {
+  display: block;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.selected-list {
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.selected-list h1 {
+  font-size: 19px;
+  font-weight: 600;
+  width: 825px;
+  margin: 0;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000;
+}
+
+.estimate-list {
+  display: flex;
+  width: 830px;
+  height: 240px;
+  padding: 10px;
+}
+
+.product-img {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.product-img > img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* .company-options {
+    height: 230px;
+    display: flex;
+    padding: 15px;
+} */
+
+.company-content {
+  width: 650px;
+  padding: 12px 20px;
+}
+
+.company-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.company-name {
+  color: #ca1a5a;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.del-list {
+  font-size: 12px;
+  color: 757575;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.company-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 13px;
+}
+
+.basic-option {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.price-basic {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.company-options {
+  margin-top: 10px;
+}
+
+.detail-option {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 7px;
+}
+
+.options {
+  background-color: #ddd;
+  border-radius: 5px;
+  padding: 5px 8px;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px;
+  border-bottom: 1px solid #fff;
+}
+
+.option:nth-last-child(1) {
+  border: none;
+}
+
+.option p {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.price-container {
+  width: 800px;
+}
+
+.price-regular {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px;
+  margin-left: 10px;
+  color: #757575;
+}
+.discount {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 10px;
+  padding: 10px 5px;
+  color: #ca1a5a;
+}
+
+.price-final {
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 10px;
+  padding: 15px 5px;
+  border-top: 2px solid #000;
+}
+
+/* 견적함 삭제 모달창 */
+.modal2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal-content2 {
+  max-width: 450px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 45px;
+}
+
+.modal-q {
+  font-size: 19px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  color: #ca1a5a;
+}
+
+.modal-content2 p {
+  font-size: 13px;
+  font-weight: 400;
+  color: #545454;
+  text-align: center;
+  line-height: 1.5;
+  margin: 20px 0;
+}
+
+.modal-btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 30px 0px 30px;
+}
+
+.check-btn {
+  font-size: 14px;
+  padding: 8px 40px;
+  border: 1px solid #ca1a5a;
+  border-radius: 7px;
+  color: #fff;
+  background-color: #ca1a5a;
+  cursor: pointer;
+}
+
+.check-btn:hover {
+  border: 1px solid rgba(202, 26, 90, 0.2);
+  background-color: rgba(202, 26, 90, 0.4);
+}
+
+.cancel-btn,
+.cancel-btn2 {
+  font-size: 14px;
+  padding: 8px 40px;
+  border: 1px solid #ca1a5a;
+  border-radius: 7px;
+  color: #ca1a5a;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: rgba(202, 26, 90, 0.1);
+}
+
+.modal2.show2 {
+  display: block;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* 상품 삭제 모달창 */
+.modal3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal-content3 {
+  max-width: 450px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 45px;
+}
+
+.modal-content3 p {
+  font-size: 13px;
+  font-weight: 400;
+  color: #545454;
+  text-align: center;
+  line-height: 1.5;
+  margin: 20px 0;
+}
+
+.modal3.show3 {
+  display: block;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* 버튼 */
+.btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 10px;
+  margin-right: 25px;
+}
+
+.modal-close-btn {
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 6px 40px;
+  cursor: pointer;
+}
+
+.modal-close-btn:hover {
+  background-color: #eee;
+  border: 1px solid #000;
+}
+
+.payment-btn {
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #ca1a5a;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #ca1a5a;
+  padding: 6px 40px;
+  cursor: pointer;
+}
+
+.payment-btn:hover {
+  border: 1px solid rgba(202, 26, 90, 0.2);
+  background-color: rgba(202, 26, 90, 0.4);
+}

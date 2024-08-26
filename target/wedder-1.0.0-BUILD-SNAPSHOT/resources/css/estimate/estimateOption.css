@@ -1,0 +1,224 @@
+.container {
+    display: flex;
+    vertical-align: middle;
+}
+.container-title {
+    font-size: 30px;
+    color: #CA1A5A;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.container-title .description {
+    font-size: 15px;
+}
+
+/* 스드메 상단 탭 */
+.tabs {
+    display: flex;
+    flex: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.tab {
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    flex: 1;
+}
+
+/* 그리드 */
+.main-grid {
+    display: grid;
+    grid-template-columns: 690px auto;
+    grid-gap: 15px;
+}
+.left-panel {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    border: 1px solid #757575;
+    border-radius: 10px;
+    padding: 10px 30px;
+}
+.main {
+    display: flex;
+}
+.main-content img {
+    width: 200px;
+    height:200px;
+    float: left;
+    margin-right: 20px;
+}
+.selected {
+    margin: 10px;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+.content-main {
+    text-align: left;
+}
+.bold {
+    font-weight: 600;
+    font-size: 18px;
+}
+.address {
+    font-size: 14px
+}
+.basic-option {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+.basic-detail {
+    font-size: 12px;
+}
+.main-price {
+    font-weight: 700;
+}
+
+/* 세부 옵션 */
+.option {
+    display: flex;
+    justify-content: space-between; 
+}
+.option-item {
+    font-size: 10px;
+    color: #757575;
+    margin-bottom: 10px;
+}
+
+/* 세부 옵션 */
+.option {
+    margin-bottom: 15px;
+}
+.option-item .title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+}
+.option span {
+    display: block;
+    margin-bottom: 5px;
+}
+.option-price {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* 선택하신 목록 */
+.selected-list {
+    height: 700px;
+    border: 1px solid #757575;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+.selected-list h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #000;
+}
+.item-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16x;
+    font-weight: 700;
+    padding-top: 10px;
+    margin-bottom: 30px;
+}
+.items {
+    margin-bottom: 250px;
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.item img {
+    width: 10px;
+    height: auto;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* 가격 표시 */
+.price {
+    margin-bottom: 10px;
+}
+.price-regular {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.price-discount {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #757575;
+}
+.price-discount .color {
+    color: #CA1A5A;
+}
+.price-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 14
+}
+.reselection {
+    display: flex;
+    justify-content: right;
+    margin-top: 48px;
+    font-size: 13px;
+}
+.note {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: 1px solid #757575;
+    border-radius: 5px;
+    padding: 30px;
+    height: 150px;
+    color: #666;
+    font-size: 12px;
+}
+
+/* 이전, 다음 버튼 */
+.btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.btn .next {
+    width: 270px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+.btn .back {
+    width: 270px;
+    height: auto;
+    font-size: 14px;
+    color: #000;
+    background-color: #ffffff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
