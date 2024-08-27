@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,9 +14,9 @@
       rel="stylesheet"
       href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
     />
-      <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-      <script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
-
+      	<script defer src="<c:url value='resources/js/main/main.js'/>"></script>
+      	<script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <title>reservationDetail</title>
   </head>
 	<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>

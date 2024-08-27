@@ -6,16 +6,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<link rel="stylesheet" href="resources/css/common/reset.css">
+		<!-- <link rel="stylesheet" href="resources/css/common/reset.css"> -->
 		<link rel="stylesheet" href="resources/css/mypage/calendar.css">
-		<script type="text/javascript" 
-		src="<c:url value='resources/js/mypage/calendar.js'/>">
-		</script>
+		
 	</head>
 	<body>
 		<section class="calendar-container" id="calendar-section1">
 			<div class="calendar-header">
-				<button id="preBtn"> 이전</button>
+				<button id="prevBtn"> 이전</button>
 				<h2 id="currentMonth"></h2>
 				<button id="nextBtn"> 다음</button>
 			</div>
@@ -35,6 +33,8 @@
 			
 			</div>
 		</section>
-		
+			<script type="text/javascript" 
+			src="<c:url value='resources/js/mypage/calendar.js'/>">
+			</script>
 		</body>
 </html>
