@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reservationPayment</title>
     <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/reservation/reservationPayment.css" />
+    <link rel="stylesheet" href="resources/css/reservation/sdm/reservationPayment.css" />
     <script defer src="resources/js/main/main.js"></script>
 </head>
 <body>
-    <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
     <div class="hd__inner960">
         <!-- 타이틀 -->
         <section class="title">
@@ -163,7 +163,7 @@
                         <input type="text" class="hope-date" id="hope-date1" size="20" placeholder="0000-00-00, 00:00">
                     </div>
                     <div>
-                        <a href=""><img class="icon-img" src="resources/assets/images/calendar-icon.png" alt="달력 아이콘"></a>
+                        <a href=""><img class="icon-img" src="resources/images/calendar-icon.png" alt="달력 아이콘"></a>
                     </div>
                     <button class="non-select"><input type="checkbox">미정</button>
                 </div>
@@ -175,7 +175,7 @@
                         <input type="text" class="hope-date" id="hope-date2" placeholder="0000-00-00, 00:00">
                     </div>
                     <div>
-                        <a href=""><img class="icon-img" src="resources/assets/images/calendar-icon.png" alt="달력 아이콘"></a>
+                        <a href=""><img class="icon-img" src="resources/images/calendar-icon.png" alt="달력 아이콘"></a>
                     </div>
                     <button class="non-select"><input id="non-select" type="checkbox">미정</button>
                 </div>
@@ -187,7 +187,7 @@
                         <input type="search" class="weddinghall-search" id="weddinghall-search" placeholder="웨딩홀을 선택하세요.">
                     </div>
                     <div class="search-icon">
-                        <img class="icon2-img" src="resources/assets/images/search-icon2.png" alt="검색 아이콘">
+                        <img class="icon2-img" src="resources/images/search-icon2.png" alt="검색 아이콘">
                     </div>
                 </div>
             </div>
@@ -216,7 +216,7 @@
                         <p>스튜디오</p>
                     </div>
                     <div class="company-img">
-                        <img src="resources/assets/images/reserve-studio-company.png" alt="업체 이미지">
+                        <img src="resources/images/reserve-studio-company.png" alt="업체 이미지">
                     </div>
                     <div class="option-list">
                         <h5>비마이 스튜디오</h5>
@@ -232,7 +232,7 @@
                         <p>옵션</p>
                     </div>
                     <div class="option-img">
-                        <img src="resources/assets/images/option1.png" alt="옵션 이미지1">
+                        <img src="resources/images/option1.png" alt="옵션 이미지1">
                     </div>
                     <div class="option-list">
                         <h5>야간 촬영</h5>
@@ -247,7 +247,7 @@
                         <p>옵션</p>
                     </div>
                     <div class="option-img">
-                        <img src="resources/assets/images/option5.png" alt="옵션 이미지5">
+                        <img src="resources/images/option5.png" alt="옵션 이미지5">
                     </div>
                     <div class="option-list">
                         <h5>들러리 촬영</h5>
@@ -286,31 +286,31 @@
                 <div class="option2">
                     <button>
                         <img
-                                src="resources/assets/images/naver.png"
+                                src="resources/images/naver.png"
                                 alt="N Pay"
                         />
                     </button>
                     <button>
                         <img
-                                src="resources/assets/images/samsung.png"
+                                src="resources/images/samsung.png"
                                 alt="Samsung Pay"
                         />
                     </button>
                     <button>
                         <img
-                                src="resources/assets/images/kakao.png"
+                                src="resources/images/kakao.png"
                                 alt="Kakao Pay"
                         />
                     </button>
                     <button>
                         <img
-                                src="resources/assets/images/toss.png"
+                                src="resources/images/toss.png"
                                 alt="Toss Pay"
                         />
                     </button>
                     <button>
                         <img
-                                src="resources/assets/images/payco.png"
+                                src="resources/images/payco.png"
                                 alt="Payco"
                         />
                     </button>
@@ -401,7 +401,7 @@
             </div>
         </section>
     </div>
-    <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
-    <script src="resources/js/weddingHall/weddingHallPayment.js"></script>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <script src="resources/js/reservation/sdm/weddinghallPayment.js"></script>
 </body>
 </html>

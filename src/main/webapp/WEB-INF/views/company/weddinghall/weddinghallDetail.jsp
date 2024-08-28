@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>studioDetail</title>
+    <title>weddinghallDetail</title>
     <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/company/studio/studioDetail.css" />
-    <link
-            rel="stylesheet"
-            href="resources/css/company/weddinghall/reviewSearchModal.css"
-    />
+    <link rel="stylesheet" href="resources/css/company/weddinghall/weddinghallDetail.css" />
+    <link rel="stylesheet" href="resources/css/company/weddinghall/reviewSearchModal.css" />
     <script defer src="resources/js/main/main.js"></script>
+    <script defer src="resources/js/company/weddinghall/weddinghallDetail.js"></script>
 </head>
 <body>
     <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
@@ -19,53 +17,52 @@
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
             <div class="main-title-container">
-                <h1>[강남] 비마이스튜디오</h1>
+                <h1>[강남] 마리아쥬스퀘어</h1>
                 <div id="tags-container">
                     <!-- 태그 -->
                 </div>
                 <p>
-                    꾸미지 않은 이 순간의 자연스러움. 자연광 스튜디오로 층별
-                    분리된 서로 다른 컨셉의 공간으로 야외씬, 테라스씬,
-                    가든씬 등 다양한 배경으로 깨끗하고 자연스러운 인물+배경
-                    중심의 촬영을 하는 스튜디오입니다.
+                    싱그러움 속 우아하고 세련된 더 프렌치 카든 웨딩 합리적인
+                    가격으로 호텔 웨딩을 오릴 수 있어요. 250~300명 규모의
+                    샴페인 홀, 소규모 스몰웨딩이 가능한 보르도홀 입니다.
                 </p>
             </div>
             <div class="carousel-container">
                 <div class="carousel-inner">
                     <div class="company-image-item">
                         <img
-                                src="resources/images/studio-8.jpg"
-                                alt="스튜디오 메인 이미지1"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail1.jpg"
+                                alt="웨딩홀 메인 이미지1"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="resources/images/studio-3.jpg"
-                                alt="스튜디오 메인 이미지2"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail2.jpg"
+                                alt="웨딩홀 메인 이미지2"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="resources/images/studio-4.jpg"
-                                alt="스튜디오 메인 이미지3"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail3.jpg"
+                                alt="웨딩홀 메인 이미지3"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="resources/images/studio-12.jpg"
-                                alt="스튜디오 메인 이미지4"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail4.jpg"
+                                alt="웨딩홀 메인 이미지4"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="resources/images/studio-9.jpg"
-                                alt="스튜디오 메인 이미지5"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail5.jpg"
+                                alt="웨딩홀 메인 이미지5"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="resources/images/studio-11.jpg"
-                                alt="스튜디오 메인 이미지6"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail6.jpg"
+                                alt="웨딩홀 메인 이미지6"
                         />
                     </div>
                 </div>
@@ -76,9 +73,9 @@
         <section class="information">
             <div class="title-container">
                 <h2>Information</h2>
-                <a href="#" id="review-link">후기 보러가기 >>></a>
+                <a href="reviewModal" id="review-link">후기 보러가기 >>></a>
             </div>
-            <!-- <div id="modal-container"></div> -->
+            <div id="modal-container"></div>
 
             <div class="info-container">
                 <!-- 왼쪽 정보 -->
@@ -92,36 +89,28 @@
                         <td>02-111-1111</td>
                     </tr>
                     <tr>
-                        <th>휴무일</th>
-                        <td>월요일 휴무</td>
+                        <th>예식 형태</th>
+                        <td>동시예식</td>
                     </tr>
                     <tr>
-                        <th>영업 시간</th>
-                        <td>10:00 ~ 19:00</td>
+                        <th>예식 유형</th>
+                        <td>하우스예식</td>
                     </tr>
                     <tr>
-                        <th>기본 상품 구성</th>
-                        <td>앨범 1권(20P) + 기본 액자 1개</td>
+                        <th>식사비</th>
+                        <td>85,000</td>
                     </tr>
                     <tr>
-                        <th>촬영 소요 시간</th>
-                        <td>4시간</td>
+                        <th>보증인원</th>
+                        <td>180~300</td>
                     </tr>
                     <tr>
-                        <th>보유 소품</th>
-                        <td>조화부케, 웨딩슈즈</td>
-                    </tr>
-                    <tr>
-                        <th>촬영 의상</th>
-                        <td>총 4벌 (드레스 3벌, 캐주얼 1벌)</td>
-                    </tr>
-                    <tr>
-                        <th>헤어 변형 출장 업체</th>
-                        <td>가능</td>
+                        <th>주차</th>
+                        <td>600대</td>
                     </tr>
                     <tr>
                         <th>홈페이지</th>
-                        <td>www.bemystudio.co.kr</td>
+                        <td>www.villadegd.com</td>
                     </tr>
                 </table>
                 <!-- 오른쪽 정보 -->
@@ -129,16 +118,16 @@
                     <table class="info-table">
                         <tr>
                             <th>주소</th>
-                            <td>서울 강남구 역삼로38길 6 </td>
+                            <td>서울 강남구 역삼로 607 </td>
                         </tr>
                         <tr>
                             <th>대중교통 </th>
-                            <td>지하철 2호선 역삼역 </td>
+                            <td>하철 2호선 삼성역 </td>
                         </tr>
                     </table>
                     <div class="info-map">
                         <img
-                                src="resources/images/studio-map.png"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/etc/map.png"
                         />
                     </div>
                 </div>
@@ -146,20 +135,19 @@
             <div class="buttons">
                 <button class="like-btn">찜하기</button>
                 <button class="list-btn">목록</button>
-                <button class="estimate-btn">견적함에 담기</button>
             </div>
         </section>
 
-        <!-- 3. 일정 현황-->
+        <!-- 3. 예식일정 현황-->
         <section class="schedule">
             <div class="title-container">
-                <h2>비마이스튜디오 상품 정보</h2>
+                <h2>마리아쥬스퀘어 예식 현황</h2>
             </div>
 
             <div class="schedule-container">
                 <div class="calendar">
                     <h4>
-                        ✔️ 촬영을 희망하는 날짜에 예약이 가능한지 확인해
+                        ✔️ 예식을 의망하는 날짜에 예약이 가능한지 확인해
                         보세요
                     </h4>
                     <div id="calendar"></div>
@@ -176,210 +164,287 @@
                         <div class="time-lists">
                             <div class="time-list">
                                 <span>10:00</span>
-                                <span>[스튜디오] 비마이스튜디오</span>
+                                <span>[웨딩홀] 마리아쥬스퀘어</span>
                             </div>
                             <div class="time-list">
                                 <span>12:00</span>
-                                <span>[스튜디오] 비마이스튜디오</span>
+                                <span>[웨딩홀] 마리아쥬스퀘어</span>
                             </div>
                             <div class="time-list">
                                 <span>14:00</span>
-                                <span>[스튜디오] 비마이스튜디오</span>
+                                <span>[웨딩홀] 마리아쥬스퀘어</span>
                             </div>
                             <div class="time-list">
                                 <span>16:00</span>
-                                <span>[스튜디오] 비마이스튜디오</span>
+                                <span>[웨딩홀] 마리아쥬스퀘어</span>
                             </div>
                         </div>
                     </div>
-                    <a href="reservationOption">
-                        <button class="schedule-button">예약하기</button>
+                    <a href="visitSt1">
+                        <button class="schedule-button">
+                            방문 상담 신청 하러가기
+                        </button>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- 4. 세부 옵션 -->
+        <!-- 4. 웨딩홀 견적 계산기-->
         <section class="estimator">
             <div class="title-container">
-                <h2>스튜디오 추가 옵션</h2>
+                <h2>웨딩홀 견적 계산기</h2>
             </div>
             <div class="grid-container">
                 <div class="section">
-                    <table class="option-table">
+                    <h2>기본 사용료</h2>
+                    <table>
                         <tr>
-                            <th>옵션명</th>
-                            <th>상세 설명</th>
-                            <th>금액</th>
+                            <th>선택</th>
+                            <th>홀 명칭</th>
+                            <th>음식사용료(대관비)</th>
+                            <th>최소보증인원</th>
                         </tr>
                         <tr>
-                            <td>야간 촬영</td>
-                            <td>17시 이후부터 촬영 가능</td>
-                            <td>220,000원</td>
-                        </tr>
-                        <tr>
-                            <td>들러리촬영</td>
-                            <td>스튜디오촬영 / 본식 동반 (1인)</td>
-                            <td>110,000원</td>
-                        </tr>
-                        <tr>
-                            <td>애견동반 촬영</td>
-                            <td>애견동반 촬영 시 발생하는 비용</td>
-                            <td>100,000원</td>
-                        </tr>
-                        <tr>
-                            <td>로드씬 추가</td>
-                            <td>로드씬 촬영 시 발생하는 비용</td>
-                            <td>110,000원</td>
-                        </tr>
-                        <tr>
-                            <td>옥상씬 촬영</td>
-                            <td>옥상씬 촬영 시 발생하는 비용</td>
-                            <td>110,000원</td>
-                        </tr>
-                        <tr>
-                            <td>앨범 추가</td>
-                            <td>앨범 페이지 1장당 추가 비용</td>
-                            <td>33,000원</td>
-                        </tr>
-                        <tr>
-                            <td>의상 대여</td>
-                            <td>대여 의상 1벌당 추가 비용</td>
-                            <td>100,000원</td>
-                        </tr>
-                        <tr>
-                            <td>촬영수정본 컨펌</td>
-                            <td>촬영후 수정본 1번 더 컨펌</td>
-                            <td>220,000원</td>
-                        </tr>
-                        <tr>
-                            <td>작가 지정</td>
-                            <td>촬영 작가 지정시 발생하는 비용</td>
-                            <td>220,000원</td>
-                        </tr>
-                        <tr>
-                            <td>촬영 시간 추가</td>
-                            <td>5시간 이상 촬영 시, 30분 추가당 발생하는 비용</td>
-                            <td>55,000원</td>
+                            <td><input type="checkbox" checked /></td>
+                            <td>에드토홀</td>
+                            <td>7,000,000원</td>
+                            <td>200명</td>
                         </tr>
                     </table>
                 </div>
+                <div class="section">
+                    <h2>예식 희망월</h2>
+                    <div class="month-grids">
+                        <button class="month-grid">1월</button>
+                        <button class="month-grid">2월</button>
+                        <button class="month-grid">3월</button>
+                        <button class="month-grid">4월</button>
+                        <button class="month-grid">5월</button>
+                        <button class="month-grid">6월</button>
+                        <button class="month-grid">7월</button>
+                        <button class="month-grid">8월</button>
+                        <button class="month-grid">9월</button>
+                        <button class="month-grid">10월</button>
+                        <button class="month-grid">11월</button>
+                        <button class="month-grid">12월</button>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>식사가격</h2>
+                    <table>
+                        <tr>
+                            <th>선택</th>
+                            <th>식사 유형</th>
+                            <th>가격</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>양식(A코스)</td>
+                            <td>70,000원</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>한식(B코스)</td>
+                            <td>70,000원</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="section">
+                    <h2>예식 시간</h2>
+                    <table>
+                        <tr>
+                            <th>선택</th>
+                            <th>시간</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>오전(~12:00)</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>점심(12:00~14:30)</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>오후(14:30~17:00)</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>저녁(17:00~)</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>시간 무관</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="section">
+                    <h2>옵션</h2>
+                    <table>
+                        <tr>
+                            <th>선택</th>
+                            <th>구분</th>
+                            <th>가격</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>웨딩 디렉팅</td>
+                            <td>600,000원</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>연주 피아노 3중주</td>
+                            <td>330,000원</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>사회자</td>
+                            <td>350,000원</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>꽃장식</td>
+                            <td>4,500,000원</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="section result">
+                    <h2>예상 하객수</h2>
+                    <p class="result-sub-title">
+                        최소보증인원 이상으로 계산이 가능합니다. 100단위로
+                        작성해주세요
+                    </p>
+                    <div class="guest-num">
+                        <span>예상 하객수 </span>
+                        <input type="number" value="100" /> 명
+                    </div>
+                </div>
+
                 <div class="section estimator-warning">
                     <h2>꼭 확인해주세요!</h2>
                     <p>
-                        ✔️ 업체에 직접 결제하는 추가 비용이 있을 수 있어요.
+                        ✔️ 이 견적은 웨딩홀 기본 가격 정보를 단순 계산한
+                        참고용 견적입니다.
                     </p>
                     <p>
-                        ✔️ 실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.
+                        ✔️ 실제견적과 상이할 수 있으며, 웨딩플래너는 이에
+                        대한 귀책 사유가 따르지 않습니다.
                     </p>
                 </div>
 
-
+                <div class="section result-calc">
+                    <button class="calculate-button" onclick="calculate()">
+                        견적 계산하기
+                    </button>
+                    <span>정상가 기준 견적(부가세 포함) : </span>
+                    <span>276,000,000원</span>
+                </div>
             </div>
         </section>
 
-        <!-- 5. 비슷한 가격대 업체 -->
+        <!-- 5. 비슷한 가격대 웨딩홀 -->
         <section class="similar">
             <div class="hd__inner1100">
                 <div class="title-container noline">
-                    <h2>비슷한 가격대 스튜디오</h2>
+                    <h2>비슷한 가격대 웨딩홀</h2>
                 </div>
                 <div class="similar-container">
                     <div class="similar-inner">
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-13.jpg"
-                                        alt="스튜디오 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로브아 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-14.jpg"
-                                        alt="스튜디오 이미지 2"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall2.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로이 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-2.jpg"
-                                        alt="스튜디오 이미지 3"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>리저브 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-5.jpg"
-                                        alt="스튜디오 이미지 4"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall4.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>스튜디오 사이</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-13.jpg"
-                                        alt="스튜디오 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로브아 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-14.jpg"
-                                        alt="스튜디오 이미지 2"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall2.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로이 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-2.jpg"
-                                        alt="스튜디오 이미지 3"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>리저브 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-5.jpg"
-                                        alt="스튜디오 이미지 4"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall4.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>스튜디오 사이</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                     </div>
@@ -419,97 +484,97 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-13.jpg"
-                                        alt="스튜디오 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로브아 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-14.jpg"
-                                        alt="스튜디오 이미지 2"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall2.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로이 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-2.jpg"
-                                        alt="스튜디오 이미지 3"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>리저브 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-5.jpg"
-                                        alt="스튜디오 이미지 4"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall4.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>스튜디오 사이</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-13.jpg"
-                                        alt="스튜디오 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로브아 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-14.jpg"
-                                        alt="스튜디오 이미지 2"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall2.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로이 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-2.jpg"
-                                        alt="스튜디오 이미지 3"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>리저브 스튜디오</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-5.jpg"
-                                        alt="스튜디오 이미지 4"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall4.jpg"
+                                        alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>스튜디오 사이</h2>
+                                <p>서울특별시 강동구</p>
+                                <h2>더베네치아</h2>
                             </div>
                         </div>
                     </div>
@@ -533,7 +598,6 @@
         </section>
     </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
-    <script src="resources/js/company/studio/studioDetail.js"></script>
     <script src="resources/js/company/weddinghall/reviewSearchModal.js"></script>
 </body>
 </html>

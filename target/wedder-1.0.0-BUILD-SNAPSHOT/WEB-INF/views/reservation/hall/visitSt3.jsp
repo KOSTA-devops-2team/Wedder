@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>visitReserveInfo</title>
+    <title>visitSt3</title>
     <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/visitReservation/visitReserveInfo.css" />
+    <link rel="stylesheet" href="resources/css/reservation/hall/visitSt3.css" />
     <script defer src="resources/js/main/main.js"></script>
 </head>
 <body>
-    <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
     <div class="hd__inner1100">
         <!-- 배너 -->
         <section class="banner">
             <div>
                 <div class="banner-background">
-                    <img src="<c:url value='/resources/assets/images/visitReservation-banner1.png' />" alt="Banner">
+                    <img src="resources/images/visitReservation-banner1.png" alt="Banner">
                 </div>
-                <img src="<c:url value='/resources/assets/images/visitReservation-bannerImg.png' />" id="icon" alt="달력 icon">
+                <img src="resources/images/visitReservation-bannerImg.png" id="icon" alt="달력 icon">
                 <h1 class="banner-title">웨딩홀 방문 예약 (3/3)</h1>
                 <p class="banner-text">웨딩홀 투어를 도와줄 상담원에게 전달 될 고객님의 정보와 전달사항을 작성해주세요.</p>
             </div>
@@ -75,7 +75,7 @@
 
                 <!-- 버튼 -->
                 <section class="btn">
-                    <a href="visitReserveExpectancy"><button class="btn-pre">이전</button></a>
+                    <a href="visitSt2"><button class="btn-pre">이전</button></a>
                     <a href="#"><button id="modal-btn" class="btn-nxt">예약 신청</button></a>
 
                 </section>
@@ -98,7 +98,7 @@
                 <div class="modal-content">
                     <h2 class="modal-complete">예약이 완료되었습니다!</h2>
                     <div class="modal-btn-suc">
-                        <a href="<c:url value='/resources/html/weddingHall/weddingHallDetail.html' />"><button class="check-btn-suc">확인</button></a>
+                        <a href="weddinghallDetail"><button class="check-btn-suc">확인</button></a>
                     </div>
                 </div>
             </section>
@@ -143,7 +143,7 @@
             </div>
         </section>
     </div>
-    <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
-    <script src="resources/js/visitReservation/visitReserveInfo.js"></script>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <script src="resources/js/reservation/hall/visitSt3.js"></script>
 </body>
 </html>

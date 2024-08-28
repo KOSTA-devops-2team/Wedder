@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Wedder</title>
         
-        <link rel="stylesheet" href="<c:url value="resources/css/common/footer/footerV2.css"/>" />
+        <link rel="stylesheet" href="resources/css/common/footer/footer.css" />
     </head>
     <footer>
         <div class="footer_inner">
@@ -75,7 +75,7 @@
                 
                     <img
                     
-                        src="<c:url  value="resorces/assets/images/instagram1.png"/>"
+                        src="resorces/images/instagram1.png"
                         alt="인스타그램 로고"
                     />
                     <img

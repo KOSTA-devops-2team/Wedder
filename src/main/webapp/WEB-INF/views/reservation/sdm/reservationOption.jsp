@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>selectOptions</title>
+    <title>reservationOption</title>
     <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/reservation/reservationSelectOptions.css" />
+    <link rel="stylesheet" href="resources/css/reservation/sdm/reservationOption.css" />
     <script defer src="resources/js/main/main.js"></script>
 </head>
 <body>
-    <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
     <div class="hd__inner1100">
         <!-- 타이틀 -->
         <section class="title">
@@ -33,7 +33,7 @@
             </div>
             <div class="company-container">
                 <div class="img-container">
-                    <img src="resources/assets/images/reserve-studio-company.png" alt="업체 이미지">
+                    <img src="resources/images/reserve-studio-company.png" alt="업체 이미지">
                 </div>
                 <div class="company-info">
                     <h3>상품 기본 정보</h3>
@@ -81,7 +81,7 @@
             <div class="option-card">
                 <div class="option-img">
                     <input type="checkbox" class="option-checkbox" id="option1">
-                    <img src="resources/assets/images/option1.png" alt="옵션 이미지1">
+                    <img src="resources/images/option1.png" alt="옵션 이미지1">
                 </div>
                 <div class="option-info">
                     <h2 class="option-name">야간 촬영</h2>
@@ -92,7 +92,7 @@
             <div class="option-card">
                 <div class="option-img">
                     <input type="checkbox" class="option-checkbox" id="option2">
-                    <img src="resources/assets/images/option2.png" alt="옵션 이미지2">
+                    <img src="resources/images/option2.png" alt="옵션 이미지2">
                 </div>
                 <div class="option-info">
                     <h2 class="option-name">옥상씬 촬영</h2>
@@ -103,7 +103,7 @@
             <div class="option-card">
                 <div class="option-img">
                     <input type="checkbox" class="option-checkbox" id="option3">
-                    <img src="resources/assets/images/option3.png" alt="옵션 이미지3">
+                    <img src="resources/images/option3.png" alt="옵션 이미지3">
                 </div>
                 <div class="option-info">
                     <h2 class="option-name">애견동반 촬영</h2>
@@ -114,7 +114,7 @@
             <div class="option-card">
                 <div class="option-img">
                     <input type="checkbox" class="option-checkbox" id="option4">
-                    <img src="resources/assets/images/option4.png" alt="옵션 이미지4">
+                    <img src="resources/images/option4.png" alt="옵션 이미지4">
                 </div>
                 <div class="option-info">
                     <h2 class="option-name">로드씬 촬영</h2>
@@ -125,7 +125,7 @@
             <div class="option-card">
                 <div class="option-img">
                     <input type="checkbox" class="option-checkbox" id="option5">
-                    <img src="resources/assets/images/option5.png" alt="옵션 이미지5">
+                    <img src="resources/images/option5.png" alt="옵션 이미지5">
                 </div>
                 <div class="option-info">
                     <h2 class="option-name">들러리 촬영</h2>
@@ -136,7 +136,7 @@
             <div class="option-card">
                 <div class="option-img">
                     <input type="checkbox" class="option-checkbox" id="option6">
-                    <img src="resources/assets/images/option6.png" alt="옵션 이미지6">
+                    <img src="resources/images/option6.png" alt="옵션 이미지6">
                 </div>
                 <div class="option-info">
                     <h2 class="option-name">의상 대여</h2>
@@ -147,7 +147,7 @@
             <div class="option-card">
                 <div class="option-img">
                     <input type="checkbox" class="option-checkbox" id="option7">
-                    <img src="resources/assets/images/option7.png" alt="옵션 이미지7">
+                    <img src="resources/images/option7.png" alt="옵션 이미지7">
                 </div>
                 <div class="option-info">
                     <h2 class="option-name">앨범 추가</h2>
@@ -158,7 +158,7 @@
             <div class="option-card">
                 <div class="option-img">
                     <input type="checkbox" class="option-checkbox" id="option8">
-                    <img src="resources/assets/images/option8.png" alt="옵션 이미지8">
+                    <img src="resources/images/option8.png" alt="옵션 이미지8">
                 </div>
                 <div class="option-info">
                     <h2 class="option-name">촬영 수정본 컨펌</h2>
@@ -169,7 +169,7 @@
             <div class="option-card">
                 <div class="option-img">
                     <input type="checkbox" class="option-checkbox" id="option9">
-                    <img src="resources/assets/images/option9.jpg" alt="옵션 이미지9">
+                    <img src="resources/images/option9.jpg" alt="옵션 이미지9">
                 </div>
                 <div class="option-info">
                     <h2 class="option-name">작가 지정</h2>
@@ -180,7 +180,7 @@
             <div class="option-card">
                 <div class="option-img">
                     <input type="checkbox" class="option-checkbox" id="option10">
-                    <img src="resources/assets/images/option10.png" alt="옵션 이미지10">
+                    <img src="resources/images/option10.png" alt="옵션 이미지10">
                 </div>
                 <div class="option-info">
                     <h2 class="option-name">촬영 시간 추가</h2>
@@ -199,7 +199,7 @@
             <div class="select-container">
                 <div class="select-company">
                     <div>
-                        <img id="company-images" src="resources/assets/images/reserve-studio-company.png" alt="업체 이미지">
+                        <img id="company-images" src="resources/images/reserve-studio-company.png" alt="업체 이미지">
                     </div>
                     <div>
                         <h4 class="select-company-title">비마이 스튜디오</h4>
@@ -210,7 +210,7 @@
                     <div class="option-container">
                         <div class="select-option">
                             <div>
-                                <img src="resources/assets/images/option1.png" alt="옵션 이미지1">
+                                <img src="resources/images/option1.png" alt="옵션 이미지1">
                             </div>
                             <div class="select-option-info">
                                 <h6>야간 촬영</h6>
@@ -224,7 +224,7 @@
                     <div class="option-container">
                         <div class="select-option">
                             <div>
-                                <img src="resources/assets/images/option5.png" alt="옵션 이미지5">
+                                <img src="resources/images/option5.png" alt="옵션 이미지5">
                             </div>
                             <div class="select-option-info">
                                 <h6>들러리 촬영</h6>
@@ -241,11 +241,11 @@
 
         <!-- 다음 단계 버튼 -->
         <section class="btn">
-            <a href=""><button class="btn-pre">이전</button></a>
-            <a href="selectDate"><button class="btn-nxt">다음 단계로</button></a>
+            <a href="studioDetail"><button class="btn-pre">이전</button></a>
+            <a href="reservationDate"><button class="btn-nxt">다음 단계로</button></a>
         </section>
     </div>
-    <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
-    <script src="resources/js/reservation/reservationSelectOptions.js"></script>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <script src="resources/js/reservation/sdm/reservationOption.js"></script>
 </body>
 </html>

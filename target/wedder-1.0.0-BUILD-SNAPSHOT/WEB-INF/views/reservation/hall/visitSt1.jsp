@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>visitReserveDate</title>
+    <title>visitSt1</title>
     <link rel="stylesheet" href="resources/css/common/reset.css" />
     <link rel="stylesheet" href="resources/css/reservation/hall/visitSt1.css" />
     <script defer src="resources/js/main/main.js"></script>
@@ -94,7 +94,7 @@
 
                 <!-- 버튼 -->
                 <section class="btn">
-                    <a href="resources/html/weddingHall/weddingHallDetail.html"><button class="btn-pre">이전</button></a>
+                    <a href="weddinghallDetail"><button class="btn-pre">이전</button></a>
                     <a href="visitSt2"> <button class="btn-nxt">다음 단계로</button></a>
                 </section>
             </div>

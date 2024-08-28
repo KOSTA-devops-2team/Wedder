@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>selectDate</title>
+    <title>reservationDate</title>
     <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/reservation/reservationSelectDate.css" />
+    <link rel="stylesheet" href="resources/css/reservation/sdm/reservationDate.css" />
     <script defer src="resources/js/main/main.js"></script>
 </head>
 <body>
-    <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
     <div class="hd__inner1100">
         <!-- 타이틀 -->
         <section class="title">
@@ -36,7 +36,7 @@
         <section class="container">
             <div class="reserve-date">
                 <div class="calendar">
-                    <img src="resources/assets/images/calendar-july.png" alt="달력">
+                    <img src="resources/images/calendar-july.png" alt="달력">
                 </div>
                 <div class="calendar-select">선택한 날짜가 표시됩니다.</div>
             </div>
@@ -82,7 +82,7 @@
             <div class="select-container">
                 <div class="select-company">
                     <div>
-                        <img id="company-images" src="resources/assets/images/reserve-studio-company.png" alt="업체 이미지">
+                        <img id="company-images" src="resources/images/reserve-studio-company.png" alt="업체 이미지">
                     </div>
                     <div>
                         <h4 class="select-company-title">비마이 스튜디오</h4>
@@ -92,7 +92,7 @@
                 <div class="options">
                     <div class="select-option">
                         <div>
-                            <img src="resources/assets/images/option1.png" alt="옵션 이미지">
+                            <img src="resources/images/option1.png" alt="옵션 이미지">
                         </div>
                         <div class="select-option-info">
                             <h6>야간 촬영</h6>
@@ -104,7 +104,7 @@
                     </div>
                     <div class="select-option">
                         <div>
-                            <img src="resources/assets/images/option5.png" alt="옵션 이미지5">
+                            <img src="resources/images/option5.png" alt="옵션 이미지5">
                         </div>
                         <div class="select-option-info">
                             <h6>들러리 촬영</h6>
@@ -123,11 +123,11 @@
 
         <!-- 다음 단계 버튼 -->
         <section class="btn">
-            <a href="selectOptions"><button class="btn-pre">이전</button></a>
+            <a href="reservationOption"><button class="btn-pre">이전</button></a>
             <a href="reservationPayment"><button class="btn-nxt">다음 단계로</button></a>
         </section>
     </div>
-    <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
-    <script src="resources/js/reservation/reservationSelectDate.js"></script>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <script src="resources/js/reservation/sdm/reservationDate.js"></script>
 </body>
 </html>

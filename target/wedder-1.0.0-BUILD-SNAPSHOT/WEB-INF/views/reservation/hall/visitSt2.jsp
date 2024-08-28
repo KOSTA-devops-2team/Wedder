@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>visitReserveExpectancy</title>
+    <title>visitSt2</title>
     <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/visitReservation/visitReserveExpectancy.css" />
+    <link rel="stylesheet" href="resources/css/reservation/hall/visitSt2.css" />
     <script defer src="resources/js/main/main.js"></script>
 </head>
 <body>
@@ -16,9 +16,9 @@
         <section class="banner">
             <div>
                 <div class="banner-background">
-                    <img src="<c:url value='/resources/images/visitReservation-banner1.png' />" alt="Banner">
+                    <img src="resources/images/visitReservation-banner1.png" alt="Banner">
                 </div>
-                <img src="<c:url value='/resources/images/visitReservation-bannerImg.png' />" id="icon" alt="달력 icon">
+                <img src="resources/images/visitReservation-bannerImg.png" id="icon" alt="달력 icon">
                 <h1 class="banner-title">웨딩홀 방문 예약 (2/3)</h1>
                 <p class="banner-text">희망하는 예식일 후보 3가지와 예상되는 하객인원수를 선택해주세요.</p>
             </div>
