@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/package")
-public class packageController {
+public class PackageController {
 
     @GetMapping(value = "")
     public String packageMain() {
