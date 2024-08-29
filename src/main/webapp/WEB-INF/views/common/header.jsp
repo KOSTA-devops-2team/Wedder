@@ -48,6 +48,7 @@
                     <!-- 해더 유저 정보 -->
                     <div class="header-user-container">
                         <ul class="header-user">
+                            git rm -r --cached target/
                             <li>
                                 <a href="../../html/admin/adminMain.html"
                                     ><img
