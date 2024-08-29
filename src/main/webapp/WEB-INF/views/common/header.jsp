@@ -19,7 +19,7 @@
                 <div class="header-top">
                     <!-- 해더 로고 -->
                     <div class="header-logo">
-                        <a href="../../html/main/main.html">
+                        <a href="main">
                             <img
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/wedder-logo2.png"
                             />
@@ -85,20 +85,20 @@
                         </li>
                         <li class="black">
                             <a
-                                href="../../html/weddingHall/weddingHallList.html"
+                                href="weddinghallList"
                                 >Wedding Hall</a
                             >
                         </li>
                         <li class="black">
-                            <a href="../../html/studio/studioList.html"
+                            <a href="studioList"
                                 >Studio</a
                             >
                         </li>
                         <li class="black">
-                            <a href="../../html/dress/dressList.html">Dress</a>
+                            <a href="dressList">Dress</a>
                         </li>
                         <li class="black">
-                            <a href="../../html/makeup/makeupList.html"
+                            <a href="makeupList"
                                 >Make Up</a
                             >
                         </li>
@@ -114,7 +114,7 @@
                         </li>
                         <li class="black">
                             <a
-                                href="../../html/reservation/reservationCategory.html"
+                                href="reservationOption"
                                 >Reservation</a
                             >
                         </li>
