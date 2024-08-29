@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <head>
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/main.css"/>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
+<div><%@ include file="/WEB-INF/views/common/header.jsp" %></div>
 <!-- 1. 메인 -->
 <section class="main" id="section1">
     <div class="main-content">
