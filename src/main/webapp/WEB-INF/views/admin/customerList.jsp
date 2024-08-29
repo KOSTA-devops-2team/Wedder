@@ -13,9 +13,10 @@
     <script defer src="${pageContext.request.contextPath}/resources/js/admin/customerList.js"></script>
 </head>
 <body>
+<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
 <div class="admin-container hd__inner1100">
-    <aside class="admin-sidebar">
-        <div id="admin-sidebar-placeholder"></div>
+    <aside class="myPage-sidebar">
+        <div><%@ include file="/WEB-INF/views/common/sidebarAdmin.jsp" %></div>
     </aside>
 
     <main class="admin-content">
@@ -156,5 +157,6 @@
         </section>
     </main>
 </div>
+<div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </body>
 </html>

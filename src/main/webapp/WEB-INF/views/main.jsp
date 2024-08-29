@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/main.css"/>
 </head>
 <body>
-
+<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
 <!-- 1. 메인 -->
 <section class="main" id="section1">
     <div class="main-content">
@@ -202,9 +202,8 @@
         </a>
     </div>
 </section>
-
+<div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 <script src="resources/js/main/main.js"></script>
-
 </body>
 </html>
 
