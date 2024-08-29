@@ -14,6 +14,5 @@
     <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
 
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
-    <script src="resources/js/company/weddinghall/reviewSearchModal.js"></script>
 </body>
 </html>
