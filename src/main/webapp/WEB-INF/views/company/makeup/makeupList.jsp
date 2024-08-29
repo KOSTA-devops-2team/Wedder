@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>makeupList</title>
-    <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/company/makeup/makeupList.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/makeup/makeupList.css" />
     <link
             rel="stylesheet"
-            href="resources/css/common/pagination/pagination.css"
+            href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"
     />
-    <script defer src="resources/js/main/main.js"></script>
-    <script defer src="resources/js/pagination/pagination.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>
 </head>
 <body>
     <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
@@ -712,7 +712,6 @@
     </div>
     <!-- 페이지네이션  -->
     <div id="pagination-placeholder"></div>
-
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </body>
 </html>

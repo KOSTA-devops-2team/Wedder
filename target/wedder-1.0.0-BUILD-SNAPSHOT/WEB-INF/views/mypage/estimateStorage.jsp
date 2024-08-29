@@ -9,14 +9,14 @@
     <title>estimateStorage</title>
     
     
-    <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-    <link rel="stylesheet" href="<c:url value='resources/css/myPage/estimateStorage.css'/>" />
-    <link rel="stylesheet" href="<c:url value='resources/css/common/sidebar/sidebarMyPage.css'/>" />
-    <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-    <script defer src="<c:url value='resources/js/myPage/myPageMain.js'/>"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/myPage/estimateStorage.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/sidebar/sidebarMyPage.css" />
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/myPage/myPageMain.js"></script>
   </head>
   <body>
-    <header> <%@ include file="/resources/components/header/headerV2.jsp" %></header>
+  <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
     <div class="myPage-container hd__inner1100">
       <!-- 0. 마이페이지 사이드 바 -->
@@ -498,8 +498,7 @@
         </section>
       </div>
     </div>
-    <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
-    
-    <script src="<c:url value='resources/js/myPage/estimateStorage.js'/>"></script>
+  <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+    <script src="${pageContext.request.contextPath}/resources/js/myPage/estimateStorage.js'/>"></script>
   </body>
 </html>

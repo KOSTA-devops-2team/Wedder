@@ -10,14 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mypage</title>
     <!-- 링크 -->
-    <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-    <link rel="stylesheet" href="<c:url value='resources/css/estimate/estimateOption.css'/>"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estimate/estimateOption.css"/>
     <!-- 스크립트 -->
-    <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
 </head>
 
-<div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
 <body>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="container">
         <div class="hd__inner1100">
             <div class="container-title">
@@ -171,5 +171,5 @@
         </div>
     </div>
 </body>
-<div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </html>

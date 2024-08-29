@@ -5,7 +5,6 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 	<context:property-placeholder location="classpath:config/db.properties" />
 	<!-- Root Context: defines shared resources visible to all other web components -->
-
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${driver}"></property>
 		<property name="url" value="${url}"></property>

@@ -10,17 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>packagemain</title>
     <!-- 링크 -->
-    <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-    <link rel="stylesheet" href="<c:url value='resources/css/package/packageMain.css'/>"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageMain.css"/>
     <link rel="stylesheet" href="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.1/swiper-bundle.css"/>"/>
     <!-- 스크립트 -->
-    <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-    <script defer src="<c:url value='resources/js/package/packageMain.js'/>"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/package/packageMain.js"></script>
     <script src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.1/swiper-bundle.min.js"/>"></script>
 </head>
-
-<div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
 <body>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="slider-box">
         <!-- 슬라이더 메인 컨테이너 -->
         <div class="swiper">
@@ -200,6 +199,6 @@
             </div>
         </div>
     </div>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
-<div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
 </html>
