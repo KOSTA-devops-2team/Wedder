@@ -127,7 +127,7 @@
             <a href="reservationPayment"><button class="btn-nxt">다음 단계로</button></a>
         </section>
     </div>
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
-    <script src="${pageContext.request.contextPath}/resources/js/reservation/sdm/reservationDate.js"></script>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <script src="resources/js/reservation/sdm/reservationDate.js"></script>
 </body>
 </html>

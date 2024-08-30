@@ -1,4 +1,4 @@
-package kr.co.wedder.reservation.hall.controller;
+package kr.co.wedder.reservation.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

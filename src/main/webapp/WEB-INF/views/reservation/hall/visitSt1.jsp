@@ -100,7 +100,7 @@
             </div>
         </div>
     </div>
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
-    <script src="${pageContext.request.contextPath}/resources/js/reservation/hall/visitSt1.js"></script>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <script src="resources/js/reservation/hall/visitSt1.js"></script>
 </body>
 </html>

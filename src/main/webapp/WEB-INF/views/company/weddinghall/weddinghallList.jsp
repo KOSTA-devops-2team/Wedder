@@ -713,6 +713,7 @@
 
     <!-- 페이지네이션  -->
     <div id="pagination-placeholder"></div>
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </body>
 </html>

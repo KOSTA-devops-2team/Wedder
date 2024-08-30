@@ -528,7 +528,7 @@
             </div>
         </section>
     </div>
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
     <script src="${pageContext.request.contextPath}/resources/js/company/studio/studioDetail.js"></script>
 </body>
 </html>

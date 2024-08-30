@@ -11,7 +11,7 @@
     <script defer src="${pageContext.request.contextPath}/resources/js/company/dress/dressDetail.js"></script>
 </head>
 <body>
-    <%@ include file="/WEB-INF/views/common/header.jsp" %>
+    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
     <div class="hd__inner1100">
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
@@ -485,6 +485,7 @@
             </div>
         </section>
     </div>
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/reviewSearchModal.js"></script>
 </body>
 </html>

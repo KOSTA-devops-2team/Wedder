@@ -401,7 +401,7 @@
             </div>
         </section>
     </div>
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
-    <script src="${pageContext.request.contextPath}/resources/js/reservation/sdm/weddinghallPayment.js"></script>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <script src="resources/js/reservation/sdm/weddinghallPayment.js"></script>
 </body>
 </html>

@@ -597,7 +597,7 @@
             </div>
         </section>
     </div>
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
     <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/reviewSearchModal.js"></script>
 </body>
 </html>

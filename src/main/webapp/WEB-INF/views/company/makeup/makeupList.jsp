@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="card" data-id="1">
-                <a href="makeupDetail">
+                <a href="resources/html/makeup/makeupDetail.html">
                     <img
                             src="resources/images/makeup-2.jpg"
                             alt="메이크업 이미지2"
@@ -160,7 +160,7 @@
                 </div>
             </div>
             <div class="card" data-id="1">
-                <a href="makeupDetail">
+                <a href="#">
                     <img
                             src="resources/images/makeup-3.jpg"
                             alt="메이크업 이미지1"
@@ -168,7 +168,7 @@
                 </a>
                 <div class="card-info">
                     <div class="makeup-name">
-                        메이크업 이름1
+                        스튜디오 이름1
                         <a href="#" class="instagram">
                             <img
                                     src="resources/images/instagram2.png"
@@ -199,7 +199,7 @@
                 </div>
             </div>
             <div class="card" data-id="1">
-                <a href="makeupDetail">
+                <a href="#">
                     <img
                             src="resources/images/makeup-4.jpg"
                             alt="메이크업 이미지1"
@@ -207,7 +207,7 @@
                 </a>
                 <div class="card-info">
                     <div class="makeup-name">
-                        메이크업 이름1
+                        스튜디오 이름1
                         <a href="#" class="instagram">
                             <img
                                     src="resources/images/instagram2.png"
@@ -238,7 +238,7 @@
                 </div>
             </div>
             <div class="card" data-id="1">
-                <a href="makeupDetail">
+                <a href="#">
                     <img
                             src="resources/images/makeup-5.jpg"
                             alt="메이크업 이미지1"
@@ -246,7 +246,7 @@
                 </a>
                 <div class="card-info">
                     <div class="makeup-name">
-                        메이크업 이름1
+                        스튜디오 이름1
                         <a href="#" class="instagram">
                             <img
                                     src="resources/images/instagram2.png"
@@ -277,7 +277,7 @@
                 </div>
             </div>
             <div class="card" data-id="1">
-                <a href="makeupDetail">
+                <a href="#">
                     <img
                             src="resources/images/makeup-6.jpg"
                             alt="메이크업 이미지1"
@@ -285,7 +285,7 @@
                 </a>
                 <div class="card-info">
                     <div class="makeup-name">
-                        메이크업 이름1
+                        스튜디오 이름1
                         <a href="#" class="instagram">
                             <img
                                     src="resources/images/instagram2.png"
@@ -712,6 +712,7 @@
     </div>
     <!-- 페이지네이션  -->
     <div id="pagination-placeholder"></div>
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </body>
 </html>

@@ -144,6 +144,6 @@
         </section>
     </div>
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
-    <script src="${pageContext.request.contextPath}/resources/js/reservation/hall/visitSt3.js"></script>
+    <script src="${pageContext.request.contextPath}resources/js/reservation/hall/visitSt3.js"></script>
 </body>
 </html>
