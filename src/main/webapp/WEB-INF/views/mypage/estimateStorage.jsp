@@ -7,8 +7,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>estimateStorage</title>
-    
-    
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/myPage/estimateStorage.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/sidebar/sidebarMyPage.css" />
@@ -17,11 +15,10 @@
   </head>
   <body>
   <%@ include file="/WEB-INF/views/common/header.jsp" %>
-
     <div class="myPage-container hd__inner1100">
       <!-- 0. 마이페이지 사이드 바 -->
       <aside class="myPage-sidebar">
-        <%@ include file="/resources/components/sidebar/sidebarMyPage.jsp" %>
+      <div> <%@ include file="/WEB-INF/views/common/sidebarMyPage.jsp" %></div>
       </aside>
 
       <div class="mypage-content hd__inner880">

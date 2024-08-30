@@ -25,5 +25,4 @@ public class SDMController {
 
     @GetMapping("makeupDetail")
     public String makeupDetail() { return "company/makeup/makeupDetail"; }
-
 }
