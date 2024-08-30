@@ -7,15 +7,15 @@
     <title>studioList</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/studio/studioList.css" />
-    <link
+    <%--<link
             rel="stylesheet"
             href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"
-    />
+    />--%>
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>
+    <%--<script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
 </head>
 <body>
-    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
         <!-- 메인 타이틀 문구 -->
         <section class="title">
