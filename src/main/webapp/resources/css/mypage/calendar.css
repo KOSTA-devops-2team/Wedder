@@ -44,6 +44,10 @@
   cursor: pointer;
   padding: 5px;
 }
+.holiday{
+	background-color: red;
+	font-weight: bold; 
+}
 
 .date:hover {
   background-color: #f5f5f5;

@@ -33,6 +33,13 @@ function renderCalendar() {
     dateElement.classList.add("date");
     dateElement.textContent = i;
     calendarDates.appendChild(dateElement);
+    
+    /*
+    if(dateElement.textContent==){
+    dateElement.classList.add("holiday");
+    }
+    */
+    
   }
 }
 
@@ -60,3 +67,193 @@ nextBtn.addEventListener("click", () => {
   }
   renderCalendar();
 });
+
+// 공휴일을 추가하는 방법
+//객체를 배열로 추가한다.
+
+//음력 사용 변수
+const calendar= new KoreanLunarCalendar();	// 음력 일수를 사용하고자 하는 달력
+var year=null;//음력->양력 (json파일) 년을 뽑은 거 
+var month=null;//음력->양력 (json파일) 달을 뽑은 거 
+var day=null;//음력->양력 (json파일) 일을 뽑은 거
+
+// 음력 사용 메소드
+function getYear(){
+	year=calendar.getSolarCalendar().year;
+return year;
+}
+function getMonth(){
+	month=calendar.getSolarCalendar().month;
+return month;
+}
+function getDay(){
+	day=calendar.getSolarCalendar().day;
+return day;
+}
+function ymd(){
+	year=getYear();
+	month=getMonth();
+	day=getDay();
+}
+
+//양력 사용 휴일 
+function getHolidays(year){
+  const holidays=[];
+  var lunarYear=year;
+  
+  //양력 기준 명절,공휴일들
+  //1월 1일 3월 1일, 5월 5일, 6월 6일, 8월 15일, 10월 3일, 10월 9일 , 12월 25일 
+  holidays.push(new Date(year,0,1)); //신정(1월 1일)
+  holidays.push(new Date(year,2,1));  //삼일정(3월 1일)
+  holidays.push(new Date(year,4,5));
+  holidays.push(new Date(year,5,6));
+  holidays.push(new Date(year,7,15));
+  holidays.push(new Date(year,9,3));
+  holidays.push(new Date(year,9,9));
+  holidays.push(new Date(year,11,25));
+  
+  //음력 기준 공휴일 추가
+  if(lunarYear%4==0){
+	//설날 
+	calendar.setLunarDate(lunarYear, 1, 1,true);
+	ymd();
+	holidays.push(new Date(year,month-1,day-1));
+	console.log(year,month,day-1);
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	holidays.push(new Date(year,month-1,day+1));
+	console.log(year,month,day+1);
+	
+	//부처님 오신날 
+	calendar.setLunarDate(lunarYear, 4, 8,true);
+	ymd();
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	
+	//추석
+	calendar.setLunarDate(lunarYear, 8, 15,true);
+	ymd();
+	holidays.push(new Date(year,month-1,day-1));
+	console.log(year,month,day-1);
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	holidays.push(new Date(year,month-1,day+1));
+	console.log(year,month,day+1);
+	}
+	else{
+	//설날 
+	calendar.setLunarDate(lunarYear, 1, 1,false);
+	ymd();
+	holidays.push(new Date(year,month-1,day-1));
+	console.log(year,month,day-1);
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	holidays.push(new Date(year,month-1,day+1));
+	console.log(year,month,day+1);
+	
+	//부처님 오신날 
+	calendar.setLunarDate(lunarYear, 4, 8,false);
+	ymd();
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	
+	//추석
+	calendar.setLunarDate(lunarYear, 8, 15,false);
+	ymd();
+	holidays.push(new Date(year,month-1,day-1));
+	console.log(year,month,day-1);
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	holidays.push(new Date(year,month-1,day+1));
+	console.log(year,month,day+1);
+	}
+  
+  
+  return holidays;
+}
+//음력 함수 테스트중
+//2024년 윤년 기준
+/*
+			1월 1일 신정(양)
+			
+			2월 9일~2월 12일 설날
+			
+			3월 1일 삼일절(양)
+			5월 5일 어린이날(양)
+			
+			5월 15일 부처님 오신날
+			
+			6월 6일 현충일 (양)
+			8월 15일 광복절(양)
+			
+			9월 14일 ~18일 추석
+			
+			10월 3일 개천절(양)
+			10월 9일 한글날(양)
+			12월 25일 성탄절(양)
+*/
+function getlunarholidays(lunarYear){
+	const holidays=[];
+	
+	if(lunarYear%4==0){
+	//설날 
+	calendar.setLunarDate(lunarYear, 1, 1,true);
+	ymd();
+	holidays.push(new Date(year,month-1,day-1));
+	console.log(year,month,day-1);
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	holidays.push(new Date(year,month-1,day+1));
+	console.log(year,month,day+1);
+	
+	//부처님 오신날 
+	calendar.setLunarDate(lunarYear, 4, 8,true);
+	ymd();
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	
+	//추석
+	calendar.setLunarDate(lunarYear, 8, 15,true);
+	ymd();
+	holidays.push(new Date(year,month-1,day-1));
+	console.log(year,month,day-1);
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	holidays.push(new Date(year,month-1,day+1));
+	console.log(year,month,day+1);
+	}
+	else{
+	//설날 
+	calendar.setLunarDate(lunarYear, 1, 1,false);
+	ymd();
+	holidays.push(new Date(year,month-1,day-1));
+	console.log(year,month,day-1);
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	holidays.push(new Date(year,month-1,day+1));
+	console.log(year,month,day+1);
+	
+	//부처님 오신날 
+	calendar.setLunarDate(lunarYear, 4, 8,false);
+	ymd();
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	
+	//추석
+	calendar.setLunarDate(lunarYear, 8, 15,false);
+	ymd();
+	holidays.push(new Date(year,month-1,day-1));
+	console.log(year,month,day-1);
+	holidays.push(new Date(year,month-1,day));
+	console.log(year,month,day);
+	holidays.push(new Date(year,month-1,day+1));
+	console.log(year,month,day+1);
+	}
+	
+return holidays;
+}
+
+
+
+
+

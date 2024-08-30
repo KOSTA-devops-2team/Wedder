@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,8 +34,9 @@
 			
 			</div>
 		</section>
-			<script type="text/javascript" 
-			src="<c:url value='resources/js/mypage/calendar.js'/>">
+			
+			<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js">
 			</script>
+			<script type="text/javascript" 	src="<c:url value='resources/js/mypage/calendar.js'/>" ></script>
 		</body>
 </html>
