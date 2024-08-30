@@ -56,7 +56,7 @@
           <h3>결제 내역</h3>
         </section>
         <!-- 3.서치 바 -->
-        <div> <%@ include file="/WEB-INF/views/common/navibar.jsp" %></div>
+        <div> <%@ include file="/WEB-INF/views/common/navibar.jsp" %></div> 
 
         <!-- 4.결제 내역  -->
         <section id="myPayment-section4">
