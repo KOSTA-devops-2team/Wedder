@@ -7,8 +7,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Wedder</title>
+<<<<<<< HEAD
         
         <link rel="stylesheet" href="<c:url value="resources/css/common/footer/footer.css"/>" />
+=======
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/footer/footer.css" />
+>>>>>>> edd97963e9771653f2f2e2f9ff3fa5aec5d896dd
     </head>
     <footer>
         <div class="footer_inner">
@@ -75,7 +79,7 @@
                 
                     <img
                     
-                        src="<c:url  value="resorces/assets/images/instagram1.png"/>"
+                        src="resorces/images/instagram1.png"
                         alt="인스타그램 로고"
                     />
                     <img

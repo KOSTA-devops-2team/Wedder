@@ -9,6 +9,7 @@
     <title>estimateStorage</title>
     
     
+<<<<<<< HEAD
     <link rel="stylesheet" href="resources/css/common/reset.css" />
     <link rel="stylesheet" href="resources/css/mypage/estimateStorage.css" />
     <link rel="stylesheet" href="resources/css/common/sidebar/sidebarMypage" />
@@ -17,6 +18,16 @@
   </head>
   <body>
   <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+=======
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/myPage/estimateStorage.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/sidebar/sidebarMyPage.css" />
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/myPage/myPageMain.js"></script>
+  </head>
+  <body>
+  <%@ include file="/WEB-INF/views/common/header.jsp" %>
+>>>>>>> edd97963e9771653f2f2e2f9ff3fa5aec5d896dd
 
     <div class="myPage-container hd__inner1100">
       <!-- 0. 마이페이지 사이드 바 -->
@@ -498,8 +509,13 @@
         </section>
       </div>
     </div>
+<<<<<<< HEAD
     <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
     
     <script src="<c:url value='resources/js/myPage/estimateStorage.js'/>"></script>
+=======
+  <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+    <script src="${pageContext.request.contextPath}/resources/js/myPage/estimateStorage.js'/>"></script>
+>>>>>>> edd97963e9771653f2f2e2f9ff3fa5aec5d896dd
   </body>
 </html>

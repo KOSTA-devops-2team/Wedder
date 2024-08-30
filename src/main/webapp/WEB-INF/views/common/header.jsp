@@ -1,17 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Wedder</title>
+<<<<<<< HEAD
         
         <link rel="stylesheet" href="<c:url value="resources/css/common/reset.css"/>" />
         <link rel="stylesheet" href="<c:url value="resources/css/common/header/header.css"/>" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <script defer src="resources/js/header/header.js"></script>
+=======
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/header/header.css" />
+        <script defer src="${pageContext.request.contextPath}/resources/js/header/header.js"></script>
+>>>>>>> edd97963e9771653f2f2e2f9ff3fa5aec5d896dd
     </head>
     <body>
         <header>
@@ -19,7 +24,7 @@
                 <div class="header-top">
                     <!-- 해더 로고 -->
                     <div class="header-logo">
-                        <a href="../../html/main/main.html">
+                        <a href="main">
                             <img
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/wedder-logo2.png"
                             />
@@ -85,20 +90,20 @@
                         </li>
                         <li class="black">
                             <a
-                                href="../../html/weddingHall/weddingHallList.html"
+                                href="weddinghallList"
                                 >Wedding Hall</a
                             >
                         </li>
                         <li class="black">
-                            <a href="../../html/studio/studioList.html"
+                            <a href="studioList"
                                 >Studio</a
                             >
                         </li>
                         <li class="black">
-                            <a href="../../html/dress/dressList.html">Dress</a>
+                            <a href="dressList">Dress</a>
                         </li>
                         <li class="black">
-                            <a href="../../html/makeup/makeupList.html"
+                            <a href="makeupList"
                                 >Make Up</a
                             >
                         </li>
@@ -114,7 +119,7 @@
                         </li>
                         <li class="black">
                             <a
-                                href="../../html/reservation/reservationCategory.html"
+                                href="reservationOption"
                                 >Reservation</a
                             >
                         </li>
