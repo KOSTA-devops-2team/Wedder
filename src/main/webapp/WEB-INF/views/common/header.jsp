@@ -6,9 +6,17 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Wedder</title>
+<<<<<<< HEAD
+        
+        <link rel="stylesheet" href="<c:url value="resources/css/common/reset.css"/>" />
+        <link rel="stylesheet" href="<c:url value="resources/css/common/header/header.css"/>" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <script defer src="resources/js/header/header.js"></script>
+=======
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/header/header.css" />
         <script defer src="${pageContext.request.contextPath}/resources/js/header/header.js"></script>
+>>>>>>> edd97963e9771653f2f2e2f9ff3fa5aec5d896dd
     </head>
     <body>
         <header>

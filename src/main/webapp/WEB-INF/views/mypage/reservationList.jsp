@@ -9,28 +9,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>reservationList</title>
     <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-    <link rel="stylesheet" href="<c:url value='resources/css/myPage/reservationList.css'/>"/>
+    <link rel="stylesheet" href="<c:url value='resources/css/mypage/reservationList.css'/>"/>
    	<link
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
      />
       <link
                 rel="stylesheet"
-                href="<c:url value='resources/css/common/sidebar/sidebarMyPage.css'/>"
+                href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
         />
       <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-      <script defer src="<c:url value='resources/js/myPage/myPageMain.js'/>"></script>
-      <script defer src="<c:url value='resources/js/myPage/reservationList.js'/>"></script>
+      <script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
+      <script defer src="<c:url value='resources/js/mypage/reservationList.js'/>"></script>
       
   </head>
-  <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+  <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
   <body>
     <div class="hd__inner1100">
       <div class="side-bar-flex">
         <!-- 2.5 사이드 바 -->
         <section class="nav-bar" id="nav-bar">
           <aside class="myPage-sidebar">
-            <div><%@ include file="/resources/components/sidebar/sidebarMyPage.jsp" %></div>
+       	  	<div> <%@ include file="/WEB-INF/views/common/sidebarMyPage.jsp" %></div>
           </aside>
         </section>
       </div>
@@ -447,5 +447,5 @@
       </div>
     </div>
   </body>
-  <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
+  <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </html>

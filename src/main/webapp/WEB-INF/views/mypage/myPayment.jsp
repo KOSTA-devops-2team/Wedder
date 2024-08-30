@@ -9,27 +9,26 @@
     <title>myPayment</title>
     	
       <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-      <link rel="stylesheet" href="<c:url value='resources/css/myPage/myPayment.css'/>" />
+      <link rel="stylesheet" href="<c:url value='resources/css/mypage/myPayment.css'/>" />
       <link
         rel="stylesheet"
-        href="<c:url value='resources/css/common/sidebar/sidebarMyPage.css'/>"
+        href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
       />
-      <link rel="stylesheet" href="<c:url value='resources/css/myPage/mypageNaviba.css'/>" />
+      <link rel="stylesheet" href="<c:url value='resources/css/mypage/mypageNaviba.css'/>" />
       
-      <script defer src="<c:url value='resources/js/myPage/myPayment.js'/>"></script>
+      <script defer src="<c:url value='resources/js/mypage/myPayment.js'/>"></script>
       <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-      <script defer src="<c:url value='resources/js/myPage/myPageMain.js'/>"></script>
-      <script defer src="<c:url value='resources/js/myPage/navibar.js'/>"></script>
+      <script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
+      <script defer src="<c:url value='resources/js/mypage/navibar.js'/>"></script>
   </head>
-
-  <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+	<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
 
   <body>
     <div class="myPage-container hd__inner1100">
       <!-- 1.myPage-sidebar -->
       <section class="myPage-sidebar">
         <aside class="myPage-sidebar">
-          <div><%@ include file="/resources/components/sidebar/sidebarMyPage.jsp" %></div>
+        	<div> <%@ include file="/WEB-INF/views/common/sidebarMyPage.jsp" %></div>
         </aside>
       </section>
       <div class="hd__inner880">
@@ -57,7 +56,7 @@
           <h3>결제 내역</h3>
         </section>
         <!-- 3.서치 바 -->
-        <div><%@ include file="/resources/components/sidebar/navibar.jsp" %></div>
+        <div> <%@ include file="/WEB-INF/views/common/navibar.jsp" %></div>
 
         <!-- 4.결제 내역  -->
         <section id="myPayment-section4">
@@ -158,5 +157,5 @@
       </div>
     </div>
   </body>
-  <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
+  <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </html>
