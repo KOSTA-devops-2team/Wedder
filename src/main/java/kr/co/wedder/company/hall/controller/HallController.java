@@ -1,23 +1,29 @@
 package kr.co.wedder.company.hall.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/")
 public class HallController {
 
-    @RequestMapping("/weddinghallList")
+    @GetMapping("weddinghallList")
     public String weddinghallList() { return "company/weddinghall/weddinghallList"; }
 
-    @RequestMapping("/weddinghallDetail")
+    @GetMapping("weddinghallDetail")
     public String weddinghallDetail() { return "company/weddinghall/weddinghallDetail"; }
 
-    @RequestMapping("/mapViewWithFilters")
+    @GetMapping("mapViewWithFilters")
     public String mapViewWithFilters() { return "company/weddinghall/mapViewWithFilters"; }
 
-    @RequestMapping("/weddinghallPayment")
+    @GetMapping("weddinghallPayment")
     public String weddinghallPayment() { return "company/weddinghall/weddinghallPayment"; }
 
-    @RequestMapping("/reviewModal")
+    @PostMapping("weddinghallPayment")
+    public String whallPayment() { return "company/weddinghall/weddinghallPayment"; }
+
+    @GetMapping("reviewModal")
     public String reviewModal() { return "company/weddinghall/reviewSearchModal"; }
 }

@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>makeupList</title>
-    <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/company/makeup/makeupList.css" />
-    <link
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/makeup/makeupList.css" />
+    <%--<link
             rel="stylesheet"
-            href="resources/css/common/pagination/pagination.css"
-    />
-    <script defer src="resources/js/main/main.js"></script>
-    <script defer src="resources/js/pagination/pagination.js"></script>
+            href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"
+    />--%>
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <%--<script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
 </head>
 <body>
-    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
         <!-- 메인 타이틀 문구 -->
         <section class="title">
@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="card" data-id="1">
-                <a href="resources/html/makeup/makeupDetail.html">
+                <a href="makeupDetail">
                     <img
                             src="resources/images/makeup-2.jpg"
                             alt="메이크업 이미지2"
@@ -160,7 +160,7 @@
                 </div>
             </div>
             <div class="card" data-id="1">
-                <a href="#">
+                <a href="makeupDetail">
                     <img
                             src="resources/images/makeup-3.jpg"
                             alt="메이크업 이미지1"
@@ -168,7 +168,7 @@
                 </a>
                 <div class="card-info">
                     <div class="makeup-name">
-                        스튜디오 이름1
+                        메이크업 이름1
                         <a href="#" class="instagram">
                             <img
                                     src="resources/images/instagram2.png"
@@ -199,7 +199,7 @@
                 </div>
             </div>
             <div class="card" data-id="1">
-                <a href="#">
+                <a href="makeupDetail">
                     <img
                             src="resources/images/makeup-4.jpg"
                             alt="메이크업 이미지1"
@@ -207,7 +207,7 @@
                 </a>
                 <div class="card-info">
                     <div class="makeup-name">
-                        스튜디오 이름1
+                        메이크업 이름1
                         <a href="#" class="instagram">
                             <img
                                     src="resources/images/instagram2.png"
@@ -238,7 +238,7 @@
                 </div>
             </div>
             <div class="card" data-id="1">
-                <a href="#">
+                <a href="makeupDetail">
                     <img
                             src="resources/images/makeup-5.jpg"
                             alt="메이크업 이미지1"
@@ -246,7 +246,7 @@
                 </a>
                 <div class="card-info">
                     <div class="makeup-name">
-                        스튜디오 이름1
+                        메이크업 이름1
                         <a href="#" class="instagram">
                             <img
                                     src="resources/images/instagram2.png"
@@ -277,7 +277,7 @@
                 </div>
             </div>
             <div class="card" data-id="1">
-                <a href="#">
+                <a href="makeupDetail">
                     <img
                             src="resources/images/makeup-6.jpg"
                             alt="메이크업 이미지1"
@@ -285,7 +285,7 @@
                 </a>
                 <div class="card-info">
                     <div class="makeup-name">
-                        스튜디오 이름1
+                        메이크업 이름1
                         <a href="#" class="instagram">
                             <img
                                     src="resources/images/instagram2.png"
@@ -712,7 +712,6 @@
     </div>
     <!-- 페이지네이션  -->
     <div id="pagination-placeholder"></div>
-
-    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

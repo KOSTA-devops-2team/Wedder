@@ -5,17 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>makeupDetail</title>
-    <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/company/makeup/makeupDetail.css" />
-    <link
-            rel="stylesheet"
-            href="resources/css/company/weddinghall/reviewSearchModal.css"
-    />
-    <script defer src="resources/js/main/main.js"></script>
-    <script defer src="resources/js/company/makeup/makeupDetail.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/makeup/makeupDetail.css" />
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/company/makeup/makeupDetail.js"></script>
 </head>
 <body>
-    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
@@ -33,37 +29,37 @@
                 <div class="carousel-inner">
                     <div class="company-image-item">
                         <img
-                                src="resources/assets/images/makeup-1.jpg"
+                                src="resources/images/makeup-1.jpg"
                                 alt="메이크업 메인 이미지1"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="resources/assets/images/makeup-7.jpg"
+                                src="resources/images/makeup-7.jpg"
                                 alt="메이크업 메인 이미지2"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="resources/assets/images/makeup-8.jpg"
+                                src="resources/images/makeup-8.jpg"
                                 alt="메이크업 메인 이미지3"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="resources/assets/images/makeup-9.jpg"
+                                src="resources/images/makeup-9.jpg"
                                 alt="메이크업 메인 이미지4"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="resources/assets/images/makeup-10.jpg"
+                                src="resources/images/makeup-10.jpg"
                                 alt="메이크업 메인 이미지5"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="resources/assets/images/makeup-11.jpg"
+                                src="resources/images/makeup-11.jpg"
                                 alt="메이크업 메인 이미지6"
                         />
                     </div>
@@ -75,7 +71,7 @@
         <section class="information">
             <div class="title-container">
                 <h2>Information</h2>
-                <a href="#" id="review-link">후기 보러가기 >>></a>
+                <%--<a href="#" id="review-link">후기 보러가기 >>></a>--%>
             </div>
             <!-- <div id="modal-container"></div> -->
 
@@ -125,7 +121,7 @@
                     </table>
                     <div class="info-map">
                         <img
-                                src="resources/assets/images/makeup-map.png"
+                                src="resources/images/makeup-map.png"
                         />
                     </div>
                 </div>
@@ -244,7 +240,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-2.jpg"
+                                        src="resources/images/makeup-2.jpg"
                                         alt="메이크업 이미지 1"
                                 />
                             </div>
@@ -256,7 +252,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-3.jpg"
+                                        src="resources/images/makeup-3.jpg"
                                         alt="메이크업 이미지 2"
                                 />
                             </div>
@@ -268,7 +264,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-12.jpg"
+                                        src="resources/images/makeup-12.jpg"
                                         alt="메이크업 이미지 3"
                                 />
                             </div>
@@ -280,7 +276,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-5.jpg"
+                                        src="resources/images/makeup-5.jpg"
                                         alt="메이크업 이미지 4"
                                 />
                             </div>
@@ -292,7 +288,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-2.jpg"
+                                        src="resources/images/makeup-2.jpg"
                                         alt="메이크업 이미지 1"
                                 />
                             </div>
@@ -304,7 +300,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-3.jpg"
+                                        src="resources/images/makeup-3.jpg"
                                         alt="메이크업 이미지 2"
                                 />
                             </div>
@@ -316,7 +312,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-12.jpg"
+                                        src="resources/images/makeup-12.jpg"
                                         alt="메이크업 이미지 3"
                                 />
                             </div>
@@ -328,7 +324,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-5.jpg"
+                                        src="resources/images/makeup-5.jpg"
                                         alt="메이크업 이미지 4"
                                 />
                             </div>
@@ -374,7 +370,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-2.jpg"
+                                        src="resources/images/makeup-2.jpg"
                                         alt="메이크업 이미지 1"
                                 />
                             </div>
@@ -386,7 +382,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-3.jpg"
+                                        src="resources/images/makeup-3.jpg"
                                         alt="메이크업 이미지 2"
                                 />
                             </div>
@@ -398,7 +394,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-12.jpg"
+                                        src="resources/images/makeup-12.jpg"
                                         alt="메이크업 이미지 3"
                                 />
                             </div>
@@ -410,7 +406,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-5.jpg"
+                                        src="resources/images/makeup-5.jpg"
                                         alt="메이크업 이미지 4"
                                 />
                             </div>
@@ -422,7 +418,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-2.jpg"
+                                        src="resources/images/makeup-2.jpg"
                                         alt="메이크업 이미지 1"
                                 />
                             </div>
@@ -434,7 +430,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-3.jpg"
+                                        src="resources/images/makeup-3.jpg"
                                         alt="메이크업 이미지 2"
                                 />
                             </div>
@@ -458,7 +454,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-5.jpg"
+                                        src="resources/images/makeup-5.jpg"
                                         alt="메이크업 이미지 4"
                                 />
                             </div>
@@ -487,7 +483,7 @@
             </div>
         </section>
     </div>
-    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
-    <script src="resources/js/company/weddinghall/reviewSearchModal.js"></script>
+    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/reviewSearchModal.js"></script>
 </body>
 </html>

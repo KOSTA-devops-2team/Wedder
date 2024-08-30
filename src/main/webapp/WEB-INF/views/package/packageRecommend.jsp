@@ -9,17 +9,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mypage</title>
-    <!-- 링크 -->
-    <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-    <link rel="stylesheet" href="<c:url value='resources/css/package/packageRecommand.css'/>"/>
-    <link rel="stylesheet" href="<c:url value='resources/css/common/pagination/pagination.css'/>"/>
-    <!-- 스크립트 -->
-    <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-    <script defer src="<c:url value='resources/js/pagination/pagination.js'/>"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageRecommand.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"/>
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>
 </head>
-
-<div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
 <body>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
         <div class="container-main">
             <div class="container-top">
@@ -228,6 +225,6 @@
         </div>
     </div>
     <div id="pagination-placeholder"></div>
+    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
-<div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
 </html>

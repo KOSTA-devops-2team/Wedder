@@ -7,12 +7,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
-    <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/user/login.css" />
-    <script defer src="resources/js/main/main.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}resources/css/user/login.css" />
+    <script defer src="${pageContext.request.contextPath}resources/js/main/main.js"></script>
 </head>
 <body>
-
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
 <div class="hd__inner400 login-container">
     <!-- 로그인 타이틀 -->
     <section class="login-title">
@@ -67,6 +67,6 @@
         </div>
     </section>
 </div>
-<script src=" resources/js/user/login.js"></script>
+<script src="${pageContext.request.contextPath}resources/js/user/login.js"></script>
 </body>
 </html>

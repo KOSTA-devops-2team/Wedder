@@ -10,15 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mypage</title>
     <!-- 링크 -->
-    <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-    <link rel="stylesheet" href="<c:url value='resources/css/estimate/estimateTotal.css'/>"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estimate/estimateTotal.css"/>
     <!-- 스크립트 -->
-    <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-    <script defer src="<c:url value='resources/js/estimate/estimateCompany.js'/>"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/estimate/estimateCompany.js"></script>
 </head>
 
-<div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
 <body>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
         <div class="title">
             <div class="head">
@@ -178,6 +178,6 @@
             </section>
         </div>
     </div>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
-<div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
 </html>

@@ -1,5 +1,5 @@
 package kr.co.wedder.user.domain;
 
-public class UserVO {
+public class UserDto {
 
 }

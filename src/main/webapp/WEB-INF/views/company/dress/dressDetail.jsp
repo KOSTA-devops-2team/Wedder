@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dressDetail</title>
-    <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/company/dress/dressDetail.css" />
-    <script defer src="resources/js/main/main.js"></script>
-    <script defer src="resources/js/company/dress/dressDetail.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/dress/dressDetail.css" />
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/company/dress/dressDetail.js"></script>
 </head>
 <body>
-    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
@@ -485,7 +485,6 @@
             </div>
         </section>
     </div>
-    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
-    <script src="resources/js/company/weddinghall/reviewSearchModal.js"></script>
+    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

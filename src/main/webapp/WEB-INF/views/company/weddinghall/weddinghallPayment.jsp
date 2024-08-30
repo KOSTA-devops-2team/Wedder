@@ -5,14 +5,332 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>weddinghallPayment</title>
-    <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/company/weddinghall/weddinghallPayment.css" />
-    <script defer src="resources/js/main/main.js"></script>
-    <script defer src="resources/js/company/weddinghall/weddinghallPayment.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/weddinghall/weddinghallPayment.css" />
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/company/weddinghall/weddinghallPayment.js"></script>
 </head>
 <body>
-    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
+    <div class="hd__inner960">
+        <!-- 메인 타이틀 문구 -->
+        <section>
+            <div class="main-title">웨딩홀 결제</div>
+        </section>
 
-    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+        <!-- 1. 이용자 정보 -->
+        <section class="user-info">
+            <h1>1. 이용자 정보</h1>
+            <h3>원활한 서비스 이용을 위해 꼭 필요한 정보입니다.</h3>
+
+            <div class="self">
+                <h2>본인</h2>
+                <div class="choose">
+                    <div>
+                        <input type="radio" id="self-bride" name="self" />
+                        <label for="self-bride">신부</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="self-groom" name="self" />
+                        <label for="self-groom">신랑</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="self-family" name="self" />
+                        <label for="self-family">가족</label>
+                    </div>
+                </div>
+                <table class="user-table">
+                    <tr>
+                        <th><label for="partner-name">성함</label></th>
+                        <td>
+                            <input type="text" name="partner-name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="partner-phone">연락처</label>
+                        </th>
+                        <td>
+                            <div class="phone-container">
+                                <select name="phone">
+                                    <option value="010">010</option>
+                                    <option value="011">011</option>
+                                    <option value="016">016</option>
+                                    <option value="017">017</option>
+                                    <option value="019">019</option>
+                                </select>
+                                <input
+                                        type="text"
+                                        name="partner-phone2"
+                                        maxlength="4"
+                                />
+                                <input
+                                        type="text"
+                                        name="partner-phone3"
+                                        maxlength="4"
+                                />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="partner">
+                <h2>배우자</h2>
+                <div class="choose">
+                    <div>
+                        <input
+                                type="radio"
+                                id="partner-bride"
+                                name="partner"
+                        />
+                        <label for="partner-bride">신부</label>
+                    </div>
+                    <div>
+                        <input
+                                type="radio"
+                                id="partner-groom"
+                                name="partner"
+                        />
+                        <label for="partner-groom">신랑</label>
+                    </div>
+                    <div>
+                        <input
+                                type="radio"
+                                id="partner-family"
+                                name="partner"
+                        />
+                        <label for="partner-family">가족</label>
+                    </div>
+                </div>
+                <table class="user-table">
+                    <tr>
+                        <th><label for="partner-name">성함</label></th>
+                        <td>
+                            <input type="text" name="partner-name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="partner-phone">연락처</label>
+                        </th>
+                        <td>
+                            <div class="phone-container">
+                                <select name="phone">
+                                    <option value="010">010</option>
+                                    <option value="011">011</option>
+                                    <option value="016">016</option>
+                                    <option value="017">017</option>
+                                    <option value="019">019</option>
+                                </select>
+                                <input
+                                        type="text"
+                                        name="partner-phone2"
+                                        maxlength="4"
+                                />
+                                <input
+                                        type="text"
+                                        name="partner-phone3"
+                                        maxlength="4"
+                                />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dotLine"></div>
+
+            <div class="request">
+                    <textarea
+                            type="text"
+                            placeholder="업체에 요청하실 내용을 적어주세요"
+                    ></textarea>
+                <p>
+                    예) 혼주 헤어 메이크업 구매 시, 메이크업을 받으실
+                    가족분들의 관계 (어머니 2분, 언니, 남동생 등) 와 대료포
+                    연락이 가능하신 한 분의 이름과 연락처를 남겨주세요.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. 주문 상품 -->
+        <section class="weddinghall-order">
+            <h1>2. 주문 상품</h1>
+            <div class="order-container">
+                <img
+                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"
+                        alt="Venue Image"
+                />
+                <div class="order-info">
+                    <h2>[강남] 마리아주스퀘어</h2>
+                    <div class="event-info">
+                        본식 일시: 2024년 11월 17일 (일), 오후14:00~15:00
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="order-detail-title">홀 기본 사용료</h2>
+            <table class="detail-table" id="hall-table">
+                <tr>
+                    <th>예도홀</th>
+                    <td>7,000,000원</td>
+                </tr>
+            </table>
+
+            <h2 class="order-detail-title">식사</h2>
+            <table class="detail-table" id="food-table">
+                <tr>
+                    <th>한식(코스 B)</th>
+                    <td>300명</td>
+                    <td>70,000원</td>
+                    <td>21,000,000원</td>
+                </tr>
+            </table>
+
+            <h2 class="order-detail-title">기타 옵션</h2>
+            <table class="detail-table" id="option-table">
+                <tr>
+                    <th>웨딩 디렉팅</th>
+                    <td>600,000원</td>
+                </tr>
+                <tr>
+                    <th>사회자</th>
+                    <td>200,000원</td>
+                </tr>
+                <tr>
+                    <th>꽃장식</th>
+                    <td>4,500,000원</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 3. 결제 -->
+        <section class="payment">
+            <div class="payment-method">
+                <div class="payment-title">3. 결제수단선택</div>
+                <div class="option1">
+                    <button>신용카드</button>
+                    <button>실시간 계좌이체</button>
+                    <button>가상계좌</button>
+                </div>
+                <div class="option2">
+                    <button>
+                        <img
+                                src="resources/images/naver.png"
+                                alt="N Pay"
+                        />
+                    </button>
+                    <button>
+                        <img
+                                src="resources/images/samsung.png"
+                                alt="Samsung Pay"
+                        />
+                    </button>
+                    <button>
+                        <img
+                                src="resources/images/kakao.png"
+                                alt="Kakao Pay"
+                        />
+                    </button>
+                    <button>
+                        <img
+                                src="resources/images/toss.png"
+                                alt="Toss Pay"
+                        />
+                    </button>
+                    <button>
+                        <img
+                                src="resources/images/payco.png"
+                                alt="Payco"
+                        />
+                    </button>
+                </div>
+
+                <div class="promotion">
+                    <h3>결제 프로모션</h3>
+                    <div class="promotion-summary">
+                        <span>하나카드</span>
+                        <span>무이자할부</span>
+                    </div>
+                    <div class="promotion-details">
+                        <h4>하나카드 최대 10만원 즉시할인</h4>
+                        <p>
+                            • 50만원/100만원/300만원/500만원 이상 구매시
+                            1/2/6/10만원 즉시할인
+                        </p>
+                        <p>• 기간: 8/1~8/31</p>
+                        <p>• 1QPAY 결제시에만 가능합니다.</p>
+                        <p>• 간편결제는 즉시할인 대상에서 제외됩니다.</p>
+                    </div>
+                </div>
+                <!-- 신용카드이용안내 -->
+                <div class="card-use">
+                    <h4>신용카드 이용안내</h4>
+                    <p>
+                        • KB국민, BC, 우리카드는 ISP 어플리케이션이
+                        필요합니다.
+                    </p>
+                    <p>
+                        • 30만원 이상, 사용가든 결제 시 공인인증서를 반드시
+                        사용하도록 정하고 있습니다.
+                    </p>
+                </div>
+            </div>
+            <!-- 최종결제금액 부분 -->
+            <div class="final-cost">
+                <div class="final-cost-title">최종결제금액</div>
+                <div class="final-cost-details">
+                    <div class="cost-item">
+                        <span>총 금액</span>
+                        <div class="amount">
+                            <span class="cost-amount">33,300,000</span>
+                            <span class="currency">원</span>
+                        </div>
+                    </div>
+                    <div class="cost-item">
+                        <span>식대</span>
+                        <div class="amount">
+                            <span class="cost-amount">21,000,000</span>
+                            <span class="currency">원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="final-cost-total">
+                    <h3>최종결제금액</h3>
+                    <div class="total-amount">
+                        <span class="total-amount-num">12,300,000</span>
+                        <span class="currency">원</span>
+                    </div>
+                </div>
+                <div class="agree-terms">
+                    <div class="term-item">
+                        <input type="checkbox" id="terms1" />
+                        <label for="terms1"
+                        >주문 내용을 확인했으며, 아래 내용에 모두
+                            동의합니다.</label
+                        >
+                    </div>
+                    <div class="term-item">
+                        <input type="checkbox" id="terms2" />
+                        <label for="terms2"
+                        >[필수] 개인정보 수집/이용 동의</label
+                        >
+                        <a href="#">보기</a>
+                    </div>
+                    <div class="term-item">
+                        <input type="checkbox" id="terms3" />
+                        <label for="terms3"
+                        >[필수] 전자금융거래 이용 약관 동의</label
+                        >
+                        <a href="#">보기</a>
+                    </div>
+                </div>
+                <div class="payment-button">
+                    <button>결제하기</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

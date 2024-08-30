@@ -1,17 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Wedder</title>
-        
-        <link rel="stylesheet" href="resources/css/common/reset.css" />
-        <link rel="stylesheet" href="resources/css/common/header/header.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <script defer src="resources/js/header/header.js"></script>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/header/header.css" />
+        <script defer src="${pageContext.request.contextPath}/resources/js/header/header.js"></script>
     </head>
     <body>
         <header>
@@ -48,7 +45,6 @@
                     <!-- 해더 유저 정보 -->
                     <div class="header-user-container">
                         <ul class="header-user">
-                            git rm -r --cached target/
                             <li>
                                 <a href="../../html/admin/adminMain.html"
                                     ><img

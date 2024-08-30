@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dressList</title>
-    <link rel="stylesheet" href="resources/css/common/reset.css" />
-    <link rel="stylesheet" href="resources/css/company/dress/dressList.css" />
-    <link
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/dress/dressList.css" />
+    <%--<link
             rel="stylesheet"
-            href="resources/css/common/pagination/pagination.css"
-    />
-    <script defer src="resources/js/main/main.js"></script>
-    <script defer src="resources/js/pagination/pagination.js"></script>
+            href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"
+    />--%>
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <%--<script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
 </head>
 <body>
-    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
         <!-- 메인 타이틀 문구 -->
         <section class="title">
@@ -625,6 +625,6 @@
 
     <!-- 페이지네이션  -->
     <div id="pagination-placeholder"></div>
-    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
