@@ -1,4 +1,4 @@
-package kr.co.wedder.company.domain;
+package kr.co.wedder.company.hall.domain;
 
 public class HallDto {
     private int hellId;

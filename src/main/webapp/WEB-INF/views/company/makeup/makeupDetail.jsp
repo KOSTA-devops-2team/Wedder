@@ -7,15 +7,11 @@
     <title>makeupDetail</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/makeup/makeupDetail.css" />
-    <link
-            rel="stylesheet"
-            href="${pageContext.request.contextPath}/resources/css/company/weddinghall/reviewSearchModal.css"
-    />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/company/makeup/makeupDetail.js"></script>
 </head>
 <body>
-    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
@@ -488,6 +484,6 @@
         </section>
     </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
-    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/reviewSearchModal.js"></script>
+    <script src="resources/js/company/weddinghall/reviewSearchModal.js"></script>
 </body>
 </html>

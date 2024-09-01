@@ -2,31 +2,31 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-    <link rel="stylesheet" href="<c:url value='resources/css/myPage/reservationDetail.css'/>" />
+    <link rel="stylesheet" href="<c:url value='resources/css/mypage/reservationDetail.css'/>" />
     <link
       rel="stylesheet"
-      href="<c:url value='resources/css/common/sidebar/sidebarMyPage.css'/>"
+      href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
     />
-      <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-      <script defer src="<c:url value='resources/js/myPage/myPageMain.js'/>"></script>
-
+      	<script defer src="<c:url value='resources/js/main/main.js'/>"></script>
+      	<script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <title>reservationDetail</title>
   </head>
-
-  <div> <%@ include file="/resources/components/header/headerV2.jsp" %></div>
+	<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
   <body>
     <div class="hd__inner1100">
       <!-- 사이드 바 -->
       <div class="side-bar-flex">
         <section class="nav-bar" id="nav-bar">
           <aside class="reservation-detail">
-            <div><%@ include file="/resources/components/sidebar/sidebarMyPage.jsp" %></div>
+          	<div> <%@ include file="/WEB-INF/views/common/sidebarMyPage.jsp" %></div>
           </aside>
         </section>
       </div>
@@ -47,11 +47,7 @@
         <!-- 3.calandar -->
         <section class="calandars" id="payment-detail-section3">
             <div class="calandars-payment-list">
-                <img
-                    src="resources/assets/images/calendar-july.png"
-                    alt="달력"
-                    class="calandar"
-                />
+                <%@ include file="/WEB-INF/views/common/calendar.jsp" %>
                 <div class="calandar-Content">
                   <div class="calandar-top">상세 예약 내역</div>
                   <div class="calandar-middle">
@@ -169,5 +165,5 @@
       </div>
     </div>
   </body>
-  <div><%@ include file="/resources/components/footer/footerV2.jsp" %></div>
+  <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </html>
