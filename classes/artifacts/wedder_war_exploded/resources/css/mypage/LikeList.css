@@ -1,0 +1,190 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+}
+.hd__inner1100 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.side-bar-flex {
+  width: 220px;
+}
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-color: #303033;
+  height: 100px;
+  width: 880px;
+}
+
+.summary h1 {
+  font-size: 24px;
+  padding-left: 40px;
+}
+.summary-lists {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-right: 30px;
+  border-left: 1px solid white;
+  padding-left: 13px;
+}
+
+.summary-title {
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.summary-count {
+  display: flex;
+  align-items: baseline;
+}
+
+.summary-count .number {
+  font-size: 26px;
+}
+
+.summary-count .unit {
+  font-size: 16px;
+  margin-left: 5px;
+}
+.body-header {
+  background-color: black;
+  width: 900px;
+  height: 100px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.body-header-main {
+  width: 480px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+}
+.body-header-main p {
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 40px;
+  margin: 20px 0px;
+}
+.body-header-footer {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  font-size: 16px;
+}
+.body-header-footer span {
+  font-weight: bold;
+  font-size: 26px;
+}
+.v-line {
+  border-left: 1px solid white;
+  height: 60px;
+  margin: 10px;
+  margin-left: 30px;
+  align-self: center;
+}
+.test {
+  border-bottom: 1px solid black;
+}
+/*  */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.List-content p,
+h2,
+h3 {
+  color: #ca1a5a;
+}
+h2 {
+  margin: 15px 5px 5px;
+}
+h3 {
+  margin: 5px 0px;
+}
+.List-content p {
+  font-size: 10px;
+}
+.company-kind {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.company-kind .kind-box {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+.company {
+  padding: 0px 10px;
+  margin-bottom: 10px;
+}
+.company:hover {
+  font-weight: bold;
+  border-bottom: 3px solid #ca1a5a;
+  margin-bottom: 7px;
+}
+.company-kind .List-search-bar {
+  margin-top: 10px;
+}
+/* 2. 서치 바 기능 Search-bar */
+.search-bar {
+  display: block;
+  justify-content: flex-end;
+}
+.List-search-bar img {
+  width: 20px;
+}
+/* LikeList-Card */
+.LikeList-Card {
+  width: 200px;
+  text-align: left;
+  margin: 5px;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+}
+.LikeList-Card h5 {
+  margin: 0px;
+}
+
+.LikeList-Card li {
+  margin-top: 3px;
+  font-size: 11px;
+}
+.LikeList-Card img {
+  width: 200px;
+  height: 200px;
+}
+.LikeList-Card-List {
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+}
+/* 탭 활성화 */
+.tab-selected {
+  color: #ca1a5a;
+}
+.contents-active {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+}
