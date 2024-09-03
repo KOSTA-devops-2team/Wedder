@@ -24,22 +24,16 @@ public class CompanyScheduleDto {
 
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(company_id, company_name, date,  schedule_id, time);
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		CompanyScheduleDto that = (CompanyScheduleDto) o;
+		return Objects.equals(schedule_id, that.schedule_id) && Objects.equals(company_id, that.company_id) && Objects.equals(company_name, that.company_name) && Objects.equals(date, that.date) && Objects.equals(time, that.time);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CompanyScheduleDto other = (CompanyScheduleDto) obj;
-		return Objects.equals(company_id, other.company_id) && Objects.equals(company_name, other.company_name)
-				&& Objects.equals(date, other.date)
-				&& Objects.equals(schedule_id, other.schedule_id) && Objects.equals(time, other.time);
+	public int hashCode() {
+		return Objects.hash(schedule_id, company_id, company_name, date, time);
 	}
 
 	public Integer getSchedule_id() {

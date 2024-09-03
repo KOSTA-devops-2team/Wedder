@@ -17,7 +17,7 @@ public class CalendarServiceImpl implements CalendarService {
 
 	@Override
 	public List<CompanyScheduleDto> getSchedule(Map map) throws Exception {
-		return CalendarDao.selectpage(map);
+		return null;
 	}
 
 	@Override

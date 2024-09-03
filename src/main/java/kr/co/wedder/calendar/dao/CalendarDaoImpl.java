@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public class CalendarDaoImpl implements CalendarDao {
 	
@@ -23,6 +26,11 @@ public class CalendarDaoImpl implements CalendarDao {
 	public int deleteAll() throws Exception {
 		return session.delete(namespace + "deleteAll");
 	}
+
+//	@Override
+//	public List<CompanyScheduleDto> selectpage(Map map) throws Exception {
+//		return List.of();
+//	}
 
 	@Override
 	public int insert(CompanyScheduleDto dto) throws Exception {

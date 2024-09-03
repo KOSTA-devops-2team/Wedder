@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
