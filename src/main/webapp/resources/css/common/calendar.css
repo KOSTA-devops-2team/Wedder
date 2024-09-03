@@ -40,6 +40,17 @@
 	grid-template-columns: repeat(7, 1fr);
 	grid-gap: 5px;
 }
+.calendar-dates > div {
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+.calendar-dates > div:nth-child(7n+1){
+	color: red;
+}
+.calendar-dates> div:nth-child(7n){
+	color:blue;
+}
 .date {
   cursor: pointer;
   padding: 5px;
