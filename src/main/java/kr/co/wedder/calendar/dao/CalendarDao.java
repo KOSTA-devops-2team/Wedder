@@ -10,8 +10,6 @@ public interface CalendarDao {
 
 	int delete(Integer schedule_id) throws Exception;
 	int deleteAll() throws Exception;
-	static List<CompanyScheduleDto> selectpage(Map map) {
-		return null;
-	}
+	List<CompanyScheduleDto> selectpage(Map map) throws Exception;
 	int insert(CompanyScheduleDto companyScheduleDto) throws Exception;
 }
