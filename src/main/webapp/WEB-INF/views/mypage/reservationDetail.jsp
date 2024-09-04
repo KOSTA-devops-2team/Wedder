@@ -8,14 +8,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-    <link rel="stylesheet" href="<c:url value='resources/css/mypage/reservationDetail.css'/>" />
+     <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/reservationDetail.css" />
     <link
       rel="stylesheet"
-      href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
+      href="${pageContext.request.contextPath}/resources/css/common/sidebar/sidebarMypage.css"
     />
-      	<script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-      	<script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
+      	<script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+      	<script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <title>reservationDetail</title>
   </head>

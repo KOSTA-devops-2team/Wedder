@@ -1,6 +1,8 @@
+/*
 document.addEventListener("DOMContentLoaded", function () {
     includeSidebar();
 });
+
 
 function includeSidebar() {
     fetch("../../components/sidebar/sidebarMyPage.html")
@@ -10,5 +12,5 @@ function includeSidebar() {
                 data;
         });
 }
-
+*/
 

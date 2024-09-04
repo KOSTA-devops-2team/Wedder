@@ -3,16 +3,21 @@ const currentMonthElement = document.getElementById("currentMonth");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
-const today = new Date(); 
+const today=new Date(); 
 // 현재 날짜를 나타내는 Date 객체를 저장한다.
-
-let currentMonth = today.getMonth();
+let currentMonth;
 /* 현재 월을 나타내는 값을 저장한다. getMonth() 메서드는 0부터 시작하는 월을 반환하므로
 1월이면 0, 2월이면 1을 반환한다. */
-let currentYear = today.getFullYear(); 
+let currentYear; 
 // 변수에 현재 연도를 나타내는 값을 저장한다.
 
+function initializeDate(){
+	currentMonth = today.getMonth();
+	currentYear = today.getFullYear(); 
+}
+
 function renderCalendar() {
+	initializeDate();
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
   const startDayOfWeek = firstDayOfMonth.getDay();

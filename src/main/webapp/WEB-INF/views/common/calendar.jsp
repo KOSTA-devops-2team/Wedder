@@ -44,9 +44,9 @@
 			
 			<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js">
 			</script>
-			<script type="text/javascript" 	src="<c:url value='resources/js/mypage/calendar.js'/>" ></script>
+			<script type="text/javascript" 	src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js" ></script>
 		</body>
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			$("#regBtn").on("click",function(){
 				let form =$("#form");
 				form.attr("action","<c:url value="/calendar/write"/>")
@@ -55,5 +55,5 @@
 				form.submit()
 			})
 			
-		</script>
+		</script> -->
 </html>

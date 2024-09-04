@@ -37,4 +37,9 @@ public class CalendarDaoImpl implements CalendarDao {
 		return session.insert(namespace+"insert", dto);
 	}
 
+	@Override
+	public CompanyScheduleDto select(Integer schedule_id) throws Exception {
+		return session.selectOne(namespace+"select",schedule_id);
+	}
+
 }

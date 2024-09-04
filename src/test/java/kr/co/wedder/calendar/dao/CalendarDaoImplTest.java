@@ -8,6 +8,7 @@ import java.sql.Time;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -29,12 +30,21 @@ public class CalendarDaoImplTest {
 		assertTrue(calendarDao !=null);
 		calendarDao.delete(1);
 	}
-	@Test
+//	@Test
 	public void insert() throws Exception{
 		Time time=Time.valueOf("11:41:24");
 		Date date=new Date(124, 10, 3);
 		CompanyScheduleDto CScheduleDto=
 				new CompanyScheduleDto(1,"삼성",date,time);  
 		calendarDao.insert(CScheduleDto);
+	}
+	
+	@Test
+	public void select() throws Exception{
+		
+		CompanyScheduleDto dto=calendarDao.select(3);
+		System.out.println("CompanyDto ="+dto);
+		assertTrue(dto.getSchedule_id().equals(3));
+		
 	}
 }

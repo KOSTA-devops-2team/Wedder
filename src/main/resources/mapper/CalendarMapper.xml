@@ -9,13 +9,31 @@
 	</delete>
 	<delete id ="delete" parameterType="int">
 		DELETE FROM wedder.company_schedule
-		WHERE schedule_id=#{schedule_id};
+		WHERE schedule_id=#{schedule_id}
 	</delete>
 	
 	<insert id="insert" parameterType="CompanyScheduleDto">
 		INSERT INTO wedder.company_schedule
 		( company_id, company_name, `date`, `time`)
-		VALUES(#{company_id}, #{company_name}, #{date}, #{time});
+		VALUES(#{company_id}, #{company_name}, #{date}, #{time})
 	</insert>
 	
+	  <!-- 정의된 SQL 문 -->
+  <select id="selectFromSchedule">
+    SELECT schedule_id, company_id, company_name, `date`, `time`
+    FROM company_schedule
+  </select>
+
+  <!-- 포함하는 SQL 문 -->
+  <select id="select" parameterType="int" resultType="CompanyScheduleDto">
+    SELECT schedule_id, company_id, company_name, `date`, `time`
+    FROM company_schedule
+    WHERE schedule_id = #{schedule_id}
+  </select>
+	
 </mapper>
+
+
+
+
+

@@ -30,4 +30,11 @@ public class CalendarServiceImpl implements CalendarService {
 		return calendarDao.insert(CompanyScheduleDto);
 	}
 
+	@Override
+	public CompanyScheduleDto read(Integer schedule_id) throws Exception {
+		CompanyScheduleDto scheduleDto = calendarDao.select(schedule_id);
+		
+		return scheduleDto;
+	}
+
 }
