@@ -1,5 +1,8 @@
 package kr.co.wedder.calendar.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,24 +10,36 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.wedder.calendar.domain.CompanyScheduleDto;
+import kr.co.wedder.calendar.domain.Test;
 import kr.co.wedder.calendar.service.CalendarService;
 
 
 @Controller
+@RequestMapping("/calendar")
 public class CalendarController {
 	
 	@Autowired
 	CalendarService calendarService;
 	
 	@GetMapping("/calendar")
-	public String calendarTest() {
-		return "common/calendar";
+	public String calendar(Integer schedule_Id,Model m) {
+		try {
+			CompanyScheduleDto dto = calendarService.read(schedule_Id);
+			m.addAttribute(dto);
+			return "calendar";
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect: /reservation-detail";
+		}
+		
 	}
-	
-	
 	
 	@PostMapping("/remove")
 	public String remove(Integer schedule_id,RedirectAttributes rattr, HttpSession session) {
@@ -60,5 +75,22 @@ public class CalendarController {
 			m.addAttribute("msg","WRT_ERR");
 			return "calendar";
 		}
+	}
+	
+	@GetMapping("/list")
+	public String list(CompanyScheduleDto dto,Model m) throws Exception {
+		m.addAttribute("dto",dto);
+		return "common/calendarList";
+	}
+	
+	@ResponseBody
+	@PostMapping("/send")
+	public Test test(@RequestBody Test t) {
+		System.out.println("t="+t);
+		t.setYear(t.getYear());
+		t.setMonth(t.getMonth());
+		t.setDay(t.getDay());
+		
+		return t;
 	}
 }

@@ -3,34 +3,39 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.wedder.calendar.dao.CalendarMapper">
-<!--deleteAll  -->
+	<!-- 참조되는 sql문-->
+	  <sql id="selectFromSchedule">
+	    SELECT schedule_id, company_id, company_name, `date`, `time`
+	    FROM company_schedule
+	  </sql>
+	  
+	<!--deleteAll  -->
 	<delete id ="deleteAll">
 		DELETE FROM wedder.company_schedule
 	</delete>
+	<!--dlete-->
 	<delete id ="delete" parameterType="int">
 		DELETE FROM wedder.company_schedule
 		WHERE schedule_id=#{schedule_id}
 	</delete>
-	
+	<!-- insert -->
 	<insert id="insert" parameterType="CompanyScheduleDto">
 		INSERT INTO wedder.company_schedule
 		( company_id, company_name, `date`, `time`)
 		VALUES(#{company_id}, #{company_name}, #{date}, #{time})
 	</insert>
+	<!-- selectOne-->
+	<select id="select" parameterType="int" resultType="CompanyScheduleDto">
+		<include refid="selectFromSchedule" />
+		WHERE schedule_id = #{schedule_id}
+	</select>
 	
-	  <!-- 정의된 SQL 문 -->
-  <select id="selectFromSchedule">
-    SELECT schedule_id, company_id, company_name, `date`, `time`
-    FROM company_schedule
-  </select>
-
-  <!-- 포함하는 SQL 문 -->
-  <select id="select" parameterType="int" resultType="CompanyScheduleDto">
-    SELECT schedule_id, company_id, company_name, `date`, `time`
-    FROM company_schedule
-    WHERE schedule_id = #{schedule_id}
-  </select>
-	
+	<!-- <select id="searchSelectPage" parameterType="SearchItem" resultType="CompanyScheduleDto">
+		<include refid="selectFromSchedule" />
+		where true
+		order by schedule_id desc, company_id desc
+		limit #{pageSize} offset #{offset}
+ 	</select> -->
 </mapper>
 
 

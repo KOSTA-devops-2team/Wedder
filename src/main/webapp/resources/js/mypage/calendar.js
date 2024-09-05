@@ -1,5 +1,6 @@
 const calendarDates = document.getElementById("calendarDates");
 const currentMonthElement = document.getElementById("currentMonth");
+const currentYearElement =document.getElementById("currentYear");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
@@ -22,7 +23,8 @@ function renderCalendar() {
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
   const startDayOfWeek = firstDayOfMonth.getDay();
   
-  currentMonthElement.textContent = `${currentYear}년 ${currentMonth + 1}월`;
+  currentYearElement.textContent =`${currentYear}`;
+  currentMonthElement.textContent = `${currentMonth + 1}`;
   calendarDates.textContent  = "";
 
   // 빈 날짜(이전 달)

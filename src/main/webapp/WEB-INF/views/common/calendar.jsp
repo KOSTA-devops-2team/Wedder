@@ -1,59 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>    
 
+    
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		
-		<!-- <link rel="stylesheet" href="resources/css/common/reset.css"> -->
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/calendar.css">
-		
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/calendar.css">
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	</head>
+	
 	<body>
-		<section class="calendar-container" id="calendar-section1">
-			<form action="" id="form" class="frm" method="post">
-				<div class="calendar-header">
-					<button id="prevBtn"> 이전</button>
-					<h2 id="currentMonth"></h2>
-					<button id="nextBtn"> 다음</button>
-				</div>
-				<div id="scheduleBtn">
-					<button id ="regBtn">일정 추가</button>
-					<button id ="delBtn">일정 삭제</button>
-				</div>
-				<div class ="calendar-body">
-					<div class = "calendar-days">
-						<div class="day sunday">일</div>				
-						<div class="day">월</div>				
-						<div class="day">화</div>				
-						<div class="day">수</div>				
-						<div class="day">목</div>				
-						<div class="day">금</div>				
-						<div class="day saturday">토</div>				
-					</div>
-					<div class="calendar-dates" id="calendarDates"></div>
-				</div>
-				<div class = "calendar-footer">
-				
-				</div>
-			</form>
-		</section>
+	
+	<script type="text/javascript">
+	
+	</script>
+	
+	<div class="container">
+	 	<h2 class="writing-header">일정 ${mode=="new"?"등록" : "확인" }</h2>
+	 	<form action="" id ="calendarForm" class="frm" method="post">
+			<!--
+			넘겨야 되는 정보값
+			고객 정보, 회사 정보
+			1. 일정 명 (업체에서 studio, makeup, dress에서 detail쪽으로 너 
+			2. 일정 날짜 (당일 일정 calendarList에서 클릭한 일정 일정추가 시 데이터 들어옴) 
+			3.예약한
 			
-			<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js">
-			</script>
-			<script type="text/javascript" 	src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js" ></script>
-		</body>
-		<!-- <script type="text/javascript">
-			$("#regBtn").on("click",function(){
-				let form =$("#form");
-				form.attr("action","<c:url value="/calendar/write"/>")
-				form.attr("method","post")
-				
-				form.submit()
-			})
 			
-		</script> -->
+			  -->	 		
+	 	</form>
+	</div>
+	
+	
+	</body>
 </html>

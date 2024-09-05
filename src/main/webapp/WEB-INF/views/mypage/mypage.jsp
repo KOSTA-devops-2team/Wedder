@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mypage</title>
     <!-- 링크 -->
-    	<link rel="stylesheet" href="resources/css/common/reset.css"/>
-    	<link rel="stylesheet" href="resources/css/mypage/mypage.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/mypage.css" />	
         <link
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
@@ -20,11 +20,11 @@
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
-        <link rel="stylesheet" href="resources/css/common/sidebar/sidebarMypage.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/sidebar/sidebarMypage.css"/>
     <!-- 스크립트 -->
-        <script defer src="resources/js/main/main.js"></script>
-        <script defer src="resources/js/mypage/mypage.js"></script>
-        <script defer src="resources/js/mypage/myPageMain.js"></script>
+        <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+        <script defer src="${pageContext.request.contextPath}/resources/js/mypage/mypage.js"></script>
+        <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
 </head>
  <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
 <body>

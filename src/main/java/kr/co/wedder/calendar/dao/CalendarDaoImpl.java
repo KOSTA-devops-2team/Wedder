@@ -42,4 +42,5 @@ public class CalendarDaoImpl implements CalendarDao {
 		return session.selectOne(namespace+"select",schedule_id);
 	}
 
+
 }
