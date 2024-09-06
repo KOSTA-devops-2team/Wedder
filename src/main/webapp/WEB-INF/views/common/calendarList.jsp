@@ -19,6 +19,9 @@
 					<div id="yearMonth">
 						<h2 id="currentYear"></h2><h2>년</h2>
 						<h2 id="currentMonth"></h2><h2>월</h2>
+						<h2 id="currentHour"></h2>
+						<h2 id="currentMinute"></h2>
+						<h2 id="currentSecond"></h2>
 					</div>
 					<button id="nextBtn"> 다음</button>
 				</div>
@@ -59,6 +62,15 @@
 			<script type="text/javascript" 	src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js" ></script>
 		</body>
 		<script type="text/javascript">
+			
+			
+			
+			
+			
+			
+			
+		</script>
+		<script type="text/javascript">
 			$("#regBtn").on("click",function(){
 				let form =$("#form");
 				form.attr("action","<c:url value="/calendar/write"/>")
@@ -68,46 +80,68 @@
 			})
 			/*#currentMonth   */
 			
-		 $(document).ready(function(){
-            $(".date").on("click", function(){
-                // 클릭된 요소
-                let date = $(this);
-                let month =$("#currentMonth").text();
-                let year =$("#currentYear").text();
-                // 기존에 .highlight 클래스가 있는지 확인
-                if (date.hasClass("highlight")) {
-                    // 이미 클래스가 있으면 제거
-                    date.removeClass("highlight");
-                    
-                } else {
-                    // 클래스가 없으면 추가
-                    date.addClass("highlight");
-                }
-                
-                let value=date.text();
-                
-                let test={year: year,month: month,day: value}
-                let test2={}
-                $.ajax({
-                	type: 'post', // 요청메서드 
-                	url: "/wedder/calendar/send", //요청 URI
-                	headers:{"Content-Type":"application/json"}, //요청 헤더
-                	data: JSON.stringify(test),
-                	dataType: "text", //전송 받을 데이터의 타입
-                	success: function(result){ // 서버로부터 응답이 도착하면 호출될 함수 
-                		test2 =JSON.parse(result) //result는 서버가 전송한 데이터 
-                		alert("received: "+result)
-                		$("#data").html("year ="+test2.year+",month ="+test2.month+",day ="+test2.day)
-                	},
-                	error: function(){
-                		alert("error")
-                		console.log(test)
-                		console.log(test2)
-                	}	// 에러가 발생했을 때 
-                })
-                	alert("the request is sent")
-            });
-        });
-                	
+                	 $(document).ready(function(){
+                         $(".date").on("click", function(){
+                             // 클릭된 요소
+                             let date = $(this);
+                             
+                             let month =$("#currentMonth").text();
+                             let year =$("#currentYear").text();
+                             let value=date.text();
+                             let hour =$("#currentHour").text();
+                             let minute =$("#currentMinute").text();
+                             let second =$("#currentSecond").text();
+                             
+                             
+                             
+                             // 기존에 .highlight 클래스가 있는지 확인
+                              if (date.hasClass("highlight")) {
+                                 // 이미 클래스가 있으면 제거
+                                 date.removeClass("highlight");
+                                 
+                             } else {
+                                 // 클래스가 없으면 추가
+                                 date.addClass("highlight");
+                             }
+                              
+                             let formattedDate=year+"."+month+"."+value;
+                             let formattedTime =hour+":"+minute+":"+second;
+                             
+                             let test={
+                            		 schedule_id: 3,
+                            		 company_id: 3,
+                            		 company_name: "확인용",
+                            		 date:formattedDate,
+                            		 time:formattedTime
+                            		 }
+                             let test2={}
+                             
+                             $.ajax({
+                             	type: 'post', // 요청메서드 
+                             	url: "/wedder/calendar/send2", //요청 URI
+                             	headers:{"Content-Type":"application/json"}, //요청 헤더
+                             	data: JSON.stringify(test),
+                             	dataType: "text", //전송 받을 데이터의 타입
+                             	success: function(result){ // 서버로부터 응답이 도착하면 호출될 함수 
+                             		test2 =JSON.parse(result) //result는 서버가 전송한 데이터 
+                             		alert("received: "+result)
+                             		//-> 컨트롤러에서 받은 값을 출력한다.
+                             		$("#data").html(
+                             				"schedule_id ="+test2.schedule_id+
+                             				",company_id ="+test2.company_id+
+                             				",company_name ="+test2.company_name+
+                             				",date ="+test2.date+
+                             				",time ="+test2.time
+                             				)
+                             	},
+                             	error: function(){
+                             		alert("error")
+                             		console.log(test)
+                             		console.log(test2)
+                             	}	// 에러가 발생했을 때 
+                             })
+                             	alert("the request is sent")
+                         });
+                     });	
 		</script> 
 </html>

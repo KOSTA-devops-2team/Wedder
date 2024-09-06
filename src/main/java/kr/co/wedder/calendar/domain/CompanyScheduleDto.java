@@ -4,12 +4,16 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class CompanyScheduleDto {
 	
 	private Integer schedule_id;
 	private Integer company_id;
 	private String company_name;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
 	private Date date;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
 	private Time time;
 	
 	public CompanyScheduleDto() {

@@ -1,6 +1,9 @@
 package kr.co.wedder.calendar.controller;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
+import java.util.Timer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -92,5 +95,21 @@ public class CalendarController {
 		t.setDay(t.getDay());
 		
 		return t;
+	}
+	@ResponseBody
+	@PostMapping("/send2")
+	public CompanyScheduleDto CSDto(@RequestBody CompanyScheduleDto CSDto) {
+		
+		Date date=new Date(2024-1900, 9-1, 8);
+		//Date(원하는년도-1900 ,원하는 달 -1,원하는 일 
+		Time time=Time.valueOf("11:41:24");
+		System.out.println("CSDto="+CSDto);
+		CSDto.setSchedule_id(4);
+		CSDto.setCompany_id(4);
+		CSDto.setCompany_name("test용");
+		CSDto.setDate(date);
+		CSDto.setTime(time);
+		
+		return CSDto;
 	}
 }
