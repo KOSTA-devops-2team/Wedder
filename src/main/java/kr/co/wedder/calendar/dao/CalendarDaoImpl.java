@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.wedder.calendar.domain.CompanyScheduleDto;
+import kr.co.wedder.calendar.domain.SearchItem;
 
 import java.util.List;
 import java.util.Map;
@@ -40,6 +41,16 @@ public class CalendarDaoImpl implements CalendarDao {
 	@Override
 	public CompanyScheduleDto select(Integer schedule_id) throws Exception {
 		return session.selectOne(namespace+"select",schedule_id);
+	}
+
+	@Override
+	public int searchResultCnt(SearchItem sc) throws Exception {
+		return session.selectOne(namespace+"searchResultCnt",sc);
+	}
+
+	@Override
+	public List<CompanyScheduleDto> searchSelectPage(SearchItem sc) {
+		return session.selectList(namespace + "searchSelectPage", sc);
 	}
 
 

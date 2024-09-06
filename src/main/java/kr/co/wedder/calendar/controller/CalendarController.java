@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import kr.co.wedder.calendar.domain.CompanyScheduleDto;
-import kr.co.wedder.calendar.domain.Test;
+import kr.co.wedder.calendar.domain.PageResolver;
+import kr.co.wedder.calendar.domain.SearchItem;
 import kr.co.wedder.calendar.service.CalendarService;
 
 
@@ -30,7 +32,7 @@ public class CalendarController {
 	@Autowired
 	CalendarService calendarService;
 	
-	@GetMapping("/calendar")
+	@GetMapping("/calendar") //X
 	public String calendar(Integer schedule_Id,Model m) {
 		try {
 			CompanyScheduleDto dto = calendarService.read(schedule_Id);
@@ -39,12 +41,12 @@ public class CalendarController {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "redirect: /reservation-detail";
+			return "redirect: /wedder/calendar/list";
 		}
 		
 	}
 	
-	@PostMapping("/remove")
+	@PostMapping("/remove") //X
 	public String remove(Integer schedule_id,RedirectAttributes rattr, HttpSession session) {
 		String writer=(String) session.getAttribute("id");
 		String msg="DEL_OK";
@@ -61,15 +63,17 @@ public class CalendarController {
 		
 		return "redirect:/calendar";
 	}
-	@PostMapping("/write")
+	@PostMapping("/write") //X
 	public String write(CompanyScheduleDto companyScheduleDto,RedirectAttributes rattr,Model m, HttpSession session) {
-		String writer =(String) session.getAttribute("id");
-//		companyScheduleDto.set
+		//String writer =(String) session.getAttribute("id");
+		//companyScheduleDto.set
 		try {
 			if(calendarService.write(companyScheduleDto)!=1)
 				throw new Exception("Write Failed");
-			rattr.addFlashAttribute("msg","WRT_OK");
-			return "redirect: calendar";
+			
+			//rattr.addFlashAttribute("msg","WRT_OK");
+			
+			return "redirect: /wedder/calendar/list";
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,28 +84,28 @@ public class CalendarController {
 		}
 	}
 	
-	@GetMapping("/list")
-	public String list(CompanyScheduleDto dto,Model m) throws Exception {
+	@GetMapping("/list") //O
+	public String list(SearchItem sc,CompanyScheduleDto dto,Model m) throws Exception{
 		m.addAttribute("dto",dto);
+		
+		int totalCnt = calendarService.getSearchResultCount(sc);
+		m.addAttribute("totalCnt", totalCnt);
+		
+		PageResolver pageResolver = new PageResolver(totalCnt, sc);
+		m.addAttribute("pr", pageResolver);
+		
+		List<CompanyScheduleDto> list = calendarService.getSearchResultPage(sc);
+		m.addAttribute("list", list);
+		
 		return "common/calendarList";
 	}
 	
 	@ResponseBody
-	@PostMapping("/send")
-	public Test test(@RequestBody Test t) {
-		System.out.println("t="+t);
-		t.setYear(t.getYear());
-		t.setMonth(t.getMonth());
-		t.setDay(t.getDay());
-		
-		return t;
-	}
-	@ResponseBody
-	@PostMapping("/send2")
+	@PostMapping("/send2") //O
 	public CompanyScheduleDto CSDto(@RequestBody CompanyScheduleDto CSDto) {
 		
-		Date date=new Date(2024-1900, 9-1, 8);
-		//Date(원하는년도-1900 ,원하는 달 -1,원하는 일 
+		Date date=new Date(2011-1900, 3-1, 5+1);
+		//Date(원하는년도-1900 ,원하는 달 -1,원하는 일+1); 
 		Time time=Time.valueOf("11:41:24");
 		System.out.println("CSDto="+CSDto);
 		CSDto.setSchedule_id(4);

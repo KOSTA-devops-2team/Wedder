@@ -26,7 +26,7 @@
             </li>
 
             <li class="item" id="myPage_Reservation">
-              <a href="reservation-detail"> 예약 현황</a>
+              <a href="reservation-list"> 예약 현황</a>
             </li>
             <br />
             <li class="item">
@@ -52,4 +52,5 @@
       </ul>
     </nav>
   </body>
+  
 </html>

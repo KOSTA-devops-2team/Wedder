@@ -15,7 +15,7 @@
 		<section class="calendar-container" id="calendar-section1">
 			<form action="" id="form" class="frm" method="post">
 				<div class="calendar-header">
-					<button id="prevBtn"> 이전</button>
+					<button id="prevBtn"> <</button>
 					<div id="yearMonth">
 						<h2 id="currentYear"></h2><h2>년</h2>
 						<h2 id="currentMonth"></h2><h2>월</h2>
@@ -23,7 +23,7 @@
 						<h2 id="currentMinute"></h2>
 						<h2 id="currentSecond"></h2>
 					</div>
-					<button id="nextBtn"> 다음</button>
+					<button id="nextBtn"> > </button>
 				</div>
 				<div id="scheduleBtn">
 					<button id ="regBtn" type="button" class="btn btn-write">일정 추가</button>
@@ -55,21 +55,66 @@
 				</div>
 			</form>
 			
+			<section id="test">
+				<div style="text-align: center;">
+					<div class="schedule-container">
+						<!-- <div class="searcdh-container">
+							<form action="" class="search-form" method="get">
+								<select class="search-option" name="option">
+									
+								</select>
+								<input type="text" name="key"> 
+							</form>
+						</div> -->
+						
+						<div>${dto.schedule_id }</div>
+						
+						<table>
+							<tr>
+								<th class="schedule_id">일정 번호</th>
+								<th class="company_id">회사 번호</th>
+								<th class="company_name">회사 이름</th>
+								<th class="date">예약 날짜</th>
+								<th class="time">예약 시간</th>
+							</tr>
+							<c:forEach var="dto" items="${list}">
+								<tr>
+									<td class="schedule_id">${dto.schedule_id} </td>
+									<td class="company_id">${dto.company_id } </td>
+									<td class="company_name">${dto.company_name } </td>
+									<td class="Date">${dto.date } </td>
+									<td class="time">${dto.time } </td>
+								</tr>
+							</c:forEach>
+						</table>
+						<br>
+						<div class="paging-container">
+							<div class="paging">
+								<c:if test="${totalCnt == null || totalCnt == 0 }">
+									<div>게시물이 없습니다.</div>
+								</c:if>
+								<c:if test="${totalCnt != null || totalCnt != 0 }">
+									<c:if test="${pr.showPrev }">
+										<a class="page" href="<c:url value="/board/list${pr.sc.getQueryString(pr.beginPage-1) }" />"> < </a>
+									</c:if>
+									<c:forEach var="i" begin="${pr.beginPage }" end="${pr.endPage }">
+										<a class="page" href="<c:url value="/board/list${pr.sc.getQueryString(i)}" />">${i }</a>
+									</c:forEach>
+									<c:if test="${pr.showNext }">
+										<a class="page" href="<c:url value="/board/list${pr.sc.getQueryString(pr.endPage+1) }" />"> > </a>
+									</c:if>						
+								</c:if>
+							</div> <!--paging 끝  -->
+						</div><!-- paging-container 끝  -->
+					</div> <!--schedule-container 끝  -->
+				</div> <!--test 첫번째 div  -->
+			</section>
 			
 		</section>
 			<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js">
 			</script>
 			<script type="text/javascript" 	src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js" ></script>
 		</body>
-		<script type="text/javascript">
-			
-			
-			
-			
-			
-			
-			
-		</script>
 		<script type="text/javascript">
 			$("#regBtn").on("click",function(){
 				let form =$("#form");

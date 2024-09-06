@@ -35,16 +35,16 @@ public class CalendarDaoImplTest {
 		assertTrue(calendarDao !=null);
 		calendarDao.delete(1);
 	}
-//	@Test
+	@Test
 	public void insert() throws Exception{
 		Time time=Time.valueOf("11:41:24");
 		Date date=new Date(124, 10, 3);
 		CompanyScheduleDto CScheduleDto=
-				new CompanyScheduleDto(1,"삼성",date,time);  
+				new CompanyScheduleDto(2,"이게 맞나",date,time);  
 		calendarDao.insert(CScheduleDto);
 	}
 	
-	@Test
+	//@Test
 	public void select() throws Exception{
 		
 		CompanyScheduleDto dto=calendarDao.select(3);
@@ -71,4 +71,6 @@ public class CalendarDaoImplTest {
 		 * System.out.println(calendar2.getSolarMonth());
 		 */
 	}
+	
+	
 }

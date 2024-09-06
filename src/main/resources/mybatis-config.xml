@@ -8,5 +8,6 @@
     <typeAliases>
         <typeAlias  alias="UserDto" type="kr.co.wedder.user.domain.UserDto" />
         <typeAlias alias="CompanyScheduleDto" type="kr.co.wedder.calendar.domain.CompanyScheduleDto"/>
+        <typeAlias alias="SearchItem" type="kr.co.wedder.calendar.domain.SearchItem"/>
     </typeAliases>
 </configuration>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.wedder.calendar.dao.CalendarDao;
 import kr.co.wedder.calendar.domain.CompanyScheduleDto;
+import kr.co.wedder.calendar.domain.SearchItem;
 
 @Service
 public class CalendarServiceImpl implements CalendarService {
@@ -35,6 +36,16 @@ public class CalendarServiceImpl implements CalendarService {
 		CompanyScheduleDto scheduleDto = calendarDao.select(schedule_id);
 		
 		return scheduleDto;
+	}
+
+	@Override
+	public int getSearchResultCount(SearchItem sc) throws Exception {
+		return calendarDao.searchResultCnt(sc);
+	}
+
+	@Override
+	public List<CompanyScheduleDto> getSearchResultPage(SearchItem sc) {
+		return calendarDao.searchSelectPage(sc);
 	}
 
 

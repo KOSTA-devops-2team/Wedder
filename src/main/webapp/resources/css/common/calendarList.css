@@ -68,3 +68,6 @@
    display: flex;
    flexdirection: column;
 }
+#currentHour , #currentMinute, #currentSecond{
+	display: none;
+}

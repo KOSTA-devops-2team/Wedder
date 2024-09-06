@@ -5,8 +5,27 @@
 <mapper namespace="kr.co.wedder.calendar.dao.CalendarMapper">
 	<!-- 참조되는 sql문-->
 	  <sql id="selectFromSchedule">
-	    SELECT schedule_id, company_id, company_name, `date`, `time`
-	    FROM company_schedule
+		    SELECT schedule_id, company_id, company_name, `date`, `time`
+		    FROM company_schedule
+	  </sql>
+	  <sql id="searchCondition">
+	  	<choose>
+			<when test='option=="T"'>
+ 				AND schedule_id LIKE concat('%', #{keyword}, '%')
+ 			</when>
+ 			<when test='option=="W"'>
+ 				AND company_id LIKE concat('%', #{keyword}, '%')
+ 			</when>
+ 			<when test='option=="R"'>
+ 				AND company_name LIKE concat('%', #{keyword}, '%')
+ 			</when>
+ 			<otherwise>
+ 				AND (schedule_id LIKE concat('%', #{keyword}, '%')
+ 				OR company_id LIKE concat('%', #{keyword}, '%')
+ 				OR company_name LIKE concat('%', #{keyword}, '%')
+ 				)
+ 			</otherwise> 	
+	  	</choose>
 	  </sql>
 	  
 	<!--deleteAll  -->
@@ -24,18 +43,26 @@
 		( company_id, company_name, `date`, `time`)
 		VALUES(#{company_id}, #{company_name}, #{date}, #{time})
 	</insert>
+	
 	<!-- selectOne-->
 	<select id="select" parameterType="int" resultType="CompanyScheduleDto">
 		<include refid="selectFromSchedule" />
 		WHERE schedule_id = #{schedule_id}
 	</select>
-	
-	<!-- <select id="searchSelectPage" parameterType="SearchItem" resultType="CompanyScheduleDto">
+	<!-- searchResultCnt -->
+	<select id="searchResultCnt" parameterType="SearchItem" resultType="int">
+ 		select count(*) from company_schedule
+ 		where true
+ 		<include refid="searchCondition" />
+ 	</select>
+ 	
+	<select id="searchSelectPage" parameterType="SearchItem" resultType="CompanyScheduleDto">
 		<include refid="selectFromSchedule" />
 		where true
-		order by schedule_id desc, company_id desc
+		<include refid="searchCondition" />
+		order by schedule_id desc
 		limit #{pageSize} offset #{offset}
- 	</select> -->
+ 	</select> 
 </mapper>
 
 
