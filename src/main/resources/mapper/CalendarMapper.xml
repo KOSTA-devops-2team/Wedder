@@ -5,7 +5,7 @@
 <mapper namespace="kr.co.wedder.calendar.dao.CalendarMapper">
 	<!-- 참조되는 sql문-->
 	  <sql id="selectFromSchedule">
-		    SELECT schedule_id, company_id, company_name, `date`, `time`
+		    SELECT schedule_id, company_id, company_name, `date`, time
 		    FROM company_schedule
 	  </sql>
 	  <sql id="searchCondition">
@@ -40,7 +40,7 @@
 	<!-- insert -->
 	<insert id="insert" parameterType="CompanyScheduleDto">
 		INSERT INTO wedder.company_schedule
-		( company_id, company_name, `date`, `time`)
+		( company_id, company_name, `date`, time)
 		VALUES(#{company_id}, #{company_name}, #{date}, #{time})
 	</insert>
 	

@@ -30,26 +30,26 @@ public class CalendarDaoImplTest {
 		assertTrue(calendarDao !=null);
 		calendarDao.deleteAll();
 	}
-//	@Test
+	//@Test
 	public void deletTest() throws Exception{
 		assertTrue(calendarDao !=null);
 		calendarDao.delete(1);
 	}
-	@Test
+	//@Test
 	public void insert() throws Exception{
-		Time time=Time.valueOf("11:41:24");
+		
 		Date date=new Date(124, 10, 3);
 		CompanyScheduleDto CScheduleDto=
-				new CompanyScheduleDto(2,"이게 맞나",date,time);  
+				new CompanyScheduleDto(2,"test",date,"11:00");  
 		calendarDao.insert(CScheduleDto);
 	}
 	
-	//@Test
+	@Test
 	public void select() throws Exception{
 		
-		CompanyScheduleDto dto=calendarDao.select(3);
+		CompanyScheduleDto dto=calendarDao.select(2);
 		System.out.println("CompanyDto ="+dto);
-		assertTrue(dto.getSchedule_id().equals(3));
+		assertTrue(dto.getSchedule_id().equals(2));
 		System.out.println(dto.getDate());
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(dto.getDate());

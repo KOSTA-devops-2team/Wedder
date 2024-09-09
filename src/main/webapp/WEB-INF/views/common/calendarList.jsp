@@ -26,16 +26,22 @@
 					<button id="nextBtn"> > </button>
 				</div>
 				<div id="scheduleBtn">
-					<button id ="regBtn" type="button" class="btn btn-write">일정 추가</button>
-					<button id ="delBtn" type="button" class="btn btn-del">일정 삭제</button>
+				
+					<button id ="regBtn" type="button" class="btn btn-write"
+					onclick="location.href='<c:url value="/calendar/write"/>' ">
+					<i class="fa fa-pencil-alt" aria-hidden="true"></i>일정 추가</button>
 				</div>
 				
 				<script type="text/javascript">
 					let msg="{msg}"
 					if(msg == "DEL_OK") alert("성공적으로 삭제되었습니다.")
 					if(msg == "DEL_ERR") alert("삭제되었거나 없는 게시물입니다.")
-					if(msg == "WRT_OK") alert("성공적으로 등록되었습니다.")
+					
+					if(msg == "WRT_OK") alert("일정이 추가되었습니다.")
 					if(msg == "MOD_OK") alert("성공적으로 수정되었습니다.")
+					
+					if(msg == "WRT_ERR") alert("일정 추가에 실패하였습니다. 재작성해 주세요.")
+					if(msg == "MOD_ERR") alert("성공적으로 수정되었습니다.")
 				</script>
 				
 				<div class ="calendar-body">
@@ -53,76 +59,73 @@
 				</div>
 					<div class = "calendar-footer">
 				</div>
+				
 			</form>
-			
-			<section id="test">
-				<div style="text-align: center;">
-					<div class="schedule-container">
-						<!-- <div class="searcdh-container">
-							<form action="" class="search-form" method="get">
-								<select class="search-option" name="option">
-									
-								</select>
-								<input type="text" name="key"> 
-							</form>
-						</div> -->
-						
-						<div>${dto.schedule_id }</div>
-						
-						<table>
-							<tr>
-								<th class="schedule_id">일정 번호</th>
-								<th class="company_id">회사 번호</th>
-								<th class="company_name">회사 이름</th>
-								<th class="date">예약 날짜</th>
-								<th class="time">예약 시간</th>
-							</tr>
-							<c:forEach var="dto" items="${list}">
+				<section id="calendarBoard">
+					<div style="text-align: center;">
+						<div class="schedule-container">
+							<!-- <div class="searcdh-container">
+								<form action="" class="search-form" method="get">
+									<select class="search-option" name="option">
+										
+									</select>
+									<input type="text" name="key"> 
+								</form>
+							</div> -->
+							
+							<div>${dto.schedule_id }</div>
+							
+							<table>
 								<tr>
-									<td class="schedule_id">${dto.schedule_id} </td>
-									<td class="company_id">${dto.company_id } </td>
-									<td class="company_name">${dto.company_name } </td>
-									<td class="Date">${dto.date } </td>
-									<td class="time">${dto.time } </td>
+									<th class="schedule_id">일정 번호</th>
+									<th class="company_id">회사 번호</th>
+									<th class="company_name">회사 이름</th>
+									<th class="date">예약 날짜</th>
+									<th class="time">예약 시간</th>
 								</tr>
-							</c:forEach>
-						</table>
-						<br>
-						<div class="paging-container">
-							<div class="paging">
-								<c:if test="${totalCnt == null || totalCnt == 0 }">
-									<div>게시물이 없습니다.</div>
-								</c:if>
-								<c:if test="${totalCnt != null || totalCnt != 0 }">
-									<c:if test="${pr.showPrev }">
-										<a class="page" href="<c:url value="/board/list${pr.sc.getQueryString(pr.beginPage-1) }" />"> < </a>
+								<c:forEach var="dto" items="${list}">
+									<tr>
+										<td class="schedule_id">${dto.schedule_id} </td>
+										<td class="company_id">${dto.company_id } </td>
+										<td class="company_name">${dto.company_name } </td>
+										<td class="Date">${dto.date } </td>
+										<td class="time">${dto.time } </td>
+									</tr>
+								</c:forEach>
+							</table>
+							<br>
+							<div class="paging-container">
+								<div class="paging">
+									<c:if test="${totalCnt == null || totalCnt == 0 }">
+										<div>게시물이 없습니다.</div>
 									</c:if>
-									<c:forEach var="i" begin="${pr.beginPage }" end="${pr.endPage }">
-										<a class="page" href="<c:url value="/board/list${pr.sc.getQueryString(i)}" />">${i }</a>
-									</c:forEach>
-									<c:if test="${pr.showNext }">
-										<a class="page" href="<c:url value="/board/list${pr.sc.getQueryString(pr.endPage+1) }" />"> > </a>
-									</c:if>						
-								</c:if>
-							</div> <!--paging 끝  -->
-						</div><!-- paging-container 끝  -->
-					</div> <!--schedule-container 끝  -->
-				</div> <!--test 첫번째 div  -->
-			</section>
+									<c:if test="${totalCnt != null || totalCnt != 0 }">
+										<c:if test="${pr.showPrev }">
+											<a class="page" href="<c:url value="/board/list${pr.sc.getQueryString(pr.beginPage-1) }" />"> < </a>
+										</c:if>
+										<c:forEach var="i" begin="${pr.beginPage }" end="${pr.endPage }">
+											<a class="page" href="<c:url value="/board/list${pr.sc.getQueryString(i)}" />">${i }</a>
+										</c:forEach>
+										<c:if test="${pr.showNext }">
+											<a class="page" href="<c:url value="/board/list${pr.sc.getQueryString(pr.endPage+1) }" />"> > </a>
+										</c:if>						
+									</c:if>
+								</div> <!--paging 끝  -->
+							</div><!-- paging-container 끝  -->
+						</div> <!--schedule-container 끝  -->
+					</div> <!--test 첫번째 div  -->
+				<div id="insertContainer">
+				<h2>registerSchedule</h2>
+				
 			
-		</section>
+				</div>
+				</section>
+			</section>			
 			<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js">
 			</script>
 			<script type="text/javascript" 	src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js" ></script>
 		</body>
 		<script type="text/javascript">
-			$("#regBtn").on("click",function(){
-				let form =$("#form");
-				form.attr("action","<c:url value="/calendar/write"/>")
-				form.attr("method","post")
-				
-				form.submit()
-			})
 			/*#currentMonth   */
 			
                 	 $(document).ready(function(){
@@ -149,7 +152,7 @@
                                  date.addClass("highlight");
                              }
                               
-                             let formattedDate=year+"."+month+"."+value;
+                             let formattedDate=year+"-"+month+"-"+value;
                              let formattedTime =hour+":"+minute+":"+second;
                              
                              let test={

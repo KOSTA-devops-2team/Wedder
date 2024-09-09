@@ -159,3 +159,7 @@ td {
 
   border-bottom: 1px solid #ccc;
 }
+
+#calendarBoard{
+	display: none;
+}

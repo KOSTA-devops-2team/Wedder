@@ -1,8 +1,9 @@
 package kr.co.wedder.calendar.domain;
 
-import java.sql.Time;
 import java.util.Date;
 import java.util.Objects;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -11,15 +12,15 @@ public class CompanyScheduleDto {
 	private Integer schedule_id;
 	private Integer company_id;
 	private String company_name;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date date;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
-	private Time time;
+	private String time;
 	
 	public CompanyScheduleDto() {
 	}
 
-	public CompanyScheduleDto(Integer company_id, String company_name, Date date, Time time) {
+	public CompanyScheduleDto(Integer company_id, String company_name, Date date, String time) {
 		this.company_id = company_id;
 		this.company_name = company_name;
 		this.date = date;
@@ -72,15 +73,13 @@ public class CompanyScheduleDto {
 		this.date = date;
 	}
 
-	public Time getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(Time time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
-
-
 
 	@Override
 	public String toString() {

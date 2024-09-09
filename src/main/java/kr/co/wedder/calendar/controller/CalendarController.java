@@ -47,8 +47,8 @@ public class CalendarController {
 	}
 	
 	@PostMapping("/remove") //X
-	public String remove(Integer schedule_id,RedirectAttributes rattr, HttpSession session) {
-		String writer=(String) session.getAttribute("id");
+	public String remove(Integer schedule_id,Integer page,Integer pageSize, RedirectAttributes rattr, HttpSession session) {
+		//String writer=(String) session.getAttribute("id");
 		String msg="DEL_OK";
 		
 		try {
@@ -58,31 +58,42 @@ public class CalendarController {
 			e.printStackTrace();
 			msg="DEL_ERR";
 		}
-		rattr.addAttribute("sch");
+		rattr.addAttribute("page",page);
+		rattr.addAttribute("pageSize",pageSize);
 		rattr.addAttribute("msg"+msg);
 		
-		return "redirect:/calendar";
+		return "redirect:/calendar/list";
 	}
-	@PostMapping("/write") //X
+	@PostMapping("/write") //XX
 	public String write(CompanyScheduleDto companyScheduleDto,RedirectAttributes rattr,Model m, HttpSession session) {
 		//String writer =(String) session.getAttribute("id");
 		//companyScheduleDto.set
+		
 		try {
 			if(calendarService.write(companyScheduleDto)!=1)
-				throw new Exception("Write Failed");
+				throw new Exception("Write Failed"); 
+			// 트랜잭션으로 calendarService.write값이 1과 같지 않을때 제대로 나오지 않았다 판단하여 페일을 준다.
 			
-			//rattr.addFlashAttribute("msg","WRT_OK");
 			
+			rattr.addFlashAttribute("msg","WRT_OK"); // 다시 재접속할때 속성으로 메시지에 write_ok라는 사인을 준다.
 			return "redirect: /wedder/calendar/list";
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			m.addAttribute("mode","new");
 			m.addAttribute("companyScheduleDto",companyScheduleDto);
-			m.addAttribute("msg","WRT_ERR");
-			return "calendar";
+			m.addAttribute("msg","WRT_ERR"); // 모델에 라이트 에러라고 준다.
+			
+			
+			return "/common/calendar";
 		}
 	}
+	@GetMapping("write") //O
+	public String write(Model m) {
+		m.addAttribute("mode","new");
+		return "/common/calendar";
+	}
+	
 	
 	@GetMapping("/list") //O
 	public String list(SearchItem sc,CompanyScheduleDto dto,Model m) throws Exception{
@@ -112,7 +123,7 @@ public class CalendarController {
 		CSDto.setCompany_id(4);
 		CSDto.setCompany_name("test용");
 		CSDto.setDate(date);
-		CSDto.setTime(time);
+		CSDto.setTime("11:00");
 		
 		return CSDto;
 	}
