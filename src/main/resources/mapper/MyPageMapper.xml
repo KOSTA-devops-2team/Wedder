@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.wedder.mypage.dao.MyPageMapper">
+	
+	<sql id="selectFromMyPage">
+		SELECT * FROM customer
+	</sql>
+	
+	<!--selectOne  -->
+	<select id="selectOne" parameterType="int" resultType="MyPageDTO">
+		<!-- <include refid="selectFromMyPage"></include> -->
+		SELECT * FROM customer
+		WHERE customer_id=#{customer_id}
+	</select>
+
+</mapper>

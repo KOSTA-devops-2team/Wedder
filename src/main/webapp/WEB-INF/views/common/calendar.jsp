@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>    
 
+
     
 <!DOCTYPE html>
 <html>
@@ -95,6 +96,7 @@
 			//console.log("EL로 전달된 값: " + time);
 		    //console.log("값의 타입: " + typeof time);
 		}
+	
 	</script>
 	<div class="container">
 	 	<h2 class="writing-header">일정 ${mode=="new"?"등록" : "확인" }</h2>
@@ -109,7 +111,7 @@
   			<%-- 스케 아이디<input type="hidden" name="schedule_id" value="${companyScheduleDto.schedule_id}"/><br/> --%>
   			회사 아이디<input type="text" name="company_id" value="${companyScheduleDto.company_id}"/>	 		
 			회사 이름<input type="text" name="company_name" value="${companyScheduleDto.company_name}"/>
-			날짜<input type="date" name="date" id="dateInput" value="${companyScheduleDto.date}"/>
+			날짜<input type="date" name="date" id="dateInput" value="<fmt:formatDate value="${companyScheduleDto.date}" pattern="yyyy-MM-dd"/>"/>
 			시간<input type="time" name="time" id="timeInput" value="${companyScheduleDto.time}"/><br>
 		
 			<c:if test="${mode eq 'new'}">

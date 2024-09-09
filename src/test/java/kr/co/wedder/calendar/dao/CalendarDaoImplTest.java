@@ -35,6 +35,7 @@ public class CalendarDaoImplTest {
 		assertTrue(calendarDao !=null);
 		calendarDao.delete(1);
 	}
+	
 	//@Test
 	public void insert() throws Exception{
 		
@@ -44,11 +45,12 @@ public class CalendarDaoImplTest {
 		calendarDao.insert(CScheduleDto);
 	}
 	
-	@Test
+//	@Test
 	public void select() throws Exception{
 		
 		CompanyScheduleDto dto=calendarDao.select(2);
 		System.out.println("CompanyDto ="+dto);
+		
 		assertTrue(dto.getSchedule_id().equals(2));
 		System.out.println(dto.getDate());
 		Calendar calendar = Calendar.getInstance();

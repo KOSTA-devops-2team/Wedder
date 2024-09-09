@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.calendar.domain.PageResolver;
@@ -32,7 +33,7 @@ public class CalendarController {
 	@Autowired
 	CalendarService calendarService;
 	
-	@GetMapping("/calendar") //X
+	@GetMapping("/calendar") //O
 	public String calendar(Integer schedule_Id,Model m) {
 		try {
 			CompanyScheduleDto dto = calendarService.read(schedule_Id);
@@ -60,11 +61,24 @@ public class CalendarController {
 		}
 		rattr.addAttribute("page",page);
 		rattr.addAttribute("pageSize",pageSize);
-		rattr.addAttribute("msg"+msg);
+		rattr.addAttribute("msg",msg);
 		
 		return "redirect:/calendar/list";
 	}
-	@PostMapping("/write") //XX
+	@GetMapping("/read")  //O
+	public String read(Integer schedule_id, SearchItem sc, Model m) {
+		try {
+			CompanyScheduleDto dto = calendarService.read(schedule_id);
+			m.addAttribute(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect: /wedder/calendar/list";
+		}
+		return "/common/calendar";
+	}
+	
+	
+	@PostMapping("/write") //O
 	public String write(CompanyScheduleDto companyScheduleDto,RedirectAttributes rattr,Model m, HttpSession session) {
 		//String writer =(String) session.getAttribute("id");
 		//companyScheduleDto.set

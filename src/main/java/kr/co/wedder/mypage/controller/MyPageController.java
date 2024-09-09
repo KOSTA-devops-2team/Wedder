@@ -1,9 +1,11 @@
 package kr.co.wedder.mypage.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/mypage")
 public class MyPageController {
 	
 	@RequestMapping("/mypage")
@@ -26,10 +28,16 @@ public class MyPageController {
 	public String paymentDetail() {
 		return "mypage/paymentDetail";
 	}
-	@RequestMapping(value="/reservation-detail")
+	
+	/*
+	 * @RequestMapping(value="/reservation-detail") public String
+	 * reservationDetail() { return "mypage/reservationDetail"; }
+	 */
+	@GetMapping("/reservation-detail")
 	public String reservationDetail() {
-		return "mypage/reservationDetail";
+		return "/mypage/reservationDetail";
 	}
+	
 	@RequestMapping(value="/reservation-list")
 	public String reservationList() {
 		return "mypage/reservationList";

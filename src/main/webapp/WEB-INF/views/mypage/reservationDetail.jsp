@@ -40,11 +40,25 @@
         <!-- 2. brand-filter -->
         <section class="tabs" id="reservation-detail-section2">
             <div class="brand-filter">
-                <h3>[스튜디오] 스튜디오</h3>
-                <h3>[드레스] 드레스</h3>
-                <h3>[메이크업] 메이크업</h3>
+                <h3 class="tab studio">[스튜디오] 스튜디오</h3>
+                <h3 class="tab dress">[드레스] 드레스</h3>
+                <h3 class="tab makeUp">[메이크업] 메이크업</h3>
             </div>
         </section>
+        
+        <script type="text/javascript">
+        	$(document).ready(function(){
+        		
+	        	$(".tab").on("click",function(){
+		        	//모든 탭에서 onTab클래스 제거
+		        	$(".tab").removeClass("onTab");
+		        	//현재 클릭한 탭만 생성
+		        	$(this).addClass("onTab");
+	        	})
+        	})
+        	
+        </script>
+        
         <!-- 3.calandar -->
         <section class="calandars" id="payment-detail-section3">
             <div class="calandars-payment-list">

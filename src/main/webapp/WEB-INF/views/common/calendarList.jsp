@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%> 
 <!DOCTYPE html>
 <html>
 	<head>
@@ -85,10 +86,16 @@
 								</tr>
 								<c:forEach var="dto" items="${list}">
 									<tr>
+									
 										<td class="schedule_id">${dto.schedule_id} </td>
-										<td class="company_id">${dto.company_id } </td>
+										<td class="company_id">
+											<a href="<c:url value="/calendar/read${pr.sc.getQueryString()}&schedule_id=${dto.schedule_id }" />">
+										${dto.company_id }</a> 
+										</td>
 										<td class="company_name">${dto.company_name } </td>
-										<td class="Date">${dto.date } </td>
+										<td class="Date">
+										<fmt:formatDate value="${dto.date}" pattern="yyyy-MM-dd"/>
+										 </td>
 										<td class="time">${dto.time } </td>
 									</tr>
 								</c:forEach>
@@ -114,11 +121,6 @@
 							</div><!-- paging-container 끝  -->
 						</div> <!--schedule-container 끝  -->
 					</div> <!--test 첫번째 div  -->
-				<div id="insertContainer">
-				<h2>registerSchedule</h2>
-				
-			
-				</div>
 				</section>
 			</section>			
 			<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js">

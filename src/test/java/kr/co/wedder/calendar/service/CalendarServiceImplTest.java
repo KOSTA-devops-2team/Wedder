@@ -22,12 +22,18 @@ public class CalendarServiceImplTest {
 	@Autowired
 	private CalendarServiceImpl service;
 	
+//	@Test
+//	public void insert() throws Exception{
+//		Date date=new Date(124, 10, 3);
+//		CompanyScheduleDto CScheduleDto=
+//				new CompanyScheduleDto(2,"testService",date,"11:20");  
+//		service.write(CScheduleDto);
+//	}
+	
 	@Test
-	public void insert() throws Exception{
-		Date date=new Date(124, 10, 3);
-		CompanyScheduleDto CScheduleDto=
-				new CompanyScheduleDto(2,"testService",date,"11:20");  
-		service.write(CScheduleDto);
+	public void remove() throws Exception{
+		service.remove(3);
+	
 	}
-
+	
 }
