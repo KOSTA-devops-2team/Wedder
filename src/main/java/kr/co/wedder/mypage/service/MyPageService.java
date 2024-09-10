@@ -1,8 +1,10 @@
 package kr.co.wedder.mypage.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
-public class MyPageService {
+import kr.co.wedder.mypage.domain.CompanyDto;
+import kr.co.wedder.mypage.domain.MyPageDTO;
 
+public interface MyPageService {
+	CompanyDto getList(CompanyDto companyDto) throws Exception;
 }

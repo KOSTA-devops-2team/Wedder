@@ -12,6 +12,6 @@
         <typeAlias alias="SearchItem" type="kr.co.wedder.calendar.domain.SearchItem"/>
         <!--calendar alias  -->
         <typeAlias alias="MyPageDTO" type="kr.co.wedder.mypage.domain.MyPageDTO"/>
-        
+        <typeAlias alias="CompanyDto" type="kr.co.wedder.mypage.domain.CompanyDto"/>
     </typeAliases>
 </configuration>

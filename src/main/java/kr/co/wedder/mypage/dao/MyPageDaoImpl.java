@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.wedder.mypage.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 
 @Repository
@@ -16,6 +17,12 @@ public class MyPageDaoImpl implements MyPageDao {
 	@Override
 	public MyPageDTO selectOne(Integer customer_id) throws Exception {
 		return session.selectOne(namespace+"selectOne",customer_id);
+	}
+
+	@Override
+	public CompanyDto selectCompany(CompanyDto companyDto) throws Exception {
+		
+		return session.selectOne(namespace+"selectCompany",companyDto);
 	}
 
 }

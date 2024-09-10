@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
     <title>마이페이지 사이드바</title>
   </head>
   <body>

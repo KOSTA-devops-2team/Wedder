@@ -7,6 +7,9 @@
 	<sql id="selectFromMyPage">
 		SELECT * FROM customer
 	</sql>
+	<sql id="selectFromCompany">
+		select * from company
+	</sql>
 	
 	<!--selectOne  -->
 	<select id="selectOne" parameterType="int" resultType="MyPageDTO">
@@ -14,5 +17,11 @@
 		SELECT * FROM customer
 		WHERE customer_id=#{customer_id}
 	</select>
-
+	
+	<select id="selectCompany" parameterType="CompanyDto" resultType="CompanyDto">
+		<include refid="selectFromCompany"></include>
+		Where 
+		company_id=#{company_id} and
+		company_category =#{company_category}
+	</select>
 </mapper>

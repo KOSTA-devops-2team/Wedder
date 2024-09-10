@@ -101,6 +101,14 @@
 								</c:forEach>
 							</table>
 							<br>
+							<div id="data"></div>
+							<div id="data1"></div>
+							<div id="data2"></div>
+							<div id="data3"></div>
+							<div id="data4"></div>
+							<div id="data5"></div>
+							<div id="data6"></div>
+							
 							<div class="paging-container">
 								<div class="paging">
 									<c:if test="${totalCnt == null || totalCnt == 0 }">
@@ -142,20 +150,11 @@
                              let minute =$("#currentMinute").text();
                              let second =$("#currentSecond").text();
                              
-                             
-                             
-                             // 기존에 .highlight 클래스가 있는지 확인
-                              if (date.hasClass("highlight")) {
-                                 // 이미 클래스가 있으면 제거
-                                 date.removeClass("highlight");
-                                 
-                             } else {
-                                 // 클래스가 없으면 추가
-                                 date.addClass("highlight");
-                             }
+                             $(".date").removeClass("highlight");
+                             $(this).addClass("highlight");
                               
                              let formattedDate=year+"-"+month+"-"+value;
-                             let formattedTime =hour+":"+minute+":"+second;
+                             let formattedTime =hour+":"+minute;
                              
                              let test={
                             		 schedule_id: 3,
@@ -175,14 +174,30 @@
                              	success: function(result){ // 서버로부터 응답이 도착하면 호출될 함수 
                              		test2 =JSON.parse(result) //result는 서버가 전송한 데이터 
                              		alert("received: "+result)
+                             		console.log(test2)
+                             		console.log(test2.date)
                              		//-> 컨트롤러에서 받은 값을 출력한다.
-                             		$("#data").html(
-                             				"schedule_id ="+test2.schedule_id+
-                             				",company_id ="+test2.company_id+
-                             				",company_name ="+test2.company_name+
-                             				",date ="+test2.date+
-                             				",time ="+test2.time
+                             		$("#data1").html(
+                             				"schedule_id ="+test2.schedule_id
                              				)
+                             		$("#data2").html(
+                             				"company_id ="+test2.company_id
+                             				)
+                             		$("#data3").html(
+                             				"company_name ="+test2.company_name
+                             				)
+                             		$("#data4").html(
+                             				"date ="+test2.date
+                             				)
+                             		$("#data5").html(
+                             				"time ="+test2.time
+                             				)
+                             		$("#data6").html(
+                             				"time ="+test.time
+                             				)
+                          				// test 는 내가 달력에서 클릭했을 때 나오는 데이터 값
+                          				// test2 는 컨트롤러에서 화면단으로 보내는 데이터 값
+                           				
                              	},
                              	error: function(){
                              		alert("error")

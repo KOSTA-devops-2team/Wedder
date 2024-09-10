@@ -8,7 +8,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/reservationDetail.css" />
     <link
@@ -56,6 +55,33 @@
 		        	$(this).addClass("onTab");
 	        	})
         	})
+        	/*  */
+        	let compnay_id=2;
+        	let showList =function(company_id){
+        		$.ajax({
+        			type: 'GET',
+        			url: "/wedder/mypage/historys?company_id="+company_id,
+        			success: function(result){
+        				$("#companyList").html(toHtml(result))
+        			},
+        			error:function(){
+        				alert("error")
+        			}
+        		})
+        	}
+        	/*  */
+        	$(document).ready(function(){
+        		showList(compnay_id)
+        	})
+        	
+        	/* 
+        	tab에는 스튜디오, 드레스 , 메이크업 3가지가 있는데, 
+        	스튜디오를 누를 시 스튜디오 업체의 정보를 가지고 오고,
+        	드레스를 누를 시 드레스 정보를 가지고 오고, 
+        	메이크업을 누를 시 메이크업 정보를 가져옴 
+        	
+        	 */
+        	 
         	
         </script>
         
@@ -65,6 +91,7 @@
                 <%@ include file="/WEB-INF/views/common/calendarList.jsp" %>
                 <div class="calandar-Content">
                   <div class="calandar-top">상세 예약 내역</div>
+                  
                   <div class="calandar-middle">
                     <div class="calendar-option-list">
                       <div class="calandar-option"> 야간촬영</div>
@@ -107,6 +134,7 @@
               <li class="option-tab"> 환불 안내</li>
             </ul>
           </div >
+           	<div id="companyList"></div>
             <div class="option-information">옵션 정보</div>
             <div>
               <table class="option-table">

@@ -17,8 +17,7 @@ import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
 public class CalendarServiceImplTest {
-	@Autowired
-	private CalendarDao dao;
+	
 	@Autowired
 	private CalendarServiceImpl service;
 	

@@ -131,7 +131,6 @@ public class CalendarController {
 		
 		Date date=new Date(2011-1900, 3-1, 5+1);
 		//Date(원하는년도-1900 ,원하는 달 -1,원하는 일+1); 
-		Time time=Time.valueOf("11:41:24");
 		System.out.println("CSDto="+CSDto);
 		CSDto.setSchedule_id(4);
 		CSDto.setCompany_id(4);
