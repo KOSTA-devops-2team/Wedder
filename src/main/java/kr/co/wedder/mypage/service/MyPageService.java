@@ -6,5 +6,6 @@ import kr.co.wedder.mypage.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 
 public interface MyPageService {
-	CompanyDto getList(CompanyDto companyDto) throws Exception;
+	CompanyDto getList(Integer company_id) throws Exception;
+	MyPageDTO read(Integer customer_id) throws Exception;
 }

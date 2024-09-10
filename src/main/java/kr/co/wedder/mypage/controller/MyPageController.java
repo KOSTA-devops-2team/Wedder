@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +19,36 @@ import kr.co.wedder.mypage.service.MyPageService;
 @Controller
 @RequestMapping("/mypage")
 public class MyPageController {
+	
 	@Autowired
 	MyPageService myPageService;
 	
-	@RequestMapping("/mypage")
-	public String mypage() {
-		return "mypage/mypage";
+	@GetMapping("/mypage")
+	public String mypage(Integer customer_id, Model m) {
+//		Integer customer_id, Model m
+//		try {
+//			MyPageDTO myPageDTO = myPageService.read(customer_id);
+//			m.addAttribute(myPageDTO);
+//			return "/mypage/mypage";
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return "redirect:/main";
+//		}
+		try {
+//			customer_id=1;
+			customer_id=2;
+			MyPageDTO myPageDTO = myPageService.read(customer_id);
+			m.addAttribute("myPageDTO",myPageDTO);
+			return "/mypage/mypage";
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect:/main";
+		}
+//		return "/mypage/mypage";
 	}
+	
 	@RequestMapping(value="/estimate-storage")
 	public String estimateStorage() {
 		return "mypage/estimateStorage";
@@ -57,7 +81,7 @@ public class MyPageController {
 		CompanyDto list = null;
 		
 			try {
-				list=myPageService.getList(companyDto);
+//				list=myPageService.getList(companyDto);
 				return new ResponseEntity<List<MyPageDTO>>((List<MyPageDTO>) list,HttpStatus.OK);
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -10,6 +10,9 @@
 	<sql id="selectFromCompany">
 		select * from company
 	</sql>
+	<sql id="selectFromReservation">
+		select * from reservation
+	</sql>
 	
 	<!--selectOne  -->
 	<select id="selectOne" parameterType="int" resultType="MyPageDTO">
@@ -18,10 +21,22 @@
 		WHERE customer_id=#{customer_id}
 	</select>
 	
-	<select id="selectCompany" parameterType="CompanyDto" resultType="CompanyDto">
+	<select id="selectCompany" parameterType="int" resultType="CompanyDto">
 		<include refid="selectFromCompany"></include>
-		Where 
-		company_id=#{company_id} and
-		company_category =#{company_category}
+		Where company_id=#{company_id} 
+	</select>
+	
+	<select id="selectReservation" parameterType="int" resultType="ReservationDto">
+		<include refid="selectFromReservation"></include>
+		Where
+		reservation_id = #{reservation_id}
+	</select>
+	
+	<select id="todayVisitHistory" parameterType="map" resultType="VisitCriteria">
+	SELECT company.company_name , customer.name, reservation.reservation_date, reservation.reservation_time
+		FROM reservation
+		 JOIN company ON reservation.company_id = company.company_id
+		 JOIN customer ON reservation.customer_id = customer.customer_id
+		 Where company.company_id=#{company_id} and customer.customer_id =#{customer_id}
 	</select>
 </mapper>

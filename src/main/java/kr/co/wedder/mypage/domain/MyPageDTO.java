@@ -22,6 +22,10 @@ public class MyPageDTO {
 		this.email = email;
 		this.gender = gender;
 	}
+	
+	public void setCustomer_id(Integer customer_id) {
+		this.customer_id = customer_id;
+	}
 	public String getId() {
 		return id;
 	}

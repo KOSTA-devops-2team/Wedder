@@ -67,37 +67,21 @@
                     </div>
                     <div>
                         <div class="profile-name">마타리</div>
-                        <div>전화 번호</div>
+                       	 <div>전화 번호</div>
                         <div class="profile-body">
                             <img
                                     src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/phone.png"
                                     alt="휴대폰 로고"
                             />
-                            <p>010</p>
-                            <p>-</p>
-                            <p></p>
-                            <p>-</p>
-                            <p></p>
+                            <input type="text" name="phone" id="phone" readonly="readonly" 
+                            value="${myPageDTO.phone}" style="font-size: 18px"
+                            >
                         </div>
                         <div>메일</div>
                         <div class="profile-body">
                             <img src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/mail.png" alt="메일 로고" />
-                            <p>matari 4593</p>
-                            <p>@</p>
-                            <p>naver.com</p>
-                        </div>
-                        <div>생일</div>
-                        <div class="profile-body">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/cake.png"
-                                    alt="생일 케이크 로고"
-                            />
-                            <p>1997</p>
-                            <p>년</p>
-                            <p>3</p>
-                            <p>월</p>
-                            <p>5</p>
-                            <p>일</p>
+                            <input type="text" name="mail" readonly="readonly" style="font-size: 18px"
+                            value="${myPageDTO.email}" >
                         </div>
                     </div>
                 </div>
@@ -106,7 +90,6 @@
             <section class="visit-plan" id="Mypage-section3">
                 <div class="sub-title-header">
                     <div class="sub-title">금일 방문 일정</div>
-
                     <div class="Reservation-mange-go">
                         <a href="#">방문 일정 상세보기>>></a>
                     </div>
