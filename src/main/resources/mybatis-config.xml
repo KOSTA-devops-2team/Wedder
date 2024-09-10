@@ -6,6 +6,6 @@
 
 <configuration>
     <typeAliases>
-        <typeAlias  alias="UserDto" type="kr.co.wedder.user.domain.UserDto" />
+        <typeAlias  alias="Customer" type="kr.co.wedder.customer.domain.CustomerDTO" />
     </typeAliases>
 </configuration>

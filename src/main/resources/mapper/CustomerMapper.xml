@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.wedder.customer.mapper.CustomerMapper">
+    <insert id="customerJoin" parameterType="Customer">
+        insert into customer (id, password, name, email, phone, gender) values(#{id},#{password},#{name},#{phone},#{email},#{gender})
+    </insert>
+</mapper>

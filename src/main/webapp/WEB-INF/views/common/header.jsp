@@ -1,5 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:set var="loginId" value="${sessionScope.id }" />
+<c:set var="loginout" value="${sessionScope.id==null ? 'Login' : 'Logout' }" />
+<c:set var="loginoutlink" value="${sessionScope.id==null ? '/log/login' : '/log/logout' }" />
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -46,12 +50,11 @@
                     <div class="header-user-container">
                         <ul class="header-user">
                             <li>
-                                <a href="../../html/admin/adminMain.html"
-                                    ><img
+                                <a href="<c:url value="${loginoutlink}" />">${loginout}
+                                    <img
                                         src="https://image.hago.kr/dev/main/pc/login.svg"
                                         alt="로그인"
                                 /></a>
-                                <div>로그인</div>
                             </li>
                             <li>
                                 <a href="../../html/mypage/mypage.html"
