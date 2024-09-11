@@ -128,12 +128,7 @@
         </div>
 
         <div class="main-btn">
-            <a
-                    href=WEB-INF/views/package/packageMain.jsp"
-                    class="main-button"
-            >
-                패키지 구경하러 가기
-            </a>
+            <a class="main-button" href="${pageContext.request.contextPath}/package">패키지 구경하러 가기</a>
         </div>
     </div>
 </section>

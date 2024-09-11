@@ -8,12 +8,12 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>mypage</title>
+    <title>packageList</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageRecommand.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageRecommend.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"/>
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>
+<%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -26,11 +26,11 @@
             <div class="grid-top">
                 <div class="grid">
                     <div class="package-picture">
-                        <img src="resources/images/basicPack.png" alt="Basic Pack">
+                        <img src="/resources/images/basicPack.png" alt="Basic Pack">
                     </div>
                     <div class="top-con">
                         <div class="content">
-                            <img src="resources/images/weddingThumbnail.png" alt="스튜디오">
+                            <img src="/resources/images/weddingThumbnail.png" alt="스튜디오">
                             <div class="content-detail">
                                 <p class="up">스튜디오 | 테오그라피</p>
                                 <p class="down">[웨딩촬영] 베이직 20P</p>
@@ -224,7 +224,7 @@
         </div>
     </div>
 </div>
-<div id="pagination-placeholder"></div>
+<%--<div id="pagination-placeholder"></div>--%>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

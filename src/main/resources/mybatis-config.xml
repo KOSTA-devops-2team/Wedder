@@ -7,5 +7,7 @@
 <configuration>
     <typeAliases>
         <typeAlias  alias="UserDto" type="kr.co.wedder.user.domain.UserDto" />
+        <typeAlias  alias="PackageDto" type="kr.co.wedder.sdmpackage.domain.PackageDto" />
+        <typeAlias  alias="PackageDetailDto" type="kr.co.wedder.sdmpackage.domain.PackageDetailDto" />
     </typeAliases>
 </configuration>

@@ -8,11 +8,9 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>mypage</title>
-    <!-- 링크 -->
+    <title>package detail</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageDetail.css"/>
-    <!-- 스크립트 -->
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/package/packageDetail.js"></script>
 </head>
@@ -25,7 +23,7 @@
             <h2>Simple Basic</h2>
         </div>
         <div class="service">
-            <img src="resources/images/weddingThumbnail.png" alt="웨딩촬영">
+            <img src="${pageContext.request.contextPath}/resources/images/weddingThumbnail.png" alt="웨딩촬영">
             <div class="description">
                 <h3>웨딩촬영</h3>
                 <p>앨범 1권 (20P) + 기본 액자 (20R)</p>
@@ -39,7 +37,7 @@
             </div>
         </div>
         <div class="service">
-            <img src="resources/images/dressThumbnail.png" alt="드레스">
+            <img src="${pageContext.request.contextPath}/resources/images/dressThumbnail.png" alt="드레스">
             <div class="description">
                 <h3>드레스</h3>
                 <p>촬영 드레스 3벌 + 본식 드레스 1벌</p>
@@ -52,7 +50,7 @@
             </div>
         </div>
         <div class="service">
-            <img src="resources/images/makeupThumbnail.png" alt="헤어&메이크업">
+            <img src="${pageContext.request.contextPath}/resources/images/makeupThumbnail.png" alt="헤어&메이크업">
             <div class="description">
                 <h3>헤어&메이크업</h3>
                 <p>촬영 1회 + 본식 1회 헤어 메이크업</p>
@@ -84,7 +82,7 @@
                 </div>
             </div>
             <div class="btn">
-                <button onclick="location.href='packageRecommend.html'" class="back">뒤로 가기</button>
+                <a class="main-button" href="${pageContext.request.contextPath}/package">뒤로 가기 </a>
                 <button onclick="location.href='weddingHallPayment.html'" class="pay">패키지 결제하기</button>
             </div>
         </div>

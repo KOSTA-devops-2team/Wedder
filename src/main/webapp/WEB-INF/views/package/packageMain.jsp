@@ -85,119 +85,79 @@
         <div class="swiper-next"></div>
     </div>
 </div>
-<div class="container">
-    <div class="notice">스드메 패키지,<br/> 이런 분들께 <span class="color">추천</span>드려요!</div>
-    <div class="recommendations">
+
+<div class="container hd__inner900">
+    <!--1. 패키지 설명-->
+    <div class="package-info">
+        <h1>패키지</h1>
+        <p>스드메 패키지,<br/> 이런 분들께 추천 드려요!</p>å
+    </div>
+    <section class="recommendations">
         <div class="recommendation">
             <img src="resources/images/recommand-pic1.png">
-            <div class="recommand-detail">
-                <div class="recommand-title">
-                    <span class="circle">1</span>
-                    <h2>합리적인 가격</h2>
-                </div>
-                <p>웨딩플래너 없이도 만족하실 수 있는<br>상품들을 투명한 정찰제 시행을 통해<br>업계 최저 가격으로 구성했어요.</p>
-            </div>
+            <h2>합리적인 가격</h2>
+            <p>웨딩플래너 없이도 만족하실 수 있는<br>상품들을 투명한 정찰제 시행을 통해 업계 최저 가격으로 구성했어요.</p>
         </div>
         <div class="recommendation">
             <img src="resources/images/recommand-pic2.png">
-            <div class="recommand-detail">
-                <div class="recommand-title">
-                    <span class="circle">2</span>
-                    <h2>맞춤형 서비스</h2>
-                </div>
-                <p>당신만을 위한 맞춤형 웨딩!<br>원하시는 분위기에 맞는 업체들을<br>한 곳에 모아뒀어요.</p>
-            </div>
+            <h2>맞춤형 서비스</h2>
+            <p>당신만을 위한 맞춤형 웨딩!<br>원하시는 분위기에 맞는 업체들을 한 곳에 모아뒀어요.</p>
         </div>
         <div class="recommendation">
             <img src="resources/images/recommand-pic3.png">
-            <div class="recommand-detail">
-                <div class="recommand-title">
-                    <span class="circle">3</span>
-                    <h2>편의성</h2>
-                </div>
-                <p>모든 웨딩 준비, 한 곳에서 해결하세요!<br>쉽고 빠르게 결혼식을 준비할 수 있도록<br>패키지를 구성했어요.</p>
-            </div>
+            <h2>편의성</h2>
+            <p>모든 웨딩 준비, 한 곳에서 해결하세요!<br>쉽고 빠르게 결혼식을 준비할 수 있도록 패키지를 구성했어요.</p>
         </div>
         <div class="recommendation">
             <img src="resources/images/recommand-pic4.png">
-            <div class="recommand-detail">
-                <div class="recommand-title">
-                    <span class="circle">4</span>
-                    <h2>프리미엄 패키지</h2>
-                </div>
-                <p>프리미엄 패키지를 통해<br>가장 특별한 순간을 놓치지 마세요.<br>한번에 좋은 날씨, 좋은 시간대를<br>예약할 수 있어요.</p>
-            </div>
+            <h2>프리미엄 패키지</h2>
+            <p>프리미엄 패키지를 통해<br>가장 특별한 순간을 놓치지 마세요.<br>한번에 좋은 날씨, 좋은 시간대를 예약할 수 있어요.</p>
         </div>
-    </div>
+    </section>
 
-    <!-- 이용방법 -->
-    <div class="step-title">
-        <div class="step-name">패키지 이용방법</div>
-    </div>
-    <div class="step-title">
-        <p>전문가가 선택한 실패 없는 조합,</p>
-        <p>바쁜 예비 부부를 위한 빠르고 간편한 솔루션 이용방법</p>
-    </div>
-    <div class="step">
-        <div class="step-content">
-            <img src="resources/images/icon-cart.png" alt="Step 1">
-            <div class="step-detail">
-                <p class="title">step 1 담기</p>
-                <p>다양한 패키지 중<br>취향에 맞는 패키지 장바구니에 담아요.</p>
-            </div>
-        </div>
-        <div class="step-content">
-            <img src="resources/images/icon-calander.png" alt="Step 2">
-            <div class="step-detail">
-                <p class="title">step2 스케줄 예약</p>
-                <p>원하는 날짜와 시간으로 예약!<br>궁금한 점도 전달사항에 남길 수 있어요.</p>
-            </div>
-        </div>
-        <div class="step-content">
-            <img src="resources/images/icon-payment.png" alt="Step 3">
-            <div class="step-detail">
-                <p class="title">step3 결제하기</p>
-                <p>선택한 패키지 확인 후,<br>최종 혜택가로 결제해요.<br>결제 방법도 다양해요.</p>
-            </div>
-        </div>
-        <div class="step-content">
-            <img src="resources/images/icon-document.png" alt="Step 4">
-            <div class="step-detail">
-                <p class="title">step4 서비스 이용</p>
-                <p>결제한 서비스를 예약한 일정에 맞춰 이용해요.<br>만족도 평가도 남길 수 있어요.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 패키지 -->
-    <div class="packages">
+    <!-- 2. 패키지 이용방법 -->
+    <section class="package-container">
         <div class="package-title">
-            <div class="package-best">Best Package</div>
-            <div class="package-watch"><a  href="views/package/packageRecommend.jsp">패키지 구경하기 →</a></div>
+            <h1>패키지 이용방법</h1>
+            <p>전문가가 선택한 조합,<br>바쁜 예비 부부를 위한 <br>빠르고 간편하게 알아보세요.</p>
         </div>
-        <div class="package-list">
-            <div class="package-content">
-                <img src="resources/images/bestPackage1.png" alt="Package 1">
-                <h3>화보 속 그 패키지</h3>
-                <p>S스튜디오 + 엔조최재훈 + 밈</p>
+
+        <!--패키지 이용방법 단계별 설명-->
+        <div class="steps">
+            <div class="step-content">
+                <img src="resources/images/icon-cart.png" alt="Step 1">
+                <div class="step-detail">
+                    <h3>Step 1 담기</h3>
+                    <p>다양한 패키지 중 취향에 맞는 패키지 장바구니에 담아요.</p>
+                </div>
             </div>
-            <div class="package-content">
-                <img src="resources/images/bestPackage2.png" alt="Package 2">
-                <h3>화보 속 그 패키지</h3>
-                <p>줄리의정원 + 펠리스노비아 + 이경민포레</p>
+            <div class="step-content">
+                <img src="resources/images/icon-calander.png" alt="Step 2">
+                <div class="step-detail">
+                    <h3>Step2 스케줄 예약</h3>
+                    <p>원하는 날짜와 시간으로 예약! 궁금한 점도 전달사항에 남길 수 있어요.</p>
+                </div>
             </div>
-            <div class="package-content">
-                <img src="resources/images/bestPackage3.png" alt="Package 3">
-                <h3>화보 속 그 패키지</h3>
-                <p>세미앙 + 모네뜨아르 + 제이와이</p>
+            <div class="step-content">
+                <img src="resources/images/icon-payment.png" alt="Step 3">
+                <div class="step-detail">
+                    <h3>Step3 결제하기</h3>
+                    <p>선택한 패키지 확인 후, 최종 혜택가로 결제해요. 결제 방법도 다양해요.</p>
+                </div>
             </div>
-            <div class="package-content">
-                <img src="resources/images/bestPackage4.png" alt="Package 4">
-                <h3>화보 속 그 패키지</h3>
-                <p>페레스튜디오 + 안나스포사 + 빈헤어</p>
+            <div class="step-content">
+                <img src="resources/images/icon-document.png" alt="Step 4">
+                <div class="step-detail">
+                    <h3>Step4 서비스 이용</h3>
+                    <p> 결제한 서비스를 예약한 일정에 맞춰 이용해요. 만족도 평가도 남길 수 있어요.</p>
+                </div>
             </div>
         </div>
-    </div>
+
+        <div class="package-btn">
+            <button type="button" onclick="location.href='package/recommend'">패키지 구경하러 가기</button>
+        </div>
+    </section>
 </div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

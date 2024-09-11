@@ -1,4 +1,14 @@
 package kr.co.wedder.sdmpackage.service;
 
+import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
+import kr.co.wedder.sdmpackage.domain.PackageDto;
+import java.util.List;
+
 public interface PackageService {
+
+    List<PackageDto> getBestPackages();
+
+    List<PackageDto> getMDPickPackages();
+
+    //PackageDetailDto getPackageDetail(int packageId);
 }
