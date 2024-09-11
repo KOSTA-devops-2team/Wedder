@@ -12,6 +12,7 @@ import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.VisitCriteria;
+import kr.co.wedder.mypage.domain.hallInfoDto;
 
 @Repository
 public class MyPageDaoImpl implements MyPageDao {
@@ -39,6 +40,10 @@ public class MyPageDaoImpl implements MyPageDao {
 	public HistoryDto selectHistory(Integer customer_id) throws Exception {
 		return session.selectOne(namespace+"selectHistory",customer_id);
 	}
+	@Override
+	public hallInfoDto selectHallInfo(Integer customer_id) throws Exception {
+		return session.selectOne(namespace+"selectHallInfo",customer_id);
+	}
 	
 	@Override
 	public List<VisitCriteria> todayVisitHistory(Map<String, Object> map) throws Exception {
@@ -54,5 +59,6 @@ public class MyPageDaoImpl implements MyPageDao {
 	public Integer todayVisitCount(Map<String, Object> map) throws Exception {
 		return session.selectOne(namespace+"todayVisitCount", map);
 	}
+
 
 }

@@ -19,6 +19,7 @@ import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.VisitCriteria;
+import kr.co.wedder.mypage.domain.hallInfoDto;
 import kr.co.wedder.mypage.service.MyPageService;
 
 @Controller
@@ -54,15 +55,16 @@ public class MyPageController {
 			CompanyDto companyDto =myPageService.companyRead(company_id);
 			ReservationDto reservationDto=myPageService.reservationRead(reservation_id);
 			HistoryDto historyDto = myPageService.historyRead(customer_id);
-			
+//			hallInfoDto hallInfoDto = myPage
 			// 모델 속성 추가
 			m.addAttribute("myPageDTO",myPageDTO);
 			m.addAttribute("companyDto",companyDto);
 			m.addAttribute("reservationDto",reservationDto);
 			m.addAttribute("historyDto",historyDto);
 			
+			
 			// 
-			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDTO, reservationDto,historyDto);
+			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDTO, reservationDto, historyDto, null)
 			visitCriteriaMap.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
 			visitCriteriaMap.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
 			m.addAttribute("visitCriteria",visitCriteria);

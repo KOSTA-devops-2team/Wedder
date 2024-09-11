@@ -18,8 +18,9 @@
         <typeAlias alias="CompanyDto" type="kr.co.wedder.mypage.domain.CompanyDto"/>
         <typeAlias alias="ReservationDto" type="kr.co.wedder.mypage.domain.ReservationDto"/>
         <typeAlias alias="HistoryDto" type="kr.co.wedder.mypage.domain.HistoryDto"/>
-        <typeAlias alias="VisitCriteria" type="kr.co.wedder.mypage.domain.VisitCriteria"/>
+        <typeAlias alias="hallInfoDto" type="kr.co.wedder.mypage.domain.hallInfoDto"/>
         
+        <typeAlias alias="VisitCriteria" type="kr.co.wedder.mypage.domain.VisitCriteria"/>
         <!--  -->
     </typeAliases>
 </configuration>

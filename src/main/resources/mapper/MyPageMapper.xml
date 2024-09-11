@@ -16,6 +16,10 @@
 	<sql id="selectFromHistory">
 		select * from history
 	</sql>
+	<sql id="selectFromHallInfo">
+		select * from history
+	</sql>
+	
 	
 	<resultMap type="VisitCriteria" id="joinVisitCriteria">
 	
@@ -38,6 +42,10 @@
 		
 		<association property="historyDto" javaType="HistoryDto">
 			<result column="reservation_status" property="reservation_status"/>
+		</association>
+		
+		<association property="hallInfoDto" javaType="hallInfoDto">
+			<result column="min_people" property="min_people"/>
 		</association>
 		
 	</resultMap>
@@ -64,6 +72,11 @@
 		WHERE customer_id=#{customer_id}
 	</select>
 	
+	<select id="selectHallInfo" parameterType="int" resultType="hallInfoDto">
+		<include refid="selectFromHallInfo"></include>
+		WHERE customer_id=#{customer_id}
+	</select>
+	
 	<select id="todayVisitHistory" parameterType="map" resultMap="joinVisitCriteria" >
 		SELECT company_name , name, reservation_date, reservation_time, reservation_status
 		FROM reservation
@@ -80,7 +93,6 @@
 		 JOIN customer ON reservation.customer_id = customer.customer_id
 		 JOIN history ON history.customer_id = customer.customer_id
 		 Where customer.customer_id =#{customer_id} 
-		 
 	</select>
 	
 	<select id="todayReservationHistory" parameterType="map" resultType="CompanyDto">
@@ -88,5 +100,15 @@
 		where company_category =#{company_category}
 		order by company_id desc,company_name desc
 	</select>
+	
+	<select id="hallVisitReservationHistory " parameterType="map" resultMap="joinVisitCriteria"> 
+		SELECT company_name , name, reservation_date, reservation_time, reservation_status
+		FROM reservation
+         JOIN company ON reservation.company_id = company.company_id
+         JOIN customer ON reservation.customer_id = customer.customer_id
+         JOIN history ON history.customer_id = customer.customer_id
+		Where reservation.customer_id =#{customer_id};
+	</select>
+
 	
 </mapper>

@@ -17,6 +17,7 @@ import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.VisitCriteria;
+import kr.co.wedder.mypage.domain.hallInfoDto;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
@@ -61,8 +62,10 @@ public class MyPageDaoImplTest {
 		ReservationDto reservationDto=dao.selectReservation(1);
 //		System.out.println(reservationDto);
 		HistoryDto historyDto = dao.selectHistory(1);
+		hallInfoDto hallInfoDto = dao.selectHallInfo(1);
 		
-		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto);
+		
+		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto,hallInfoDto);
 		map.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
 		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
 
@@ -82,7 +85,7 @@ public class MyPageDaoImplTest {
 		위 4가지 컬럼들 이외의 값들은 null이 나오는 게 정상		
 		*/
 	}
-//	@Test
+//	//@Test
 	public void todayVisitCount() throws Exception{
 		Map<String, Object> map= new HashMap<>();
 		MyPageDTO myPageDto =dao.selectOne(1);
@@ -92,8 +95,9 @@ public class MyPageDaoImplTest {
 		ReservationDto reservationDto=dao.selectReservation(1);
 //		System.out.println(reservationDto);
 		HistoryDto historyDto = dao.selectHistory(1);
+		hallInfoDto hallInfoDto = dao.selectHallInfo(1);
 		
-		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto);
+		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto,hallInfoDto);
 		map.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
 		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
 		Integer cnt=dao.todayVisitCount(map);
@@ -109,5 +113,10 @@ public class MyPageDaoImplTest {
 		map.put("company_category",companyDto.getCompany_category());
 		List<CompanyDto> list = dao.todayReservationHistory(map);
 	}
-	
+	@Test
+	public void selectHallInfo() throws Exception{
+		
+		hallInfoDto hallInfoDto= dao.selectHallInfo(1);
+		System.out.println("hallInfoDto= "+hallInfoDto);
+	}
 }

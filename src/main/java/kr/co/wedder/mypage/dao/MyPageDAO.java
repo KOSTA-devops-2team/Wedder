@@ -8,6 +8,7 @@ import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.VisitCriteria;
+import kr.co.wedder.mypage.domain.hallInfoDto;
 
 public interface MyPageDao {
 	
@@ -22,6 +23,8 @@ public interface MyPageDao {
 	
 	//History
 	HistoryDto selectHistory(Integer customer_id) throws Exception;
+	
+	hallInfoDto selectHallInfo(Integer customer_id) throws Exception;
 	
 	//금일 방문 일정 카운트 가져오기 
 	Integer todayVisitCount(Map<String,Object> map) throws Exception;

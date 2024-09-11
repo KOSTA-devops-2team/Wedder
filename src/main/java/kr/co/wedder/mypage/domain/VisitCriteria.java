@@ -7,19 +7,19 @@ public class VisitCriteria {
 	private MyPageDTO myPageDTO;
 	private ReservationDto reservationDto;
 	private HistoryDto historyDto;
+	private hallInfoDto hallInfoDto;
 	
 	public VisitCriteria() {
 	}
 
-	
 	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
-			HistoryDto historyDto) {
+			HistoryDto historyDto, kr.co.wedder.mypage.domain.hallInfoDto hallInfoDto) {
 		this.companyDto = companyDto;
 		this.myPageDTO = myPageDTO;
 		this.reservationDto = reservationDto;
 		this.historyDto = historyDto;
+		this.hallInfoDto = hallInfoDto;
 	}
-
 
 	public CompanyDto getCompanyDto() {
 		return companyDto;
@@ -53,15 +53,17 @@ public class VisitCriteria {
 		this.historyDto = historyDto;
 	}
 
-	@Override
-	public String toString() {
-		return "VisitCriteria [companyDto=" + companyDto + ", myPageDTO=" + myPageDTO + ", reservationDto="
-				+ reservationDto + ", historyDto=" + historyDto + "]";
+	public hallInfoDto getHallInfoDto() {
+		return hallInfoDto;
+	}
+
+	public void setHallInfoDto(hallInfoDto hallInfoDto) {
+		this.hallInfoDto = hallInfoDto;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(companyDto, historyDto, myPageDTO, reservationDto);
+		return Objects.hash(companyDto, hallInfoDto, historyDto, myPageDTO, reservationDto);
 	}
 
 	@Override
@@ -73,9 +75,16 @@ public class VisitCriteria {
 		if (getClass() != obj.getClass())
 			return false;
 		VisitCriteria other = (VisitCriteria) obj;
-		return Objects.equals(companyDto, other.companyDto) && Objects.equals(historyDto, other.historyDto)
-				&& Objects.equals(myPageDTO, other.myPageDTO) && Objects.equals(reservationDto, other.reservationDto);
+		return Objects.equals(companyDto, other.companyDto) && Objects.equals(hallInfoDto, other.hallInfoDto)
+				&& Objects.equals(historyDto, other.historyDto) && Objects.equals(myPageDTO, other.myPageDTO)
+				&& Objects.equals(reservationDto, other.reservationDto);
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "VisitCriteria [companyDto=" + companyDto + ", myPageDTO=" + myPageDTO + ", reservationDto="
+				+ reservationDto + ", historyDto=" + historyDto + ", hallInfoDto=" + hallInfoDto + "]";
+	}
+
+		
 }

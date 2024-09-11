@@ -12,6 +12,7 @@ import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.VisitCriteria;
+import kr.co.wedder.mypage.domain.hallInfoDto;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
@@ -50,6 +51,11 @@ public class MyPageServiceImpl implements MyPageService {
 	@Override
 	public List<CompanyDto> todayReservationHistory(Map<String, Object> map) throws Exception {
 		return myPageDao.todayReservationHistory(map);
+	}
+
+	@Override
+	public hallInfoDto hallInfoRead(Integer cusomter_id) throws Exception {
+		return null;
 	}
 
 
