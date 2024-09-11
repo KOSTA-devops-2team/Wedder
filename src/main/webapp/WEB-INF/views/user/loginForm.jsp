@@ -42,6 +42,8 @@
             <input type="hidden" name="toURL" value="${param.toURL }" />
             <button class="login-btn">로그인하기</button>
         </form>
+        <label><input type="checkbox" name="rememberId" value="on" ${empty cookie.id.value ? "" : "checked" } />아이디 기억</label>
+
     </section>
 
     <!-- 소셜 로그인 -->
@@ -68,7 +70,6 @@
         <a href=<c:url value="/user/register" />>
             <button class="signup-btn">간편 회원가입하기</button>
         </a>
-        <label><input type="checkbox" name="rememberId" value="on" ${empty cookie.id.value ? "" : "checked" } />아이디 기억</label>
         <div class="user-support">
             <a href="#">계정 찾기</a>
             <a href="#">비밀번호 찾기</a>

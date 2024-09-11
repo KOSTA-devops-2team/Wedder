@@ -1,7 +1,10 @@
 package kr.co.wedder.customer.controller;
 
+import kr.co.wedder.customer.domain.CustomerDTO;
 import kr.co.wedder.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +19,59 @@ public class RegisterController {
     @GetMapping("/register")
     public String loginForm() {
         return "/user/registerForm";
+    }
+
+    // 회원가입 처리
+    @PostMapping("/register")
+    public ResponseEntity<String> registerCustomer(@RequestBody CustomerDTO customerDTO) {
+        try {
+            // 회원 가입 처리 로직
+            boolean isRegistered = customerService.customerJoin(customerDTO);
+
+            if (isRegistered) {
+                return new ResponseEntity<>("Registration successful", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Registration failed", HttpStatus.BAD_REQUEST);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    // 아이디 중복 체크
+    @PostMapping("/checkId")
+    public ResponseEntity<String> checkId(@RequestBody CustomerDTO customerDTO) {
+        try {
+            String id = customerDTO.getId();
+            boolean isAvailable = customerService.checkIdAvailability(id);
+
+            if (isAvailable) {
+                return new ResponseEntity<>("Available", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Duplicated", HttpStatus.OK);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    // 로그인 처리
+    @PostMapping("/loginCheck")
+    public ResponseEntity<String> loginCheck(@RequestBody CustomerDTO customerDTO) {
+        try {
+            // 로그인 처리 로직
+            String result = customerService.login(customerDTO.getId(), customerDTO.getPassword());
+
+            if ("loginSuccess".equals(result)) {
+                return new ResponseEntity<>("loginSuccess", HttpStatus.OK);
+            } else if ("pwFail".equals(result)) {
+                return new ResponseEntity<>("pwFail", HttpStatus.UNAUTHORIZED);
+            } else {
+                return new ResponseEntity<>("idFail", HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
 
