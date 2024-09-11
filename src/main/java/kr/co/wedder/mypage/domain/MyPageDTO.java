@@ -11,18 +11,21 @@ public class MyPageDTO {
 	private String phone;
 	private String email;
 	private Integer gender;
+	private String profile_url;
+	
 	public MyPageDTO() {
 	}
-	public MyPageDTO(String id, String password, String name, String phone, String email,
-			Integer gender) {
+	public MyPageDTO(Integer customer_id, String id, String password, String name, String phone, String email,
+			Integer gender, String profile_url) {
+		this.customer_id = customer_id;
 		this.id = id;
 		this.password = password;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
 		this.gender = gender;
+		this.profile_url = profile_url;
 	}
-	
 	public void setCustomer_id(Integer customer_id) {
 		this.customer_id = customer_id;
 	}
@@ -65,9 +68,15 @@ public class MyPageDTO {
 	public Integer getCustomer_id() {
 		return customer_id;
 	}
+	public String getProfile_url() {
+		return profile_url;
+	}
+	public void setProfile_url(String profile_url) {
+		this.profile_url = profile_url;
+	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(customer_id, email, gender, id, name, password, phone);
+		return Objects.hash(customer_id, email, gender, id, name, password, phone, profile_url);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -81,12 +90,13 @@ public class MyPageDTO {
 		return Objects.equals(customer_id, other.customer_id) && Objects.equals(email, other.email)
 				&& Objects.equals(gender, other.gender) && Objects.equals(id, other.id)
 				&& Objects.equals(name, other.name) && Objects.equals(password, other.password)
-				&& Objects.equals(phone, other.phone);
+				&& Objects.equals(phone, other.phone) && Objects.equals(profile_url, other.profile_url);
 	}
+	
 	@Override
 	public String toString() {
 		return "MyPageDTO [customer_id=" + customer_id + ", id=" + id + ", password=" + password + ", name=" + name
-				+ ", phone=" + phone + ", email=" + email + ", gender=" + gender + "]";
+				+ ", phone=" + phone + ", email=" + email + ", gender=" + gender + ", profile_url=" + profile_url + "]";
 	}
 	
 	

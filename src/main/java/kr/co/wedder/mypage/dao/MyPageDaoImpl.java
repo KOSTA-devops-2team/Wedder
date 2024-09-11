@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.wedder.mypage.domain.CompanyDto;
+import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.VisitCriteria;
@@ -30,14 +31,28 @@ public class MyPageDaoImpl implements MyPageDao {
 	}
 
 	@Override
-	public List<VisitCriteria> todayVisitHistory(Map map) throws Exception {
+	public CompanyDto selectCompany(Integer company_id) throws Exception {
+		return session.selectOne(namespace+"selectCompany",company_id);
+	}
+
+	@Override
+	public HistoryDto selectHistory(Integer customer_id) throws Exception {
+		return session.selectOne(namespace+"selectHistory",customer_id);
+	}
+	
+	@Override
+	public List<VisitCriteria> todayVisitHistory(Map<String, Object> map) throws Exception {
 		return session.selectList(namespace+"todayVisitHistory",map);
 	}
 
 	@Override
-	public CompanyDto selectCompany(Integer company_id) throws Exception {
+	public List<CompanyDto> todayReservationHistory(Map<String, Object> map) throws Exception {
+		return session.selectList(namespace+"todayReservationHistory",map);
+	}
 
-		return session.selectOne(namespace+"selectCompany",company_id);
+	@Override
+	public Integer todayVisitCount(Map<String, Object> map) throws Exception {
+		return session.selectOne(namespace+"todayVisitCount", map);
 	}
 
 }

@@ -3,28 +3,23 @@ package kr.co.wedder.mypage.domain;
 import java.util.Objects;
 
 public class VisitCriteria {
-	private String status;
 	private CompanyDto companyDto;
 	private MyPageDTO myPageDTO;
 	private ReservationDto reservationDto;
+	private HistoryDto historyDto;
 	
 	public VisitCriteria() {
 	}
 
-	public VisitCriteria(String status, CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto) {
-		this.status = status;
+	
+	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
+			HistoryDto historyDto) {
 		this.companyDto = companyDto;
 		this.myPageDTO = myPageDTO;
 		this.reservationDto = reservationDto;
+		this.historyDto = historyDto;
 	}
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
 
 	public CompanyDto getCompanyDto() {
 		return companyDto;
@@ -50,15 +45,23 @@ public class VisitCriteria {
 		this.reservationDto = reservationDto;
 	}
 
+	public HistoryDto getHistoryDto() {
+		return historyDto;
+	}
+
+	public void setHistoryDto(HistoryDto historyDto) {
+		this.historyDto = historyDto;
+	}
+
 	@Override
 	public String toString() {
-		return "VisitCriteria [status=" + status + ", companyDto=" + companyDto + ", myPageDTO=" + myPageDTO
-				+ ", reservationDto=" + reservationDto + "]";
+		return "VisitCriteria [companyDto=" + companyDto + ", myPageDTO=" + myPageDTO + ", reservationDto="
+				+ reservationDto + ", historyDto=" + historyDto + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(companyDto, myPageDTO, reservationDto, status);
+		return Objects.hash(companyDto, historyDto, myPageDTO, reservationDto);
 	}
 
 	@Override
@@ -70,8 +73,8 @@ public class VisitCriteria {
 		if (getClass() != obj.getClass())
 			return false;
 		VisitCriteria other = (VisitCriteria) obj;
-		return Objects.equals(companyDto, other.companyDto) && Objects.equals(myPageDTO, other.myPageDTO)
-				&& Objects.equals(reservationDto, other.reservationDto) && Objects.equals(status, other.status);
+		return Objects.equals(companyDto, other.companyDto) && Objects.equals(historyDto, other.historyDto)
+				&& Objects.equals(myPageDTO, other.myPageDTO) && Objects.equals(reservationDto, other.reservationDto);
 	}
 	
 	

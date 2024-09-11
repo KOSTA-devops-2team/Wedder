@@ -21,9 +21,9 @@ public class ReservationDto {
 	public ReservationDto() {
 	}
 
-	public ReservationDto(Integer company_id, Integer custoimer_id, Date reservation_date, String reservation_time) {
+	public ReservationDto(Integer company_id, Integer customer_id, Date reservation_date, String reservation_time) {
 		this.company_id = company_id;
-		this.customer_id = custoimer_id;
+		this.customer_id = customer_id;
 		this.reservation_date = reservation_date;
 		this.reservation_time = reservation_time;
 	}
@@ -36,12 +36,12 @@ public class ReservationDto {
 		this.reservation_id = reservation_id;
 	}
 
-	public Integer getCustoimer_id() {
+	public Integer getCustomer_id() {
 		return customer_id;
 	}
 
-	public void setCustoimer_id(Integer custoimer_id) {
-		this.customer_id = custoimer_id;
+	public void setCustomer_id(Integer customer_id) {
+		this.customer_id = customer_id;
 	}
 
 	public Date getReservation_date() {
@@ -86,7 +86,7 @@ public class ReservationDto {
 
 	@Override
 	public String toString() {
-		return "ReservationDto [reservation_id=" + reservation_id + ", company_id=" + company_id + ", custoimer_id="
+		return "ReservationDto [reservation_id=" + reservation_id + ", company_id=" + company_id + ", customer_id="
 				+ customer_id + ", reservation_date=" + reservation_date + ", reservation_time=" + reservation_time
 				+ "]";
 	}

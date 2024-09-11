@@ -6,14 +6,20 @@
 
 <configuration>
     <typeAliases>
+    
         <typeAlias  alias="UserDto" type="kr.co.wedder.user.domain.UserDto" />
-        <!--  -->
+        
+        <!--calendar alias  -->
         <typeAlias alias="CompanyScheduleDto" type="kr.co.wedder.calendar.domain.CompanyScheduleDto"/>
         <typeAlias alias="SearchItem" type="kr.co.wedder.calendar.domain.SearchItem"/>
-        <!--calendar alias  -->
+        
+        <!--mypage alias  -->
         <typeAlias alias="MyPageDTO" type="kr.co.wedder.mypage.domain.MyPageDTO"/>
         <typeAlias alias="CompanyDto" type="kr.co.wedder.mypage.domain.CompanyDto"/>
         <typeAlias alias="ReservationDto" type="kr.co.wedder.mypage.domain.ReservationDto"/>
+        <typeAlias alias="HistoryDto" type="kr.co.wedder.mypage.domain.HistoryDto"/>
         <typeAlias alias="VisitCriteria" type="kr.co.wedder.mypage.domain.VisitCriteria"/>
+        
+        <!--  -->
     </typeAliases>
 </configuration>
