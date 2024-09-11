@@ -8,11 +8,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>paymentDetail</title>
-      <link rel="stylesheet" href="resources/css/common/reset.css" />
-      <link rel="stylesheet" href="resources/css/mypage/paymentDetail.css" />
+
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/paymentDetail.css" />
   	  <link
         rel="stylesheet"
-        href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
+        href="${pageContext.request.contextPath}/resources/css/common/sidebar/sidebarMypage.css"
       />
       <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
       <script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>

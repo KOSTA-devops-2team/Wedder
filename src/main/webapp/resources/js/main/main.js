@@ -19,7 +19,7 @@ document.querySelectorAll(".hall-subtitle-item").forEach((hall) => {
 });
 
 let mainTitle = document.querySelector(".main-content");
-observer.observe(mainTitle);
+//observer.observe(mainTitle);
 
 document.querySelectorAll(".common-title").forEach((common) => {
     observer.observe(common);
@@ -46,12 +46,12 @@ let leftToRightObserver = new IntersectionObserver((entries) => {
 });
 
 let hallImg = document.querySelector(".hall-image");
-rightToLeftObserver.observe(hallImg);
+//rightToLeftObserver.observe(hallImg);
 
 let packageImgs = document.querySelectorAll(".package-img");
-rightToLeftObserver.observe(packageImgs[0]);
-leftToRightObserver.observe(packageImgs[1]);
-rightToLeftObserver.observe(packageImgs[2]);
+//rightToLeftObserver.observe(packageImgs[0]);
+//leftToRightObserver.observe(packageImgs[1]);
+//rightToLeftObserver.observe(packageImgs[2]);
 
 // 시간차를 둔 아래 -> 위 애니메이션
 let imgObserver = new IntersectionObserver((entries) => {
