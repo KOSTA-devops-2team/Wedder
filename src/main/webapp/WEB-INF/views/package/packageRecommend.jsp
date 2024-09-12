@@ -13,216 +13,175 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageRecommend.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"/>
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-<%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
+    <%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <div class="hd__inner1100">
-    <div class="container-main">
-        <div class="container-top">
-            <div class="pack-title">
-                <p>Best Package</p>
-            </div>
-            <div class="grid-top">
+    <!--BestPackage-->
+    <section class="package-section">
+        <div class="pack-title">
+            <p>Best Package</p>
+        </div>
+        <div class="grid-top">
+            <c:forEach var="BestPackage" items="${BestPackages}">
                 <div class="grid">
                     <div class="package-picture">
-                        <img src="/resources/images/basicPack.png" alt="Basic Pack">
+                        <img src="${BestPackage.packageImg}" alt="${BestPackage.packageName}">
                     </div>
                     <div class="top-con">
                         <div class="content">
-                            <img src="/resources/images/weddingThumbnail.png" alt="스튜디오">
+                            <img src="${BestPackage.packageImg}" alt="${BestPackage.packageImg}">
                             <div class="content-detail">
-                                <p class="up">스튜디오 | 테오그라피</p>
-                                <p class="down">[웨딩촬영] 베이직 20P</p>
+                                <p class="up">스튜디오 | ${BestPackage.studioName}</p>
+                                    <%--                                    <p class="down">[웨딩촬영] ${MDPickPackage.studioDetail}</p>--%>
                             </div>
                         </div>
                         <div class="content">
-                            <img src="resources/images/dressThumbnail.png" alt="드레스">
+                            <img src="${BestPackage.packageImg}" alt="${BestPackage.packageImg}">
                             <div class="content-detail">
-                                <p class="up">드레스 | 브라이덜수지</p>
-                                <p class="down">[촬영+본식] 드레스 4벌</p>
+                                <p class="up">드레스 | ${BestPackage.dressName}</p>
+                                    <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.dressDetail}</p>--%>
                             </div>
                         </div>
                         <div class="content-bottom">
-                            <img src="resources/images/makeupThumbnail.png" alt="메이크업">
+                            <img src="${BestPackage.packageImg}" alt="${BestPackage.packageImg}">
                             <div class="content-detail">
-                                <p class="up">헤어/메이크업 | 고센&끌림뷰티</p>
-                                <p class="down">[촬영+본식] 신부신랑 헤어메이크업</p>
+                                <p class="up">헤어/메이크업 | ${BestPackage.makeupName}</p>
+                                    <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.makeupDetail}</p>--%>
                             </div>
                         </div>
-                        <a class="detail" href="../../html/Package/packageDetails.html">상품 자세히 보기 &#62;</a>
+                        <a class="detail" href="${pageContext.request.contextPath}/package/${BestPackage.packageId}/detail">상품
+                            자세히 보기 &#62;</a>
                     </div>
                 </div>
+            </c:forEach>
+        </div>
+    </section>
+
+
+    <!--MD Pick-->
+    <section class="package-section">
+        <div class="pack-title">
+            <p>MD Pick</p>
+        </div>
+        <div class="grid-top">
+            <c:forEach var="MDPickPackage" items="${MDPickPackages}">
                 <div class="grid">
                     <div class="package-picture">
-                        <img src="resources/images/standardPack.png" alt="Basic Pack">
+                        <img src="${MDPickPackage.packageImg}" alt="${MDPickPackage.packageName}">
                     </div>
                     <div class="top-con">
                         <div class="content">
-                            <img src="resources/images/weddingThumbnail.png" alt="스튜디오">
+                            <img src="${MDPickPackage.packageImg}" alt="${MDPickPackage.packageImg}">
                             <div class="content-detail">
-                                <p class="up">스튜디오 | 테오그라피</p>
-                                <p class="down">[웨딩촬영] 베이직 20P</p>
+                                <p class="up">스튜디오 | ${MDPickPackage.studioName}</p>
+                                    <%--                                    <p class="down">[웨딩촬영] ${MDPickPackage.studioDetail}</p>--%>
                             </div>
                         </div>
                         <div class="content">
-                            <img src="resources/images/dressThumbnail.png" alt="드레스">
+                            <img src="${MDPickPackage.packageImg}" alt="${MDPickPackage.packageImg}">
                             <div class="content-detail">
-                                <p class="up">드레스 | 브라이덜수지</p>
-                                <p class="down">[촬영+본식] 드레스 4벌</p>
+                                <p class="up">드레스 | ${MDPickPackage.dressName}</p>
+                                    <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.dressDetail}</p>--%>
                             </div>
                         </div>
                         <div class="content-bottom">
-                            <img src="resources/images/makeupThumbnail.png" alt="메이크업">
+                            <img src="${MDPickPackage.packageImg}" alt="${MDPickPackage.packageImg}">
                             <div class="content-detail">
-                                <p class="up">헤어/메이크업 | 고센&끌림뷰티</p>
-                                <p class="down">[촬영+본식] 신부신랑 헤어메이크업</p>
+                                <p class="up">헤어/메이크업 | ${MDPickPackage.makeupName}</p>
+                                    <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.makeupDetail}</p>--%>
                             </div>
                         </div>
-                        <a class="detail" href="#">상품 자세히 보기 &#62;</a>
+                        <a class="detail" href="${pageContext.request.contextPath}/package/${MDPickPackage.packageId}/detail">상품
+                            자세히 보기 &#62;</a>
                     </div>
                 </div>
-                <div class="grid">
-                    <div class="package-picture">
-                        <img src="resources/images/PremiumPack.png" alt="Basic Pack">
-                    </div>
-                    <div class="top-con">
-                        <div class="content">
-                            <img src="resources/images/weddingThumbnail.png" alt="스튜디오">
-                            <div class="content-detail">
-                                <p class="up">스튜디오 | 테오그라피</p>
-                                <p class="down">[웨딩촬영] 베이직 20P</p>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <img src="resources/images/dressThumbnail.png" alt="드레스">
-                            <div class="content-detail">
-                                <p class="up">드레스 | 브라이덜수지</p>
-                                <p class="down">[촬영+본식] 드레스 4벌</p>
-                            </div>
-                        </div>
-                        <div class="content-bottom">
-                            <img src="resources/images/makeupThumbnail.png" alt="메이크업">
-                            <div class="content-detail">
-                                <p class="up">헤어/메이크업 | 고센&끌림뷰티</p>
-                                <p class="down">[촬영+본식] 신부신랑 헤어메이크업</p>
-                            </div>
-                        </div>
-                        <a class="detail" href="#">상품 자세히 보기 &#62;</a>
-                    </div>
-                </div>
-                <div class="grid">
-                    <div class="package-picture">
-                        <img src="resources/images/High-endPack.png" alt="Basic Pack">
-                    </div>
-                    <div class="top-con">
-                        <div class="content">
-                            <img src="resources/images/weddingThumbnail.png" alt="스튜디오">
-                            <div class="content-detail">
-                                <p class="up">스튜디오 | 테오그라피</p>
-                                <p class="down">[웨딩촬영] 베이직 20P</p>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <img src="resources/images/dressThumbnail.png" alt="드레스">
-                            <div class="content-detail">
-                                <p class="up">드레스 | 브라이덜수지</p>
-                                <p class="down">[촬영+본식] 드레스 4벌</p>
-                            </div>
-                        </div>
-                        <div class="content-bottom">
-                            <img src="resources/images/makeupThumbnail.png" alt="메이크업">
-                            <div class="content-detail">
-                                <p class="up">헤어/메이크업 | 고센&끌림뷰티</p>
-                                <p class="down">[촬영+본식] 신부신랑 헤어메이크업</p>
-                            </div>
-                        </div>
-                        <a class="detail" href="#">상품 자세히 보기 &#62;</a>
-                    </div>
-                </div>
+            </c:forEach>
+        </div>
+    </section>
+
+    <!-- 패키지 검색 -->
+    <section class="bot package-section">
+        <div class="pack-title">
+            <p>스드메 패키지</p>
+        </div>
+        <div class="range">
+            <div class="price-title">금액대</div>
+            <div class="price-range">
+                <button class="btn-price">
+                    <a href="">100만원↓</a>
+                </button>
+                <button class="btn-price">
+                    <a href="">100만원~150만원</a>
+                </button>
+                <button class="btn-price">
+                    <a href="">150만원~200만원</a>
+                </button>
+                <button class="btn-price">
+                    <a href="">200만원~250만원</a>
+                </button>
+                <button class="btn-price">
+                    <a href="">250만원~300만원</a>
+                </button>
+                <button class="btn-price">
+                    <a href="">300만원~350만원</a>
+                </button>
+                <button class="btn-price">
+                    <a href="">350만원~400만원</a>
+                </button>
+                <button class="btn-price">
+                    <a href="">400만원↑</a>
+                </button>
             </div>
         </div>
-        <!-- 하단 그리드 -->
-        <div class="bot">
-            <div class="pack-title">
-                <p>스드메 패키지</p>
+        <!-- 하단 그리드 내용-->
+        <div class="grid-bottom">
+            <div class="grid-content">
+                <div class="grid-pic">
+                    <img src="resources/images/bestPackage1.png" alt="">
+                </div>
+                <p class="name">라뮤즈(토탈)+브라이드벨라+비올</p>
+                <p class="cost">169만원</p>
             </div>
-            <div class="range">
-                <div class="price-title">금액대</div>
-                <div class="price-range">
-                    <button class="btn-price">
-                        <a href="">100만원↓</a>
-                    </button>
-                    <button class="btn-price">
-                        <a href="">100만원~150만원</a>
-                    </button>
-                    <button class="btn-price">
-                        <a href="">150만원~200만원</a>
-                    </button>
-                    <button class="btn-price">
-                        <a href="">200만원~250만원</a>
-                    </button>
-                    <button class="btn-price">
-                        <a href="">250만원~300만원</a>
-                    </button>
-                    <button class="btn-price">
-                        <a href="">300만원~350만원</a>
-                    </button>
-                    <button class="btn-price">
-                        <a href="">350만원~400만원</a>
-                    </button>
-                    <button class="btn-price">
-                        <a href="">400만원↑</a>
-                    </button>
+            <div class="grid-content">
+                <div class="grid-pic">
+                    <img src="resources/images/bestPackage2.png" alt="">
                 </div>
+                <p class="name">가을스튜디오+컬리트비+비올</p>
+                <p class="cost">179만원</p>
             </div>
-            <!-- 하단 그리드 내용-->
-            <div class="grid-bottom">
-                <div class="grid-content">
-                    <div class="grid-pic">
-                        <img src="resources/images/bestPackage1.png" alt="">
-                    </div>
-                    <p class="name">라뮤즈(토탈)+브라이드벨라+비올</p>
-                    <p class="cost">169만원</p>
+            <div class="grid-content">
+                <div class="grid-pic">
+                    <img src="resources/images/bestPackage3.png" alt="">
                 </div>
-                <div class="grid-content">
-                    <div class="grid-pic">
-                        <img src="resources/images/bestPackage2.png" alt="">
-                    </div>
-                    <p class="name">가을스튜디오+컬리트비+비올</p>
-                    <p class="cost">179만원</p>
+                <p class="name">메레스튜디오+레이첼+비올</p>
+                <p class="cost">190만원</p>
+            </div>
+            <div class="grid-content">
+                <div class="grid-pic">
+                    <img src="resources/images/bestPackage1.png" alt="">
                 </div>
-                <div class="grid-content">
-                    <div class="grid-pic">
-                        <img src="resources/images/bestPackage3.png" alt="">
-                    </div>
-                    <p class="name">메레스튜디오+레이첼+비올</p>
-                    <p class="cost">190만원</p>
+                <p class="name">ST정우(토탈)+디유드라포뎀+비올</p>
+                <p class="cost">210만원</p>
+            </div>
+            <div class="grid-content">
+                <div class="grid-pic">
+                    <img src="resources/images/bestPackage2.png" alt="">
                 </div>
-                <div class="grid-content">
-                    <div class="grid-pic">
-                        <img src="resources/images/bestPackage1.png" alt="">
-                    </div>
-                    <p class="name">ST정우(토탈)+디유드라포뎀+비올</p>
-                    <p class="cost">210만원</p>
+                <p class="name">원규+누벨드블랑+알루</p>
+                <p class="cost">245만원</p>
+            </div>
+            <div class="grid-content">
+                <div class="grid-pic">
+                    <img src="resources/images/bestPackage3.png" alt="">
                 </div>
-                <div class="grid-content">
-                    <div class="grid-pic">
-                        <img src="resources/images/bestPackage2.png" alt="">
-                    </div>
-                    <p class="name">원규+누벨드블랑+알루</p>
-                    <p class="cost">245만원</p>
-                </div>
-                <div class="grid-content">
-                    <div class="grid-pic">
-                        <img src="resources/images/bestPackage3.png" alt="">
-                    </div>
-                    <p class="name">아키스튜디오+모니카블랑쉬+알루</p>
-                    <p class="cost">275만원</p>
-                </div>
+                <p class="name">아키스튜디오+모니카블랑쉬+알루</p>
+                <p class="cost">275만원</p>
             </div>
         </div>
-    </div>
+    </section>
+
 </div>
 <%--<div id="pagination-placeholder"></div>--%>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

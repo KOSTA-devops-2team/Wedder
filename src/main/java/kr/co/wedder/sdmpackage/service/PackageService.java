@@ -9,6 +9,5 @@ public interface PackageService {
     List<PackageDto> getBestPackages();
 
     List<PackageDto> getMDPickPackages();
-
-    //PackageDetailDto getPackageDetail(int packageId);
+    PackageDetailDto getPackageDetail(int packageId);
 }

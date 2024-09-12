@@ -6,20 +6,52 @@
 <mapper namespace="kr.co.wedder.dao.PackageMapper">
 
     <select id="selectBestPackage" resultType="PackageDto">
-
+        SELECT
+        p.package_id AS packageId,
+        p.package_name AS packageName,
+        p.package_img AS packageImg,
+        p.description AS description,
+        p.discount_rate AS discountRate,
+        MAX(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studioName,
+        MAX(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dressName,
+        MAX(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName
+        FROM package p
+        JOIN packageCategory pc ON p.package_id = pc.package_id
+        JOIN company c ON pc.company_id = c.company_id
+        WHERE p.category_type = 'BEST'
+        GROUP BY p.package_id
     </select>
 
     <select id="selectMDPickPackage" resultType="PackageDto">
-
+        SELECT
+        p.package_id AS packageId,
+        p.package_name AS packageName,
+        p.package_img AS packageImg,
+        p.description AS description,
+        p.discount_rate AS discountRate,
+        MAX(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studioName,
+        MAX(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dressName,
+        MAX(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName
+        FROM package p
+        JOIN packageCategory pc ON p.package_id = pc.package_id
+        JOIN company c ON pc.company_id = c.company_id
+        WHERE p.category_type = 'MDPICK'
+        GROUP BY p.package_id
     </select>
 
-    <resultMap id="packageDetail" type="PackageDetailDto" >
+    <!--패키지 상세페이지-->
+   <select id="selectPackageDetail" parameterType="int" >
+       SELECT  *
+       FROM package p
+       LEFT JOIN packageCategory pc ON p.package_id = pc.package_id
+       LEFT JOIN studioInfo s ON pc.company_id = s.company_id AND s.package_id = p.package_id
+       LEFT JOIN company c1 ON s.company_id = c1.company_id
+       LEFT JOIN dressInfo d ON pc.company_id = d.company_id AND d.package_id = p.package_id
+       LEFT JOIN company c2 ON d.company_id = c2.company_id
+       LEFT JOIN makeupInfo m ON pc.company_id = m.company_id AND m.package_id = p.package_id
+       LEFT JOIN company c3 ON m.company_id = c3.company_id
 
-
-    </resultMap>
-
-    <select id="selectPackageDetail" parameterType="int" resultMap="packageDetail">
-
+       AND   p.package_id = #{package_id}
     </select>
 
 </mapper>

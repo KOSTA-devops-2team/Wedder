@@ -5,6 +5,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 
 <configuration>
+    <settings>
+        <!-- 안되면 나한테 뭐라하기 ㄴㄴ -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
     <typeAliases>
         <typeAlias  alias="UserDto" type="kr.co.wedder.user.domain.UserDto" />
         <typeAlias  alias="PackageDto" type="kr.co.wedder.sdmpackage.domain.PackageDto" />

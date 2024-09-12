@@ -155,7 +155,7 @@
         </div>
 
         <div class="package-btn">
-            <button type="button" onclick="location.href='package/recommend'">패키지 구경하러 가기</button>
+            <button type="button" onclick="location.href='/package/recommend'">패키지 구경하러 가기</button>
         </div>
     </section>
 </div>
