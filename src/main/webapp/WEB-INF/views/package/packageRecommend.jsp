@@ -11,6 +11,7 @@
     <title>packageList</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageRecommend.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/header/header.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"/>
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
@@ -108,80 +109,56 @@
         </div>
         <div class="range">
             <div class="price-title">금액대</div>
+            <!-- 검색 영역 -->
+            <div class="header-search-form">
+                <form class="form-container">
+                    <div></div>
+                    <div class="form-text">
+                        <input
+                                type="text"
+                                id="search_word"
+                                class="textfield"
+                        />
+                    </div>
+                    <button type="submit" class="btn_search">
+                        <img
+                                src="https://image.hago.kr/dev/main/pc/pc_search.svg"
+                                alt="search"
+                        />
+                    </button>
+                </form>
+            </div>
             <div class="price-range">
                 <button class="btn-price">
                     <a href="">100만원↓</a>
                 </button>
                 <button class="btn-price">
-                    <a href="">100만원~150만원</a>
+                    <a href="">100만원~200만원</a>
                 </button>
                 <button class="btn-price">
-                    <a href="">150만원~200만원</a>
+                    <a href="">200만원~300만원</a>
                 </button>
                 <button class="btn-price">
-                    <a href="">200만원~250만원</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">250만원~300만원</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">300만원~350만원</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">350만원~400만원</a>
+                    <a href="">300만원~400만원</a>
                 </button>
                 <button class="btn-price">
                     <a href="">400만원↑</a>
                 </button>
             </div>
         </div>
-        <!-- 하단 그리드 내용-->
-        <div class="grid-bottom">
-            <div class="grid-content">
-                <div class="grid-pic">
-                    <img src="resources/images/bestPackage1.png" alt="">
-                </div>
-                <p class="name">라뮤즈(토탈)+브라이드벨라+비올</p>
-                <p class="cost">169만원</p>
+    <!-- 패키지 검색 -->
+    <div class="grid-bottom">
+        <c:forEach var="BestPackage" items="${BestPackages}">
+        <div class="grid-content">
+            <div class="grid-pic">
+                <img src="${BestPackage.packageImg}" alt="패키지 이미지">
             </div>
-            <div class="grid-content">
-                <div class="grid-pic">
-                    <img src="resources/images/bestPackage2.png" alt="">
-                </div>
-                <p class="name">가을스튜디오+컬리트비+비올</p>
-                <p class="cost">179만원</p>
-            </div>
-            <div class="grid-content">
-                <div class="grid-pic">
-                    <img src="resources/images/bestPackage3.png" alt="">
-                </div>
-                <p class="name">메레스튜디오+레이첼+비올</p>
-                <p class="cost">190만원</p>
-            </div>
-            <div class="grid-content">
-                <div class="grid-pic">
-                    <img src="resources/images/bestPackage1.png" alt="">
-                </div>
-                <p class="name">ST정우(토탈)+디유드라포뎀+비올</p>
-                <p class="cost">210만원</p>
-            </div>
-            <div class="grid-content">
-                <div class="grid-pic">
-                    <img src="resources/images/bestPackage2.png" alt="">
-                </div>
-                <p class="name">원규+누벨드블랑+알루</p>
-                <p class="cost">245만원</p>
-            </div>
-            <div class="grid-content">
-                <div class="grid-pic">
-                    <img src="resources/images/bestPackage3.png" alt="">
-                </div>
-                <p class="name">아키스튜디오+모니카블랑쉬+알루</p>
-                <p class="cost">275만원</p>
-            </div>
+            <p class="name">${BestPackage.studioName} + ${BestPackage.dressName} + ${BestPackage.makeupName}</p>
+            <p class="cost">패키지 가격 들어올 부분</p>
         </div>
+        </c:forEach>
+    </div>
     </section>
-
 </div>
 <%--<div id="pagination-placeholder"></div>--%>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

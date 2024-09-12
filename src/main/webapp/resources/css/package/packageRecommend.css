@@ -142,17 +142,26 @@ span.color {
 /* 하단 그리드 내용 */
 .grid-bottom {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: repeat(4, 1fr);
 }
 .grid-content {
-    margin-top: 30px;
+margin: auto;
+    padding: 20px;
+
 }
+
 .grid-pic img {
     border-radius: 5px;
+    width: 230px;
+    height: 250px;
+    object-fit: cover;
 }
+
 .grid-content .name {
     font-size: 14px;
     font-weight: 700;
+    width: 225px;
+    margin: 10px 0 5px 0;
 }
 .grid-content .cost {
     color: #ca1a5a;
@@ -161,4 +170,44 @@ span.color {
 
 .package-section {
     margin: 30px 0 70px 0;
+}
+
+
+/* 검색어 */
+.header-search-form {
+    display: flex;
+    justify-content: center;
+    flex: 2;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    padding: 5px;
+    height: 35px;
+}
+
+.form-text input[type="text"] {
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+}
+
+.btn_search {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.btn_search img {
+    width: 18px;
+    height: 18px;
 }
