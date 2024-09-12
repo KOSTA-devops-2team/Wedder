@@ -7,18 +7,47 @@ public class VisitCriteria {
 	private MyPageDTO myPageDTO;
 	private ReservationDto reservationDto;
 	private HistoryDto historyDto;
-	private hallInfoDto hallInfoDto;
-	
+	private HallInfoDto hallInfoDto;
+	private CompanyImage companyImage;
+ 	
 	public VisitCriteria() {
 	}
 
 	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
-			HistoryDto historyDto, kr.co.wedder.mypage.domain.hallInfoDto hallInfoDto) {
+			HistoryDto historyDto) {
+		this.companyDto = companyDto;
+		this.myPageDTO = myPageDTO;
+		this.reservationDto = reservationDto;
+		this.historyDto = historyDto;
+	}
+
+	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
+			HistoryDto historyDto, HallInfoDto hallInfoDto) {
 		this.companyDto = companyDto;
 		this.myPageDTO = myPageDTO;
 		this.reservationDto = reservationDto;
 		this.historyDto = historyDto;
 		this.hallInfoDto = hallInfoDto;
+	}
+
+	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
+			HistoryDto historyDto, HallInfoDto hallInfoDto, CompanyImage companyImage) {
+		super();
+		this.companyDto = companyDto;
+		this.myPageDTO = myPageDTO;
+		this.reservationDto = reservationDto;
+		this.historyDto = historyDto;
+		this.hallInfoDto = hallInfoDto;
+		this.companyImage = companyImage;
+	}
+
+	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
+			HallInfoDto hallInfoDto, CompanyImage companyImage) {
+		this.companyDto = companyDto;
+		this.myPageDTO = myPageDTO;
+		this.reservationDto = reservationDto;
+		this.hallInfoDto = hallInfoDto;
+		this.companyImage = companyImage;
 	}
 
 	public CompanyDto getCompanyDto() {
@@ -53,17 +82,24 @@ public class VisitCriteria {
 		this.historyDto = historyDto;
 	}
 
-	public hallInfoDto getHallInfoDto() {
+	public HallInfoDto getHallInfoDto() {
 		return hallInfoDto;
 	}
 
-	public void setHallInfoDto(hallInfoDto hallInfoDto) {
+	public void setHallInfoDto(HallInfoDto hallInfoDto) {
 		this.hallInfoDto = hallInfoDto;
+	}
+	public CompanyImage getCompanyImage() {
+		return companyImage;
+	}
+	
+	public void setCompanyImage(CompanyImage companyImage) {
+		this.companyImage = companyImage;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(companyDto, hallInfoDto, historyDto, myPageDTO, reservationDto);
+		return Objects.hash(companyDto, companyImage, hallInfoDto, historyDto, myPageDTO, reservationDto);
 	}
 
 	@Override
@@ -75,15 +111,16 @@ public class VisitCriteria {
 		if (getClass() != obj.getClass())
 			return false;
 		VisitCriteria other = (VisitCriteria) obj;
-		return Objects.equals(companyDto, other.companyDto) && Objects.equals(hallInfoDto, other.hallInfoDto)
-				&& Objects.equals(historyDto, other.historyDto) && Objects.equals(myPageDTO, other.myPageDTO)
-				&& Objects.equals(reservationDto, other.reservationDto);
+		return Objects.equals(companyDto, other.companyDto) && Objects.equals(companyImage, other.companyImage)
+				&& Objects.equals(hallInfoDto, other.hallInfoDto) && Objects.equals(historyDto, other.historyDto)
+				&& Objects.equals(myPageDTO, other.myPageDTO) && Objects.equals(reservationDto, other.reservationDto);
 	}
 
 	@Override
 	public String toString() {
 		return "VisitCriteria [companyDto=" + companyDto + ", myPageDTO=" + myPageDTO + ", reservationDto="
-				+ reservationDto + ", historyDto=" + historyDto + ", hallInfoDto=" + hallInfoDto + "]";
+				+ reservationDto + ", historyDto=" + historyDto + ", hallInfoDto=" + hallInfoDto + ", companyImage="
+				+ companyImage + "]";
 	}
 
 		

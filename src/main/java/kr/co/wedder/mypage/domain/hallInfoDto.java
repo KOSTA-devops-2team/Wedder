@@ -2,7 +2,7 @@ package kr.co.wedder.mypage.domain;
 
 import java.util.Objects;
 
-public class hallInfoDto {
+public class HallInfoDto {
 	
 	private Integer hall_id;
 	private Integer company_id;
@@ -10,10 +10,10 @@ public class hallInfoDto {
 	private Integer min_people;
 	private Integer parking;
 	
-	public hallInfoDto(){
+	public HallInfoDto(){
 	}
 
-	public hallInfoDto(Integer hall_id, Integer company_id, String hall_type, Integer min_people, Integer parking) {
+	public HallInfoDto(Integer hall_id, Integer company_id, String hall_type, Integer min_people, Integer parking) {
 		this.hall_id = hall_id;
 		this.company_id = company_id;
 		this.hall_type = hall_type;
@@ -80,7 +80,7 @@ public class hallInfoDto {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		hallInfoDto other = (hallInfoDto) obj;
+		HallInfoDto other = (HallInfoDto) obj;
 		return Objects.equals(company_id, other.company_id) && Objects.equals(hall_id, other.hall_id)
 				&& Objects.equals(hall_type, other.hall_type) && Objects.equals(min_people, other.min_people)
 				&& Objects.equals(parking, other.parking);

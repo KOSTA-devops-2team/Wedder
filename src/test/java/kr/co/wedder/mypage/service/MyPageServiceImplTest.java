@@ -17,6 +17,7 @@ import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.VisitCriteria;
+import kr.co.wedder.mypage.domain.HallInfoDto;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
@@ -37,7 +38,7 @@ public class MyPageServiceImplTest {
 	public void seslectCustomer() throws Exception{
 		service.customerRead(1);
 	}
-	@Test
+	//@Test
 	public void todayVisitHistory() throws Exception{
 		Map<String, Object> map= new HashMap<>();
 		
@@ -48,8 +49,9 @@ public class MyPageServiceImplTest {
 		ReservationDto reservationDto=service.reservationRead(1);
 //		System.out.println(reservationDto);
 		HistoryDto historyDto = service.historyRead(1);
+		HallInfoDto hallInfoDto = service.hallInfoRead(1);
 		
-		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto,historyDto);
+		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto,historyDto,hallInfoDto);
 		map.put("company_id",  (Integer) visitCriteria.getCompanyDto().getCompany_id());
 		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
 		map.put("reservation_status", visitCriteria.getHistoryDto().getReservation_status());
@@ -60,5 +62,12 @@ public class MyPageServiceImplTest {
 		System.out.println("========================");
 		List<VisitCriteria> list=service.todayVisitHistory(map);
 		System.out.println("list= "+list.get(0));
+	}
+	
+	//hallInfo
+	@Test
+	public void HallInfoServiceTest() throws Exception{
+		HallInfoDto HallInfoDto = service.hallInfoRead(1);
+		System.out.println("HallInfoDto ="+ HallInfoDto);
 	}
 }

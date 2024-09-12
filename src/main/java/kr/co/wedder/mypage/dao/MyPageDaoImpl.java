@@ -8,11 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.wedder.mypage.domain.CompanyDto;
+import kr.co.wedder.mypage.domain.CompanyImage;
 import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.VisitCriteria;
-import kr.co.wedder.mypage.domain.hallInfoDto;
+import kr.co.wedder.mypage.domain.HallInfoDto;
 
 @Repository
 public class MyPageDaoImpl implements MyPageDao {
@@ -41,8 +42,17 @@ public class MyPageDaoImpl implements MyPageDao {
 		return session.selectOne(namespace+"selectHistory",customer_id);
 	}
 	@Override
-	public hallInfoDto selectHallInfo(Integer customer_id) throws Exception {
-		return session.selectOne(namespace+"selectHallInfo",customer_id);
+	public HallInfoDto selectHallInfo(Integer hall_id) throws Exception {
+		return session.selectOne(namespace+"selectHallInfo",hall_id);
+	}
+	
+	@Override
+	public CompanyImage selectCoImage(Integer img_id) throws Exception {
+		return session.selectOne(namespace+"selectCoImage",img_id);
+	}
+	@Override
+	public Integer todayVisitCount(Map<String, Object> map) throws Exception {
+		return session.selectOne(namespace+"todayVisitCount", map);
 	}
 	
 	@Override
@@ -56,9 +66,12 @@ public class MyPageDaoImpl implements MyPageDao {
 	}
 
 	@Override
-	public Integer todayVisitCount(Map<String, Object> map) throws Exception {
-		return session.selectOne(namespace+"todayVisitCount", map);
+	public List<VisitCriteria> hallVisitReservatioinList(Map<String, Object> map) throws Exception {
+		return session.selectList(namespace+"hallVisitReservatioinList", map);
 	}
+
+
+	
 
 
 }

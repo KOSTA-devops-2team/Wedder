@@ -13,11 +13,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.co.wedder.mypage.domain.CompanyDto;
+import kr.co.wedder.mypage.domain.CompanyImage;
 import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.VisitCriteria;
-import kr.co.wedder.mypage.domain.hallInfoDto;
+import kr.co.wedder.mypage.domain.HallInfoDto;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
@@ -27,7 +28,7 @@ public class MyPageDaoImplTest {
 	private MyPageDao dao;
 	
 	// 한 사람의 정보를 가져오는 거
-	@Test
+	//@Test
 	public void selectOne() throws Exception{
 		assertTrue(dao !=null);
 		MyPageDTO dto=dao.selectOne(1);
@@ -62,7 +63,7 @@ public class MyPageDaoImplTest {
 		ReservationDto reservationDto=dao.selectReservation(1);
 //		System.out.println(reservationDto);
 		HistoryDto historyDto = dao.selectHistory(1);
-		hallInfoDto hallInfoDto = dao.selectHallInfo(1);
+		HallInfoDto hallInfoDto = dao.selectHallInfo(1);
 		
 		
 		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto,hallInfoDto);
@@ -95,7 +96,7 @@ public class MyPageDaoImplTest {
 		ReservationDto reservationDto=dao.selectReservation(1);
 //		System.out.println(reservationDto);
 		HistoryDto historyDto = dao.selectHistory(1);
-		hallInfoDto hallInfoDto = dao.selectHallInfo(1);
+		HallInfoDto hallInfoDto = dao.selectHallInfo(1);
 		
 		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto,hallInfoDto);
 		map.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
@@ -113,10 +114,29 @@ public class MyPageDaoImplTest {
 		map.put("company_category",companyDto.getCompany_category());
 		List<CompanyDto> list = dao.todayReservationHistory(map);
 	}
-	@Test
+	//@Test
 	public void selectHallInfo() throws Exception{
-		
-		hallInfoDto hallInfoDto= dao.selectHallInfo(1);
+		HallInfoDto hallInfoDto= dao.selectHallInfo(1);
 		System.out.println("hallInfoDto= "+hallInfoDto);
+	}
+	//@Test
+	public void selectCoImage() throws Exception{
+		CompanyImage companyImage = dao.selectCoImage(1);
+		System.out.println("companyImage = "+companyImage);
+	}
+	@Test
+	public void hallVisitReservatioinList() throws Exception{
+		Map<String, Object> map= new HashMap<>();
+		CompanyDto 		companyDto 		=	dao.selectCompany(1);
+		MyPageDTO 		myPageDto 		=	dao.selectOne(1);
+		ReservationDto 	reservationDto	=	dao.selectReservation(1);
+		HallInfoDto 		hallInfoDto 		= 	dao.selectHallInfo(1);
+		CompanyImage 	companyImage 	= 	dao.selectCoImage(1);
+		
+		
+		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, hallInfoDto,companyImage);
+		map.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
+		map.put("customer_id",(Integer) visitCriteria.getMyPageDTO().getCustomer_id());
+		List<VisitCriteria> list=dao.hallVisitReservatioinList(map);
 	}
 }

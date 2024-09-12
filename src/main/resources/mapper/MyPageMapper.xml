@@ -17,9 +17,11 @@
 		select * from history
 	</sql>
 	<sql id="selectFromHallInfo">
-		select * from history
+		select * from hallInfo
 	</sql>
-	
+	<sql id="selectFromCoImage">
+		select * from companyImage
+	</sql>
 	
 	<resultMap type="VisitCriteria" id="joinVisitCriteria">
 	
@@ -44,9 +46,14 @@
 			<result column="reservation_status" property="reservation_status"/>
 		</association>
 		
-		<association property="hallInfoDto" javaType="hallInfoDto">
+		<association property="hallInfoDto" javaType="HallInfoDto">
 			<result column="min_people" property="min_people"/>
 		</association>
+		
+		<association property="companyImage" javaType="CompanyImage">
+			<result column="img_url" property="img_url"/>
+		</association>
+		
 		
 	</resultMap>
 	
@@ -72,9 +79,14 @@
 		WHERE customer_id=#{customer_id}
 	</select>
 	
-	<select id="selectHallInfo" parameterType="int" resultType="hallInfoDto">
+	<select id="selectHallInfo" parameterType="int" resultType="HallInfoDto">
 		<include refid="selectFromHallInfo"></include>
-		WHERE customer_id=#{customer_id}
+		WHERE hall_id=#{hall_id}
+	</select>
+	
+	<select id="selectCoImage" parameterType="int" resultType="CompanyImage">
+		<include refid="selectFromCoImage"></include>
+		WHERE img_id =#{img_id}
 	</select>
 	
 	<select id="todayVisitHistory" parameterType="map" resultMap="joinVisitCriteria" >
@@ -101,14 +113,15 @@
 		order by company_id desc,company_name desc
 	</select>
 	
-	<select id="hallVisitReservationHistory " parameterType="map" resultMap="joinVisitCriteria"> 
-		SELECT company_name , name, reservation_date, reservation_time, reservation_status
-		FROM reservation
-         JOIN company ON reservation.company_id = company.company_id
-         JOIN customer ON reservation.customer_id = customer.customer_id
-         JOIN history ON history.customer_id = customer.customer_id
-		Where reservation.customer_id =#{customer_id};
+	<select id="hallVisitReservatioinList" parameterType="map" resultMap="joinVisitCriteria">
+		select companyImage.img_url,			customer.name, 
+				reservation.reservation_date, 	reservation.reservation_time, hallInfo.min_people
+		From reservation
+			JOIN company 			ON 	company.company_id 		= reservation.company_id
+    		JOIN customer 			ON 	reservation.customer_id 	= customer.customer_id
+    		JOIN hallInfo 			ON 	reservation.company_id 	= hallInfo.company_id
+    		JOIN companyImage 	ON 	companyImage.company_id = reservation.company_id
+   		Where reservation.customer_id =	#{customer_id};
 	</select>
-
 	
 </mapper>
