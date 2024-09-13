@@ -1,24 +1,40 @@
 const calendarDates = document.getElementById("calendarDates");
 const currentMonthElement = document.getElementById("currentMonth");
+const currentYearElement =document.getElementById("currentYear");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const currentHourElement=document.getElementById("currentHour");
+const currentMinuteElement=document.getElementById("currentMinute");
+const currentSecondElement=document.getElementById("currentSecond");
 
-const today = new Date(); 
+const today=new Date(); 
 // 현재 날짜를 나타내는 Date 객체를 저장한다.
-
-let currentMonth = today.getMonth();
+let currentMonth;
 /* 현재 월을 나타내는 값을 저장한다. getMonth() 메서드는 0부터 시작하는 월을 반환하므로
 1월이면 0, 2월이면 1을 반환한다. */
-let currentYear = today.getFullYear(); 
+let currentYear; 
 // 변수에 현재 연도를 나타내는 값을 저장한다.
+let currentHour=today.getHours();
+let currentMinute=today.getMinutes();
+let currentSecond=today.getSeconds(); 
+
+function initializeDate(){
+	currentMonth = today.getMonth();
+	currentYear = today.getFullYear();
+}
 
 function renderCalendar() {
+	initializeDate();
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
   const startDayOfWeek = firstDayOfMonth.getDay();
   
-  currentMonthElement.textContent = `${currentYear}년 ${currentMonth + 1}월`;
+  currentYearElement.textContent =`${currentYear}`;
+  currentMonthElement.textContent = `${currentMonth + 1}`;
   calendarDates.textContent  = "";
+  currentHourElement.textContent =`${currentHour}`;
+  currentMinuteElement.textContent=`${currentMinute}`;
+  currentSecondElement.textContent=`${currentSecond}`;
 
   // 빈 날짜(이전 달)
   for (let i = 0; i < startDayOfWeek; i++) {
@@ -252,7 +268,6 @@ function getlunarholidays(lunarYear){
 	
 return holidays;
 }
-
 
 
 

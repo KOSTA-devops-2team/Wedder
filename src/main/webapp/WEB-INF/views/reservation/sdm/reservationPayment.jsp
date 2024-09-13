@@ -19,7 +19,7 @@
         </section>
 
         <!-- 1. 이용자 정보 -->
-        <section class="user-info">
+        <section class="customerDTOO-info">
             <h1>1. 이용자 정보</h1>
             <h3>원활한 서비스 이용을 위해 꼭 필요한 정보입니다.</h3>
 
@@ -39,7 +39,7 @@
                         <label for="self-family">가족</label>
                     </div>
                 </div>
-                <table class="user-table">
+                <table class="customerDTOO-table">
                     <tr>
                         <th><label for="myname">성함</label></th>
                         <td>
@@ -103,7 +103,7 @@
                         <label for="partner-family">가족</label>
                     </div>
                 </div>
-                <table class="user-table">
+                <table class="customerDTOO-table">
                     <tr>
                         <th><label for="partner-name">성함</label></th>
                         <td>

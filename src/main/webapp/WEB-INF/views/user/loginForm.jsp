@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLDecoder" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,9 +8,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}resources/css/common/reset.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}resources/css/user/login.css" />
-    <script defer src="${pageContext.request.contextPath}resources/js/main/main.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/user/login.css" />
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -21,19 +22,28 @@
 
     <!-- 로그인 입력 받기 -->
     <section class="login-input">
-        <form action="#" method="post">
-            <div class="email">
-                <input type="email" placeholder="아이디(이메일)" />
+        <form action="/log/login" method="post" onsubmit="return formCheck(this)">
+            <div id="msg">
+                <c:if test="${not empty param.msg }">
+                    <i fa fa-exclamation-circle>${URLDecoder.decode(param.msg) }</i>
+                </c:if>
+            </div>
+
+            <div class="id">
+                <input type="text" name="id" placeholder="아이디" value="${cookie.id.value }" autofocus />
             </div>
             <div class="password">
-                <input type="password" placeholder="비밀번호" />
+                <input type="password" name="password" placeholder="비밀번호" />
                 <img
                         class="password-invisible"
-                        src="resources/images/password-invisible.png"
+                        src="${pageContext.request.contextPath}/resources/images/password-invisible.png"
                 />
             </div>
-            <button type="submit" class="login-btn">로그인하기</button>
+            <input type="hidden" name="toURL" value="${param.toURL }" />
+            <button class="login-btn">로그인하기</button>
         </form>
+        <label><input type="checkbox" name="rememberId" value="on" ${empty cookie.id.value ? "" : "checked" } />아이디 기억</label>
+
     </section>
 
     <!-- 소셜 로그인 -->
@@ -51,13 +61,13 @@
                 />
             </button>
             <button class="google">
-                <img src="resources/images/google-logo.png"/>
+                <img src="${pageContext.request.contextPath}/resources/images/google-logo.png"/>
             </button>
             <button class="apple">
-                <img src="resources/images/apple-logo.png"/>
+                <img src="${pageContext.request.contextPath}/resources/images/apple-logo.png"/>
             </button>
         </div>
-        <a href="#">
+        <a href=<c:url value="/user/register" />>
             <button class="signup-btn">간편 회원가입하기</button>
         </a>
         <div class="user-support">
@@ -67,6 +77,6 @@
         </div>
     </section>
 </div>
-<script src="${pageContext.request.contextPath}resources/js/user/login.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/user/login.js"></script>
 </body>
 </html>

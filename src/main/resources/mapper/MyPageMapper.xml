@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.wedder.mypage.dao.MyPageMapper">
+	
+	<sql id="selectFromMyPage">
+		SELECT * FROM customer
+	</sql>
+	<sql id="selectFromCompany">
+		select * from company
+	</sql>
+	<sql id="selectFromReservation">
+		select * from reservation
+	</sql>
+	<sql id="selectFromHistory">
+		select * from history
+	</sql>
+	
+	<resultMap type="VisitCriteria" id="joinVisitCriteria">
+	
+		<association property="companyDto" javaType="CompanyDto">
+			<result column="company_id" property="company_id"/>
+			<result column="company_name" property="company_name"/>
+			
+		</association>
+		
+		<association property="myPageDTO" javaType="MyPageDTO">
+			<result column="customer_id" property="customer_id"/>
+			<result column="name" property="name"/>
+		</association>
+		
+		<association property="reservationDto" javaType="ReservationDto">
+			<result column="reservation_id" property="reservation_id"/>
+			<result column="reservation_date" property="reservation_date"/>
+			<result column="reservation_time" property="reservation_time"/>
+		</association>
+		
+		<association property="historyDto" javaType="HistoryDto">
+			<result column="reservation_status" property="reservation_status"/>
+		</association>
+		
+	</resultMap>
+	
+	<!--selectOne  -->
+	<select id="selectOne" parameterType="int" resultType="MyPageDTO">
+		<include refid="selectFromMyPage"></include>
+		WHERE customer_id=#{customer_id}
+	</select>
+	
+	<select id="selectCompany" parameterType="int" resultType="CompanyDto">
+		<include refid="selectFromCompany"></include>
+		Where company_id=#{company_id} 
+	</select>
+	
+	<select id="selectReservation" parameterType="int" resultType="ReservationDto">
+		<include refid="selectFromReservation"></include>
+		Where
+		reservation_id = #{reservation_id}
+	</select>
+	
+	<select id="selectHistory" parameterType="int" resultType="HistoryDto">
+		<include refid="selectFromHistory"></include>
+		WHERE customer_id=#{customer_id}
+	</select>
+	
+	<select id="todayVisitHistory" parameterType="map" resultMap="joinVisitCriteria" >
+		SELECT company_name , name, reservation_date, reservation_time, reservation_status
+		FROM reservation
+		 JOIN company ON reservation.company_id = company.company_id
+		 JOIN customer ON reservation.customer_id = customer.customer_id
+		 JOIN history ON history.customer_id = customer.customer_id
+		 Where customer.customer_id =#{customer_id} 
+	</select>
+	
+	<select id="todayVisitCount" parameterType="map" resultType="int" >
+		SELECT count(*)
+		FROM reservation
+		 JOIN company ON reservation.company_id = company.company_id
+		 JOIN customer ON reservation.customer_id = customer.customer_id
+		 JOIN history ON history.customer_id = customer.customer_id
+		 Where customer.customer_id =#{customer_id} 
+		 
+	</select>
+	
+	<select id="todayReservationHistory" parameterType="map" resultType="CompanyDto">
+		<include refid="selectFromCompany"/>
+		where company_category =#{company_category}
+		order by company_id desc,company_name desc
+	</select>
+	
+</mapper>
