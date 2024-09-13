@@ -75,17 +75,17 @@
 	}
 	//EL 태그로 가져온 값과 타입을 알 수 있는 방법
 		function dateValue(){
-//			let schedule_id =${companyScheduleDto.schedule_id}
-//			let company_id = ${companyScheduleDto.company_id}
-//			let company_name= ${companyScheduleDto.company_name }
+//			let schedule_id =${companyScheduleDto.scheduleId}
+//			let company_id = ${companyScheduleDto.companyId}
+//			let company_name= ${companyScheduleDto.companyName }
 //			let Date= ${companyScheduleDto.date }
 //			let time= ${companyScheduleDto.time }
 			
-			console.log("EL로 전달된 값: " + schedule_id);
-		    console.log("값의 타입: " + typeof schedule_id);
+			console.log("EL로 전달된 값: " + scheduleId);
+		    console.log("값의 타입: " + typeof scheduleId);
 		    
-			console.log("EL로 전달된 값: " + company_id);
-		    console.log("값의 타입: " + typeof company_id);
+			console.log("EL로 전달된 값: " + companyId);
+		    console.log("값의 타입: " + typeof companyId);
 		    
 			//console.log("EL로 전달된 값: " + company_name);
 		    //console.log("값의 타입: " + typeof company_name);
@@ -109,8 +109,8 @@
 			3.예약한
 			  -->
   			<%-- 스케 아이디<input type="hidden" name="schedule_id" value="${companyScheduleDto.schedule_id}"/><br/> --%>
-  			회사 아이디<input type="text" name="company_id" value="${companyScheduleDto.company_id}"/>	 		
-			회사 이름<input type="text" name="company_name" value="${companyScheduleDto.company_name}"/>
+  			회사 아이디<input type="text" name="company_id" value="${companyScheduleDto.companyId}"/>
+			회사 이름<input type="text" name="company_name" value="${companyScheduleDto.companyName}"/>
 			날짜<input type="date" name="date" id="dateInput" value="<fmt:formatDate value="${companyScheduleDto.date}" pattern="yyyy-MM-dd"/>"/>
 			시간<input type="time" name="time" id="timeInput" value="${companyScheduleDto.time}"/><br>
 		

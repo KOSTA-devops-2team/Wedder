@@ -8,7 +8,7 @@
 		SELECT * FROM customer
 	</sql>
 	<sql id="selectFromCompany">
-		select * from company
+		SELECT * FROM company
 	</sql>
 	<sql id="selectFromReservation">
 		select * from reservation
@@ -16,17 +16,40 @@
 	<sql id="selectFromHistory">
 		select * from history
 	</sql>
+	<sql id="selectFromCoImage">
+		select * from companyImage
+	</sql>
+	<!--0912  --> 
+	<sql id="selectFromPackCa">
+   		SELECT * FROM packageCategory
+	</sql>
+	<sql id="selectFromStudioInfo">
+	    SELECT * FROM studioInfo
+	</sql>
+	<sql id="selectFromHallInfo">
+	    SELECT * FROM hallInfo
+	</sql>
+	<sql id="selectFromMakeupInfo">
+	    SELECT * FROM makeupInfo
+	</sql>
+	<sql id="selectFromDressInfo">
+	    SELECT * FROM dressInfo
+	</sql>
+	<sql id="selectFromOptionDto">
+	    SELECT * FROM optionDto
+	</sql>
 	
 	<resultMap type="VisitCriteria" id="joinVisitCriteria">
 	
 		<association property="companyDto" javaType="CompanyDto">
-			<result column="company_id" property="company_id"/>
-			<result column="company_name" property="company_name"/>
+			<result column="company_id" property="companyId"/>
+			<result column="company_name" property="companyName"/>
+			<result column="company_category" property="category"/>
 			
 		</association>
 		
 		<association property="myPageDTO" javaType="MyPageDTO">
-			<result column="customer_id" property="customer_id"/>
+			<result column="customer_id" property="customerId"/>
 			<result column="name" property="name"/>
 		</association>
 		
@@ -40,28 +63,72 @@
 			<result column="reservation_status" property="reservation_status"/>
 		</association>
 		
+		<association property="hallInfoDto" javaType="HallInfoDto">
+			<result column="min_people" property="min_people"/>
+		</association>
+		
+		<association property="companyImage" javaType="CompanyImage">
+			<result column="img_url" property="img_url"/>
+		</association>
+		
+		
 	</resultMap>
 	
 	<!--selectOne  -->
 	<select id="selectOne" parameterType="int" resultType="MyPageDTO">
-		<include refid="selectFromMyPage"></include>
-		WHERE customer_id=#{customer_id}
+		<include refid="selectFromMyPage"/>
+		WHERE customer_id=#{customerId}
 	</select>
 	
 	<select id="selectCompany" parameterType="int" resultType="CompanyDto">
-		<include refid="selectFromCompany"></include>
-		Where company_id=#{company_id} 
+		<include refid="selectFromCompany"/>
+		Where company_id=#{companyId}
 	</select>
 	
 	<select id="selectReservation" parameterType="int" resultType="ReservationDto">
-		<include refid="selectFromReservation"></include>
+		<include refid="selectFromReservation"/>
 		Where
 		reservation_id = #{reservation_id}
 	</select>
 	
 	<select id="selectHistory" parameterType="int" resultType="HistoryDto">
-		<include refid="selectFromHistory"></include>
-		WHERE customer_id=#{customer_id}
+		<include refid="selectFromHistory"/>
+		WHERE customer_id=#{customerId}
+	</select>
+	
+	<select id="selectHallInfo" parameterType="int" resultType="HallInfoDto">
+		<include refid="selectFromHallInfo"/>
+		WHERE hall_id=#{hall_id}
+	</select>
+	
+	<select id="selectCoImage" parameterType="int" resultType="CompanyImage">
+		<include refid="selectFromCoImage"/>
+		WHERE img_id =#{img_id}
+	</select>
+	
+	<select id="selectPackCa" parameterType="int" resultType="PackageCategoryDto">
+		<include refid="selectFromPackCa"/>
+    	WHERE category_id =#{category_id}
+	</select>
+	
+	<select id="selectStudioInfo" parameterType="int" resultType="StudioInfo">
+		<include refid="selectFromStudioInfo"/>
+	    WHERE studio_id =#{studio_id}
+	</select>
+	
+	<select id="selectMakeupInfo" parameterType="int" resultType="MakeupInfo">
+		<include refid="selectFromMakeupInfo"/>
+	    WHERE makeup_id =#{makeup_id}
+	</select>
+	
+	<select id="selectDressInfo" parameterType="int" resultType="DressInfo">
+		<include refid="selectFromDressInfo"/>
+	    where dress_id =#{dress_id}
+	</select>
+	
+	<select id="selectOptionDto" parameterType="int" resultType="optionDto">
+		<include refid="selectFromOptionDto"/>
+	    WHERE option_id =#{option_id}
 	</select>
 	
 	<select id="todayVisitHistory" parameterType="map" resultMap="joinVisitCriteria" >
@@ -70,7 +137,7 @@
 		 JOIN company ON reservation.company_id = company.company_id
 		 JOIN customer ON reservation.customer_id = customer.customer_id
 		 JOIN history ON history.customer_id = customer.customer_id
-		 Where customer.customer_id =#{customer_id} 
+		 Where customer.customer_id =#{customerId}
 	</select>
 	
 	<select id="todayVisitCount" parameterType="map" resultType="int" >
@@ -79,14 +146,35 @@
 		 JOIN company ON reservation.company_id = company.company_id
 		 JOIN customer ON reservation.customer_id = customer.customer_id
 		 JOIN history ON history.customer_id = customer.customer_id
-		 Where customer.customer_id =#{customer_id} 
-		 
+		 Where customer.customer_id =#{customerId}
 	</select>
 	
 	<select id="todayReservationHistory" parameterType="map" resultType="CompanyDto">
 		<include refid="selectFromCompany"/>
-		where company_category =#{company_category}
+		where company_category =#{category}
 		order by company_id desc,company_name desc
 	</select>
 	
+	<select id="hallVisitReservatioinList" parameterType="map" resultMap="joinVisitCriteria">
+		select companyImage.img_url,			customer.name, company.company_name,
+				reservation.reservation_date, 	reservation.reservation_time, hallInfo.min_people
+		From reservation
+			JOIN company 			ON 	company.company_id 		= reservation.company_id
+    		JOIN customer 			ON 	reservation.customer_id 	= customer.customer_id
+    		JOIN hallInfo 			ON 	reservation.company_id 	= hallInfo.company_id
+    		JOIN companyImage 	ON 	companyImage.company_id = reservation.company_id
+   		Where 	reservation.customer_id =	#{customerId}
+   		and 		company.company_category=#{category}
+   		and 		reservation.visit_reservation=#{visit_reservation}
+	</select>
+	<select id="coReservationList" parameterType="map" resultMap="joinVisitCriteria">
+		select companyImage.img_url,customer.name, company.company_name,
+				reservation.reservation_date, reservation.reservation_time
+		From reservation
+	         JOIN company 			ON 	company.company_id 			= reservation.company_id
+	         JOIN customer 		ON 	reservation.customer_id 		= customer.customer_id
+	         JOIN companyImage 	ON 	companyImage.company_id 		= reservation.company_id
+		where   	customer.customer_id= #{customerId}
+	  	and   		company.company_category=#{category}
+	</select> 
 </mapper>

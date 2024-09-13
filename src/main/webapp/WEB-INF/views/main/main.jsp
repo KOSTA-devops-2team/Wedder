@@ -55,7 +55,7 @@
         <div class="hall-image">
             <img
                     style="width: 430px"
-                    src="resources/images/003.png"
+                    src="${pageContext.request.contextPath}/resources/images/003.png"
                     alt="웨딩홀 선택하는 이미지"
             />
         </div>

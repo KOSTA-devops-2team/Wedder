@@ -12,19 +12,31 @@
         <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
     <typeAliases>
+
         <typeAlias  alias="CustomerDTO" type="kr.co.wedder.customer.domain.CustomerDTO" />
-        <typeAlias  alias="UserDto" type="kr.co.wedder.user.domain.UserDto" />
         <typeAlias alias="CompanyDto" type="kr.co.wedder.company.domain.CompanyDto" />
         <typeAlias  alias="PackageDto" type="kr.co.wedder.sdmpackage.domain.PackageDto" />
         <typeAlias  alias="PackageDetailDto" type="kr.co.wedder.sdmpackage.domain.PackageDetailDto" />
+
         <!--calendar alias  -->
         <typeAlias alias="CompanyScheduleDto" type="kr.co.wedder.calendar.domain.CompanyScheduleDto"/>
         <typeAlias alias="SearchItem" type="kr.co.wedder.calendar.domain.SearchItem"/>
+        
         <!--mypage alias  -->
         <typeAlias alias="MyPageDTO" type="kr.co.wedder.mypage.domain.MyPageDTO"/>
-        <typeAlias alias="CompanyDto" type="kr.co.wedder.mypage.domain.CompanyDto"/>
         <typeAlias alias="ReservationDto" type="kr.co.wedder.mypage.domain.ReservationDto"/>
         <typeAlias alias="HistoryDto" type="kr.co.wedder.mypage.domain.HistoryDto"/>
+        <typeAlias alias="HallInfoDto" type="kr.co.wedder.mypage.domain.HallInfoDto"/>
+        <typeAlias alias="CompanyImage" type="kr.co.wedder.mypage.domain.CompanyImage"/>
+        
+        <!--option table  -->
+        <typeAlias alias="PackageCategoryDto" type="kr.co.wedder.mypage.domain.PackageCategoryDto"/>
+        <typeAlias alias="StudioInfo" type="kr.co.wedder.mypage.domain.StudioInfo"/>
+        <typeAlias alias="MakeupInfo" type="kr.co.wedder.mypage.domain.MakeupInfo"/>
+        <typeAlias alias="DressInfo" type="kr.co.wedder.mypage.domain.DressInfo"/>
+        <typeAlias alias="OptionDto" type="kr.co.wedder.mypage.domain.OptionDto"/>
+        
         <typeAlias alias="VisitCriteria" type="kr.co.wedder.mypage.domain.VisitCriteria"/>
+
     </typeAliases>
 </configuration>

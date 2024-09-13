@@ -1,17 +1,30 @@
 package kr.co.wedder.mypage.domain;
 
-import java.util.Objects;
+import kr.co.wedder.company.domain.CompanyDto;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class VisitCriteria {
 	private CompanyDto companyDto;
 	private MyPageDTO myPageDTO;
 	private ReservationDto reservationDto;
 	private HistoryDto historyDto;
-	
-	public VisitCriteria() {
-	}
+	private HallInfoDto hallInfoDto;
+	private CompanyImage companyImage;
+	// 금일 추가 된 부분
+	private DressInfo dressInfo;
+	private MakeupInfo makeupInfo;
+	private OptionDto optionDto;
+	private PackageCategoryDto packageCategoryDto;
+	private StudioInfo studioInfo;
 
-	
 	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
 			HistoryDto historyDto) {
 		this.companyDto = companyDto;
@@ -20,62 +33,40 @@ public class VisitCriteria {
 		this.historyDto = historyDto;
 	}
 
-
-	public CompanyDto getCompanyDto() {
-		return companyDto;
-	}
-
-	public void setCompanyDto(CompanyDto companyDto) {
+	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
+			HistoryDto historyDto, HallInfoDto hallInfoDto) {
 		this.companyDto = companyDto;
-	}
-
-	public MyPageDTO getMyPageDTO() {
-		return myPageDTO;
-	}
-
-	public void setMyPageDTO(MyPageDTO myPageDTO) {
 		this.myPageDTO = myPageDTO;
-	}
-
-	public ReservationDto getReservationDto() {
-		return reservationDto;
-	}
-
-	public void setReservationDto(ReservationDto reservationDto) {
 		this.reservationDto = reservationDto;
-	}
-
-	public HistoryDto getHistoryDto() {
-		return historyDto;
-	}
-
-	public void setHistoryDto(HistoryDto historyDto) {
 		this.historyDto = historyDto;
+		this.hallInfoDto = hallInfoDto;
 	}
 
-	@Override
-	public String toString() {
-		return "VisitCriteria [companyDto=" + companyDto + ", myPageDTO=" + myPageDTO + ", reservationDto="
-				+ reservationDto + ", historyDto=" + historyDto + "]";
+	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
+			HistoryDto historyDto, HallInfoDto hallInfoDto, CompanyImage companyImage) {
+		this.companyDto = companyDto;
+		this.myPageDTO = myPageDTO;
+		this.reservationDto = reservationDto;
+		this.historyDto = historyDto;
+		this.hallInfoDto = hallInfoDto;
+		this.companyImage = companyImage;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(companyDto, historyDto, myPageDTO, reservationDto);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		VisitCriteria other = (VisitCriteria) obj;
-		return Objects.equals(companyDto, other.companyDto) && Objects.equals(historyDto, other.historyDto)
-				&& Objects.equals(myPageDTO, other.myPageDTO) && Objects.equals(reservationDto, other.reservationDto);
+	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
+			HallInfoDto hallInfoDto, CompanyImage companyImage) {
+		this.companyDto = companyDto;
+		this.myPageDTO = myPageDTO;
+		this.reservationDto = reservationDto;
+		this.hallInfoDto = hallInfoDto;
+		this.companyImage = companyImage;
 	}
 	
-	
+	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
+			CompanyImage companyImage) {
+		super();
+		this.companyDto = companyDto;
+		this.myPageDTO = myPageDTO;
+		this.reservationDto = reservationDto;
+		this.companyImage = companyImage;
+	}
 }
