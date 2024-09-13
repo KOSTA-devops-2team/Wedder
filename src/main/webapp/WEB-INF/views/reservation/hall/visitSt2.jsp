@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>visitSt2</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}resources/css/common/reset.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}resources/css/reservation/hall/visitSt2.css" />
-    <script defer src="${pageContext.request.contextPath}resources/js/main/main.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reservation/hall/visitSt2.css" />
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -103,6 +103,6 @@
             </div>
         </section>
     </div>
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </body>
 </html>

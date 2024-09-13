@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>weddinghallList</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css" />
+    <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css" />--%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/weddinghall/weddinghallList.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>
+    <%--<script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
 </head>
 <body>
-    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
-        <!-- 메인 타이틀 문구 -->g
+        <!-- 메인 타이틀 문구 -->
         <section class="title">
             <div class="title-sub">
                 원하는 조건으로 나만의 웨딩홀 장소를 찾아보세요.
@@ -713,6 +713,7 @@
 
     <!-- 페이지네이션  -->
     <div id="pagination-placeholder"></div>
+
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </body>
 </html>

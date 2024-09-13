@@ -8,19 +8,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>reservationList</title>
-    <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-    <link rel="stylesheet" href="<c:url value='resources/css/mypage/reservationList.css'/>"/>
+    
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/reservationList.css" />
    	<link
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
      />
-      <link
-                rel="stylesheet"
-                href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
-        />
-      <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-      <script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
-      <script defer src="<c:url value='resources/js/mypage/reservationList.js'/>"></script>
+     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/sidebar/sidebarMypage.css" />
+      <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/reservationList.js"></script>
       
   </head>
   <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>

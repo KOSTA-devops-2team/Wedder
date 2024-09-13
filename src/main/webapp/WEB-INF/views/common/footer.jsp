@@ -72,11 +72,11 @@
                 </div>
                 <div>
                 
-                    <img
+              <!--       <img
                     
                         src="resorces/images/instagram1.png"
                         alt="인스타그램 로고"
-                    />
+                    /> -->
                     <img
                         src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1567062204/noticon/ttan57gjenhvcrfq10yo.png"
                     />

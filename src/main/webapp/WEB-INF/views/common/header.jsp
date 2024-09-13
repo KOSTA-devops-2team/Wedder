@@ -103,9 +103,7 @@
                             >
                         </li>
                         <li class="black">
-                            <a href="../../html/Package/packageMain.html"
-                                >Package</a
-                            >
+                            <a href="${pageContext.request.contextPath}/package">Package</a>
                         </li>
                         <li class="black">
                             <a href="../../html/estimate/estimateCal.html"

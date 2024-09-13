@@ -12,7 +12,7 @@
     <script defer src="${pageContext.request.contextPath}/resources/js/company/weddinghall/mapViewWithFilters.js"></script>
 </head>
 <body>
-    <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+    <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
         <!-- 메인 타이틀 문구 -->
         <section class="title">

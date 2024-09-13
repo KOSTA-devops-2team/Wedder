@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reservationOption</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}resources/css/common/reset.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}resources/css/reservation/sdm/reservationOption.css" />
-    <script defer src="${pageContext.request.contextPath}resources/js/main/main.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reservation/sdm/reservationOption.css" />
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -245,7 +245,7 @@
             <a href="reservationDate"><button class="btn-nxt">다음 단계로</button></a>
         </section>
     </div>
-    <%@ include file="/WEB-INF/views/common/footer.jsp" %>
-    <script src="${pageContext.request.contextPath}resources/js/reservation/sdm/reservationOption.js"></script>
+    <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <script src="resources/js/reservation/sdm/reservationOption.js"></script>
 </body>
 </html>
