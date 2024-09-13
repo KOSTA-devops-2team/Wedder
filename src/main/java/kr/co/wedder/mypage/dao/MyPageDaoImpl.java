@@ -9,9 +9,14 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.wedder.mypage.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.CompanyImage;
+import kr.co.wedder.mypage.domain.DressInfo;
 import kr.co.wedder.mypage.domain.HistoryDto;
+import kr.co.wedder.mypage.domain.MakeupInfo;
 import kr.co.wedder.mypage.domain.MyPageDTO;
+import kr.co.wedder.mypage.domain.OptionDto;
+import kr.co.wedder.mypage.domain.PackageCategoryDto;
 import kr.co.wedder.mypage.domain.ReservationDto;
+import kr.co.wedder.mypage.domain.StudioInfo;
 import kr.co.wedder.mypage.domain.VisitCriteria;
 import kr.co.wedder.mypage.domain.HallInfoDto;
 
@@ -56,13 +61,13 @@ public class MyPageDaoImpl implements MyPageDao {
 	}
 	
 	@Override
-	public List<VisitCriteria> todayVisitHistory(Map<String, Object> map) throws Exception {
-		return session.selectList(namespace+"todayVisitHistory",map);
-	}
-
-	@Override
 	public List<CompanyDto> todayReservationHistory(Map<String, Object> map) throws Exception {
 		return session.selectList(namespace+"todayReservationHistory",map);
+	}
+	
+	@Override
+	public List<VisitCriteria> todayVisitHistory(Map<String, Object> map) throws Exception {
+		return session.selectList(namespace+"todayVisitHistory",map);
 	}
 
 	@Override
@@ -70,6 +75,42 @@ public class MyPageDaoImpl implements MyPageDao {
 		return session.selectList(namespace+"hallVisitReservatioinList", map);
 	}
 
+	@Override
+	public List<VisitCriteria> coReservationList(Map<String, Object> map) throws Exception {
+		return session.selectList(namespace+"coReservationList",map);
+	}
+	
+	// 0912
+	@Override
+	public DressInfo selectDressInfo(Integer dress_id) throws Exception {
+		return session.selectOne(namespace+"dressInfo",dress_id);
+	}
+	/*
+	// 09/ 12일 옵션들 추가
+	@Override
+	public MakeupInfo selectMakeupInfo(Integer makeup_id) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+"makeupInfo",makeup_id);
+	}
+
+	@Override
+	public OptionDto selectOptionDto(Integer option_id) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+"optionDto",option_id);
+	}
+
+	@Override
+	public PackageCategoryDto selectPackCa(Integer category_id) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+"packageCategoryDto",category_id);
+	}
+
+	@Override
+	public StudioInfo selectStudioInfo(Integer studio_id) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+"studioInfo",studio_id);
+	}
+*/
 
 	
 

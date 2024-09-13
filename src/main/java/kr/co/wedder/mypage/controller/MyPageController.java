@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.wedder.mypage.domain.CompanyDto;
+import kr.co.wedder.mypage.domain.CompanyImage;
 import kr.co.wedder.mypage.domain.HallInfoDto;
 import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
@@ -134,8 +135,74 @@ public class MyPageController {
 	
 	@GetMapping("/reservation-list")
 	public String reservationList(Integer reservation_id, Model m) {
-		
-		return "/mypage/reservationList";
+		Map<String,Object> hallVisitReListMap = new HashMap<String, Object>();
+		Map<String, Object> visitCriteriaMap =new HashMap<String, Object>();
+		Map<String, Object> coReListMap= new HashMap<String, Object>();
+		try {
+			CompanyDto 		companyDto 		=	myPageService.companyRead(1);
+			MyPageDTO 		myPageDto 		=	myPageService.customerRead(1);
+			ReservationDto 	reservationDto	=	myPageService.reservationRead(1);
+			HallInfoDto 		hallInfoDto 		= 	myPageService.hallInfoRead(1);
+			CompanyImage 	companyImage 	= 	myPageService.coImageRead(1);
+			
+			HistoryDto historyDto = myPageService.historyRead(1);
+			
+			m.addAttribute("companyDto",		companyDto);
+			m.addAttribute("myPageDTO",		myPageDto);
+			m.addAttribute("reservationDto",	reservationDto);
+			m.addAttribute("hallInfoDto",		hallInfoDto);
+			m.addAttribute("companyImage",	companyImage);
+			
+			//방문 예약 내역
+			VisitCriteria hallCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, hallInfoDto, companyImage);
+			m.addAttribute("hallCriteria",hallCriteria);
+			
+			hallVisitReListMap.put("customer_id", (Integer) hallCriteria.getMyPageDTO().getCustomer_id());
+			hallVisitReListMap.put("company_category","웨딩홀");
+			
+			//방문 예약
+			hallVisitReListMap.put("visit_reservation", 1);
+			List<VisitCriteria> hallVisitReservatioinList=myPageService.hallVisitReservatioinList(hallVisitReListMap);
+			m.addAttribute("hallVisitReservatioinList",hallVisitReservatioinList);
+			
+			//웨딩홀 예약
+			hallVisitReListMap.put("visit_reservation", 0);
+			List<VisitCriteria> hallReList = myPageService.hallVisitReservatioinList(hallVisitReListMap);
+			m.addAttribute("hallReList",hallReList);
+			
+			//업체별 예약 내역 
+			VisitCriteria coCriteria = new VisitCriteria(companyDto,myPageDto,reservationDto,companyImage);
+			m.addAttribute("coCriteria",coCriteria);
+			coReListMap.put("customer_id", (Integer) coCriteria.getMyPageDTO().getCustomer_id());
+			
+			//업체별 예약 - 스튜디오
+			coReListMap.put("company_category","스튜디오" );
+			List<VisitCriteria> coReStudioList= myPageService.coReservationList(coReListMap);
+			m.addAttribute("coReStudioList",coReStudioList);
+			
+			//업체별 예약 - 드레스
+			coReListMap.put("company_category","드레스" );
+			List<VisitCriteria> coReDressList= myPageService.coReservationList(coReListMap);
+			m.addAttribute("coReDressList",coReDressList);
+			
+			//업체별 예약 - 메이크업
+			coReListMap.put("company_category","메이크업" );
+			List<VisitCriteria> coReMakeUpList= myPageService.coReservationList(coReListMap);
+			m.addAttribute("coReMakeUpList",coReMakeUpList);
+			
+			// 방문 일정 카운트 관련
+			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto);
+			visitCriteriaMap.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
+			visitCriteriaMap.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
+			
+			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
+			m.addAttribute("visitCriteriaCount",visitCriteriaCount);
+			
+			return "/mypage/reservationList";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect: /mypage/mypage";
+		}
 	}
 	
 	@RequestMapping(value="/wishlist")

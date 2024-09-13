@@ -14,9 +14,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.co.wedder.mypage.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.CompanyImage;
+import kr.co.wedder.mypage.domain.DressInfo;
 import kr.co.wedder.mypage.domain.HistoryDto;
+import kr.co.wedder.mypage.domain.MakeupInfo;
 import kr.co.wedder.mypage.domain.MyPageDTO;
+import kr.co.wedder.mypage.domain.OptionDto;
+import kr.co.wedder.mypage.domain.PackageCategoryDto;
 import kr.co.wedder.mypage.domain.ReservationDto;
+import kr.co.wedder.mypage.domain.StudioInfo;
 import kr.co.wedder.mypage.domain.VisitCriteria;
 import kr.co.wedder.mypage.domain.HallInfoDto;
 
@@ -99,8 +104,8 @@ public class MyPageDaoImplTest {
 		HallInfoDto hallInfoDto = dao.selectHallInfo(1);
 		
 		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto,hallInfoDto);
-		map.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
 		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
+		map.put("company_category", "웨딩홀");
 		Integer cnt=dao.todayVisitCount(map);
 		System.out.println("cnt"+cnt);
 	}
@@ -124,7 +129,7 @@ public class MyPageDaoImplTest {
 		CompanyImage companyImage = dao.selectCoImage(1);
 		System.out.println("companyImage = "+companyImage);
 	}
-	@Test
+	//@Test
 	public void hallVisitReservatioinList() throws Exception{
 		Map<String, Object> map= new HashMap<>();
 		CompanyDto 		companyDto 		=	dao.selectCompany(1);
@@ -139,4 +144,33 @@ public class MyPageDaoImplTest {
 		map.put("customer_id",(Integer) visitCriteria.getMyPageDTO().getCustomer_id());
 		List<VisitCriteria> list=dao.hallVisitReservatioinList(map);
 	}
+	//@Test
+	public void coReservationList() throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		CompanyDto companyDto = dao.selectCompany(2);
+		MyPageDTO myPageDTO = dao.selectOne(1);
+		ReservationDto reservationDto = dao.selectReservation(2);
+		CompanyImage companyImage = dao.selectCoImage(2);
+		
+		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDTO, reservationDto, companyImage);
+		map.put("customer_id", (Integer)visitCriteria.getMyPageDTO().getCustomer_id());
+		map.put("company_category", visitCriteria.getCompanyDto().getCompany_category());
+		
+		List<VisitCriteria> list = dao.coReservationList(map);
+	}
+	@Test
+	public void selectOptions() throws Exception{
+		DressInfo  dressInfo = dao.selectDressInfo(1);
+//		MakeupInfo makeupInfo = dao.selectMakeupInfo(1);
+//		OptionDto optionDto = dao.selectOptionDto(1);
+//		PackageCategoryDto packageCategoryDto = dao.selectPackCa(1);
+//		StudioInfo studioInfo =dao.selectStudioInfo(1);
+		
+		System.out.println("dressInfo ="+dressInfo);
+//		System.out.println("makeupInfo ="+makeupInfo);
+//		System.out.println("optionDto ="+optionDto);
+//		System.out.println("packageCategoryDto ="+packageCategoryDto);
+//		System.out.println("studioInfo ="+studioInfo);
+	}
+	
 }

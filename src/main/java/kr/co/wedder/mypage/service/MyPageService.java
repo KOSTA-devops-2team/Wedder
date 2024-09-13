@@ -25,8 +25,9 @@ public interface MyPageService {
 	Integer todayVisitCount(Map<String, Object> map) throws Exception;
 	
 	// join table service 
-	List<VisitCriteria> todayVisitHistory(Map<String, Object> map) throws Exception;
 	List<CompanyDto> todayReservationHistory(Map<String, Object>map) throws Exception;
+	List<VisitCriteria> todayVisitHistory(Map<String, Object> map) throws Exception;
 	List<VisitCriteria> hallVisitReservatioinList(Map<String, Object> map) throws Exception;
+	List<VisitCriteria> coReservationList(Map<String, Object> map) throws Exception;
 	
 }

@@ -21,6 +21,12 @@
         <typeAlias alias="HallInfoDto" type="kr.co.wedder.mypage.domain.HallInfoDto"/>
         <typeAlias alias="CompanyImage" type="kr.co.wedder.mypage.domain.CompanyImage"/>
         
+        <!--option table  -->
+        <typeAlias alias="PackageCategoryDto" type="kr.co.wedder.mypage.domain.PackageCategoryDto"/>
+        <typeAlias alias="StudioInfo" type="kr.co.wedder.mypage.domain.StudioInfo"/>
+        <typeAlias alias="MakeupInfo" type="kr.co.wedder.mypage.domain.MakeupInfo"/>
+        <typeAlias alias="DressInfo" type="kr.co.wedder.mypage.domain.DressInfo"/>
+        <typeAlias alias="OptionDto" type="kr.co.wedder.mypage.domain.OptionDto"/>
         
         <typeAlias alias="VisitCriteria" type="kr.co.wedder.mypage.domain.VisitCriteria"/>
         <!--  -->

@@ -16,11 +16,27 @@
 	<sql id="selectFromHistory">
 		select * from history
 	</sql>
-	<sql id="selectFromHallInfo">
-		select * from hallInfo
-	</sql>
 	<sql id="selectFromCoImage">
 		select * from companyImage
+	</sql>
+	<!--0912  --> 
+	<sql id="selectFromPackCa">
+   		SELECT * FROM packageCategory
+	</sql>
+	<sql id="selectFromStudioInfo">
+	    SELECT * FROM studioInfo
+	</sql>
+	<sql id="selectFromHallInfo">
+	    SELECT * FROM hallInfo
+	</sql>
+	<sql id="selectFromMakeupInfo">
+	    SELECT * FROM makeupInfo
+	</sql>
+	<sql id="selectFromDressInfo">
+	    SELECT * FROM dressInfo
+	</sql>
+	<sql id="selectFromOptionDto">
+	    SELECT * FROM optionDto
 	</sql>
 	
 	<resultMap type="VisitCriteria" id="joinVisitCriteria">
@@ -28,6 +44,7 @@
 		<association property="companyDto" javaType="CompanyDto">
 			<result column="company_id" property="company_id"/>
 			<result column="company_name" property="company_name"/>
+			<result column="company_category" property="company_category"/>
 			
 		</association>
 		
@@ -89,6 +106,31 @@
 		WHERE img_id =#{img_id}
 	</select>
 	
+	<select id="selectPackCa" parameterType="int" resultType="PackageCategoryDto">
+    <include refid="selectFromPackCa"></include>
+    	WHERE category_id =#{category_id}
+	</select>
+	
+	<select id="selectStudioInfo" parameterType="int" resultType="StudioInfo">
+	    <include refid="selectFromStudioInfo"></include>
+	    WHERE makeup_id =#{makeup_id}
+	</select>
+	
+	<select id="selectMakeupInfo" parameterType="int" resultType="MakeupInfo">
+	    <include refid="selectFromMakeupInfo"></include>
+	    WHERE makeup_id =#{makeup_id}
+	</select>
+	
+	<select id="selectDressInfo" parameterType="int" resultType="DressInfo">
+	    <include refid="selectFromDressInfo"></include>
+	    where dress_id =#{dress_id}
+	</select>
+	
+	<select id="selectOptionDto" parameterType="int" resultType="optionDto">
+	    <include refid="selectFromOptionDto"></include>
+	    WHERE option_id =#{option_id}
+	</select>
+	
 	<select id="todayVisitHistory" parameterType="map" resultMap="joinVisitCriteria" >
 		SELECT company_name , name, reservation_date, reservation_time, reservation_status
 		FROM reservation
@@ -114,14 +156,25 @@
 	</select>
 	
 	<select id="hallVisitReservatioinList" parameterType="map" resultMap="joinVisitCriteria">
-		select companyImage.img_url,			customer.name, 
+		select companyImage.img_url,			customer.name, company.company_name,
 				reservation.reservation_date, 	reservation.reservation_time, hallInfo.min_people
 		From reservation
 			JOIN company 			ON 	company.company_id 		= reservation.company_id
     		JOIN customer 			ON 	reservation.customer_id 	= customer.customer_id
     		JOIN hallInfo 			ON 	reservation.company_id 	= hallInfo.company_id
     		JOIN companyImage 	ON 	companyImage.company_id = reservation.company_id
-   		Where reservation.customer_id =	#{customer_id};
+   		Where 	reservation.customer_id =	#{customer_id} 
+   		and 		company.company_category=#{company_category}
+   		and 		reservation.visit_reservation=#{visit_reservation}
 	</select>
-	
+	<select id="coReservationList" parameterType="map" resultMap="joinVisitCriteria">
+		select companyImage.img_url,customer.name, company.company_name,
+				reservation.reservation_date, reservation.reservation_time
+		From reservation
+	         JOIN company 			ON 	company.company_id 			= reservation.company_id
+	         JOIN customer 		ON 	reservation.customer_id 		= customer.customer_id
+	         JOIN companyImage 	ON 	companyImage.company_id 		= reservation.company_id
+		where   	customer.customer_id= #{customer_id}
+	  	and   		company.company_category=#{company_category}
+	</select> 
 </mapper>

@@ -68,6 +68,11 @@ public class MyPageServiceImpl implements MyPageService {
 		return myPageDao.hallVisitReservatioinList(map);
 	}
 
+	@Override
+	public List<VisitCriteria> coReservationList(Map<String, Object> map) throws Exception {
+		return myPageDao.coReservationList(map);
+	}
+
 
 	
 
