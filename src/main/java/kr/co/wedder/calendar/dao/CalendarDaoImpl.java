@@ -19,8 +19,8 @@ public class CalendarDaoImpl implements CalendarDao {
 	
 	
 	@Override
-	public int delete(Integer schedule_id) throws Exception {
-		return session.delete(namespace+"delete",schedule_id);
+	public int delete(Integer scheduleId) throws Exception {
+		return session.delete(namespace+"delete",scheduleId);
 	}
 
 	@Override
@@ -39,8 +39,8 @@ public class CalendarDaoImpl implements CalendarDao {
 	}
 
 	@Override
-	public CompanyScheduleDto select(Integer schedule_id) throws Exception {
-		return session.selectOne(namespace+"select",schedule_id);
+	public CompanyScheduleDto select(Integer scheduleId) throws Exception {
+		return session.selectOne(namespace+"select",scheduleId);
 	}
 
 	@Override

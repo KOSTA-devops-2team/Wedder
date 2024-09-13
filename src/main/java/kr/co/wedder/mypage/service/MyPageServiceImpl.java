@@ -3,11 +3,11 @@ package kr.co.wedder.mypage.service;
 import java.util.List;
 import java.util.Map;
 
+import kr.co.wedder.company.domain.CompanyDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.wedder.mypage.dao.MyPageDao;
-import kr.co.wedder.mypage.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.CompanyImage;
 import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
@@ -22,21 +22,21 @@ public class MyPageServiceImpl implements MyPageService {
 	MyPageDao myPageDao;
 	
 	@Override
-	public MyPageDTO customerRead(Integer customer_id) throws Exception {
-		return myPageDao.selectOne(customer_id);
+	public MyPageDTO customerRead(Integer customerId) throws Exception {
+		return myPageDao.selectOne(customerId);
 	}
 
 	@Override
-	public CompanyDto companyRead(Integer company_id) throws Exception {
-		return myPageDao.selectCompany(company_id);
+	public CompanyDto companyRead(Integer companyId) throws Exception {
+		return myPageDao.selectCompany(companyId);
 	}
 	@Override
 	public ReservationDto reservationRead(Integer reservation_id) throws Exception {
 		return myPageDao.selectReservation(reservation_id);
 	}
 	@Override
-	public HistoryDto historyRead(Integer cusomter_id) throws Exception {
-		return myPageDao.selectHistory(cusomter_id);
+	public HistoryDto historyRead(Integer customerId) throws Exception {
+		return myPageDao.selectHistory(customerId);
 	}
 	@Override
 	public CompanyImage coImageRead(Integer img_id) throws Exception {

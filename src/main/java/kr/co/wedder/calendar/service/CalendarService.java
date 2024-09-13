@@ -10,9 +10,9 @@ public interface CalendarService {
 
 	List<CompanyScheduleDto> getSchedule(Map map) throws Exception;
 	
-	int remove(Integer schedule_id) throws Exception;
+	int remove(Integer scheduleId) throws Exception;
 	int write(CompanyScheduleDto dto) throws Exception;
-	CompanyScheduleDto read(Integer schedule_id) throws Exception;
+	CompanyScheduleDto read(Integer scheduleId) throws Exception;
 
 	 int getSearchResultCount(SearchItem sc) throws Exception;
 

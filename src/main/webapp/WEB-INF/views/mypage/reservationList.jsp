@@ -64,7 +64,7 @@
 	            
 	              <div>
 	                <img src="${hallCriteria.companyImage.img_url}" alt="이미지" />
-	                <h3>${hallCriteria.companyDto.company_name}</h3>
+	                <h3>${hallCriteria.companyDto.companyName}</h3>
 	              </div>
 	              
 	              <div class="card-content">
@@ -104,7 +104,7 @@
 	            
 	              <div>
 	                <img src="${hallCriteria.companyImage.img_url}" alt="이미지" />
-	                <h3>${hallCriteria.companyDto.company_name}</h3>
+	                <h3>${hallCriteria.companyDto.companyName}</h3>
 	              </div>
 	              
 	              <div class="card-content">
@@ -150,7 +150,7 @@
 	            
 	              <div>
 	                <img src="${coCriteria.companyImage.img_url}" alt="이미지" />
-	                <h3>${coCriteria.companyDto.company_name}</h3>
+	                <h3>${coCriteria.companyDto.companyName}</h3>
 	              </div>
 	              
 	              <div class="card-content">
@@ -185,7 +185,7 @@
 	            
 	              <div>
 	                <img src="${coCriteria.companyImage.img_url}" alt="이미지" />
-	                <h3>${coCriteria.companyDto.company_name}</h3>
+	                <h3>${coCriteria.companyDto.companyName}</h3>
 	              </div>
 	              
 	              <div class="card-content">
@@ -218,7 +218,7 @@
 	            
 	              <div>
 	                <img src="${coCriteria.companyImage.img_url}" alt="이미지" />
-	                <h3>${coCriteria.companyDto.company_name}</h3> 
+	                <h3>${coCriteria.companyDto.companyName}</h3>
 	              </div>
 	              
 	              <div class="card-content">
