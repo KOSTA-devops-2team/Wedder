@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.wedder.company.dao.CompanyMapper">
+    <resultMap id="companyDtoMap" type="kr.co.wedder.company.domain.CompanyDto">
+        <id property="companyId" column="company_id" />
+        <result property="companyName" column="company_name" />
+        <result property="companyAddress" column="company_address" />
+        <result property="introduce" column="company_introduce" />
+        <result property="category" column="company_category" />
+        <result property="phoneNum" column="phone_num" />
+        <result property="operationHours" column="operation_hours" />
+        <result property="instagramUrl" column="instagram_url" />
+        <result property="basicPrice" column="basic_price" />
+        <result property="mood" column="mood" />
+        <result property="location" column="location" />
+
+<!--        <collection property="hallDto" resultMap="hallDtoMap" />-->
+
+        <association property="hallDto" javaType="kr.co.wedder.company.domain.HallDto">
+            <id property="hallId" column="hall_id"/>
+            <result property="companyId" column="company_id" />
+            <result property="hallType" column="hall_type" />
+            <result property="minPeople" column="min_people" />
+            <result property="parking" column="parking" />
+            <result property="mealPrice" column="meal_price" />
+        </association>
+    </resultMap>
+
+<!--    <resultMap id="hallDtoMap" type="kr.co.wedder.company.domain.HallDto">-->
+<!--        <id property="hallId" column="hall_id"/>-->
+<!--        <result property="companyId" column="company_id" />-->
+<!--        <result property="hallType" column="hall_type" />-->
+<!--        <result property="minPeople" column="min_people" />-->
+<!--        <result property="parking" column="parking" />-->
+<!--        <result property="mealPrice" column="meal_price" />-->
+<!--    </resultMap>-->
+
+    <sql id="selectFromCompany">
+        SELECT * FROM company
+    </sql>
+    <sql id="selectFromHallInfo">
+        SELECT * FROM hallInfo
+    </sql>
+
+<!--    <sql id="searchCondition">-->
+
+<!--    </sql>-->
+
+<!--    <select id="selectCompanyById" parameterType="int" resultMap="companyDtoMap">-->
+<!--        <include refid="selectFromCompany" />-->
+<!--        WHERE company_id = #{companyId}-->
+<!--    </select>-->
+
+    <select id="selectCompanyByCategory" resultMap="companyDtoMap">
+        SELECT c.company_id, c.company_name, c.company_address, c.phone_num, c.operation_hours, c.instagram_url, c.company_category, h.min_people, h.meal_price
+        FROM company c
+        LEFT JOIN hallInfo h ON c.company_id = h.company_id
+        WHERE c.company_category = '웨딩홀'
+    </select>
+
+    <select id="count" resultType="int">
+        SELECT count(*) FROM company
+    </select>
+
+<!--    <select id="searchResultCnt" parameterType="SearchItem" resultType="">-->
+<!--        SELECT count(*) FROM company-->
+<!--        WHERE true-->
+<!--        <include refid="" />-->
+<!--    </select>-->
+
+<!--    <select id="selectPage" parameterType="map" resultMap="companyDtoMap">-->
+<!--        <include refid="selectFromCompany" />-->
+<!--        limit #{pageSize} offset #{offset}-->
+<!--    </select>-->
+
+<!--    <select id="searchSelectPage" parameterType="SearchItem" resultType="CompanyDto">-->
+<!--        SELECT company_id, company_name, company_address, company_introduce, company_category, phone_num, operation_hours, instagram_url, basic_price, mood, location-->
+<!--        FROM company-->
+<!--        where true-->
+<!--        <include refid="searchCondition" />-->
+<!--        limit #{pageSize} offset #{offset}-->
+<!--    </select>-->
+
+
+</mapper>

@@ -5,10 +5,19 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 
 <configuration>
+    <settings>
+        <!-- snake to camel -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 쿼리에 보내는 파라미터가 null인 경우 에러 발생 방지 -->
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
     <typeAliases>
-    
-   
-        
+
+        <typeAlias  alias="CustomerDTO" type="kr.co.wedder.customer.domain.CustomerDTO" />
+        <typeAlias alias="CompanyDto" type="kr.co.wedder.company.domain.CompanyDto" />
+        <typeAlias  alias="PackageDto" type="kr.co.wedder.sdmpackage.domain.PackageDto" />
+        <typeAlias  alias="PackageDetailDto" type="kr.co.wedder.sdmpackage.domain.PackageDetailDto" />
+
         <!--calendar alias  -->
         <typeAlias alias="CompanyScheduleDto" type="kr.co.wedder.calendar.domain.CompanyScheduleDto"/>
         <typeAlias alias="SearchItem" type="kr.co.wedder.calendar.domain.SearchItem"/>
@@ -29,6 +38,6 @@
         <typeAlias alias="OptionDto" type="kr.co.wedder.mypage.domain.OptionDto"/>
         
         <typeAlias alias="VisitCriteria" type="kr.co.wedder.mypage.domain.VisitCriteria"/>
-        <!--  -->
+
     </typeAliases>
 </configuration>

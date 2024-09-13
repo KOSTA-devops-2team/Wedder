@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -77,6 +78,36 @@
 
         <!-- 업체 리스트 부분  -->
         <section class="list-all">
+            <c:forEach var="card" items="${hallList}">
+                <div class="card">
+                    <a href="weddinghallDetail">
+                        <img
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"
+                                alt="웨딩홀 이미지1"
+                        />
+                    </a>
+                    <div class="card-info">
+                        <div class="weddinghall-name">
+                            ${card.companyName}
+                            <a
+                                    href="${card.instagramUrl}"
+                                    target="_blank"
+                                    class="instagram"
+                            >
+                                <img
+                                        src="resources/images/instagram2.png"
+                                        alt="인스타 이미지"
+                                />
+                            </a>
+                        </div>
+                        <div class="weddinghall-address">주소 : ${card.companyAddress}</div>
+                        <div class="phone-num">연락처 : ${card.phoneNum}</div>
+                        <div class="operation-hours">영업시간 : ${card.operationHours}</div>
+                        <div class="meal-price">식사비 : ${card.hallDto.mealPrice}</div>
+                        <div class="minimum-guarantee">최소보증인원 : ${card.hallDto.minPeople}</div>
+                    </div>
+                </div>
+            </c:forEach>
             <div class="card" data-id="1">
                 <a href="weddinghallDetail">
                     <img
