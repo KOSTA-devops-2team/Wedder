@@ -1,4 +1,4 @@
-package kr.co.wedder.company.sdm.controller;
+package kr.co.wedder.company.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
