@@ -5,7 +5,16 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 
 <configuration>
+    <settings>
+        <!-- snake to camel -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 쿼리 결과가 null인 경우 누락되지 않도록 -->
+<!--        <setting name="callSettersOnNulls" value="true"/>-->
+        <!-- 쿼리에 보내는 파라미터가 null인 경우 에러 발생 방지 -->
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
     <typeAliases>
         <typeAlias  alias="UserDto" type="kr.co.wedder.user.domain.UserDto" />
+        <typeAlias alias="CompanyDto" type="kr.co.wedder.company.domain.CompanyDto" />
     </typeAliases>
 </configuration>
