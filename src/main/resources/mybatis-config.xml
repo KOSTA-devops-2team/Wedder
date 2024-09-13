@@ -10,6 +10,7 @@
         <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
     <typeAliases>
+        <typeAlias  alias="CustomerDTO" type="kr.co.wedder.customer.domain.CustomerDTO" />
         <typeAlias  alias="UserDto" type="kr.co.wedder.user.domain.UserDto" />
         <typeAlias  alias="PackageDto" type="kr.co.wedder.sdmpackage.domain.PackageDto" />
         <typeAlias  alias="PackageDetailDto" type="kr.co.wedder.sdmpackage.domain.PackageDetailDto" />
