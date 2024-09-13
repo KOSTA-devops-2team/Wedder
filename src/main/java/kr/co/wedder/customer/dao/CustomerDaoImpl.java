@@ -8,11 +8,16 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import kr.co.wedder.customer.domain.CustomerDTO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class CustomerDaoImpl implements CustomerDao {
+    @Autowired
+    private SqlSession session;
+    private static String namespace="kr.co.wedder.customer.dao.CustomerMapper.";
+
 
     @Autowired
     DataSource ds;
@@ -158,6 +163,16 @@ public class CustomerDaoImpl implements CustomerDao {
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.executeUpdate();		//insert, delete, update()
 
+    }
+
+    @Override
+    public CustomerDTO customerJoin(CustomerDTO customerDTO) {
+        return session.selectOne(namespace+"customerJoin",customerDTO);
+    }
+
+    @Override
+    public CustomerDTO findById(String id) {
+        return session.selectOne(namespace+"findById",id);
     }
 
 }

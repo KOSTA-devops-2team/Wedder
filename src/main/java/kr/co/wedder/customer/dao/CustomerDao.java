@@ -13,5 +13,9 @@ public interface CustomerDao {
     int updateCustomer(CustomerDTO customerDTO);
 
     void deleteAll() throws Exception;
+
+    CustomerDTO customerJoin(CustomerDTO customerDTO);
+
+    CustomerDTO findById(String id);
 }
 

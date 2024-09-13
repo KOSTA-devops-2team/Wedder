@@ -3,6 +3,7 @@ package kr.co.wedder.customer.controller;
 import kr.co.wedder.customer.domain.CustomerDTO;
 import kr.co.wedder.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -22,8 +23,8 @@ public class RegisterController {
     }
 
     // 회원가입 처리
-    @PostMapping("/register")
-    public ResponseEntity<String> registerCustomer(@RequestBody CustomerDTO customerDTO) {
+    @PostMapping("/registerProceed")
+    public ResponseEntity<String> customerJoin(@RequestBody CustomerDTO customerDTO) {
         try {
             // 회원 가입 처리 로직
             boolean isRegistered = customerService.customerJoin(customerDTO);
@@ -55,24 +56,24 @@ public class RegisterController {
         }
     }
 
-    // 로그인 처리
-    @PostMapping("/loginCheck")
-    public ResponseEntity<String> loginCheck(@RequestBody CustomerDTO customerDTO) {
-        try {
-            // 로그인 처리 로직
-            String result = customerService.login(customerDTO.getId(), customerDTO.getPassword());
-
-            if ("loginSuccess".equals(result)) {
-                return new ResponseEntity<>("loginSuccess", HttpStatus.OK);
-            } else if ("pwFail".equals(result)) {
-                return new ResponseEntity<>("pwFail", HttpStatus.UNAUTHORIZED);
-            } else {
-                return new ResponseEntity<>("idFail", HttpStatus.NOT_FOUND);
-            }
-        } catch (Exception e) {
-            return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    // 로그인 처리
+//    @PostMapping("/loginCheck")
+//    public ResponseEntity<String> loginCheck(@RequestBody CustomerDTO customerDTO) {
+//        try {
+//            // 로그인 처리 로직
+//            String result = customerService.login(customerDTO.getId(), customerDTO.getPassword());
+//
+//            if ("loginSuccess".equals(result)) {
+//                return new ResponseEntity<>("loginSuccess", HttpStatus.OK);
+//            } else if ("pwFail".equals(result)) {
+//                return new ResponseEntity<>("pwFail", HttpStatus.UNAUTHORIZED);
+//            } else {
+//                return new ResponseEntity<>("idFail", HttpStatus.NOT_FOUND);
+//            }
+//        } catch (Exception e) {
+//            return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 }
 
 

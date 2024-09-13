@@ -19,7 +19,7 @@
     <div class="hd__inner400">
         
         <!-- 타이틀 -->
-        <form method="POST" action="${pageContext.request.contextPath}/user/register" class="sign-up">
+        <form method="POST" action="${pageContext.request.contextPath}/user/registerProceed" class="sign-up" id="register">
             <div class="sign-title">
                 <h1>회원가입</h1>
                 <div class="required-block">
@@ -38,25 +38,27 @@
             </div>
             <div id="pwChk"></div>
             <div class="input-block">
-                <input type="password" id="password" name="password" class="inputs" minlength="8" maxlength="20" placeholder="비밀번호" />
-                <img
-                    class="password-invisible"
-                    src="${pageContext.request.contextPath}/resources/images/password-invisible.png"
-                />
-            </div>
-            <div class="input-block">
-                <input type="password" name="pass-check" id="pass-check" class="inputs" minlength="8" maxlength="20" placeholder="비밀번호 확인" autocomplete="off"/>
+                <input type="password" id="password" name="password" class="inputs" placeholder="비밀번호" />
                 <img
                     class="password-invisible"
                     src="${pageContext.request.contextPath}/resources/images/password-invisible.png"
                 />
             </div>
 
+            <div id="pwChk2"></div>
+            <div class="input-block">
+                <input type="password" name="pass-check" id="passCheck" class="inputs" placeholder="비밀번호 확인" autocomplete="off"/>
+                <img
+                    class="password-invisible"
+                    src="${pageContext.request.contextPath}/resources/images/password-invisible.png"
+                />
+            </div>
 
             <!-- 개인정보 입력 -->
             <div class="info-block">
                 <div class="label-block">
                     <label for="name" class="required-input">이름</label>
+                    <div id="nameChk"></div>
                 </div>
                 <div class="input-block">
                     <input type="text" id="name" name="name" class="inputs" placeholder="이름을 입력해주세요" autocomplete="off"/>
@@ -87,14 +89,14 @@
                 </div>
 
                  <div class="gender-block">
-                    <input type="radio" id="male" name="sex" value="1">남자
-                    <input type="radio" id="female" name="sex" value="2">여자
+                    <input type="radio" id="male" name="gender" value="1">남자
+                    <input type="radio" id="female" name="gender" value="2">여자
                  </div>
             </div>
+            <div class="btn-block">
+                <button type="submit" id="sign-btn" class="sign-btn">가입하기</button>
+            </div>
         </form>
-        <div class="btn-block">
-            <button type="submit" id="sign-btn" class="sign-btn">가입하기</button>
-        </div>
     </div>
 
     <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>

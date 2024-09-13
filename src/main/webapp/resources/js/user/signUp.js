@@ -12,11 +12,6 @@ document.querySelectorAll(".password-invisible").forEach((toggleIcon) => {
         }
     });
 });
-
-/* 비밀번호 확인 기능 */
-
-
-
 // Start jQuery
 $(function() {
     // 회원 가입 시 사용자 입력값들 검증
@@ -39,9 +34,7 @@ $(function() {
         // 키를 입력하고 땔 때 마다 이벤트 발생
         if($(event.target).val() === ''){
             // 이벤트가 발생된 곳의 값이 비어있으면 발생
-            $(event.target).css('background', 'pink');
-            $('#idChk').html('<b style="font-size: 14px; color:blue">[아이디는 필수 정보입니다.]</b>');
-            // 아이디를 입력해주세요 옆에 표시됨
+            $('#idChk').html('<b style="font-size: 14px; color:red">[아이디는 필수 정보입니다.]</b>');
 
             chk1 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
@@ -52,8 +45,7 @@ $(function() {
             // getIdCheck는 정규표현식이므로 검증 값을 정규표현식에 적합한지 테스트 (boolean으로 return)
 
             // 정규표현식에 어긋난다면
-            $(event.target).css('background', 'pink');
-            $('#idChk').html('<b style="font-size: 14px; color:blue">[영문과 숫자 조합으로 4~14자 조합해주세요.]</b>');
+            $('#idChk').html('<b style="font-size: 14px; color:red">[영문과 숫자 조합으로 4~14자 조합해주세요.]</b>');
 
             chk1 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
@@ -70,7 +62,6 @@ $(function() {
             $.ajax({
                 type : 'POST', // 서버에 전송하는 HTTP 방식
                 url : '/user/checkId', // 서버 요청 url
-                // 요청을 받을 controller가 있어야함
                 contentType: 'application/json',
                 // dataType : 'json', // 서버로 부터 응답받을 데이터의 형태
                 // data : checkId, // 사용자가 입력한 id 데이터를 서버로 전송
@@ -80,14 +71,12 @@ $(function() {
                     // controller가 리턴한 값이 result에 저장됨
                     console.log('통신 성공 ' + result);
                     if (result === 'Available'){
-                        $('#id').css('background', 'aqua');
-                        $('#idChk').html('<b style="font-size: 14px; color:skyblue">[작성하신 아이디는 사용 가능합니다.]</b>');
+                        $('#idChk').html('<b style="font-size: 14px; color:blue">[작성하신 아이디는 사용 가능합니다.]</b>');
                         chk1 = true;
                         // 입력값 검증 성공 표시
                     } else{
                         // result에 duplicated이므로
-                        $('#id').css('background', 'pink');
-                        $('#idChk').html('<b style="font-size: 14px; color:blue">[아이디가 중복되었습니다.]</b>');
+                        $('#idChk').html('<b style="font-size: 14px; color:red">[아이디가 중복되었습니다.]</b>');
                         chk1 = false;
                     }
                 },
@@ -98,31 +87,26 @@ $(function() {
             });
             // end ajax (아이디 중복 확인)
         }
-
-    });
-// ID 검증 끝
+    }); // ID 검증 끝
 
 // 2. PW 입력값 검증
     $('#password').keyup(function() {
 
         // 비밀번호 공백 확인
         if ($(event.target).val() === ''){
-            $(event.target).css('background', 'pink');
-            $('#pwChk').html('<b style="font-size: 14px; color:blue">[비밀번호를 입력해주세요]</b>');
+            $('#pwChk').html('<b style="font-size: 14px; color:red">[비밀번호를 입력해주세요]</b>');
             chk2 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }
         // 비밀번호 유효성 검사
         else if (!getPwCheck.test($(event.target).val()) || $(event.target).val().length < 8){
-            $(event.target).css('background', 'pink');
-            $('#pwChk').html('<b style="font-size: 14px; color:blue">[비밀번호는 특수문자 포함 8자 이상입니다.]</b>');
+            $('#pwChk').html('<b style="font-size: 14px; color:red">[비밀번호는 특수문자 포함 8자 이상입니다.]</b>');
             chk2 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }
         // 통과
         else{
-            $(event.target).css('background', 'aqua');
-            $('#pwChk').html('<b style="font-size: 14px; color:skyblue">[비밀번호 입력 확인 완료.]</b>');
+            $('#pwChk').html('<b style="font-size: 14px; color:blue">[비밀번호 입력 확인 완료.]</b>');
             chk2 = true;
             // 입력값 검증 성공 표시
         }
@@ -130,12 +114,11 @@ $(function() {
     // PW 검증 끝
 
     // 3. PW 확인란 검증
-    $('#password_check').keyup(function() {
+    $('#passCheck').keyup(function() {
 
         // 비밀번호 확인 공백 검증
         if ($(event.target).val() === ''){
-            $(event.target).css('background', 'pink');
-            $('#pwChk2').html('<b style="font-size: 14px; color:blue">[비밀번호 확인은 필수 정보 입니다.]</b>');
+            $('#pwChk2').html('<b style="font-size: 14px; color:red">[비밀번호 확인은 필수 정보 입니다.]</b>');
 
             chk3 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
@@ -143,14 +126,12 @@ $(function() {
             // 비밀번호 확인란 유효성 검증 (일치하는지)
         } else if($(event.target).val() !== $('#password').val()){
             // 값들이 같지 않다면
-            $(event.target).css('background', 'pink');
-            $('#pwChk2').html('<b style="font-size: 14px; color:blue">[입력한 비밀번호가 일치하지 않습니다.]</b>');
+            $('#pwChk2').html('<b style="font-size: 14px; color:red">[입력한 비밀번호가 일치하지 않습니다.]</b>');
 
             chk3 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }else{
-            $(event.target).css('background', 'aqua');
-            $('#pwChk2').html('<b style="font-size: 14px; color:skyblue">[비밀번호 입력 확인 완료.]</b>');
+            $('#pwChk2').html('<b style="font-size: 14px; color:blue">[비밀번호 입력 확인 완료.]</b>');
 
             chk3 = true;
         }
@@ -162,23 +143,20 @@ $(function() {
 
         // 이름 값 공백 확인
         if ($(event.target).val() === ''){
-            $(event.target).css('background', 'pink');
-            $('#nameChk').html('<b style="font-size: 14px; color:blue">[이름은 필수 입력값입니다.]</b>');
+            $('#nameChk').html('<b style="font-size: 14px; color:red">[이름은 필수 입력값입니다.]</b>');
 
             chk4 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }
         // 이름값 유효성 검사
         else if(!getNameCheck.test($(event.target).val())){
-            $(event.target).css('background', 'pink');
-            $('#nameChk').html('<b style="font-size: 14px; color:blue">[이름은 한글만 작성가능합니다.]</b>');
+            $('#nameChk').html('<b style="font-size: 14px; color:red">[이름은 한글만 작성가능합니다.]</b>');
 
             chk4 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }
         else {
-            $(event.target).css('background', 'aqua');
-            $('#nameChk').html('<b style="font-size: 14px; color:skyblue">[이름 입력 확인 완료.]</b>');
+            $('#nameChk').html('<b style="font-size: 14px; color:blue">[이름 입력 확인 완료.]</b>');
 
             chk4 = true;
         }
@@ -187,41 +165,36 @@ $(function() {
 
 // 사용자가 회원 가입 버튼을 눌렀을 때의 이벤트 처리
     // 사용자가 입력하는 4가지 데이터 중 단 하나라도 문제가 있으면 회원가입 처리하면 안됨
-    $('#sign-btn').click(function() {
-
+    $('#sign-btn').click(function(event) {
+        event.preventDefault();
         if(chk1 && chk2 && chk3 && chk4){
-            // 모두 true라면
-            // 입력값이 모두 제약조건을 통과했다는 뜻
+            // 모두 true라면 입력값이 모두 제약조건을 통과했다는 뜻
 
             const id = $('#id').val();
-            // 아이디 정보
-
             const password = $('#password').val();
-            // 비밀번호 정보
-
             const name = $('#name').val();
-            // 이름 정보
+            const phone = $('#phone').val();
+            const email = $('#email').val();
+            const gender = parseInt($('input[name="gender"]:checked').val(), 10);
+            // 성별 데이터를 정수형으로 변환
 
-            // 여러개의 값을 보낼 때는 객체로 포장해서 전송해야함
-            // 객체의 property이름은 VO 객체의 변수명과 동일하게 (커맨드 객체 사용하기 위해)
-            const user = {
+            const customerDto = {
                 'id' : id,
                 'password' : password,
-                'name' : name
+                'name' : name,
+                'phone' : phone,
+                'email' : email,
+                'gender' : gender
             };
             // 아직은 js객체이므로 JSON으로 변환해서 ajax의 data에 넣어야함
 
             // 비동기 방식
             $.ajax({
                 type:'post',
-                url:'/user/register',
-                headers : {
-                    // 객체 전달
-                    'Content-Type' : 'application/json'
-                },
-                dataType: 'text',
-
-                data: JSON.stringify(user),
+                url:'/user/registerProceed',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify(customerDto),
                 // 여러개의 값을 보낼 때는 객체로 포장해서 전송해야함
                 // user는 js의 객체이므로 해당 객체를 JSON의 문자열로 변환해야함 ================================
 
@@ -236,7 +209,6 @@ $(function() {
                 error : function(){
                     alert("회원가입 실패");
                 }
-
             });
             // end ajax(회원가입 처리)
 
@@ -244,43 +216,36 @@ $(function() {
             // 4가지 중 하나라도 false라면
             alert('입력 정보를 다시 확인하세요.');
         }
-
     }); // 회원 가입 처리 끝
 // 로그인 검증
 
-    //ID 입력값 검증(공백, 정규표현식)
-    $('#signInId').keyup(function() {
-        if($(this).val() === '') {
-            $(this).css('background-color', 'pink');
-            $('#idCheck').html('<b style="font-size: 14px; color: red">[아이디는 필수 정보입니다!]</b>');
-            chk1 = false;
-        } else if(!getIdCheck.test($(this).val())) {
-            $(this).css('background-color', 'pink');
-            $('#idCheck').html('<b style="font-size: 14px; color: red">[영문, 숫자로 4-14자로 작성!]</b>');
-            chk1 = false;
-        } else {
-            $(this).css('background-color', 'aqua');
-            $('#idCheck').html('<b style="font-size: 14px; color: green">[아이디 입력 완료!]</b>');
-            chk1 = true;
-        }
-    }); //아이디 입력값 검증 끝!
-
-    //비밀번호 입력값 검증(공백, 정규표현식)
-    $('#signInPw').keyup(function() {
-        if($(this).val() === '') {
-            $(this).css('background-color', 'pink');
-            $('#pwCheck').html('<b style="font-size: 14px; color: red">[비밀번호 쓰세요!]</b>');
-            chk2 = false;
-        } else if(!getPwCheck.test($(this).val())) {
-            $(this).css('background-color', 'pink');
-            $('#pwCheck').html('<b style="font-size: 14px; color: red">[특수문자 포함 8자 이상!]</b>');
-            chk2 = false;
-        } else {
-            $(this).css('background-color', 'aqua');
-            $('#pwCheck').html('<b style="font-size: 14px; color: green">[비밀번호 입력 완료!]</b>');
-            chk2 = true;
-
-        }
-    }); //비밀번호 입력값 검증 끝!
+    // //ID 입력값 검증(공백, 정규표현식)
+    // $('#signInId').keyup(function() {
+    //     if($(this).val() === '') {
+    //         $('#idCheck').html('<b style="font-size: 14px; color: red">[아이디는 필수 정보입니다!]</b>');
+    //         chk1 = false;
+    //     } else if(!getIdCheck.test($(this).val())) {
+    //         $('#idCheck').html('<b style="font-size: 14px; color: red">[영문, 숫자로 4-14자로 작성!]</b>');
+    //         chk1 = false;
+    //     } else {
+    //         $('#idCheck').html('<b style="font-size: 14px; color: green">[아이디 입력 완료!]</b>');
+    //         chk1 = true;
+    //     }
+    // }); //아이디 입력값 검증 끝!
+    //
+    // //비밀번호 입력값 검증(공백, 정규표현식)
+    // $('#signInPw').keyup(function() {
+    //     if($(this).val() === '') {
+    //         $('#pwCheck').html('<b style="font-size: 14px; color: red">[비밀번호 쓰세요!]</b>');
+    //         chk2 = false;
+    //     } else if(!getPwCheck.test($(this).val())) {
+    //         $('#pwCheck').html('<b style="font-size: 14px; color: red">[특수문자 포함 8자 이상!]</b>');
+    //         chk2 = false;
+    //     } else {
+    //         $('#pwCheck').html('<b style="font-size: 14px; color: green">[비밀번호 입력 완료!]</b>');
+    //         chk2 = true;
+    //
+    //     }
+    // }); //비밀번호 입력값 검증 끝!
 });
 // end jQuery
