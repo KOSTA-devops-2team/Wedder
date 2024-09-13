@@ -16,23 +16,33 @@ public class PackageDaoImpl implements PackageDao {
     private static String namespace = "kr.co.wedder.dao.PackageMapper.";
 
     @Override
+    public List<PackageDto> selectAllPackages() {
+
+        return sqlSession.selectList(namespace + "selectAllPackage");
+    }
+
+    @Override
     public List<PackageDto> selectBestPackages() {
 
-        System.out.println("DAO: selectBestPackages 호출됨");
         return sqlSession.selectList(namespace + "selectBestPackage");
     }
 
     @Override
     public List<PackageDto> selectMDPickPackages() {
 
-        System.out.println("DAO: selectMDPickPackages 호출됨");
         return sqlSession.selectList(namespace + "selectMDPickPackage");
     }
 
     @Override
     public List<PackageDetailDto> selectPackageDetail(int packageId) {
 
-        System.out.println("DAO: selectPackageDetail 호출됨");
         return sqlSession.selectList(namespace + "selectPackageDetail");
+    }
+
+    @Override
+    public List<PackageDetailDto> searchPackages(String query) {
+
+        System.out.println("DAO: searchPackages 호출됨");
+        return sqlSession.selectList(namespace + "searchPackages");
     }
 }

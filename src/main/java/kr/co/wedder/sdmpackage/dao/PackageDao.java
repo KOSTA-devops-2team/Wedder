@@ -7,8 +7,10 @@ import java.util.List;
 
 public interface PackageDao {
 
+    List<PackageDto>selectAllPackages();
     List<PackageDto> selectBestPackages();
     List<PackageDto> selectMDPickPackages();
     List<PackageDetailDto> selectPackageDetail(int packageId);
+    List<PackageDetailDto> searchPackages(String query);
 
 }

@@ -6,10 +6,7 @@ import kr.co.wedder.sdmpackage.service.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,7 +23,10 @@ public class PackageController {
     }
 
     @GetMapping(value = "/recommend")
-    public String packageRecommend(Model model) {
+    public String getAllPackages(Model model) {
+
+        List<PackageDto> allPackages = packageService.getAllPackages();
+        model.addAttribute("AllPackages", allPackages);
 
         // best package 라인
         List<PackageDto> bestPackages = packageService.getBestPackages();
@@ -37,6 +37,10 @@ public class PackageController {
         model.addAttribute("MDPickPackages", mdPickPackages);
         return "package/packageRecommend";
     }
+
+
+    // 패키지 금액별 필터링
+
 
 
     // 패키지 디테일

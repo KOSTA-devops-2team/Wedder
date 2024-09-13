@@ -90,7 +90,7 @@
     <!--1. 패키지 설명-->
     <div class="package-info">
         <h1>패키지</h1>
-        <p>스드메 패키지,<br/> 이런 분들께 추천 드려요!</p>å
+        <p>스드메 패키지,<br/> 이런 분들께 추천 드려요!</p>
     </div>
     <section class="recommendations">
         <div class="recommendation">

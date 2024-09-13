@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageRecommend.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/header/header.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"/>
-    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-    <%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -148,12 +148,12 @@
         </div>
     <!-- 패키지 검색 -->
     <div class="grid-bottom">
-        <c:forEach var="BestPackage" items="${BestPackages}">
+        <c:forEach var="AllPackage" items="${AllPackages}">
         <div class="grid-content">
             <div class="grid-pic">
-                <img src="${BestPackage.packageImg}" alt="패키지 이미지">
+                <img src="${AllPackage.packageImg}" alt="패키지 이미지">
             </div>
-            <p class="name">${BestPackage.studioName} + ${BestPackage.dressName} + ${BestPackage.makeupName}</p>
+            <p class="name">${AllPackage.studioName} + ${AllPackage.dressName} + ${AllPackage.makeupName}</p>
             <p class="cost">패키지 가격 들어올 부분</p>
         </div>
         </c:forEach>
@@ -162,5 +162,7 @@
 </div>
 <%--<div id="pagination-placeholder"></div>--%>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+<script src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/package/packageRecommend.js"></script>
 </body>
 </html>

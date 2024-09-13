@@ -5,6 +5,22 @@
 
 <mapper namespace="kr.co.wedder.dao.PackageMapper">
 
+    <select id="selectAllPackage" resultType="PackageDto">
+        SELECT
+        p.package_id AS packageId,
+        p.package_name AS packageName,
+        p.package_img AS packageImg,
+        p.description AS description,
+        p.discount_rate AS discountRate,
+        MAX(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studioName,
+        MAX(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dressName,
+        MAX(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName
+        FROM package p
+        JOIN packageCategory pc ON p.package_id = pc.package_id
+        JOIN company c ON pc.company_id = c.company_id
+        GROUP BY p.package_id
+    </select>
+
     <select id="selectBestPackage" resultType="PackageDto">
         SELECT
         p.package_id AS packageId,
@@ -54,4 +70,18 @@
        AND   p.package_id = #{package_id}
     </select>
 
+    <select id="searchPackages" resultType="kr.co.wedder.sdmpackage.domain.PackageDetailDto">
+        SELECT
+        p.package_id AS packageId,
+        p.package_name AS packageName,
+        c.company_name,
+        p.package_img AS packageImg,
+        p.description AS description,
+        p.discount_rate AS discountRate
+        FROM package p
+        JOIN packageCategory pc ON p.package_id = pc.package_id
+        JOIN company c ON pc.company_id = c.company_id
+        WHERE c.company_name LIKE '%' + #{query} + '%'
+        GROUP BY p.package_id
+    </select>
 </mapper>

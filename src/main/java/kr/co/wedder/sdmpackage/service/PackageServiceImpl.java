@@ -15,22 +15,31 @@ public class PackageServiceImpl implements PackageService{
     private PackageDao packageDao;
 
     @Override
+    public List<PackageDto> getAllPackages() {
+        return packageDao.selectAllPackages();
+    }
+
+    @Override
     public List<PackageDto> getBestPackages() {
 
-        System.out.println("Service: getBestPackages 호출됨");
         return packageDao.selectBestPackages();
         }
 
     @Override
     public List<PackageDto> getMDPickPackages() {
 
-        System.out.println("Service: getMDPickPackages 호출됨");
         return packageDao.selectMDPickPackages();
     }
-
 
     @Override
     public PackageDetailDto getPackageDetail(int packageId) {
         return null;
+    }
+
+    @Override
+    public List<PackageDetailDto> searchPackages(String query) {
+
+        System.out.println("Service: getAllPackages 호출됨");
+        return packageDao.searchPackages(query);
     }
 }
