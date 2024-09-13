@@ -4,17 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kr.co.wedder.company.domain.CompanyDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.wedder.mypage.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.CompanyImage;
 import kr.co.wedder.mypage.domain.HallInfoDto;
 import kr.co.wedder.mypage.domain.HistoryDto;
@@ -47,18 +46,18 @@ public class MyPageController {
 			CompanyDto companyDto =myPageService.companyRead(company_id);
 			ReservationDto reservationDto=myPageService.reservationRead(reservation_id);
 			HistoryDto historyDto = myPageService.historyRead(customer_id);
-//			HallInfoDto hallInfoDto = myPageService.hallInfoRead(hall_id);
+			HallInfoDto hallInfoDto = myPageService.hallInfoRead(hall_id);
 			
 			// 모델 속성 추가
 			m.addAttribute("myPageDTO",myPageDTO);
 			m.addAttribute("companyDto",companyDto);
 			m.addAttribute("reservationDto",reservationDto);
 			m.addAttribute("historyDto",historyDto);
-//			m.addAttribute("hallInfoDto"+hallInfoDto);
+			m.addAttribute("hallInfoDto"+hallInfoDto);
 			// 
 			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDTO, reservationDto, historyDto);
-			visitCriteriaMap.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
-			visitCriteriaMap.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
+			visitCriteriaMap.put("companyId", (Integer) visitCriteria.getCompanyDto().getCompanyId());
+			visitCriteriaMap.put("customerId", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
 			m.addAttribute("visitCriteria",visitCriteria);
 			
 			List<VisitCriteria> visitCriteriaList=myPageService.todayVisitHistory(visitCriteriaMap);
@@ -67,19 +66,19 @@ public class MyPageController {
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
 			m.addAttribute("visitCriteriaCount",visitCriteriaCount);
 			
-			companyDtoMap.put("company_category", "웨딩홀");
+			companyDtoMap.put("category", "웨딩홀");
 			List<CompanyDto> companyListHall=myPageService.todayReservationHistory(companyDtoMap);
 			m.addAttribute("companyListHall",companyListHall);
 			
-			companyDtoMap.put("company_category", "스튜디오");
+			companyDtoMap.put("category", "스튜디오");
 			List<CompanyDto> companyListStudio=myPageService.todayReservationHistory(companyDtoMap);
 			m.addAttribute("companyListStudio",companyListStudio);
 			
-			companyDtoMap.put("company_category", "드레스");
+			companyDtoMap.put("category", "드레스");
 			List<CompanyDto> companyListDress=myPageService.todayReservationHistory(companyDtoMap);
 			m.addAttribute("companyListDress",companyListDress);
 			
-			companyDtoMap.put("company_category", "메이크업");
+			companyDtoMap.put("category", "메이크업");
 			List<CompanyDto> companyListMake=myPageService.todayReservationHistory(companyDtoMap);
 			m.addAttribute("companyListMake",companyListMake);
 			
@@ -157,8 +156,8 @@ public class MyPageController {
 			VisitCriteria hallCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, hallInfoDto, companyImage);
 			m.addAttribute("hallCriteria",hallCriteria);
 			
-			hallVisitReListMap.put("customer_id", (Integer) hallCriteria.getMyPageDTO().getCustomer_id());
-			hallVisitReListMap.put("company_category","웨딩홀");
+			hallVisitReListMap.put("customerId", (Integer) hallCriteria.getMyPageDTO().getCustomerId());
+			hallVisitReListMap.put("category","웨딩홀");
 			
 			//방문 예약
 			hallVisitReListMap.put("visit_reservation", 1);
@@ -173,27 +172,27 @@ public class MyPageController {
 			//업체별 예약 내역 
 			VisitCriteria coCriteria = new VisitCriteria(companyDto,myPageDto,reservationDto,companyImage);
 			m.addAttribute("coCriteria",coCriteria);
-			coReListMap.put("customer_id", (Integer) coCriteria.getMyPageDTO().getCustomer_id());
+			coReListMap.put("customerId", (Integer) coCriteria.getMyPageDTO().getCustomerId());
 			
 			//업체별 예약 - 스튜디오
-			coReListMap.put("company_category","스튜디오" );
+			coReListMap.put("category","스튜디오" );
 			List<VisitCriteria> coReStudioList= myPageService.coReservationList(coReListMap);
 			m.addAttribute("coReStudioList",coReStudioList);
 			
 			//업체별 예약 - 드레스
-			coReListMap.put("company_category","드레스" );
+			coReListMap.put("category","드레스" );
 			List<VisitCriteria> coReDressList= myPageService.coReservationList(coReListMap);
 			m.addAttribute("coReDressList",coReDressList);
 			
 			//업체별 예약 - 메이크업
-			coReListMap.put("company_category","메이크업" );
+			coReListMap.put("category","메이크업" );
 			List<VisitCriteria> coReMakeUpList= myPageService.coReservationList(coReListMap);
 			m.addAttribute("coReMakeUpList",coReMakeUpList);
 			
 			// 방문 일정 카운트 관련
 			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto);
-			visitCriteriaMap.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
-			visitCriteriaMap.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
+			visitCriteriaMap.put("companyId", (Integer) visitCriteria.getCompanyDto().getCompanyId());
+			visitCriteriaMap.put("customerId", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
 			
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
 			m.addAttribute("visitCriteriaCount",visitCriteriaCount);

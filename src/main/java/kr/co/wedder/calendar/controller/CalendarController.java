@@ -34,26 +34,26 @@ public class CalendarController {
 	CalendarService calendarService;
 	
 	@GetMapping("/calendar") //O
-	public String calendar(Integer schedule_Id,Model m) {
+	public String calendar(Integer scheduleId,Model m) {
 		try {
-			CompanyScheduleDto dto = calendarService.read(schedule_Id);
+			CompanyScheduleDto dto = calendarService.read(scheduleId);
 			m.addAttribute(dto);
 			return "calendar";
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "redirect: /wedder/calendar/list";
+			return "redirect: /calendar/list";
 		}
 		
 	}
 	
 	@PostMapping("/remove") //X
-	public String remove(Integer schedule_id,Integer page,Integer pageSize, RedirectAttributes rattr, HttpSession session) {
+	public String remove(Integer scheduleId,Integer page,Integer pageSize, RedirectAttributes rattr, HttpSession session) {
 		//String writer=(String) session.getAttribute("id");
 		String msg="DEL_OK";
 		
 		try {
-			if(calendarService.remove(schedule_id)!=1)
+			if(calendarService.remove(scheduleId)!=1)
 				throw new Exception("Delete failed.");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,9 +66,9 @@ public class CalendarController {
 		return "redirect:/calendar/list";
 	}
 	@GetMapping("/read")  //O
-	public String read(Integer schedule_id, SearchItem sc, Model m) {
+	public String read(Integer scheduleId, SearchItem sc, Model m) {
 		try {
-			CompanyScheduleDto dto = calendarService.read(schedule_id);
+			CompanyScheduleDto dto = calendarService.read(scheduleId);
 			m.addAttribute(dto);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -132,9 +132,9 @@ public class CalendarController {
 		Date date=new Date(2011-1900, 3-1, 5+1);
 		//Date(원하는년도-1900 ,원하는 달 -1,원하는 일+1); 
 		System.out.println("CSDto="+CSDto);
-		CSDto.setSchedule_id(4);
-		CSDto.setCompany_id(4);
-		CSDto.setCompany_name("test용");
+		CSDto.setScheduleId(4);
+		CSDto.setCompanyId(4);
+		CSDto.setCompanyName("test용");
 		CSDto.setDate(date);
 		CSDto.setTime("11:00");
 		

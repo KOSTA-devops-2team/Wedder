@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kr.co.wedder.company.domain.CompanyDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import kr.co.wedder.mypage.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.CompanyImage;
 import kr.co.wedder.mypage.domain.DressInfo;
 import kr.co.wedder.mypage.domain.HistoryDto;
@@ -33,30 +33,29 @@ public class MyPageDaoImplTest {
 	private MyPageDao dao;
 	
 	// 한 사람의 정보를 가져오는 거
-	//@Test
+	@Test
 	public void selectOne() throws Exception{
-		assertTrue(dao !=null);
 		MyPageDTO dto=dao.selectOne(1);
 		System.out.println("dto="+dto);
 	}
 	
 	//회사 정보 가져오는 거
-	//@Test
+	@Test
 	public void selectCompany() throws Exception{
 		CompanyDto companyDto = dao.selectCompany(1);
 		System.out.println("companyDto2= "+companyDto);
 	}
-	//@Test
+	@Test
 	public void selectReservation() throws Exception{
-		ReservationDto reservationDto =dao.selectReservation(2);
+		ReservationDto reservationDto =dao.selectReservation(1);
 		System.out.println("reservationDto= "+reservationDto);
 	}
-	//@Test
+	@Test
 	public void selectHistory() throws Exception{
 		HistoryDto historyDto = dao.selectHistory(1);
 		System.out.println("historyDto= "+historyDto);
 	}
-	//@Test
+	@Test
 	public void todayVisitHistory() throws Exception{
 		
 		Map<String, Object> map= new HashMap<>();
@@ -72,8 +71,8 @@ public class MyPageDaoImplTest {
 		
 		
 		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto,hallInfoDto);
-		map.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
-		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
+		map.put("companyId", (Integer) visitCriteria.getCompanyDto().getCompanyId());
+		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
 
 //		map.put("reservation_id", VisitCriteria.getReservationDto().getReservation_id());
 		System.out.println("========================");
@@ -91,7 +90,7 @@ public class MyPageDaoImplTest {
 		위 4가지 컬럼들 이외의 값들은 null이 나오는 게 정상		
 		*/
 	}
-//	//@Test
+	@Test
 	public void todayVisitCount() throws Exception{
 		Map<String, Object> map= new HashMap<>();
 		MyPageDTO myPageDto =dao.selectOne(1);
@@ -104,32 +103,32 @@ public class MyPageDaoImplTest {
 		HallInfoDto hallInfoDto = dao.selectHallInfo(1);
 		
 		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto,hallInfoDto);
-		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
+		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
 		map.put("company_category", "웨딩홀");
 		Integer cnt=dao.todayVisitCount(map);
 		System.out.println("cnt"+cnt);
 	}
 	
-	//@Test
+	@Test
 	public void todayReservationHistory() throws Exception{		
 		Integer company_id = 1;
 		CompanyDto companyDto = dao.selectCompany(company_id);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("company_category",companyDto.getCompany_category());
+		map.put("company_category",companyDto.getCategory());
 		List<CompanyDto> list = dao.todayReservationHistory(map);
 	}
-	//@Test
+	@Test
 	public void selectHallInfo() throws Exception{
 		HallInfoDto hallInfoDto= dao.selectHallInfo(1);
 		System.out.println("hallInfoDto= "+hallInfoDto);
 	}
-	//@Test
+	@Test
 	public void selectCoImage() throws Exception{
 		CompanyImage companyImage = dao.selectCoImage(1);
 		System.out.println("companyImage = "+companyImage);
 	}
-	//@Test
+	@Test
 	public void hallVisitReservatioinList() throws Exception{
 		Map<String, Object> map= new HashMap<>();
 		CompanyDto 		companyDto 		=	dao.selectCompany(1);
@@ -140,11 +139,11 @@ public class MyPageDaoImplTest {
 		
 		
 		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, hallInfoDto,companyImage);
-		map.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
-		map.put("customer_id",(Integer) visitCriteria.getMyPageDTO().getCustomer_id());
+		map.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompanyId());
+		map.put("customer_id",(Integer) visitCriteria.getMyPageDTO().getCustomerId());
 		List<VisitCriteria> list=dao.hallVisitReservatioinList(map);
 	}
-	//@Test
+	@Test
 	public void coReservationList() throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
 		CompanyDto companyDto = dao.selectCompany(2);
@@ -153,8 +152,8 @@ public class MyPageDaoImplTest {
 		CompanyImage companyImage = dao.selectCoImage(2);
 		
 		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDTO, reservationDto, companyImage);
-		map.put("customer_id", (Integer)visitCriteria.getMyPageDTO().getCustomer_id());
-		map.put("company_category", visitCriteria.getCompanyDto().getCompany_category());
+		map.put("customer_id", (Integer)visitCriteria.getMyPageDTO().getCustomerId());
+		map.put("company_category", visitCriteria.getCompanyDto().getCategory());
 		
 		List<VisitCriteria> list = dao.coReservationList(map);
 	}

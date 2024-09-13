@@ -22,8 +22,8 @@ public class CalendarServiceImpl implements CalendarService {
 	}
 
 	@Override
-	public int remove(Integer schedule_id) throws Exception {
-		return calendarDao.delete(schedule_id);
+	public int remove(Integer scheduleId) throws Exception {
+		return calendarDao.delete(scheduleId);
 	}
 
 	@Override
@@ -32,8 +32,8 @@ public class CalendarServiceImpl implements CalendarService {
 	}
 
 	@Override
-	public CompanyScheduleDto read(Integer schedule_id) throws Exception {
-		CompanyScheduleDto scheduleDto = calendarDao.select(schedule_id);
+	public CompanyScheduleDto read(Integer scheduleId) throws Exception {
+		CompanyScheduleDto scheduleDto = calendarDao.select(scheduleId);
 		
 		return scheduleDto;
 	}

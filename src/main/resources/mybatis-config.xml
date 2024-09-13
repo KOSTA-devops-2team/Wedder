@@ -24,7 +24,6 @@
         
         <!--mypage alias  -->
         <typeAlias alias="MyPageDTO" type="kr.co.wedder.mypage.domain.MyPageDTO"/>
-        <typeAlias alias="CompanyDto" type="kr.co.wedder.mypage.domain.CompanyDto"/>
         <typeAlias alias="ReservationDto" type="kr.co.wedder.mypage.domain.ReservationDto"/>
         <typeAlias alias="HistoryDto" type="kr.co.wedder.mypage.domain.HistoryDto"/>
         <typeAlias alias="HallInfoDto" type="kr.co.wedder.mypage.domain.HallInfoDto"/>

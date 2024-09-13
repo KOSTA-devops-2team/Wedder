@@ -74,7 +74,7 @@
 								</form>
 							</div> -->
 							
-							<div>${dto.schedule_id }</div>
+							<div>${dto.scheduleId }</div>
 							
 							<table>
 								<tr>
@@ -87,12 +87,12 @@
 								<c:forEach var="dto" items="${list}">
 									<tr>
 									
-										<td class="schedule_id">${dto.schedule_id} </td>
+										<td class="schedule_id">${dto.scheduleId} </td>
 										<td class="company_id">
-											<a href="<c:url value="/calendar/read${pr.sc.getQueryString()}&schedule_id=${dto.schedule_id }" />">
-										${dto.company_id }</a> 
+											<a href="<c:url value="/calendar/read${pr.sc.getQueryString()}&schedule_id=${dto.scheduleId }" />">
+										${dto.companyId }</a>
 										</td>
-										<td class="company_name">${dto.company_name } </td>
+										<td class="company_name">${dto.companyName } </td>
 										<td class="Date">
 										<fmt:formatDate value="${dto.date}" pattern="yyyy-MM-dd"/>
 										 </td>

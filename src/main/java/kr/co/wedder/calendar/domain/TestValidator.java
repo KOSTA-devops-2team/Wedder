@@ -22,9 +22,9 @@ public class TestValidator implements Validator{
 		System.out.println("TestValidator.validate()호출됨");
 		
 		CompanyScheduleDto dto = (CompanyScheduleDto) target;
-		Integer schedule_id=dto.getSchedule_id();
+		Integer scheduleId=dto.getScheduleId();
 		
 		//비었거나 공백이면 id라는 iv에 required라는 에러코드를 저장
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "schedule_id", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "scheduleId", "required");
 	}
 }
