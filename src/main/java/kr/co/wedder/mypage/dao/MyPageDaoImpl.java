@@ -83,34 +83,34 @@ public class MyPageDaoImpl implements MyPageDao {
 	// 0912
 	@Override
 	public DressInfo selectDressInfo(Integer dress_id) throws Exception {
-		return session.selectOne(namespace+"dressInfo",dress_id);
+		return session.selectOne(namespace+"selectDressInfo",dress_id);
 	}
-	/*
+	
 	// 09/ 12일 옵션들 추가
 	@Override
 	public MakeupInfo selectMakeupInfo(Integer makeup_id) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne(namespace+"makeupInfo",makeup_id);
+		return session.selectOne(namespace+"selectMakeupInfo",makeup_id);
 	}
-
+	
 	@Override
 	public OptionDto selectOptionDto(Integer option_id) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne(namespace+"optionDto",option_id);
+		return session.selectOne(namespace+"selectOptionDto",option_id);
 	}
 
 	@Override
 	public PackageCategoryDto selectPackCa(Integer category_id) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne(namespace+"packageCategoryDto",category_id);
+		return session.selectOne(namespace+"selectPackCa",category_id);
 	}
 
 	@Override
 	public StudioInfo selectStudioInfo(Integer studio_id) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne(namespace+"studioInfo",studio_id);
+		return session.selectOne(namespace+"selectStudioInfo",studio_id);
 	}
-*/
+
 
 	
 

@@ -113,7 +113,7 @@
 	
 	<select id="selectStudioInfo" parameterType="int" resultType="StudioInfo">
 	    <include refid="selectFromStudioInfo"></include>
-	    WHERE makeup_id =#{makeup_id}
+	    WHERE studio_id =#{studio_id}
 	</select>
 	
 	<select id="selectMakeupInfo" parameterType="int" resultType="MakeupInfo">

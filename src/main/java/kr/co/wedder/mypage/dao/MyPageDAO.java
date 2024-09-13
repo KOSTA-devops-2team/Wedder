@@ -35,7 +35,7 @@ public interface MyPageDao {
 	// 09/12 일 추가
 	//DressInfo
 	DressInfo selectDressInfo(Integer dress_id) throws Exception;
-	/*
+	
 	//MakeupInfo
 	MakeupInfo selectMakeupInfo(Integer makeup_id) throws Exception;
 	//OptionDto
@@ -44,7 +44,7 @@ public interface MyPageDao {
 	PackageCategoryDto selectPackCa(Integer category_id) throws Exception;
 	//StudioInfo
 	StudioInfo selectStudioInfo(Integer studio_id)throws Exception;
-	*/
+	
 	
 	//금일 방문 일정 카운트 가져오기 
 	Integer todayVisitCount(Map<String,Object> map) throws Exception;

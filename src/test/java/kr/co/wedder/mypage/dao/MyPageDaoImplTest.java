@@ -160,15 +160,13 @@ public class MyPageDaoImplTest {
 	}
 	@Test
 	public void selectOptions() throws Exception{
-		DressInfo  dressInfo = dao.selectDressInfo(1);
-//		MakeupInfo makeupInfo = dao.selectMakeupInfo(1);
-//		OptionDto optionDto = dao.selectOptionDto(1);
+//		DressInfo  dressInfo = dao.selectDressInfo(1);
+//		MakeupInfo makeupInfo = dao.selectMakeupInfo(1);		
 //		PackageCategoryDto packageCategoryDto = dao.selectPackCa(1);
-//		StudioInfo studioInfo =dao.selectStudioInfo(1);
+		StudioInfo studioInfo =dao.selectStudioInfo(1);
 		
-		System.out.println("dressInfo ="+dressInfo);
+//		System.out.println("dressInfo ="+dressInfo);
 //		System.out.println("makeupInfo ="+makeupInfo);
-//		System.out.println("optionDto ="+optionDto);
 //		System.out.println("packageCategoryDto ="+packageCategoryDto);
 //		System.out.println("studioInfo ="+studioInfo);
 	}
