@@ -32,7 +32,7 @@ public class MyPageDaoImplTest {
 	private MyPageDao dao;
 	@Autowired
 	private PackageDao packageDao;
-	
+
 	// 한 사람의 정보를 가져오는 거
 	@Test
 	public void selectOne() throws Exception{

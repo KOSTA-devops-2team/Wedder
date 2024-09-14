@@ -4,21 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.mypage.domain.*;
+import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import kr.co.wedder.mypage.domain.CompanyImage;
-import kr.co.wedder.mypage.domain.DressInfo;
-import kr.co.wedder.mypage.domain.HistoryDto;
-import kr.co.wedder.mypage.domain.MakeupInfo;
-import kr.co.wedder.mypage.domain.MyPageDTO;
-import kr.co.wedder.mypage.domain.OptionDto;
-import kr.co.wedder.mypage.domain.PackageCategoryDto;
-import kr.co.wedder.mypage.domain.ReservationDto;
-import kr.co.wedder.mypage.domain.StudioInfo;
-import kr.co.wedder.mypage.domain.VisitCriteria;
-import kr.co.wedder.mypage.domain.HallInfoDto;
 
 @Repository
 public class MyPageDaoImpl implements MyPageDao {

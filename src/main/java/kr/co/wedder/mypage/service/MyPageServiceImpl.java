@@ -11,12 +11,6 @@ import org.springframework.stereotype.Service;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.dao.MyPageDao;
-import kr.co.wedder.mypage.domain.CompanyImage;
-import kr.co.wedder.mypage.domain.HistoryDto;
-import kr.co.wedder.mypage.domain.MyPageDTO;
-import kr.co.wedder.mypage.domain.ReservationDto;
-import kr.co.wedder.mypage.domain.VisitCriteria;
-import kr.co.wedder.mypage.domain.HallInfoDto;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
