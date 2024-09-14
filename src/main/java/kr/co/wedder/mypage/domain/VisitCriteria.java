@@ -12,18 +12,18 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class VisitCriteria {
-	private CompanyDto companyDto;
-	private MyPageDTO myPageDTO;
+	private CompanyDto 	companyDto;
+	private MyPageDTO 	myPageDTO;
 	private ReservationDto reservationDto;
-	private HistoryDto historyDto;
+	private HistoryDto 	historyDto;
 	private HallInfoDto hallInfoDto;
 	private CompanyImage companyImage;
 	// 금일 추가 된 부분
-	private DressInfo dressInfo;
-	private MakeupInfo makeupInfo;
-	private OptionDto optionDto;
+	private DressInfo 	dressInfo;
+	private MakeupInfo 	makeupInfo;
+	private OptionDto 	optionDto;
 	private PackageCategoryDto packageCategoryDto;
-	private StudioInfo studioInfo;
+	private StudioInfo 	studioInfo;
 
 	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
 			HistoryDto historyDto) {
@@ -63,7 +63,6 @@ public class VisitCriteria {
 	
 	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
 			CompanyImage companyImage) {
-		super();
 		this.companyDto = companyDto;
 		this.myPageDTO = myPageDTO;
 		this.reservationDto = reservationDto;

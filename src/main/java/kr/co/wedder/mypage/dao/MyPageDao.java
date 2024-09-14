@@ -4,48 +4,38 @@ import java.util.List;
 import java.util.Map;
 
 import kr.co.wedder.company.domain.CompanyDto;
-import kr.co.wedder.mypage.domain.CompanyImage;
-import kr.co.wedder.mypage.domain.DressInfo;
-import kr.co.wedder.mypage.domain.HistoryDto;
-import kr.co.wedder.mypage.domain.MakeupInfo;
-import kr.co.wedder.mypage.domain.MyPageDTO;
-import kr.co.wedder.mypage.domain.OptionDto;
-import kr.co.wedder.mypage.domain.PackageCategoryDto;
-import kr.co.wedder.mypage.domain.ReservationDto;
-import kr.co.wedder.mypage.domain.StudioInfo;
-import kr.co.wedder.mypage.domain.VisitCriteria;
-import kr.co.wedder.mypage.domain.HallInfoDto;
+import kr.co.wedder.mypage.domain.*;
+import kr.co.wedder.sdmpackage.domain.PackageDto;
 
 public interface MyPageDao {
 	
 	//mypage
-	MyPageDTO selectOne(Integer customer_id) throws Exception;
+	MyPageDTO selectOne(Integer customerId) throws Exception;
 	//company
-	CompanyDto selectCompany(Integer company_id) throws Exception;
+	CompanyDto selectCompany(Integer companyId) throws Exception;
 	//reservation
-	ReservationDto selectReservation(Integer reservation_id) throws Exception;
+	ReservationDto selectReservation(Integer reservationId) throws Exception;
 	//History
-	HistoryDto selectHistory(Integer customer_id) throws Exception;
+	HistoryDto selectHistory(Integer customerId) throws Exception;
 	//HallInfo
-	HallInfoDto selectHallInfo(Integer hall_id) throws Exception;
+	HallInfoDto selectHallInfo(Integer hallId) throws Exception;
 	//CompanyImage
-	CompanyImage selectCoImage(Integer img_id) throws Exception;
+	CompanyImage selectCoImage(Integer imgId) throws Exception;
 	
 	
 	// 09/12 일 추가
 	//DressInfo
-	DressInfo selectDressInfo(Integer dress_id) throws Exception;
+	DressInfo selectDressInfo(Integer dressId) throws Exception;
 	
 	//MakeupInfo
-	MakeupInfo selectMakeupInfo(Integer makeup_id) throws Exception;
+	MakeupInfo selectMakeupInfo(Integer makeupId) throws Exception;
 	//OptionDto
-	OptionDto selectOptionDto(Integer option_id) throws Exception;
+	OptionDto selectOptionDto(Integer optionId) throws Exception;
 	//PackageCategoryDto
-	PackageCategoryDto selectPackCa(Integer category_id) throws Exception;
+	PackageCategoryDto selectPackCa(Integer categoryId) throws Exception;
 	//StudioInfo
-	StudioInfo selectStudioInfo(Integer studio_id)throws Exception;
-	
-	
+	StudioInfo selectStudioInfo(Integer studioId)throws Exception;
+
 	//금일 방문 일정 카운트 가져오기 
 	Integer todayVisitCount(Map<String,Object> map) throws Exception;
 	

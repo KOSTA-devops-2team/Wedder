@@ -19,6 +19,6 @@ public class MyPageDTO {
 	private String phone;
 	private String email;
 	private Integer gender;
-	private String profile_url;
+	private String profileUrl;
 
 }

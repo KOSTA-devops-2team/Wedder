@@ -7,23 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.mypage.domain.*;
+import kr.co.wedder.sdmpackage.dao.PackageDao;
+import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import kr.co.wedder.mypage.domain.CompanyImage;
-import kr.co.wedder.mypage.domain.DressInfo;
-import kr.co.wedder.mypage.domain.HistoryDto;
-import kr.co.wedder.mypage.domain.MakeupInfo;
-import kr.co.wedder.mypage.domain.MyPageDTO;
-import kr.co.wedder.mypage.domain.OptionDto;
-import kr.co.wedder.mypage.domain.PackageCategoryDto;
-import kr.co.wedder.mypage.domain.ReservationDto;
-import kr.co.wedder.mypage.domain.StudioInfo;
-import kr.co.wedder.mypage.domain.VisitCriteria;
-import kr.co.wedder.mypage.domain.HallInfoDto;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
@@ -31,6 +22,8 @@ public class MyPageDaoImplTest {
 	
 	@Autowired
 	private MyPageDao dao;
+	@Autowired
+	private PackageDao packageDao;
 	
 	// 한 사람의 정보를 가져오는 거
 	@Test
@@ -169,5 +162,11 @@ public class MyPageDaoImplTest {
 //		System.out.println("packageCategoryDto ="+packageCategoryDto);
 //		System.out.println("studioInfo ="+studioInfo);
 	}
-	
+	@Test
+	public void selectPackage() throws Exception{
+
+		List<PackageDto> list =packageDao.selectBestPackages();
+		System.out.println(list);
+	}
+
 }
