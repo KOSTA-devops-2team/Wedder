@@ -24,65 +24,59 @@
 <div class="hd__inner1100">
     <div class="container">
         <div class="header">
-            <h1>${packageDetail.headerTitle}</h1>
-            <h2>${packageDetail.packageName}</h2>
+            <h1>${packageDetails[0].description}</h1>
+            <h2>${packageDetails[0].packageName}</h2>
         </div>
-        <div class="service">
-            <img src="${packageDetail.packageImg}" alt="${packageDetail.packageName}">
-            <div class="description">
-                <h3>웨딩촬영</h3>
-                <p>${packageDetail.weddingAlbum}</p>
-                <p>${packageDetail.weddingTime}</p>
-                <p>${packageDetail.weddingDress}</p>
-                <p>${packageDetail.weddingSchedule}</p>
+        <c:forEach var="detail" items="${packageDetails}">
+            <div class="service">
+                <img src="${detail.packageImg}" alt="${detail.packageName}">
+                <div class="description">
+                    <h3>${detail.companyCategory}</h3>
+                    <p>${detail.companyName}</p>
+                    <p>${detail.companyAddress}</p>
+                    <p>${detail.basicPrice}원</p>
+                </div>
+                <div class="action">
+                    <button class="heart"></button>
+                    <a href="#">리뷰 보러가기</a>
+                </div>
             </div>
-            <div class="action">
-                <button class="heart"></button>
-                <a href="#">리뷰 보러가기</a>
-            </div>
-        </div>
-        <div class="service">
-            <img src="${packageDetail.packageImg}" alt="${packageDetail.packageName}">
-            <div class="description">
-                <h3>드레스</h3>
-                <p>${packageDetail.dressOptions}</p>
-                <p>${packageDetail.dressConsultTime}</p>
-                <p>${packageDetail.dressFittingTime}</p>
-            </div>
-            <div class="action">
-                <button class="heart"></button>
-                <a href="#">리뷰 보러가기</a>
-            </div>
-        </div>
-        <div class="service">
-            <img src="${packageDetail.packageImg}" alt="${packageDetail.packageName}">
-            <div class="description">
-                <h3>헤어&메이크업</h3>
-                <p>${packageDetail.makeupSessions}</p>
-                <p>${packageDetail.makeupDetails}</p>
-            </div>
-            <div class="action">
-                <button class="heart"></button>
-                <a href="#">리뷰 보러가기</a>
-            </div>
-        </div>
+        </c:forEach>
+
+<%--        <div class="service">--%>
+<%--            <img src="${detail.packageImg}" alt="${detail.packageName}">--%>
+<%--            <div class="description">--%>
+<%--                <h3>웨딩촬영</h3>--%>
+<%--                <p>${detail.weddingAlbum}</p>--%>
+<%--                <p>${detail.weddingTime}</p>--%>
+<%--                <p>${detail.weddingDress}</p>--%>
+<%--                <p>${detail.weddingSchedule}</p>--%>
+<%--            </div>--%>
+<%--            <div class="action">--%>
+<%--                <button class="heart"></button>--%>
+<%--                <a href="#">리뷰 보러가기</a>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+
+
+        <!-- 가격 안내 부분-->
         <div class="total">
             <div class="total-title">패키지 특전</div>
             <div class="total-cost">
                 <div class="tag">정상가</div>
-                <div class="price">${packageDetail.originalPrice}원</div>
+                <div class="price">${packagePrice}원</div>
             </div>
             <div class="total-discount">
                 <div class="tag">패키지 추가 할인</div>
-                <div class="price">${packageDetail.discountPrice}원</div>
+                <div class="price">${discountPrice}원</div>
             </div>
             <div class="total-final">
                 <div class="tag">최종 혜택가</div>
-                <div class="price">${packageDetail.finalPrice}원</div>
+                <div class="price">${finalPrice}원</div>
             </div>
             <div class="choice">
                 <div class="choice-box">
-                    <div class="saving">패키지 구매 시<br>총 ${packageDetail.savingPrice}원 절약</div>
+                    <div class="saving">패키지 구매 시<br>총 ${discountPrice}원 절약</div>
                     <div class="notice">선택 옵션 변경 시 패키지 혜택이 달라질 수 있습니다.</div>
                 </div>
             </div>

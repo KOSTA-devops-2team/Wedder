@@ -36,7 +36,7 @@ public class PackageDaoImpl implements PackageDao {
     @Override
     public List<PackageDetailDto> selectPackageDetail(int packageId) {
 
-        return sqlSession.selectList(namespace + "selectPackageDetail");
+        return sqlSession.selectList(namespace + "selectCompanyInPackage", packageId);
     }
 
     @Override
