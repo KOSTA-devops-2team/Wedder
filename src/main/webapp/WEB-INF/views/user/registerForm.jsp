@@ -68,6 +68,7 @@
             <div class="info-block">
                 <div class="label-block">
                     <label for="phone" class="required-input">연락처</label>
+                    <div id="phoneChk"></div>
                 </div>
                 <div class="input-block">
                     <input type="text" id="phone" name="phone" class="inputs" placeholder="숫자만 입력해주세요" autocomplete="off"/>
@@ -77,6 +78,7 @@
             <div class="info-block">
                 <div class="label-block">
                     <label for="email" class="required-input">이메일</label>
+                    <div id="emailChk"></div>
                 </div>
                 <div class="input-block">
                     <input type="email" id="email" name="email" class="inputs" placeholder="이메일 주소" autocomplete="off"/>

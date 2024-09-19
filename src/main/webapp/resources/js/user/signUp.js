@@ -24,10 +24,13 @@ $(function() {
     // 숫자가 먼저오고 뒤에 특수문자가 옴 or 특수문자가 먼저오고 숫자가 옴 2가지 방법으로 제약 사항 설정
     const getNameCheck = RegExp(/^[가-힣]+$/);
     // 한글만 허용
+    const getPhoneCheck = RegExp(/^010-?\d{4}-?\d{4}$/);
+    // 010으로 시작하는 숫자만 허용
+    const getEmailCheck = RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
+    // 이메일 형식만 허용
 
     // 입력값 중 하나라도 만족하지 못한다면 회원 가입 처리를 막기 위한 논리형 변수 선언
-    let chk1 = false, chk2 = false, chk3 = false, chk4 = false;
-
+    let chk1 = false, chk2 = false, chk3 = false, chk4 = false, chk5 = false, chk6 = false;
 
     // 1. ID 입력값 검증
     $('#id').keyup(function(event) {
@@ -162,6 +165,48 @@ $(function() {
         }
     })
 // 이름 입력 검증 끝
+
+// 5. 전화번호 검증
+    $('#phone').keyup(function()   {
+
+        // 전화번호 공백 확인
+        if($(event.target).val() === ''){
+            $('#phoneChk').html('<b style="font-size: 14px; color:red">[전화번호는 필수 입력값입니다.]</b>');
+
+            chk5 = false;
+
+        }
+        //전화번호 유효성 검사
+        else if (!getPhoneCheck.test($(event.target).val())) {
+            $(`#phoneChk`).html('<b style="font-size: 14px; color:red">[전화번호 형식이 아닙니다.]</b>')
+        }
+        else {
+            $('#phoneChk').html('<b style="font-size: 14px; color:blue">[전화번호 입력 확인 완료.]</b>');
+
+            chk5 = true;
+        }
+    })
+
+// 6. 이메일 검증
+    $('#email').keyup(function()   {
+
+        // 전화번호 공백 확인
+        if($(event.target).val() === ''){
+            $('#emailChk').html('<b style="font-size: 14px; color:red">[이메일은 필수 입력값입니다.]</b>');
+
+            chk5 = false;
+
+        }
+        //전화번호 유효성 검사
+        else if (!getEmailCheck.test($(event.target).val())) {
+            $(`#emailChk`).html('<b style="font-size: 14px; color:red">[이메일 형식이 아닙니다.]</b>')
+        }
+        else {
+            $('#emailChk').html('<b style="font-size: 14px; color:blue">[이메일 입력 확인 완료.]</b>');
+
+            chk5 = true;
+        }
+    })
 
 // 사용자가 회원 가입 버튼을 눌렀을 때의 이벤트 처리
     // 사용자가 입력하는 4가지 데이터 중 단 하나라도 문제가 있으면 회원가입 처리하면 안됨
