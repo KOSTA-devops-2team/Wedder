@@ -32,21 +32,21 @@
                     </div>
                     <div class="top-con">
                         <div class="content">
-                            <img src="${BestPackage.packageImg}" alt="${BestPackage.packageImg}">
+                            <img src="${BestPackage.studioImgUrl}" alt="${BestPackage.packageImg}">
                             <div class="content-detail">
                                 <p class="up">스튜디오 | ${BestPackage.studioName}</p>
                                     <%--                                    <p class="down">[웨딩촬영] ${MDPickPackage.studioDetail}</p>--%>
                             </div>
                         </div>
                         <div class="content">
-                            <img src="${BestPackage.packageImg}" alt="${BestPackage.packageImg}">
+                            <img src="${BestPackage.dressImgUrl}" alt="${BestPackage.packageImg}">
                             <div class="content-detail">
                                 <p class="up">드레스 | ${BestPackage.dressName}</p>
                                     <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.dressDetail}</p>--%>
                             </div>
                         </div>
                         <div class="content-bottom">
-                            <img src="${BestPackage.packageImg}" alt="${BestPackage.packageImg}">
+                            <img src="${BestPackage.makeupImgUrl}" alt="${BestPackage.packageImg}">
                             <div class="content-detail">
                                 <p class="up">헤어/메이크업 | ${BestPackage.makeupName}</p>
                                     <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.makeupDetail}</p>--%>
@@ -59,7 +59,6 @@
             </c:forEach>
         </div>
     </section>
-
 
     <!--MD Pick-->
     <section class="package-section">
@@ -74,21 +73,21 @@
                     </div>
                     <div class="top-con">
                         <div class="content">
-                            <img src="${MDPickPackage.packageImg}" alt="${MDPickPackage.packageImg}">
+                            <img src="${MDPickPackage.studioImgUrl}" alt="스튜디오 이미지">
                             <div class="content-detail">
                                 <p class="up">스튜디오 | ${MDPickPackage.studioName}</p>
                                     <%--                                    <p class="down">[웨딩촬영] ${MDPickPackage.studioDetail}</p>--%>
                             </div>
                         </div>
                         <div class="content">
-                            <img src="${MDPickPackage.packageImg}" alt="${MDPickPackage.packageImg}">
+                            <img src="${MDPickPackage.dressImgUrl}" alt="드레스 이미지">
                             <div class="content-detail">
                                 <p class="up">드레스 | ${MDPickPackage.dressName}</p>
                                     <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.dressDetail}</p>--%>
                             </div>
                         </div>
                         <div class="content-bottom">
-                            <img src="${MDPickPackage.packageImg}" alt="${MDPickPackage.packageImg}">
+                            <img src="${MDPickPackage.makeupImgUrl}" alt="메이크업 이미지">
                             <div class="content-detail">
                                 <p class="up">헤어/메이크업 | ${MDPickPackage.makeupName}</p>
                                     <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.makeupDetail}</p>--%>
