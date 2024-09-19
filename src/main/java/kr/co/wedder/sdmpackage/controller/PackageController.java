@@ -1,9 +1,13 @@
 package kr.co.wedder.sdmpackage.controller;
 
+import kr.co.wedder.payment.service.PaymentService;
+import kr.co.wedder.payment.domain.PaymentKeysDto;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
 import kr.co.wedder.sdmpackage.domain.PackageDto;
 import kr.co.wedder.sdmpackage.service.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +20,11 @@ public class PackageController {
 
     @Autowired
     PackageService packageService;
+    @Autowired
+    private PaymentKeysDto paymentKeys;
+    @Autowired
+    PaymentService paymentService;
+
 
     @GetMapping("")
     public String packageMain() {
@@ -42,13 +51,19 @@ public class PackageController {
     // 패키지 금액별 필터링
 
 
-
-    // 패키지 디테일
+    // 패키지 디테일 + 결제
     @GetMapping(value = "/{packageId}/detail")
     public String packageDetail(@PathVariable int packageId, Model model) {
 
+        // 패키지 상세 정보를 가져옴
         PackageDetailDto packageDetail = packageService.getPackageDetail(packageId);
+
+        // 모델에 필요한 데이터를 담아줌
         model.addAttribute("packageDetail", packageDetail);
+        model.addAttribute("paymentKeys", paymentKeys);
+
         return "package/packageDetail";
     }
+
+
 }
