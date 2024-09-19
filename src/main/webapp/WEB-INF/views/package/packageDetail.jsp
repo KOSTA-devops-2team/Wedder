@@ -3,8 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,7 +12,13 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageDetail.css"/>
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/package/packageDetail.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/package/packagePayment.js"></script>
+    <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
+<script>
+    var kakaoPayKey = "${paymentKeys.kakaoPayKey}";
+</script>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <div class="hd__inner1100">
@@ -83,11 +88,10 @@
             </div>
             <div class="btn">
                 <a class="main-button" href="${pageContext.request.contextPath}/package/recommend">뒤로 가기</a>
-                <button onclick="location.href='weddingHallPayment.html'" class="pay">패키지 결제하기</button>
+                <button class="pay">패키지 결제하기</button>
             </div>
         </div>
     </div>
-
 </div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

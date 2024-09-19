@@ -23,6 +23,10 @@
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
 
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:application.properties"/>
+	</bean>
+
 	<context:component-scan base-package="kr.co.wedder"/>
 </beans>
 
