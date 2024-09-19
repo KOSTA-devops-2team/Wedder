@@ -10,11 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.wedder.mypage.domain.CompanyDto;
+import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.CompanyImage;
 import kr.co.wedder.mypage.domain.HallInfoDto;
 import kr.co.wedder.mypage.domain.HistoryDto;
@@ -57,7 +56,7 @@ public class MyPageController {
 //			m.addAttribute("hallInfoDto"+hallInfoDto);
 			// 
 			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDTO, reservationDto, historyDto);
-			visitCriteriaMap.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
+			visitCriteriaMap.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompanyId());
 			visitCriteriaMap.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
 			m.addAttribute("visitCriteria",visitCriteria);
 			
@@ -192,7 +191,7 @@ public class MyPageController {
 			
 			// 방문 일정 카운트 관련
 			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto);
-			visitCriteriaMap.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompany_id());
+			visitCriteriaMap.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompanyId());
 			visitCriteriaMap.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
 			
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);

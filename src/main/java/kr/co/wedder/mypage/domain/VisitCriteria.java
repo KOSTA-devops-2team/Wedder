@@ -2,6 +2,14 @@ package kr.co.wedder.mypage.domain;
 
 import java.util.Objects;
 
+import kr.co.wedder.company.domain.CompanyDto;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class VisitCriteria {
 	private CompanyDto companyDto;
 	private MyPageDTO myPageDTO;
@@ -15,6 +23,7 @@ public class VisitCriteria {
 	private OptionDto optionDto;
 	private PackageCategoryDto packageCategoryDto;
 	private StudioInfo studioInfo;
+	
 	
 	public VisitCriteria() {
 	}
