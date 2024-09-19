@@ -33,5 +33,6 @@
 		<beans:property name="defaultEncoding" value="UTF-8" />
 	</beans:bean>
 
+	<!--suppress SpringXmlModelInspection -->
 	<view-controller path="/" view-name="index"/>
 </beans:beans>

@@ -5,20 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.Objects;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class OptionDto {
-
-	private Integer optionId;
+public class HallInfoDto {
+	
 	private Integer hallId;
-	private Integer studioId;
-	private Integer dressId;
-	private Integer makeupId;
-	private Boolean optionName;
-	private Integer optionPrice;
-
+	private Integer companyId;
+	private String hallType;
+	private Integer minPeople;
+	private Integer parking;
 }

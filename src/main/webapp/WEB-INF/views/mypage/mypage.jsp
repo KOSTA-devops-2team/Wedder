@@ -113,11 +113,11 @@
 	                    <tbody>
 	                    <c:forEach var="visitCriteria" items="${visitCriteriaList}">
 		                    <tr>
-		                    	<td>${visitCriteria.companyDto.company_name }</td>
+		                    	<td>${visitCriteria.companyDto.companyName }</td>
 		                    	<td>${visitCriteria.myPageDTO.name }</td>
-		                    	<td><fmt:formatDate value="${visitCriteria.reservationDto.reservation_date }" pattern="yyyy-MM-dd"/></td>
-		                    	<td>${visitCriteria.reservationDto.reservation_time }</td>
-		                    	<td>${visitCriteria.historyDto.reservation_status}</td>
+		                    	<td><fmt:formatDate value="${visitCriteria.reservationDto.reservationDate }" pattern="yyyy-MM-dd"/></td>
+		                    	<td>${visitCriteria.reservationDto.reservationTime }</td>
+		                    	<td>${visitCriteria.historyDto.reservationStatus}</td>
 		                    </tr>
 	                    </c:forEach> 
 	                   
@@ -144,8 +144,8 @@
                                     alt="프로필 이미지"
                             />
 	                        <div>
-	                            <div>${companyDto.company_name}</div>
-	                            <div>${companyDto.company_address}</div>
+	                            <div>${companyDto.companyName}</div>
+	                            <div>${companyDto.companyAddress}</div>
 	                            <div class="button-list">
 	                                <button  class="mail" href="#"></button>
 	                                <button  class="heart liked"></button>
@@ -171,8 +171,8 @@
 		                         	/>
 		                         	
 			                        <div>
-			                            <div>${companyDto.company_name}</div>
-			                            <div>${companyDto.company_address}</div>
+			                            <div>${companyDto.companyName}</div>
+			                            <div>${companyDto.companyAddress}</div>
 			                            <div class="button-list">
 			                                <button  class="mail" href="#"></button>
 			                                <button  class="heart liked"></button>
@@ -190,8 +190,8 @@
 		                         	/>
 		                         	
 			                        <div>
-			                            <div>${companyDto.company_name}</div>
-			                            <div>${companyDto.company_address}</div>
+			                            <div>${companyDto.companyName}</div>
+			                            <div>${companyDto.companyAddress}</div>
 			                            <div class="button-list">
 			                                <button  class="mail" href="#"></button>
 			                                <button  class="heart liked"></button>
@@ -209,8 +209,8 @@
 		                         	/>
 		                         	
 			                        <div>
-			                            <div>${companyDto.company_name}</div>
-			                            <div>${companyDto.company_address}</div>
+			                            <div>${companyDto.companyName}</div>
+			                            <div>${companyDto.companyAddress}</div>
 			                            <div class="button-list">
 			                                <button  class="mail" href="#"></button>
 			                                <button  class="heart liked"></button>

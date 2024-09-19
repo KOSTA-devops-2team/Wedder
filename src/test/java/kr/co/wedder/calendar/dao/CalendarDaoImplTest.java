@@ -25,18 +25,18 @@ public class CalendarDaoImplTest {
 	@Autowired
 	private CalendarDao calendarDao;
 	
-	//@Test
+	@Test
 	public void deleteAllTest() throws Exception {
 		assertTrue(calendarDao !=null);
 		calendarDao.deleteAll();
 	}
-	//@Test
+	@Test
 	public void deletTest() throws Exception{
 		assertTrue(calendarDao !=null);
-		calendarDao.delete(1);
+		calendarDao.delete(4);
 	}
 	
-	//@Test
+	@Test
 	public void insert() throws Exception{
 		
 		Date date=new Date(124, 10, 3);
@@ -45,13 +45,13 @@ public class CalendarDaoImplTest {
 		calendarDao.insert(CScheduleDto);
 	}
 	
-//	@Test
+	@Test
 	public void select() throws Exception{
 		
-		CompanyScheduleDto dto=calendarDao.select(2);
+		CompanyScheduleDto dto=calendarDao.select(10);
 		System.out.println("CompanyDto ="+dto);
 		
-		assertTrue(dto.getSchedule_id().equals(2));
+		assertTrue(dto.getScheduleId().equals(10));
 		System.out.println(dto.getDate());
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(dto.getDate());

@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kr.co.wedder.company.domain.CompanyDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import kr.co.wedder.mypage.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.HistoryDto;
 import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
@@ -25,20 +25,20 @@ public class MyPageServiceImplTest {
 	@Autowired
 	private MyPageService service;
 
-//	@Test
+	@Test
 	public void selectCompany() throws Exception{
 		CompanyDto companyDto = new CompanyDto();
-		companyDto.setCompany_id(2);
-		companyDto.setCompany_category("메이크업");
-		
+		companyDto.setCompanyId(2);
+		companyDto.getCategory();
+		System.out.println(companyDto);
 //		service.getList(companyDto);
 	}
 	
-	//@Test
+	@Test
 	public void seslectCustomer() throws Exception{
 		service.customerRead(1);
 	}
-	//@Test
+	@Test
 	public void todayVisitHistory() throws Exception{
 		Map<String, Object> map= new HashMap<>();
 		
@@ -52,9 +52,9 @@ public class MyPageServiceImplTest {
 		HallInfoDto hallInfoDto = service.hallInfoRead(1);
 		
 		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto,historyDto,hallInfoDto);
-		map.put("company_id",  (Integer) visitCriteria.getCompanyDto().getCompany_id());
-		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
-		map.put("reservation_status", visitCriteria.getHistoryDto().getReservation_status());
+		map.put("company_id",  (Integer) visitCriteria.getCompanyDto().getCompanyId());
+		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
+		map.put("reservation_status", visitCriteria.getHistoryDto().getReservationStatus());
 
 		System.out.println("========================");
 		System.out.println("map"+map);

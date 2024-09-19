@@ -1,11 +1,19 @@
 package kr.co.wedder.calendar.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class PageResolver {
 	private SearchItem sc;
 	private int totalCnt;				// 게시물 총 건수 
 	//private int pageSize = 10;	// 한 페이지당 게시물 건수 
-	public final int NAV_SIZE = 10;		//page navigation size
+	public final int NAVSIZE = 10;		//page navigation size
 	
 	private int totalPage;			// 전체 페이지 갯수 
 	//private int page;					// 현재 페이지 
@@ -20,7 +28,6 @@ public class PageResolver {
 	}
 
 	public PageResolver(int totalCnt, Integer page, Integer pageSize) {
-		//super();
 		this(totalCnt, new SearchItem(page, pageSize));
 	}
 	
@@ -33,8 +40,8 @@ public class PageResolver {
 	public void doPaging(int totalCnt, SearchItem sc) {
 		this.totalPage = totalCnt / sc.getPageSize() + (totalCnt % sc.getPageSize() == 0 ? 0 : 1);			//전체 페이지 갯수 
 		this.sc.setPage(Math.min(sc.getPage(), totalPage));				// page가 tatalPage보다 크지 않음
-		this.beginPage = (this.sc.getPage()-1) / NAV_SIZE * NAV_SIZE + 1;							//첫 페이지 숫자 
-		this.endPage = Math.min(this.beginPage + this.NAV_SIZE - 1, totalPage);	//마지막 페이지 숫자 
+		this.beginPage = (this.sc.getPage()-1) / NAVSIZE * NAVSIZE + 1;							//첫 페이지 숫자
+		this.endPage = Math.min(this.beginPage + this.NAVSIZE - 1, totalPage);	//마지막 페이지 숫자
 		this.showPrev = beginPage != 1;
 		this.showNext = endPage != totalPage;		
 	}
@@ -49,71 +56,4 @@ public class PageResolver {
 		System.out.println(showNext ? " NEXT" : "");
 	}
 
-	@Override
-	public String toString() {
-		return "PageResolver [sc=" + sc + ", totalCnt=" + totalCnt + ", totalPage=" + totalPage + ", beginPage="
-				+ beginPage + ", endPage=" + endPage + ", showNext=" + showNext + ", showPrev=" + showPrev + "]";
-	}
-
-	public SearchItem getSc() {
-		return sc;
-	}
-
-	public void setSc(SearchItem sc) {
-		this.sc = sc;
-	}
-
-	public int getTotalCnt() {
-		return totalCnt;
-	}
-
-	public void setTotalCnt(int totalCnt) {
-		this.totalCnt = totalCnt;
-	}
-
-	public int getTotalPage() {
-		return totalPage;
-	}
-
-	public void setTotalPage(int totalPage) {
-		this.totalPage = totalPage;
-	}
-
-	public int getBeginPage() {
-		return beginPage;
-	}
-
-	public void setBeginPage(int beginPage) {
-		this.beginPage = beginPage;
-	}
-
-	public int getEndPage() {
-		return endPage;
-	}
-
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
-	}
-
-	public boolean isShowNext() {
-		return showNext;
-	}
-
-	public void setShowNext(boolean showNext) {
-		this.showNext = showNext;
-	}
-
-	public boolean isShowPrev() {
-		return showPrev;
-	}
-
-	public void setShowPrev(boolean showPrev) {
-		this.showPrev = showPrev;
-	}
-
-	public int getNAV_SIZE() {
-		return NAV_SIZE;
-	}
-	
-	
 }
