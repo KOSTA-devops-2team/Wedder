@@ -12,6 +12,7 @@ document.querySelectorAll(".password-invisible").forEach((toggleIcon) => {
         }
     });
 });
+
 // Start jQuery
 $(function() {
     // 회원 가입 시 사용자 입력값들 검증
@@ -26,7 +27,7 @@ $(function() {
     // 한글만 허용
     const getPhoneCheck = RegExp(/^010-?\d{4}-?\d{4}$/);
     // 010으로 시작하는 숫자만 허용
-    const getEmailCheck = RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
+    const getEmailCheck = RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/)
     // 이메일 형식만 허용
 
     // 입력값 중 하나라도 만족하지 못한다면 회원 가입 처리를 막기 위한 논리형 변수 선언
@@ -37,8 +38,7 @@ $(function() {
         // 키를 입력하고 땔 때 마다 이벤트 발생
         if($(event.target).val() === ''){
             // 이벤트가 발생된 곳의 값이 비어있으면 발생
-            $('#idChk').html('<b style="font-size: 14px; color:red">[아이디는 필수 정보입니다.]</b>');
-
+            $('#idChk').html('<b style="font-size: 14px; color:red">[아이디는 필수 정보입니다]</b>');
             chk1 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }
@@ -48,8 +48,7 @@ $(function() {
             // getIdCheck는 정규표현식이므로 검증 값을 정규표현식에 적합한지 테스트 (boolean으로 return)
 
             // 정규표현식에 어긋난다면
-            $('#idChk').html('<b style="font-size: 14px; color:red">[영문과 숫자 조합으로 4~14자 조합해주세요.]</b>');
-
+            $('#idChk').html('<b style="font-size: 14px; color:red">[영문과 숫자 조합으로 4~14자 조합해주세요]</b>');
             chk1 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }
@@ -74,12 +73,12 @@ $(function() {
                     // controller가 리턴한 값이 result에 저장됨
                     console.log('통신 성공 ' + result);
                     if (result === 'Available'){
-                        $('#idChk').html('<b style="font-size: 14px; color:blue">[작성하신 아이디는 사용 가능합니다.]</b>');
+                        $('#idChk').html('<b style="font-size: 14px; color:blue">[작성하신 아이디는 사용 가능합니다]</b>');
                         chk1 = true;
                         // 입력값 검증 성공 표시
                     } else{
                         // result에 duplicated이므로
-                        $('#idChk').html('<b style="font-size: 14px; color:red">[아이디가 중복되었습니다.]</b>');
+                        $('#idChk').html('<b style="font-size: 14px; color:red">[아이디가 중복되었습니다]</b>');
                         chk1 = false;
                     }
                 },
@@ -103,13 +102,13 @@ $(function() {
         }
         // 비밀번호 유효성 검사
         else if (!getPwCheck.test($(event.target).val()) || $(event.target).val().length < 8){
-            $('#pwChk').html('<b style="font-size: 14px; color:red">[비밀번호는 특수문자 포함 8자 이상입니다.]</b>');
+            $('#pwChk').html('<b style="font-size: 14px; color:red">[비밀번호는 특수문자 포함 8자 이상입니다]</b>');
             chk2 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }
         // 통과
         else{
-            $('#pwChk').html('<b style="font-size: 14px; color:blue">[비밀번호 입력 확인 완료.]</b>');
+            $('#pwChk').html('<b style="font-size: 14px; color:blue">[비밀번호 입력 확인 완료]</b>');
             chk2 = true;
             // 입력값 검증 성공 표시
         }
@@ -121,21 +120,18 @@ $(function() {
 
         // 비밀번호 확인 공백 검증
         if ($(event.target).val() === ''){
-            $('#pwChk2').html('<b style="font-size: 14px; color:red">[비밀번호 확인은 필수 정보 입니다.]</b>');
-
+            $('#pwChk2').html('<b style="font-size: 14px; color:red">[비밀번호 확인은 필수 정보 입니다]</b>');
             chk3 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
 
             // 비밀번호 확인란 유효성 검증 (일치하는지)
         } else if($(event.target).val() !== $('#password').val()){
             // 값들이 같지 않다면
-            $('#pwChk2').html('<b style="font-size: 14px; color:red">[입력한 비밀번호가 일치하지 않습니다.]</b>');
-
+            $('#pwChk2').html('<b style="font-size: 14px; color:red">[입력한 비밀번호가 일치하지 않습니다]</b>');
             chk3 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }else{
-            $('#pwChk2').html('<b style="font-size: 14px; color:blue">[비밀번호 입력 확인 완료.]</b>');
-
+            $('#pwChk2').html('<b style="font-size: 14px; color:blue">[비밀번호 입력 확인 완료]</b>');
             chk3 = true;
         }
     });
@@ -146,21 +142,18 @@ $(function() {
 
         // 이름 값 공백 확인
         if ($(event.target).val() === ''){
-            $('#nameChk').html('<b style="font-size: 14px; color:red">[이름은 필수 입력값입니다.]</b>');
-
+            $('#nameChk').html('<b style="font-size: 14px; color:red">[이름은 필수 입력값입니다]</b>');
             chk4 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }
         // 이름값 유효성 검사
         else if(!getNameCheck.test($(event.target).val())){
-            $('#nameChk').html('<b style="font-size: 14px; color:red">[이름은 한글만 작성가능합니다.]</b>');
-
+            $('#nameChk').html('<b style="font-size: 14px; color:red">[이름은 한글만 작성가능합니다]</b>');
             chk4 = false;
             // 입력했다가 다시 잘못입력할 수 있으므로 모든 조건식에 넣어야함
         }
         else {
-            $('#nameChk').html('<b style="font-size: 14px; color:blue">[이름 입력 확인 완료.]</b>');
-
+            $('#nameChk').html('<b style="font-size: 14px; color:blue">[이름 입력 확인 완료]</b>');
             chk4 = true;
         }
     })
@@ -171,18 +164,17 @@ $(function() {
 
         // 전화번호 공백 확인
         if($(event.target).val() === ''){
-            $('#phoneChk').html('<b style="font-size: 14px; color:red">[전화번호는 필수 입력값입니다.]</b>');
-
+            $('#phoneChk').html('<b style="font-size: 14px; color:red">[전화번호는 필수 입력값입니다]</b>');
             chk5 = false;
 
         }
         //전화번호 유효성 검사
         else if (!getPhoneCheck.test($(event.target).val())) {
-            $(`#phoneChk`).html('<b style="font-size: 14px; color:red">[전화번호 형식이 아닙니다.]</b>')
+            $(`#phoneChk`).html('<b style="font-size: 14px; color:red">[전화번호 형식이 아닙니다]</b>')
+            chk5 = false;
         }
         else {
-            $('#phoneChk').html('<b style="font-size: 14px; color:blue">[전화번호 입력 확인 완료.]</b>');
-
+            $('#phoneChk').html('<b style="font-size: 14px; color:blue">[전화번호 입력 확인 완료]</b>');
             chk5 = true;
         }
     })
@@ -192,19 +184,20 @@ $(function() {
 
         // 전화번호 공백 확인
         if($(event.target).val() === ''){
-            $('#emailChk').html('<b style="font-size: 14px; color:red">[이메일은 필수 입력값입니다.]</b>');
+            $('#emailChk').html('<b style="font-size: 14px; color:red">[이메일은 필수 입력값입니다]</b>');
 
-            chk5 = false;
+            chk6 = false;
 
         }
         //전화번호 유효성 검사
         else if (!getEmailCheck.test($(event.target).val())) {
-            $(`#emailChk`).html('<b style="font-size: 14px; color:red">[이메일 형식이 아닙니다.]</b>')
+            $(`#emailChk`).html('<b style="font-size: 14px; color:red">[이메일 형식이 아닙니다]</b>')
+            chk6 = false;
         }
         else {
-            $('#emailChk').html('<b style="font-size: 14px; color:blue">[이메일 입력 확인 완료.]</b>');
+            $('#emailChk').html('<b style="font-size: 14px; color:blue">[이메일 입력 확인 완료]</b>');
 
-            chk5 = true;
+            chk6 = true;
         }
     })
 
@@ -212,7 +205,7 @@ $(function() {
     // 사용자가 입력하는 4가지 데이터 중 단 하나라도 문제가 있으면 회원가입 처리하면 안됨
     $('#sign-btn').click(function(event) {
         event.preventDefault();
-        if(chk1 && chk2 && chk3 && chk4){
+        if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6){
             // 모두 true라면 입력값이 모두 제약조건을 통과했다는 뜻
 
             const id = $('#id').val();
@@ -238,59 +231,27 @@ $(function() {
                 type:'post',
                 url:'/user/registerProceed',
                 contentType: 'application/json',
-                dataType: 'json',
+                dataType: 'text',
                 data: JSON.stringify(customerDto),
                 // 여러개의 값을 보낼 때는 객체로 포장해서 전송해야함
-                // user는 js의 객체이므로 해당 객체를 JSON의 문자열로 변환해야함 ================================
 
                 success: function(result){
                     // ajax를 통해 서버에 값을 보내고
                     // 서버에서 다시 값을 보내면 result에 들어감
                     console.log('통신 성공 : ' + result);
-                    alert("회원가입을 환영합니다.");
+                    alert("회원가입을 환영합니다! 홈페이지로 돌아갑니다.");
                     location.href = '/';
                     // 메인 페이지로 보냄
                 },
-                error : function(){
+                error : function(xhr, status, error) {
+                    console.log("서버 응답 실패: " + error);
                     alert("회원가입 실패");
                 }
             });
             // end ajax(회원가입 처리)
-
         } else{
-            // 4가지 중 하나라도 false라면
+            // 6가지 중 하나라도 false라면
             alert('입력 정보를 다시 확인하세요.');
         }
     }); // 회원 가입 처리 끝
-// 로그인 검증
-
-    // //ID 입력값 검증(공백, 정규표현식)
-    // $('#signInId').keyup(function() {
-    //     if($(this).val() === '') {
-    //         $('#idCheck').html('<b style="font-size: 14px; color: red">[아이디는 필수 정보입니다!]</b>');
-    //         chk1 = false;
-    //     } else if(!getIdCheck.test($(this).val())) {
-    //         $('#idCheck').html('<b style="font-size: 14px; color: red">[영문, 숫자로 4-14자로 작성!]</b>');
-    //         chk1 = false;
-    //     } else {
-    //         $('#idCheck').html('<b style="font-size: 14px; color: green">[아이디 입력 완료!]</b>');
-    //         chk1 = true;
-    //     }
-    // }); //아이디 입력값 검증 끝!
-    //
-    // //비밀번호 입력값 검증(공백, 정규표현식)
-    // $('#signInPw').keyup(function() {
-    //     if($(this).val() === '') {
-    //         $('#pwCheck').html('<b style="font-size: 14px; color: red">[비밀번호 쓰세요!]</b>');
-    //         chk2 = false;
-    //     } else if(!getPwCheck.test($(this).val())) {
-    //         $('#pwCheck').html('<b style="font-size: 14px; color: red">[특수문자 포함 8자 이상!]</b>');
-    //         chk2 = false;
-    //     } else {
-    //         $('#pwCheck').html('<b style="font-size: 14px; color: green">[비밀번호 입력 완료!]</b>');
-    //         chk2 = true;
-    //
-    //     }
-    // }); //비밀번호 입력값 검증 끝!
 });
-// end jQuery

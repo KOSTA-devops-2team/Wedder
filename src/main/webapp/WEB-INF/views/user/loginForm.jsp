@@ -22,7 +22,7 @@
 
     <!-- 로그인 입력 받기 -->
     <section class="login-input">
-        <form action="/log/login" method="post" onsubmit="return formCheck(this)">
+        <form action="${pageContext.request.contextPath}/log/login" method="post" onsubmit="return formCheck(this)">
             <div id="msg">
                 <c:if test="${not empty param.msg }">
                     <i fa fa-exclamation-circle>${URLDecoder.decode(param.msg) }</i>
