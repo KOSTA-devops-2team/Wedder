@@ -55,4 +55,8 @@ public class PackageDetailDto {
     private String mood;
     private String location;
 
+
+    // 업체 이미지
+    private String imgUrl;
+
 }
