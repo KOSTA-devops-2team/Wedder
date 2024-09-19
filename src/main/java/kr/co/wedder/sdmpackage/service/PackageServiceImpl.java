@@ -32,8 +32,11 @@ public class PackageServiceImpl implements PackageService{
     }
 
     @Override
-    public PackageDetailDto getPackageDetail(int packageId) {
-        return null;
+    public List<PackageDetailDto> getPackageDetail(int packageId) {
+
+        System.out.println("Service: getPackageDetail 호출됨");
+
+        return packageDao.selectPackageDetail(packageId);
     }
 
     @Override

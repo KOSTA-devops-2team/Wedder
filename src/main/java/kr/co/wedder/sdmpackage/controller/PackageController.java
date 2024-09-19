@@ -51,18 +51,40 @@ public class PackageController {
     // 패키지 금액별 필터링
 
 
-    // 패키지 디테일 + 결제
+    // 패키지 디테일
     @GetMapping(value = "/{packageId}/detail")
-    public String packageDetail(@PathVariable int packageId, Model model) {
+    public String packageDetail(@PathVariable("packageId") int packageId, Model model) {
+
+        System.out.println("Received packageId: " + packageId);
 
         // 패키지 상세 정보를 가져옴
-        PackageDetailDto packageDetail = packageService.getPackageDetail(packageId);
+        List<PackageDetailDto> packageDetails = packageService.getPackageDetail(packageId);
+
+        // 리스트가 비어 있는지 확인
+        if (packageDetails == null || packageDetails.isEmpty()) {
+            System.out.println("리스트가 비어있음!!");
+            return "package/packageRecommend";
+        }
+
+
+        // 패키지 가격 계산
+        int originalPrice = 0;
+        for (PackageDetailDto detail : packageDetails) {
+            originalPrice += detail.getBasicPrice();  // 3개 업체 basic_price의 합
+        }
+
+        int discountRate = packageDetails.get(0).getDiscountRate();  // 할인율 (패키지 테이블에서 가져옴)
+        int discountPrice = (originalPrice * discountRate) / 100;  // 할인된 금액 계산
+        int finalPrice = originalPrice - discountPrice;  // 최종 혜택가 계산
 
         // 모델에 필요한 데이터를 담아줌
-        model.addAttribute("packageDetail", packageDetail);
+        model.addAttribute("packagePrice", originalPrice);
+        model.addAttribute("discountPrice", discountPrice);
+        model.addAttribute("finalPrice", finalPrice);
+        model.addAttribute("packageDetails", packageDetails);  // 여러 업체 정보를 JSP로 전달
         model.addAttribute("paymentKeys", paymentKeys);
 
-        return "package/packageDetail";
+        return "package/packageDetail";  // 패키지 상세 페이지로 이동
     }
 
 
