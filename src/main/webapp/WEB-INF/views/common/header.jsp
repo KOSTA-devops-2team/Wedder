@@ -4,6 +4,7 @@
 <c:set var="loginId" value="${sessionScope.id }" />
 <c:set var="loginout" value="${sessionScope.id==null ? 'Login' : 'Logout' }" />
 <c:set var="loginoutlink" value="${sessionScope.id==null ? '/log/login' : '/log/logout' }" />
+<c:set var="mypagelink" value="${sessionScope.id == null ? '/log/login' : '/mypage/mypage' }" />
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -20,7 +21,7 @@
                 <div class="header-top">
                     <!-- 해더 로고 -->
                     <div class="header-logo">
-                        <a href="main">
+                        <a href="${pageContext.request.contextPath}/main">
                             <img
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/wedder-logo2.png"
                             />
@@ -57,7 +58,7 @@
                                 /></a>
                             </li>
                             <li>
-                                <a href="../../html/mypage/mypage.html"
+                                <a href="<c:url value='${mypagelink}' />"
                                     ><img
                                         src="https://image.hago.kr/dev/main/pc/mypage.svg"
                                         alt="마이페이지"
