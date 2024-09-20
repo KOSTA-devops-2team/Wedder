@@ -20,12 +20,14 @@ public interface MyPageDao {
 	//History
 	HistoryDto selectHistory(Integer customer_id) throws Exception;
 
+
 	HallInfoDto selectHallInfo(Integer hallId) throws Exception;
 
 	CompanyImage selectCoImage(Integer imgId) throws Exception;
 
 	//금일 방문 일정 카운트 가져오기
 	Integer todayVisitCount(Map<String,Object> map) throws Exception;
+
 
 	//join 금일 방문 일정 
 	List<VisitCriteria> todayVisitHistory(Map<String, Object> map) throws Exception;
