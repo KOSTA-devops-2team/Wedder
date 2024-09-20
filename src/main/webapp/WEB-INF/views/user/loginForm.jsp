@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/user/login.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -50,9 +51,11 @@
         <h2>SNS 계정으로 로그인하기</h2>
         <div class="social-icon">
             <button class="kakao">
-                <img
+                <a href="javascript:kakaoLogin()">
+                    <img
                         src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1611574965/noticon/iqg1rfbdbeaufcptuqgf.png"
-                />
+                /></a>
+
             </button>
             <button class="naver">
                 <img
