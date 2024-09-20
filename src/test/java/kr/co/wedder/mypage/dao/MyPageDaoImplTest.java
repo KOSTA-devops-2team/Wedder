@@ -16,22 +16,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-<<<<<<< HEAD
-import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.CompanyImage;
-import kr.co.wedder.mypage.domain.DressInfo;
 import kr.co.wedder.mypage.domain.HistoryDto;
-import kr.co.wedder.mypage.domain.MakeupInfo;
 import kr.co.wedder.mypage.domain.MyPageDTO;
-import kr.co.wedder.mypage.domain.OptionDto;
-import kr.co.wedder.mypage.domain.PackageCategoryDto;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.StudioInfo;
 import kr.co.wedder.mypage.domain.VisitCriteria;
 import kr.co.wedder.mypage.domain.HallInfoDto;
 
-=======
->>>>>>> 76aabf54e68daa2e506e88949e2f2deafb9de970
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
 public class MyPageDaoImplTest {

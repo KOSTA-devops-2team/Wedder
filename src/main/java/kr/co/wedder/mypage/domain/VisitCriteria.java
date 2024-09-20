@@ -6,21 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-<<<<<<< HEAD
-import kr.co.wedder.company.domain.CompanyDto;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-=======
->>>>>>> 76aabf54e68daa2e506e88949e2f2deafb9de970
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-<<<<<<< HEAD
-=======
-@ToString
->>>>>>> 76aabf54e68daa2e506e88949e2f2deafb9de970
 public class VisitCriteria {
 	private CompanyDto 	companyDto;
 	private MyPageDTO 	myPageDTO;
@@ -33,15 +22,8 @@ public class VisitCriteria {
 	private MakeupInfo 	makeupInfo;
 	private OptionDto 	optionDto;
 	private PackageCategoryDto packageCategoryDto;
-<<<<<<< HEAD
-	private StudioInfo studioInfo;
-	
-	
-	public VisitCriteria() {
-	}
-=======
+
 	private StudioInfo 	studioInfo;
->>>>>>> 76aabf54e68daa2e506e88949e2f2deafb9de970
 
 	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
 			HistoryDto historyDto) {

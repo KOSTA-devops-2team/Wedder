@@ -4,14 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 import kr.co.wedder.company.domain.CompanyDto;
-import kr.co.wedder.mypage.domain.*;
-import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD
-import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.CompanyImage;
 import kr.co.wedder.mypage.domain.DressInfo;
 import kr.co.wedder.mypage.domain.HistoryDto;
@@ -24,8 +20,6 @@ import kr.co.wedder.mypage.domain.StudioInfo;
 import kr.co.wedder.mypage.domain.VisitCriteria;
 import kr.co.wedder.mypage.domain.HallInfoDto;
 
-=======
->>>>>>> 76aabf54e68daa2e506e88949e2f2deafb9de970
 @Repository
 public class MyPageDaoImpl implements MyPageDao {
 	

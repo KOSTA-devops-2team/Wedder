@@ -4,10 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import kr.co.wedder.company.domain.CompanyDto;
-import kr.co.wedder.mypage.domain.HistoryDto;
-import kr.co.wedder.mypage.domain.MyPageDTO;
-import kr.co.wedder.mypage.domain.ReservationDto;
-import kr.co.wedder.mypage.domain.VisitCriteria;
+import kr.co.wedder.mypage.domain.*;
 
 public interface MyPageDao {
 	
@@ -22,14 +19,33 @@ public interface MyPageDao {
 	
 	//History
 	HistoryDto selectHistory(Integer customer_id) throws Exception;
-	
-	//금일 방문 일정 카운트 가져오기 
+
+	HallInfoDto selectHallInfo(Integer hallId) throws Exception;
+
+	CompanyImage selectCoImage(Integer imgId) throws Exception;
+
+	//금일 방문 일정 카운트 가져오기
 	Integer todayVisitCount(Map<String,Object> map) throws Exception;
 	
 	//join 금일 방문 일정 
 	List<VisitCriteria> todayVisitHistory(Map<String, Object> map) throws Exception;
 	
 	//company list를 가져오기 위해서 
-	List<CompanyDto> todayReservationHistory(Map<String, Object> map) throws Exception; 
-	
+	List<CompanyDto> todayReservationHistory(Map<String, Object> map) throws Exception;
+
+	List<VisitCriteria> hallVisitReservatioinList(Map<String, Object> map) throws Exception;
+
+	List<VisitCriteria> coReservationList(Map<String, Object> map) throws Exception;
+
+	// 0912
+	DressInfo selectDressInfo(Integer dressId) throws Exception;
+
+	// 09/ 12일 옵션들 추가
+	MakeupInfo selectMakeupInfo(Integer makeupId) throws Exception;
+
+	OptionDto selectOptionDto(Integer optionId) throws Exception;
+
+	PackageCategoryDto selectPackCa(Integer categoryId) throws Exception;
+
+	StudioInfo selectStudioInfo(Integer studioId) throws Exception;
 }

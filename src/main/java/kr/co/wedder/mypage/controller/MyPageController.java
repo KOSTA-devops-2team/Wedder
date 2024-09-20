@@ -14,10 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-<<<<<<< HEAD
-import kr.co.wedder.company.domain.CompanyDto;
-=======
->>>>>>> 76aabf54e68daa2e506e88949e2f2deafb9de970
 import kr.co.wedder.mypage.domain.CompanyImage;
 import kr.co.wedder.mypage.domain.HallInfoDto;
 import kr.co.wedder.mypage.domain.HistoryDto;
@@ -60,13 +56,8 @@ public class MyPageController {
 			m.addAttribute("hallInfoDto"+hallInfoDto);
 			// 
 			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDTO, reservationDto, historyDto);
-<<<<<<< HEAD
-			visitCriteriaMap.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompanyId());
-			visitCriteriaMap.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
-=======
 			visitCriteriaMap.put("companyId", (Integer) visitCriteria.getCompanyDto().getCompanyId());
 			visitCriteriaMap.put("customerId", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
->>>>>>> 76aabf54e68daa2e506e88949e2f2deafb9de970
 			m.addAttribute("visitCriteria",visitCriteria);
 			
 			List<VisitCriteria> visitCriteriaList=myPageService.todayVisitHistory(visitCriteriaMap);
@@ -200,14 +191,10 @@ public class MyPageController {
 			
 			// 방문 일정 카운트 관련
 			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto);
-<<<<<<< HEAD
-			visitCriteriaMap.put("company_id", (Integer) visitCriteria.getCompanyDto().getCompanyId());
-			visitCriteriaMap.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomer_id());
-=======
+
 			visitCriteriaMap.put("companyId", (Integer) visitCriteria.getCompanyDto().getCompanyId());
 			visitCriteriaMap.put("customerId", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
->>>>>>> 76aabf54e68daa2e506e88949e2f2deafb9de970
-			
+
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
 			m.addAttribute("visitCriteriaCount",visitCriteriaCount);
 			
