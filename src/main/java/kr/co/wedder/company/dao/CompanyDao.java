@@ -1,7 +1,7 @@
 package kr.co.wedder.company.dao;
 
 import kr.co.wedder.company.domain.CompanyDto;
-import kr.co.wedder.company.service.SearchItem;
+import kr.co.wedder.company.domain.SearchItem;
 
 import java.util.List;
 import java.util.Map;

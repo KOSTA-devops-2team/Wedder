@@ -1,38 +1,30 @@
-package kr.co.wedder.company.service;
+package kr.co.wedder.company.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.util.Objects.requireNonNullElse;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class SearchItem {
     public static final int DEFAULT_PAGE_SIZE = 12;
     public static final int MIN_PAGE_SIZE = 5;
     public static final int MAX_PAGE_SIZE = 50;
 
     private int page = 1;					// 현재 페이지
-    private int pageSize = DEFAULT_PAGE_SIZE;	// 한 페이지당 게시물 건수
-    private String option = "";
+    private int recordPerPage = DEFAULT_PAGE_SIZE;	// 한 페이지당 게시물 건수
+    private int pageSize;           // 화면 하단에 출력할 페이지 개수
+    private String searchType = "";
     private String keyword = "";
     //private Integer offset;
 
-    public SearchItem() {};
-
-    public SearchItem(Integer page, Integer pageSize) {
-        this(page, pageSize, "", "");
-    }
-
-    public SearchItem(int page, int pageSize, String option, String keyword) {
-        this.page = page;
-        this.pageSize = pageSize;
-        this.option = option;
-        this.keyword = keyword;
-    }
+//    public SearchItem(Integer page, Integer recordPerPage) {
+//        this(page, recordPerPage, "", "");
+//    }
 
     // 페이지 지정해주지 않은 경우
     public String getQueryString() {
@@ -45,7 +37,7 @@ public class SearchItem {
         return UriComponentsBuilder.newInstance()
                 .queryParam("page", page)
                 .queryParam("pageSize", pageSize)
-                .queryParam("option", option)
+                .queryParam("searchType", searchType)
                 .queryParam("keyword", keyword)
                 .build().toString();
     }
