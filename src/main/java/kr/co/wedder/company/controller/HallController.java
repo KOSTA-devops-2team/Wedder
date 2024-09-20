@@ -2,7 +2,6 @@ package kr.co.wedder.company.controller;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.company.service.CompanyService;
-import kr.co.wedder.company.service.SearchItem;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;

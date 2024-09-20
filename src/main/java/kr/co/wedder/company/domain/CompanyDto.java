@@ -24,4 +24,7 @@ public class CompanyDto {
 
     private HallDto hallDto;
 
+    private Integer imgId;
+    private Integer imgSeq;
+    private String imgUrl;
 }

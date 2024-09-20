@@ -44,11 +44,11 @@ public interface MyPageDao {
 	PackageCategoryDto selectPackCa(Integer category_id) throws Exception;
 	//StudioInfo
 	StudioInfo selectStudioInfo(Integer studio_id)throws Exception;
-	
+
 	
 	//금일 방문 일정 카운트 가져오기 
 	Integer todayVisitCount(Map<String,Object> map) throws Exception;
-	
+
 	//mypage/myape의  company list를 가져오기 위해서 
 	List<CompanyDto> todayReservationHistory(Map<String, Object> map) throws Exception; 
 

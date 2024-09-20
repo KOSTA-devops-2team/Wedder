@@ -1,8 +1,7 @@
 package kr.co.wedder.company.dao;
 
 import kr.co.wedder.company.domain.CompanyDto;
-import kr.co.wedder.company.service.CompanyService;
-import kr.co.wedder.company.service.SearchItem;
+import kr.co.wedder.company.domain.SearchItem;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
