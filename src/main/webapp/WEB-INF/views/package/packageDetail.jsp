@@ -26,7 +26,7 @@
     <div class="container">
         <div class="header">
             <h1>${packageDetails[0].description}</h1>
-            <h2>${packageDetails[0].packageName}</h2>
+            <h2 class="product-name">${packageDetails[0].packageName}</h2>
         </div>
         <c:forEach var="detail" items="${packageDetails}">
             <div class="service">
@@ -46,7 +46,6 @@
 
         <!-- 가격 안내 부분-->
         <div class="total">
-
             <section>
             <div class="total-title">패키지 특전</div>
             <div class="total-cost">
@@ -59,14 +58,14 @@
             </div>
             <div class="total-final">
                 <div class="tag">최종 혜택가</div>
-                <div class="price"><fmt:formatNumber value="${finalPrice}" type="number" pattern="#,###"/>원</div>
+                <div class="final-price"><fmt:formatNumber value="${finalPrice}" type="number" pattern="#,###"/>원</div>
             </div>
             </section>
 
             <section>
             <div class="choice">
                 <div class="choice-box">
-                    <div class="saving">패키지 구매 시<br>총<fmt:formatNumber value="${discountPrice}" type="number" pattern="#,###"/>원 절약</div>
+                    <div class="saving-price">패키지 구매 시<br>총<fmt:formatNumber value="${discountPrice}" type="number" pattern="#,###"/>원 절약</div>
                     <div class="notice">선택 옵션 변경 시 패키지 혜택이 달라질 수 있습니다.</div>
                 </div>
             </div>
