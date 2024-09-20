@@ -115,9 +115,9 @@
 		                    <tr>
 		                    	<td>${visitCriteria.companyDto.companyName }</td>
 		                    	<td>${visitCriteria.myPageDTO.name }</td>
-		                    	<td><fmt:formatDate value="${visitCriteria.reservationDto.reservation_date }" pattern="yyyy-MM-dd"/></td>
-		                    	<td>${visitCriteria.reservationDto.reservation_time }</td>
-		                    	<td>${visitCriteria.historyDto.reservation_status}</td>
+		                    	<td><fmt:formatDate value="${visitCriteria.reservationDto.reservationDate }" pattern="yyyy-MM-dd"/></td>
+		                    	<td>${visitCriteria.reservationDto.reservationTime }</td>
+		                    	<td>${visitCriteria.historyDto.reservationStatus}</td>
 		                    </tr>
 	                    </c:forEach> 
 	                   

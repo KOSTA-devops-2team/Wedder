@@ -30,10 +30,10 @@ public class MyPageController {
 	MyPageService myPageService;
 	
 	@GetMapping("/mypage")
-	public String mypage(Integer customer_id, Model m) {
+	public String mypage(Integer customerId, Model m) {
 		try {
 			// 임시용 customer_id
-			customer_id=1;		
+			customerId=1;
 			Integer company_id=1;
 			Integer reservation_id =1;
 			Integer hall_id = 1;
@@ -42,10 +42,10 @@ public class MyPageController {
 			Map<String, Object> companyDtoMap =new HashMap<String, Object>();
 			
 			// 각 테이블 들 들어가는 기능
-			MyPageDTO myPageDTO = myPageService.customerRead(customer_id);
+			MyPageDTO myPageDTO = myPageService.customerRead(customerId);
 			CompanyDto companyDto =myPageService.companyRead(company_id);
 			ReservationDto reservationDto=myPageService.reservationRead(reservation_id);
-			HistoryDto historyDto = myPageService.historyRead(customer_id);
+			HistoryDto historyDto = myPageService.historyRead(customerId);
 			HallInfoDto hallInfoDto = myPageService.hallInfoRead(hall_id);
 			
 			// 모델 속성 추가
@@ -191,9 +191,10 @@ public class MyPageController {
 			
 			// 방문 일정 카운트 관련
 			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, historyDto);
+
 			visitCriteriaMap.put("companyId", (Integer) visitCriteria.getCompanyDto().getCompanyId());
 			visitCriteriaMap.put("customerId", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
-			
+
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
 			m.addAttribute("visitCriteriaCount",visitCriteriaCount);
 			

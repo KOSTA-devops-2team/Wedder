@@ -63,7 +63,7 @@
 	            <div class="reservationList-visithall-card">
 	            
 	              <div>
-	                <img src="${hallCriteria.companyImage.img_url}" alt="이미지" />
+	                <img src="${hallCriteria.companyImage.imgUrl}" alt="이미지" />
 	                <h3>${hallCriteria.companyDto.companyName}</h3>
 	              </div>
 	              
@@ -78,9 +78,9 @@
 	                  </div>
 	                  <div class="inputs">
 	                    <p>${hallCriteria.myPageDTO.name}</p>
-	                    <p><fmt:formatDate value="${hallCriteria.reservationDto.reservation_date }" pattern="yyyy-MM-dd"/></p>
-	                    <p>${hallCriteria.reservationDto.reservation_time }</p>
-	                    <p>${hallCriteria.hallInfoDto.min_people}</p>
+	                    <p><fmt:formatDate value="${hallCriteria.reservationDto.reservationDate }" pattern="yyyy-MM-dd"/></p>
+	                    <p>${hallCriteria.reservationDto.reservationTime }</p>
+	                    <p>${hallCriteria.hallInfoDto.minPeople}</p>
 	                  </div>
 	                </div>
 	                
@@ -99,11 +99,11 @@
             class="reservationList-hall-middle"
             id="reservation-section2"
           >
-            <c:forEach var="hallCriteria" items="${ hallReList}">
+            <c:forEach var="hallCriteria" items="${hallReList}">
 	            <div class="reservationList-visithall-card">
 	            
 	              <div>
-	                <img src="${hallCriteria.companyImage.img_url}" alt="이미지" />
+	                <img src="${hallCriteria.companyImage.imgUrl}" alt="이미지" />
 	                <h3>${hallCriteria.companyDto.companyName}</h3>
 	              </div>
 	              
@@ -118,9 +118,9 @@
 	                  </div>
 	                  <div class="inputs">
 	                    <p>${hallCriteria.myPageDTO.name}</p>
-	                    <p><fmt:formatDate value="${hallCriteria.reservationDto.reservation_date }" pattern="yyyy-MM-dd"/></p>
-	                    <p>${hallCriteria.reservationDto.reservation_time }</p>
-	                    <p>${hallCriteria.hallInfoDto.min_people}</p>
+	                    <p><fmt:formatDate value="${hallCriteria.reservationDto.reservationDate}" pattern="yyyy-MM-dd"/></p>
+	                    <p>${hallCriteria.reservationDto.reservationTime}</p>
+	                    <p>${hallCriteria.hallInfoDto.minPeople}</p>
 	                  </div>
 	                </div>
 	                
@@ -149,7 +149,7 @@
 	            <div class="reservationList-visithall-card">
 	            
 	              <div>
-	                <img src="${coCriteria.companyImage.img_url}" alt="이미지" />
+	                <img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
 	                <h3>${coCriteria.companyDto.companyName}</h3>
 	              </div>
 	              
@@ -163,8 +163,8 @@
 	                  </div>
 	                  <div class="inputs">
 	                    <p>${coCriteria.myPageDTO.name}</p>
-	                    <p><fmt:formatDate value="${coCriteria.reservationDto.reservation_date }" pattern="yyyy-MM-dd"/></p>
-	                    <p>${coCriteria.reservationDto.reservation_time }</p>
+	                    <p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate }" pattern="yyyy-MM-dd"/></p>
+	                    <p>${coCriteria.reservationDto.reservationTime }</p>
 	                  </div>
 	                </div>
 	                
@@ -184,7 +184,7 @@
 	            <div class="reservationList-visithall-card">
 	            
 	              <div>
-	                <img src="${coCriteria.companyImage.img_url}" alt="이미지" />
+	                <img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
 	                <h3>${coCriteria.companyDto.companyName}</h3>
 	              </div>
 	              
@@ -198,8 +198,8 @@
 	                  </div>
 	                  <div class="inputs">
 	                    <p>${coCriteria.myPageDTO.name}</p>
-	                    <p><fmt:formatDate value="${coCriteria.reservationDto.reservation_date }" pattern="yyyy-MM-dd"/></p>
-	                    <p>${coCriteria.reservationDto.reservation_time }</p>
+	                    <p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate }" pattern="yyyy-MM-dd"/></p>
+	                    <p>${coCriteria.reservationDto.reservationTime }</p>
 	                  </div>
 	                </div>
 	                
@@ -217,7 +217,7 @@
 	            <div class="reservationList-visithall-card">
 	            
 	              <div>
-	                <img src="${coCriteria.companyImage.img_url}" alt="이미지" />
+	                <img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
 	                <h3>${coCriteria.companyDto.companyName}</h3>
 	              </div>
 	              
@@ -231,8 +231,8 @@
 	                  </div>
 	                  <div class="inputs">
 	                    <p>${coCriteria.myPageDTO.name}</p>
-	                    <p><fmt:formatDate value="${coCriteria.reservationDto.reservation_date }" pattern="yyyy-MM-dd"/></p>
-	                    <p>${coCriteria.reservationDto.reservation_time }</p>
+	                    <p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate }" pattern="yyyy-MM-dd"/></p>
+	                    <p>${coCriteria.reservationDto.reservationTime }</p>
 	                  </div>
 	                </div>
 	                
