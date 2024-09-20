@@ -25,3 +25,24 @@ togglePasswordIcon.addEventListener("click", () => {
     element.select();			// 값을 잘못 입력되었을 때 그 요소를 선택되게하는 것임
     }
 }
+
+// 카카오 로그인 구현
+// Kakao.init('앱키js');
+// function kakaoLogin() {
+//     Kakao.Auth.login({
+//         success: function (response) {
+//             Kakao.API.request({
+//                 url: '/v2/user/me',
+//                 success: function (response) {
+//                     alert(JSON.stringify(response))
+//                 },
+//                 fail: function (error) {
+//                     alert(JSON.stringify(error))
+//                 },
+//             })
+//         },
+//         fail: function (error) {
+//             alert(JSON.stringify(error))
+//         },
+//     })
+// }
