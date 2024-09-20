@@ -23,14 +23,8 @@
     <!-- 로그인 입력 받기 -->
     <section class="login-input">
         <form action="${pageContext.request.contextPath}/log/login" method="post" onsubmit="return formCheck(this)">
-            <div id="msg">
-                <c:if test="${not empty param.msg }">
-                    <i fa fa-exclamation-circle>${URLDecoder.decode(param.msg) }</i>
-                </c:if>
-            </div>
-
             <div class="id">
-                <input type="text" name="id" placeholder="아이디" value="${cookie.id.value }" autofocus />
+                <input type="text" name="id" placeholder="아이디" value="${param.id != null ? param.id : cookie.id.value}" />
             </div>
             <div class="password">
                 <input type="password" name="password" placeholder="비밀번호" />
@@ -40,9 +34,14 @@
                 />
             </div>
             <input type="hidden" name="toURL" value="${param.toURL }" />
+            <div id="msg">
+                <c:if test="${not empty param.msg }">
+                    <i fa fa-exclamation-circle>${URLDecoder.decode(param.msg) }</i>
+                </c:if>
+            </div>
             <button class="login-btn">로그인하기</button>
         </form>
-        <label><input type="checkbox" name="rememberId" value="on" ${empty cookie.id.value ? "" : "checked" } />아이디 기억</label>
+<%--        <label><input type="checkbox" name="rememberId" value="on" ${empty cookie.id.value ? "" : "checked" } />아이디 기억</label>--%>
 
     </section>
 
