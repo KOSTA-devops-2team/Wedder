@@ -1,6 +1,12 @@
 package kr.co.wedder.sdmpackage.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PackageDetailDto {
 
     // 패키지 기본 정보
@@ -49,9 +55,8 @@ public class PackageDetailDto {
     private String mood;
     private String location;
 
-    // 패키지 가격 정보
-    private int originalPrice;       // 정상가
-    private int discountPrice;       // 할인 가격
-    private int finalPrice;          // 최종 가격
-    private int savingPrice;         // 절약 금액
+
+    // 업체 이미지
+    private String imgUrl;
+
 }

@@ -23,53 +23,57 @@
 
     <select id="selectBestPackage" resultType="PackageDto">
         SELECT
-        p.package_id AS packageId,
-        p.package_name AS packageName,
-        p.package_img AS packageImg,
-        p.description AS description,
-        p.discount_rate AS discountRate,
-        MAX(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studioName,
-        MAX(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dressName,
-        MAX(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName
+        p.package_id,
+        p.description,
+        p.package_img,
+        p.discount_rate,
+        GROUP_CONCAT(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studio_name,
+        GROUP_CONCAT(CASE WHEN c.company_category = '스튜디오' THEN ci.img_url END) AS studio_img_url,
+        GROUP_CONCAT(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dress_name,
+        GROUP_CONCAT(CASE WHEN c.company_category = '드레스' THEN ci.img_url END) AS dress_img_url,
+        GROUP_CONCAT(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeup_name,
+        GROUP_CONCAT(CASE WHEN c.company_category = '메이크업' THEN ci.img_url END) AS makeup_img_url
         FROM package p
         JOIN packageCategory pc ON p.package_id = pc.package_id
         JOIN company c ON pc.company_id = c.company_id
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id AND ci.img_seq = 1
         WHERE p.category_type = 'BEST'
-        GROUP BY p.package_id
+        GROUP BY p.package_id;
     </select>
 
     <select id="selectMDPickPackage" resultType="PackageDto">
         SELECT
-        p.package_id AS packageId,
-        p.package_name AS packageName,
-        p.package_img AS packageImg,
-        p.description AS description,
-        p.discount_rate AS discountRate,
-        MAX(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studioName,
-        MAX(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dressName,
-        MAX(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName
+        p.package_id,
+        p.description,
+        p.package_img,
+        p.discount_rate,
+        GROUP_CONCAT(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studio_name,
+        GROUP_CONCAT(CASE WHEN c.company_category = '스튜디오' THEN ci.img_url END) AS studio_img_url,
+        GROUP_CONCAT(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dress_name,
+        GROUP_CONCAT(CASE WHEN c.company_category = '드레스' THEN ci.img_url END) AS dress_img_url,
+        GROUP_CONCAT(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeup_name,
+        GROUP_CONCAT(CASE WHEN c.company_category = '메이크업' THEN ci.img_url END) AS makeup_img_url
         FROM package p
         JOIN packageCategory pc ON p.package_id = pc.package_id
         JOIN company c ON pc.company_id = c.company_id
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id AND ci.img_seq = 1
         WHERE p.category_type = 'MDPICK'
-        GROUP BY p.package_id
+        GROUP BY p.package_id;
+
     </select>
 
     <!--패키지 상세페이지-->
-   <select id="selectPackageDetail" parameterType="int" >
-       SELECT  *
-       FROM package p
-       LEFT JOIN packageCategory pc ON p.package_id = pc.package_id
-       LEFT JOIN studioInfo s ON pc.company_id = s.company_id AND s.package_id = p.package_id
-       LEFT JOIN company c1 ON s.company_id = c1.company_id
-       LEFT JOIN dressInfo d ON pc.company_id = d.company_id AND d.package_id = p.package_id
-       LEFT JOIN company c2 ON d.company_id = c2.company_id
-       LEFT JOIN makeupInfo m ON pc.company_id = m.company_id AND m.package_id = p.package_id
-       LEFT JOIN company c3 ON m.company_id = c3.company_id
-
-       AND   p.package_id = #{package_id}
+    <select id="selectCompanyInPackage" parameterType="int" resultType="PackageDetailDto">
+        SELECT *
+        FROM company c
+        JOIN packageCategory pc ON c.company_id = pc.company_id
+        JOIN package p ON pc.package_id = p.package_id
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE pc.package_id = #{packageId}
     </select>
 
+
+    <!--패키지 검색-->
     <select id="searchPackages" resultType="kr.co.wedder.sdmpackage.domain.PackageDetailDto">
         SELECT
         p.package_id AS packageId,

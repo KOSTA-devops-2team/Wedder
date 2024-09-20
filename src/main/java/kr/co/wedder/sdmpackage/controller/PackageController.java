@@ -1,9 +1,13 @@
 package kr.co.wedder.sdmpackage.controller;
 
+import kr.co.wedder.payment.service.PaymentService;
+import kr.co.wedder.payment.domain.PaymentKeysDto;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
 import kr.co.wedder.sdmpackage.domain.PackageDto;
 import kr.co.wedder.sdmpackage.service.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +20,11 @@ public class PackageController {
 
     @Autowired
     PackageService packageService;
+    @Autowired
+    private PaymentKeysDto paymentKeys;
+    @Autowired
+    PaymentService paymentService;
+
 
     @GetMapping("")
     public String packageMain() {
@@ -35,6 +44,8 @@ public class PackageController {
         //MD Pick 라인
         List<PackageDto> mdPickPackages = packageService.getMDPickPackages();
         model.addAttribute("MDPickPackages", mdPickPackages);
+
+
         return "package/packageRecommend";
     }
 
@@ -42,13 +53,40 @@ public class PackageController {
     // 패키지 금액별 필터링
 
 
-
     // 패키지 디테일
     @GetMapping(value = "/{packageId}/detail")
-    public String packageDetail(@PathVariable int packageId, Model model) {
+    public String packageDetail(@PathVariable("packageId") int packageId, Model model) {
 
-        PackageDetailDto packageDetail = packageService.getPackageDetail(packageId);
-        model.addAttribute("packageDetail", packageDetail);
-        return "package/packageDetail";
+        System.out.println("Received packageId: " + packageId);
+
+        // 패키지 상세 정보를 가져옴
+        List<PackageDetailDto> packageDetails = packageService.getPackageDetail(packageId);
+
+        // 리스트가 비어 있는지 확인
+        if (packageDetails == null || packageDetails.isEmpty()) {
+
+            return "package/packageRecommend";
+        }
+
+
+        // 패키지 가격 계산
+        int originalPrice = 0;
+        for (PackageDetailDto detail : packageDetails) {
+            originalPrice += detail.getBasicPrice();  // 3개 업체 basic_price의 합
+        }
+
+        int discountRate = packageDetails.get(0).getDiscountRate();  // 할인율
+        int discountPrice = (originalPrice * discountRate) / 100;  // 할인된 금액 계산
+        int finalPrice = originalPrice - discountPrice;  // 최종 혜택가 계산
+
+        model.addAttribute("packagePrice", originalPrice);
+        model.addAttribute("discountPrice", discountPrice);
+        model.addAttribute("finalPrice", finalPrice);
+        model.addAttribute("packageDetails", packageDetails);
+        model.addAttribute("paymentKeys", paymentKeys);
+
+        return "package/packageDetail";  // 패키지 상세 페이지로 이동
     }
+
+
 }
