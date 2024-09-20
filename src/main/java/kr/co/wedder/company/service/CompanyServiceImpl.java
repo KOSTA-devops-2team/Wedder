@@ -2,6 +2,7 @@ package kr.co.wedder.company.service;
 
 import kr.co.wedder.company.dao.CompanyDao;
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.SearchItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

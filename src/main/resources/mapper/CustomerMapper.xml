@@ -5,7 +5,7 @@
 
 <mapper namespace="kr.co.wedder.customer.dao.CustomerMapper">
     <insert id="customerJoin" parameterType="CustomerDTO">
-        insert into customer (id, password, name, email, phone, gender) values(#{id},#{password},#{name},#{phone},#{email},#{gender})
+        insert into customer (id, password, name, phone, email, gender) values(#{id},#{password},#{name},#{phone},#{email},#{gender})
     </insert>
 
     <!-- 아이디 중복 체크 쿼리 -->

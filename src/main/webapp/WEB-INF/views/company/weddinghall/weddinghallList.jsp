@@ -6,14 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>weddinghallList</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
-    <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css" />--%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/weddinghall/weddinghallList.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <%--<script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-    <%@ include file="/WEB-INF/views/common/header.jsp" %>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
         <!-- 메인 타이틀 문구 -->
         <section class="title">
@@ -82,8 +82,8 @@
                 <div class="card">
                     <a href="weddinghallDetail">
                         <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"
-                                alt="웨딩홀 이미지1"
+                                src="${card.imgUrl}"
+                                alt="웨딩홀 이미지"
                         />
                     </a>
                     <div class="card-info">
