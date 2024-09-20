@@ -6,29 +6,15 @@ togglePasswordIcon.addEventListener("click", () => {
 
     if (!isHidden) {
         password_text.type = "text";
-        togglePasswordIcon.src = "../../assets/images/password-visible.png";
+        togglePasswordIcon.src = contextPath + "/resources/images/password-visible.png";
         isHidden = true;
     } else {
         password_text.type = "password";
-        togglePasswordIcon.src = "../../assets/images/password-invisible.png";
+        togglePasswordIcon.src = contextPath + "/resources/images/password-invisible.png";
         isHidden = false;
     }
 });
 
-//     function formCheck(frm) {
-//     let msg =''
-//
-//     if(frm.id.value.length === 0) {
-//     setMessage('id를 입력해주세요', frm.id);
-//     return false;
-//     }
-//
-//     if(frm.id.value.length !==0 || frm.password.value.length === 0) {
-//     setMessage('password를 입력해주세요.', frm.password);
-//     return false;
-//     }
-//     return true;
-// }
     /* 서버가 먼저 해석함. ${msg}이 부분을 EL로 해석함. 그 결과를 브라우저에 보내줌
     ES6는 템플릿 리터럴이라는 새로문 문자열 표기법으로 해석함.
     */
