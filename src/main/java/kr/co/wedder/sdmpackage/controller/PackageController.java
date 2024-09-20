@@ -64,7 +64,7 @@ public class PackageController {
 
         // 리스트가 비어 있는지 확인
         if (packageDetails == null || packageDetails.isEmpty()) {
-            System.out.println("리스트가 비어있음!!");
+
             return "package/packageRecommend";
         }
 
@@ -75,11 +75,10 @@ public class PackageController {
             originalPrice += detail.getBasicPrice();  // 3개 업체 basic_price의 합
         }
 
-        int discountRate = packageDetails.get(0).getDiscountRate();  // 할인율 (패키지 테이블에서 가져옴)
+        int discountRate = packageDetails.get(0).getDiscountRate();  // 할인율
         int discountPrice = (originalPrice * discountRate) / 100;  // 할인된 금액 계산
         int finalPrice = originalPrice - discountPrice;  // 최종 혜택가 계산
 
-        // 모델에 필요한 데이터를 담아줌
         model.addAttribute("packagePrice", originalPrice);
         model.addAttribute("discountPrice", discountPrice);
         model.addAttribute("finalPrice", finalPrice);

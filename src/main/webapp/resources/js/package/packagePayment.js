@@ -13,35 +13,18 @@ function createOrderNum() {
 }
 
 // 결제 데이터 생성 함수
-// function createPaymentData() {
-//     var amount = $('#final-price').text();  // 최종 결제 금액을 동적으로 가져옴
-//     var orderId = createOrderNum();         // 주문 번호 생성
-//     var orderName = $('#product-name').text(); // 제품명 가져오기
-//
-//     data = {
-//         amount: amount,
-//         orderId: orderId,
-//         orderName: orderName}
-//     return data;
-// }
-
-
-
-
-// 결제 데이터 생성 함수 (테스트용)
 function createPaymentData() {
-    // 테스트 데이터 설정
-    var amount = 10000;  // 결제 금액을 임의로 설정
-    var orderId = createOrderNum();  // 결제 주문 번호 생성
-    var orderName = "패키지 결제 테스트";  // 임의의 상품 이름
+    var amount = $('.final-price').text();  // 최종 결제 금액
+    var orderId = createOrderNum();  // 주문 번호 생성
+    var orderName = $('.product-name').text(); // 제품명
 
-    // 테스트 데이터 반환
-    return {
+    data = {
         amount: amount,
         orderId: orderId,
-        orderName: orderName
-    };
+        orderName: orderName}
+    return data;
 }
+
 
 
 $('.pay').on('click', function (e) {
@@ -57,13 +40,11 @@ $('.pay').on('click', function (e) {
         pg: 'kakaopay',
         pay_method: 'card',
         merchant_uid: 'merchant_' + new Date().getTime(),  // 임의의 거래 ID 생성
-        name: data.orderName,  // 임의의 상품 이름
-        amount: data.amount,  // 임의의 결제 금액
+        name: data.orderName,
+        amount: data.amount,
         buyer_email: 'test@example.com',  // 임의의 이메일
         buyer_name: '테스트 구매자',  // 임의의 구매자 이름
         buyer_tel: '010-1234-5678',  // 임의의 전화번호
-        buyer_addr: '서울 강남구 도곡동',  // 임의의 주소
-        buyer_postcode: '123-456'  // 임의의 우편번호
     }, function (rsp) {
         console.log(rsp);  // 응답 데이터 확인
         if (rsp.success) {
@@ -71,7 +52,6 @@ $('.pay').on('click', function (e) {
             msg += '고유ID : ' + rsp.imp_uid + '\n';
             msg += '상점 거래ID : ' + rsp.merchant_uid + '\n';
             msg += '결제 금액 : ' + rsp.paid_amount + '\n';
-            msg += '카드 승인번호 : ' + rsp.apply_num + '\n';
 
             // 결제 완료 후 폼 데이터 전송
             var actionForm = $("#pay_form");
