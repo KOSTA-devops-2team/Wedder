@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/user/login.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -22,15 +23,9 @@
 
     <!-- 로그인 입력 받기 -->
     <section class="login-input">
-        <form action="/log/login" method="post" onsubmit="return formCheck(this)">
-            <div id="msg">
-                <c:if test="${not empty param.msg }">
-                    <i fa fa-exclamation-circle>${URLDecoder.decode(param.msg) }</i>
-                </c:if>
-            </div>
-
+        <form action="${pageContext.request.contextPath}/log/login" method="post" onsubmit="return formCheck(this)">
             <div class="id">
-                <input type="text" name="id" placeholder="아이디" value="${cookie.id.value }" autofocus />
+                <input type="text" name="id" placeholder="아이디" value="${param.id != null ? param.id : cookie.id.value}" />
             </div>
             <div class="password">
                 <input type="password" name="password" placeholder="비밀번호" />
@@ -40,9 +35,14 @@
                 />
             </div>
             <input type="hidden" name="toURL" value="${param.toURL }" />
+            <div id="msg">
+                <c:if test="${not empty param.msg }">
+                    <i fa fa-exclamation-circle>${URLDecoder.decode(param.msg) }</i>
+                </c:if>
+            </div>
             <button class="login-btn">로그인하기</button>
         </form>
-        <label><input type="checkbox" name="rememberId" value="on" ${empty cookie.id.value ? "" : "checked" } />아이디 기억</label>
+<%--        <label><input type="checkbox" name="rememberId" value="on" ${empty cookie.id.value ? "" : "checked" } />아이디 기억</label>--%>
 
     </section>
 
@@ -51,9 +51,11 @@
         <h2>SNS 계정으로 로그인하기</h2>
         <div class="social-icon">
             <button class="kakao">
-                <img
+                <a href="javascript:kakaoLogin()">
+                    <img
                         src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1611574965/noticon/iqg1rfbdbeaufcptuqgf.png"
-                />
+                /></a>
+
             </button>
             <button class="naver">
                 <img
@@ -77,6 +79,7 @@
         </div>
     </section>
 </div>
+<script> const contextPath = '${pageContext.request.contextPath}';</script>
 <script src="${pageContext.request.contextPath}/resources/js/user/login.js"></script>
 </body>
 </html>

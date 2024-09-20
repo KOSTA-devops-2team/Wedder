@@ -55,25 +55,6 @@ public class RegisterController {
             return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-//    // 로그인 처리
-//    @PostMapping("/loginCheck")
-//    public ResponseEntity<String> loginCheck(@RequestBody CustomerDTO customerDTO) {
-//        try {
-//            // 로그인 처리 로직
-//            String result = customerService.login(customerDTO.getId(), customerDTO.getPassword());
-//
-//            if ("loginSuccess".equals(result)) {
-//                return new ResponseEntity<>("loginSuccess", HttpStatus.OK);
-//            } else if ("pwFail".equals(result)) {
-//                return new ResponseEntity<>("pwFail", HttpStatus.UNAUTHORIZED);
-//            } else {
-//                return new ResponseEntity<>("idFail", HttpStatus.NOT_FOUND);
-//            }
-//        } catch (Exception e) {
-//            return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
 }
 
 
