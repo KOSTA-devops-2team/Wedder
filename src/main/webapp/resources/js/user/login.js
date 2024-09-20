@@ -15,20 +15,20 @@ togglePasswordIcon.addEventListener("click", () => {
     }
 });
 
-    function formCheck(frm) {
-    let msg =''
-
-    if(frm.id.value.length === 0) {
-    setMessage('id를 입력해주세요', frm.id)
-    return false;
-    }
-
-    if(frm.pwd.value.length === 0) {
-    setMessage('password를 입력해주세요.', frm.pwd)
-    return false;
-    }
-    return true;
-}
+//     function formCheck(frm) {
+//     let msg =''
+//
+//     if(frm.id.value.length === 0) {
+//     setMessage('id를 입력해주세요', frm.id);
+//     return false;
+//     }
+//
+//     if(frm.id.value.length !==0 || frm.password.value.length === 0) {
+//     setMessage('password를 입력해주세요.', frm.password);
+//     return false;
+//     }
+//     return true;
+// }
     /* 서버가 먼저 해석함. ${msg}이 부분을 EL로 해석함. 그 결과를 브라우저에 보내줌
     ES6는 템플릿 리터럴이라는 새로문 문자열 표기법으로 해석함.
     */

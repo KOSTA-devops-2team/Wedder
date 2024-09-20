@@ -34,9 +34,22 @@ public class LoginController {
 
 		//1. id와 pw를 확인
 		//2-1. 일치않으면
+		// 아이디가 입력되지 않았을 경우
+		if (id == null || id.trim().isEmpty()) {
+			String msg = URLEncoder.encode("아이디를 입력해 주세요.", "utf-8");
+			return "redirect:/log/login?msg=" + msg;
+		}
+
+		if (password == null || password.trim().isEmpty()) {
+			String msg = URLEncoder.encode("비밀번호를 입력해 주세요.", "utf-8");
+			return "redirect:/log/login?msg=" + msg;
+		}
+
 		if(!loginCheck(id, password)) {
 			String msg = URLEncoder.encode("id 또는 password가 일치하지 않습니다.", "utf-8");
-			return "redirect:/log/login?msg="+msg;
+//			return "redirect:/log/login?msg="+msg;
+			return "redirect:/log/login?msg=" + msg + "&id=" + URLEncoder.encode(id, "utf-8");
+
 		}
 
 		//2-2. 일치하면 로그인 후 화면(홈화면)으로 이동
