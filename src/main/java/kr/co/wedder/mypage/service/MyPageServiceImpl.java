@@ -5,11 +5,9 @@ import java.util.Map;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.*;
-import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.dao.MyPageDao;
 
 @Service

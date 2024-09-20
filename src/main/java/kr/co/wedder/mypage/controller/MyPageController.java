@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.CompanyImage;
 import kr.co.wedder.mypage.domain.HallInfoDto;
 import kr.co.wedder.mypage.domain.HistoryDto;
