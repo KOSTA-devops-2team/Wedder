@@ -76,6 +76,7 @@
         </div>
     </section>
 </div>
+<script> const contextPath = '${pageContext.request.contextPath}';</script>
 <script src="${pageContext.request.contextPath}/resources/js/user/login.js"></script>
 </body>
 </html>
