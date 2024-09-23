@@ -39,9 +39,9 @@
         <!-- 2. brand-filter -->
         <section class="tabs" id="reservation-detail-section2">
             <div class="brand-filter">
-                <h3 class="tab studio">[스튜디오] 스튜디오</h3>
-                <h3 class="tab dress">[드레스] 드레스</h3>
-                <h3 class="tab makeUp">[메이크업] 메이크업</h3>
+<%--                <h3 class="tab studio">[스튜디오] 스튜디오</h3>--%>
+<%--                <h3 class="tab dress">[드레스] 드레스</h3>--%>
+<%--                <h3 class="tab makeUp">[메이크업] 메이크업</h3>--%>
             </div>
         </section>
         
@@ -94,18 +94,10 @@
                   
                   <div class="calandar-middle">
                     <div class="calendar-option-list">
-                      <div class="calandar-option"> 야간촬영</div>
+                      <div class="calandar-option"> ${companyDto.companyName}</div>
                       <div class="calandar-option"> 가격 : 220,000원</div>
                     </div>
-                    <div class="calendar-option-list">
-                      <div class="calandar-option">들러리 </div>
-                      <div class="calandar-option"> 가격 :110,000원</div>
-                    </div>
-                    <div class="calendar-option-list">
-                      <div class="calandar-option">애견동반 
-                      </div>
-                      <div class="calandar-option"> 가격 :100,000원</div>
-                    </div>
+
                     <div class="calendar-total-price"></div>
                   </div>
                   <div class="calendar-bottom">

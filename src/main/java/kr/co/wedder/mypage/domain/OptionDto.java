@@ -20,5 +20,5 @@ public class OptionDto {
 	private Integer makeupId;
 	private Boolean optionName;
 	private Integer optionPrice;
-
+	private String category;
 }

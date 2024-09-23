@@ -69,7 +69,12 @@ public class MyPageDaoImpl implements MyPageDao {
 	public List<VisitCriteria> coReservationList(Map<String, Object> map) throws Exception {
 		return session.selectList(namespace+"coReservationList",map);
 	}
-	
+
+	@Override
+	public List<VisitCriteria> coReservationDetail(Map<String, Object> map) throws Exception {
+		return session.selectList(namespace+"coReservationDetail",map);
+	}
+
 	// 0912
 	@Override
 	public DressInfo selectDressInfo(Integer dressId) throws Exception {

@@ -39,6 +39,9 @@ public interface MyPageDao {
 
 	List<VisitCriteria> coReservationList(Map<String, Object> map) throws Exception;
 
+	// 09/23일 상세 예약 내역
+	List<VisitCriteria> coReservationDetail(Map<String, Object> map) throws Exception;
+
 	// 0912
 	DressInfo selectDressInfo(Integer dressId) throws Exception;
 
@@ -50,4 +53,6 @@ public interface MyPageDao {
 	PackageCategoryDto selectPackCa(Integer categoryId) throws Exception;
 
 	StudioInfo selectStudioInfo(Integer studioId) throws Exception;
+
+
 }

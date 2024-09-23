@@ -20,10 +20,10 @@ public class VisitCriteria {
 	// 금일 추가 된 부분
 	private DressInfo 	dressInfo;
 	private MakeupInfo 	makeupInfo;
+	private StudioInfo 	studioInfo;
 	private OptionDto 	optionDto;
 	private PackageCategoryDto packageCategoryDto;
 
-	private StudioInfo 	studioInfo;
 
 	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
 			HistoryDto historyDto) {
@@ -67,5 +67,14 @@ public class VisitCriteria {
 		this.myPageDTO = myPageDTO;
 		this.reservationDto = reservationDto;
 		this.companyImage = companyImage;
+	}
+
+	public VisitCriteria(CompanyDto companyDto, HallInfoDto hallInfoDto, DressInfo dressInfo, MakeupInfo makeupInfo, StudioInfo studioInfo, OptionDto optionDto) {
+		this.companyDto =companyDto;
+		this.hallInfoDto=hallInfoDto;
+		this.dressInfo=dressInfo;
+		this.makeupInfo=makeupInfo;
+		this.studioInfo=studioInfo;
+		this.optionDto=optionDto;
 	}
 }

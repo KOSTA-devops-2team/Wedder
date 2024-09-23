@@ -64,7 +64,7 @@
                 <div class="profile-main">
                     <div class="profile-main-image">
                         <img
-                                src="${myPageDTO.profile_url}"
+                                src="${myPageDTO.profileUrl}"
                                 alt="프로필 사진"
                         />
                     </div>
@@ -137,7 +137,7 @@
                 <div class="category">웨딩 홀 </div>
                 <div class="table-divide">
                 	<c:forEach var="companyDto" items="${companyListHall}" >
-                	
+
 	                    <div class="table">
 	                        <img
                                     src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-1.png"
@@ -169,7 +169,7 @@
 		                                  src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-2.png"
 		                                  alt="프로필 이미지"
 		                         	/>
-		                         	
+
 			                        <div>
 			                            <div>${companyDto.companyName}</div>
 			                            <div>${companyDto.companyAddress}</div>
@@ -188,7 +188,7 @@
 		                                  src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-2.png"
 		                                  alt="프로필 이미지"
 		                         	/>
-		                         	
+
 			                        <div>
 			                            <div>${companyDto.companyName}</div>
 			                            <div>${companyDto.companyAddress}</div>
@@ -207,7 +207,7 @@
 		                                  src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-2.png"
 		                                  alt="프로필 이미지"
 		                         	/>
-		                         	
+
 			                        <div>
 			                            <div>${companyDto.companyName}</div>
 			                            <div>${companyDto.companyAddress}</div>
@@ -222,15 +222,15 @@
                         <script type="text/javascript">
 	                        $(document).ready(function(){
 	                        	$(".tab").on("click",function(){
-	                        		
+
 	                        		$(".tab").removeClass("onTab");
 	                        		$(".tab-content").addClass("hidden");
-	                        		
-	                        		//현재 클릭한 탭만 
+
+	                        		//현재 클릭한 탭만
 	                        		$(this).addClass("onTab");
-	                        		
+
 	                        		var target=$(this).attr("data-tab");
-	                        		$("#" + target).removeClass("hidden"); 
+	                        		$("#" + target).removeClass("hidden");
 	                        	})
 	                        })
                         </script>

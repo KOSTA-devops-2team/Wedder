@@ -215,38 +215,39 @@
           <section class="reservationList-sudume-middle" id="reservation-section3">
             <c:forEach var="coCriteria" items="${coReMakeUpList}">
 	            <div class="reservationList-visithall-card">
-	            
-	              <div>
-	                <img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
-	                <h3>${coCriteria.companyDto.companyName}</h3>
-	              </div>
-	              
-	              <div class="card-content">
-	              
-	                <div class="content-body">
-	                  <div>
-	                    <p>예약자명</p>
-	                    <p>날짜</p>
-	                    <p>시간</p>
-	                  </div>
-	                  <div class="inputs">
-	                    <p>${coCriteria.myPageDTO.name}</p>
-	                    <p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate }" pattern="yyyy-MM-dd"/></p>
-	                    <p>${coCriteria.reservationDto.reservationTime }</p>
-	                  </div>
-	                </div>
-	                
-	                <div class="content-end">
-	                  <a href="reservation-detail">예약 상세 보러가기>></a>
-	                </div>
-	                
-	              </div>
+					  <div>
+						<img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
+						<h3>${coCriteria.companyDto.companyName}</h3>
+					  </div>
+
+					  <div class="card-content">
+
+						<div class="content-body">
+						  <div>
+							<p>예약자명</p>
+							<p>날짜</p>
+							<p>시간</p>
+						  </div>
+						  <div class="inputs">
+							<p>${coCriteria.myPageDTO.name}</p>
+							<p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate}" pattern="yyyy-MM-dd"/></p>
+							<p>${coCriteria.reservationDto.reservationTime }</p>
+						  </div>
+						</div>
+						<div class="content-end">
+						  <a href="/mypage/reservation-detail?category=${coCriteria.companyDto.category}
+						  &companyId=${coCriteria.companyDto.companyId}">예약 상세 보러가기>></a>
+						</div>
+
+					  </div>
+
 	            </div>
 	          </c:forEach>
           </section>
         </div>
       </div>
     </div>
+
   </body>
   <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </html>

@@ -176,5 +176,26 @@ public class MyPageDaoImplTest {
 		List<PackageDto> list =packageDao.selectBestPackages();
 		System.out.println(list);
 	}
+	@Test
+	public void coReservationDetailTest() throws Exception{
+		Map<String,Object> map = new HashMap<String,Object>();
+
+		CompanyDto companyDto =dao.selectCompany(4);
+		HallInfoDto hallInfoDto = dao.selectHallInfo(1);
+		DressInfo dressInfo = dao.selectDressInfo(1);
+		MakeupInfo makeupInfo = dao.selectMakeupInfo(2);
+		StudioInfo studioInfo = dao.selectStudioInfo(4);
+		OptionDto optionDto = dao.selectOptionDto(1);
+
+		VisitCriteria visitCriteria = new VisitCriteria(companyDto,hallInfoDto,dressInfo,makeupInfo,studioInfo,optionDto);
+		map.put("compnayId",visitCriteria.getCompanyDto().getCompanyId());
+		map.put("category",visitCriteria.getCompanyDto().getCategory());
+
+		List<VisitCriteria> coReDetailList =dao.coReservationDetail(map);
+		System.out.println(coReDetailList);
+
+	}
 
 }
+
+

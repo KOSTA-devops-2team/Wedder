@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.wedder.mypage.domain.CompanyImage;
@@ -21,6 +22,8 @@ import kr.co.wedder.mypage.domain.MyPageDTO;
 import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.mypage.domain.VisitCriteria;
 import kr.co.wedder.mypage.service.MyPageService;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/mypage")
@@ -113,7 +116,21 @@ public class MyPageController {
 	 * reservationDetail() { return "mypage/reservationDetail"; }
 	 */
 	@GetMapping("/reservation-detail")
-	public String reservationDetail() {
+	public String reservationDetail(HttpServletRequest request, Model m) {
+		String category = request.getParameter("category");
+		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
+		m.addAttribute("category",category);
+		m.addAttribute("companyId",companyId);
+
+        try {
+            CompanyDto companyDto = myPageService.companyRead(companyId);
+			m.addAttribute("companyDto",companyDto);
+			if(category.equals("메이크업")& companyId.equals(companyDto.getCompanyId())){
+				System.out.println("test");
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 		return "/mypage/reservationDetail";
 	}
 	//업체에 있는 상세 에약내역(옵션을 가져오는 부분) 
@@ -165,7 +182,7 @@ public class MyPageController {
 			m.addAttribute("hallVisitReservatioinList",hallVisitReservatioinList);
 			
 			//웨딩홀 예약
-			hallVisitReListMap.put("visit_reservation", 0);
+			hallVisitReListMap.put("visit_reservation", 1);
 			List<VisitCriteria> hallReList = myPageService.hallVisitReservatioinList(hallVisitReListMap);
 			m.addAttribute("hallReList",hallReList);
 			
