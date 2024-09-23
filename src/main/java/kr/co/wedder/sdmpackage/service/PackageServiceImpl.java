@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class PackageServiceImpl implements PackageService{
@@ -15,18 +16,18 @@ public class PackageServiceImpl implements PackageService{
     private PackageDao packageDao;
 
     @Override
-    public List<PackageDto> getAllPackages() {
+    public List<PackageDetailDto> getAllPackages() {
         return packageDao.selectAllPackages();
     }
 
     @Override
-    public List<PackageDto> getBestPackages() {
+    public List<PackageDetailDto> getBestPackages() {
 
         return packageDao.selectBestPackages();
         }
 
     @Override
-    public List<PackageDto> getMDPickPackages() {
+    public List<PackageDetailDto> getMDPickPackages() {
 
         return packageDao.selectMDPickPackages();
     }
@@ -40,9 +41,17 @@ public class PackageServiceImpl implements PackageService{
     }
 
     @Override
-    public List<PackageDetailDto> searchPackages(String query) {
+    public List<Map<String, Object>> autocomplete(Map<String, Object> paramMap) throws Exception {
 
-        System.out.println("Service: getAllPackages 호출됨");
-        return packageDao.searchPackages(query);
+        List<Map<String, Object>> result = packageDao.autocomplete(paramMap);
+        System.out.println("Service Result: " + result);
+        return result;
     }
+
+//    @Override
+//    public List<PackageDetailDto> searchPackages(String query) {
+//
+//        System.out.println("Service: getAllPackages 호출됨");
+//        return packageDao.searchPackages(query);
+//    }
 }

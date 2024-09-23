@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class PackageDaoImpl implements PackageDao {
@@ -16,19 +17,19 @@ public class PackageDaoImpl implements PackageDao {
     private static String namespace = "kr.co.wedder.dao.PackageMapper.";
 
     @Override
-    public List<PackageDto> selectAllPackages() {
+    public List<PackageDetailDto> selectAllPackages() {
 
         return sqlSession.selectList(namespace + "selectAllPackage");
     }
 
     @Override
-    public List<PackageDto> selectBestPackages() {
+    public List<PackageDetailDto> selectBestPackages() {
 
         return sqlSession.selectList(namespace + "selectBestPackage");
     }
 
     @Override
-    public List<PackageDto> selectMDPickPackages() {
+    public List<PackageDetailDto> selectMDPickPackages() {
 
         return sqlSession.selectList(namespace + "selectMDPickPackage");
     }
@@ -40,9 +41,16 @@ public class PackageDaoImpl implements PackageDao {
     }
 
     @Override
-    public List<PackageDetailDto> searchPackages(String query) {
+    public List<Map<String, Object>> autocomplete(Map<String, Object> paramMap) throws Exception {
 
-        System.out.println("DAO: searchPackages 호출됨");
-        return sqlSession.selectList(namespace + "searchPackages");
+        System.out.println("PackageDaoImpl: paramMap - " + paramMap);
+        return sqlSession.selectList(namespace + "autocomplete", paramMap);
     }
+
+//    @Override
+//    public List<PackageDetailDto> searchPackages(String query) {
+//
+//        System.out.println("DAO: searchPackages 호출됨");
+//        return sqlSession.selectList(namespace + "searchPackages");
+//    }
 }

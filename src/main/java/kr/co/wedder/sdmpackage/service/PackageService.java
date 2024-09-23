@@ -3,12 +3,13 @@ package kr.co.wedder.sdmpackage.service;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
 import kr.co.wedder.sdmpackage.domain.PackageDto;
 import java.util.List;
+import java.util.Map;
 
 public interface PackageService {
 
-    List<PackageDto> getAllPackages();
-    List<PackageDto> getBestPackages();
-    List<PackageDto> getMDPickPackages();
+    List<PackageDetailDto> getAllPackages();
+    List<PackageDetailDto> getBestPackages();
+    List<PackageDetailDto> getMDPickPackages();
     List<PackageDetailDto> getPackageDetail(int packageId);
-    List<PackageDetailDto> searchPackages(String query);
+    List<Map<String, Object>>autocomplete(Map<String, Object> paramMap) throws Exception;
 }

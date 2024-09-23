@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page session="false" %>
 <!DOCTYPE html>
 
@@ -13,8 +14,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageRecommend.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/header/header.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -113,17 +115,10 @@
                 <form class="form-container">
                     <div></div>
                     <div class="form-text">
-                        <input
-                                type="text"
-                                id="search_word"
-                                class="textfield"
-                        />
+                        <input type="text" id="autoComplete"/>
                     </div>
                     <button type="submit" class="btn_search">
-                        <img
-                                src="https://image.hago.kr/dev/main/pc/pc_search.svg"
-                                alt="search"
-                        />
+                        <img src="https://image.hago.kr/dev/main/pc/pc_search.svg" alt="search"/>
                     </button>
                 </form>
             </div>
@@ -145,7 +140,7 @@
                 </button>
             </div>
         </div>
-    <!-- 패키지 검색 -->
+    <!-- 패키지 검색 결과 -->
     <div class="grid-bottom">
         <c:forEach var="AllPackage" items="${AllPackages}">
         <div class="grid-content">
@@ -153,7 +148,7 @@
                 <img src="${AllPackage.packageImg}" alt="패키지 이미지">
             </div>
             <p class="name">${AllPackage.studioName} + ${AllPackage.dressName} + ${AllPackage.makeupName}</p>
-            <p class="cost">패키지 가격 들어올 부분</p>
+            <p class="cost"><fmt:formatNumber value="${finalPrice}" type="number" pattern="#,###"/></p>
         </div>
         </c:forEach>
     </div>

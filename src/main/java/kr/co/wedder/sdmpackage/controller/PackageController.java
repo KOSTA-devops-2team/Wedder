@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/package")
@@ -34,15 +35,26 @@ public class PackageController {
     @GetMapping(value = "/recommend")
     public String getAllPackages(Model model) {
 
-        List<PackageDto> allPackages = packageService.getAllPackages();
+        List<PackageDetailDto> allPackages = packageService.getAllPackages();
+
+        // 패키지 가격 계산
+        int originalPrice = 0;
+        for (PackageDetailDto detail : allPackages) {
+            originalPrice += detail.getBasicPrice();  // 3개 업체 basic_price의 합
+        }
+
+        int discountRate = allPackages.get(0).getDiscountRate();  // 할인율
+        int discountPrice = (originalPrice * discountRate) / 100;  // 할인된 금액 계산
+        int finalPrice = originalPrice - discountPrice;  // 최종 혜택가 계산
+        model.addAttribute("finalPrice", finalPrice);
         model.addAttribute("AllPackages", allPackages);
 
         // best package 라인
-        List<PackageDto> bestPackages = packageService.getBestPackages();
+        List<PackageDetailDto> bestPackages = packageService.getBestPackages();
         model.addAttribute("BestPackages", bestPackages);
 
         //MD Pick 라인
-        List<PackageDto> mdPickPackages = packageService.getMDPickPackages();
+        List<PackageDetailDto> mdPickPackages = packageService.getMDPickPackages();
         model.addAttribute("MDPickPackages", mdPickPackages);
 
 
@@ -51,6 +63,18 @@ public class PackageController {
 
 
     // 패키지 금액별 필터링
+
+    // 패키지 키워드 검색
+    @RequestMapping(value = "/ajax/autocomplete.do")
+    public @ResponseBody Map<String, Object> autocomplete (@RequestParam Map<String, Object> paramMap) throws Exception{
+
+        System.out.println("Request Parameters: " + paramMap); // 요청 파라미터 확인
+        List<Map<String, Object>> resultList = packageService.autocomplete(paramMap);
+        paramMap.put("resultList", resultList);
+        System.out.println("PackageController: resultList" + resultList);
+        return paramMap;
+    }
+
 
 
     // 패키지 디테일

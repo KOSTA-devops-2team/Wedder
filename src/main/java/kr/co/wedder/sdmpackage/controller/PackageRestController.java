@@ -15,11 +15,11 @@ public class PackageRestController {
     @Autowired
     private PackageService packageService;
 
-    @GetMapping("/search")
-    @ResponseBody
-    public List<PackageDetailDto> filterPackages(@RequestParam String query) {
-
-        System.out.println("Controller: filterPackages 호출됨");
-        return packageService.searchPackages(query);
-    }
+//    @GetMapping("/search")
+//    @ResponseBody
+//    public List<PackageDetailDto> filterPackages(@RequestParam String query) {
+//
+//        System.out.println("Controller: filterPackages 호출됨");
+//        return packageService.searchPackages(query);
+//    }
 }
