@@ -163,8 +163,9 @@ public class MyPageDaoImplTest {
 //		DressInfo  dressInfo = dao.selectDressInfo(1);
 //		MakeupInfo makeupInfo = dao.selectMakeupInfo(1);		
 //		PackageCategoryDto packageCategoryDto = dao.selectPackCa(1);
-		StudioInfo studioInfo =dao.selectStudioInfo(1);
-		
+//		StudioInfo studioInfo =dao.selectStudioInfo(1);
+		List<OptionDto> optionDto = dao.selectOptionDto("메이크업");
+		System.out.println(optionDto);
 //		System.out.println("dressInfo ="+dressInfo);
 //		System.out.println("makeupInfo ="+makeupInfo);
 //		System.out.println("packageCategoryDto ="+packageCategoryDto);
@@ -185,16 +186,18 @@ public class MyPageDaoImplTest {
 		DressInfo dressInfo = dao.selectDressInfo(1);
 		MakeupInfo makeupInfo = dao.selectMakeupInfo(2);
 		StudioInfo studioInfo = dao.selectStudioInfo(4);
-		OptionDto optionDto = dao.selectOptionDto(1);
+//		OptionDto optionDto = dao.selectOptionDto("메이크업");
 
-		VisitCriteria visitCriteria = new VisitCriteria(companyDto,hallInfoDto,dressInfo,makeupInfo,studioInfo,optionDto);
-		map.put("compnayId",visitCriteria.getCompanyDto().getCompanyId());
-		map.put("category",visitCriteria.getCompanyDto().getCategory());
+//		VisitCriteria visitCriteria = new VisitCriteria(companyDto,hallInfoDto,dressInfo,makeupInfo,studioInfo,optionDto);
+//		map.put("compnayId",visitCriteria.getCompanyDto().getCompanyId());
+//		map.put("category",visitCriteria.getCompanyDto().getCategory());
 
 		List<VisitCriteria> coReDetailList =dao.coReservationDetail(map);
 		System.out.println(coReDetailList);
 
 	}
+
+	
 
 }
 

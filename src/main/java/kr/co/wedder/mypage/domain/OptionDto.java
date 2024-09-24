@@ -18,7 +18,7 @@ public class OptionDto {
 	private Integer studioId;
 	private Integer dressId;
 	private Integer makeupId;
-	private Boolean optionName;
+	private String optionName;
 	private Integer optionPrice;
 	private String category;
 }

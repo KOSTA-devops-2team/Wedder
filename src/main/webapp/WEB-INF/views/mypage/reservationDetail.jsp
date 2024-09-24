@@ -35,10 +35,12 @@
         <!-- 1. body header-->
         <section class="body-header" id="reservation-detail-section1">
         <h3>Reservation Details</h3>
+
         </section>
         <!-- 2. brand-filter -->
         <section class="tabs" id="reservation-detail-section2">
             <div class="brand-filter">
+              <h3>회사명: ${companyDto.companyName}</h3>
 <%--                <h3 class="tab studio">[스튜디오] 스튜디오</h3>--%>
 <%--                <h3 class="tab dress">[드레스] 드레스</h3>--%>
 <%--                <h3 class="tab makeUp">[메이크업] 메이크업</h3>--%>
@@ -91,12 +93,16 @@
                 <%@ include file="/WEB-INF/views/common/calendarList.jsp" %>
                 <div class="calandar-Content">
                   <div class="calandar-top">상세 예약 내역</div>
-                  
+<%--                  <c:if test="${category} eq '메이크업'">--%>
+
+                  <div>카테고리: ${category}</div>
                   <div class="calandar-middle">
-                    <div class="calendar-option-list">
-                      <div class="calandar-option"> ${companyDto.companyName}</div>
-                      <div class="calandar-option"> 가격 : 220,000원</div>
-                    </div>
+                    <c:forEach var="optionDto" items="${optionDto1}">
+                      <div class="calendar-option-list">
+                        <div class="calandar-option"> 옵션명: ${optionDto.option_name}</div>
+                        <div class="calandar-option"> 가격 :${optionDto.optionPrice}</div>
+                      </div>
+                    </c:forEach>
 
                     <div class="calendar-total-price"></div>
                   </div>
@@ -114,6 +120,7 @@
                       <span>344,000원</span>
                     </div>
                   </div>
+<%--                  </c:if>--%>
                 </div>
             </div>
         </section>

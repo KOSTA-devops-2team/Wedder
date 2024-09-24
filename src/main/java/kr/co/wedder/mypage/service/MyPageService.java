@@ -21,8 +21,8 @@ public interface MyPageService {
 	DressInfo dressInfoRead(Integer dressId) throws Exception;
 	//MakeupInfo
 	MakeupInfo makeupInfoRead(Integer makeupId) throws Exception;
+	List<OptionDto> optionRead(String category) throws Exception;
 	//OptionInfo
-	OptionDto optionRead(Integer optionId) throws Exception;
 	//packageCategory
 	PackageCategoryDto packageCategoryRead(Integer categoryId) throws Exception;
 	//StudioInfo

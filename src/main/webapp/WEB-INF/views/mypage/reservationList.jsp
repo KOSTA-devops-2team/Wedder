@@ -235,8 +235,7 @@
 						  </div>
 						</div>
 						<div class="content-end">
-						  <a href="/mypage/reservation-detail?category=${coCriteria.companyDto.category}
-						  &companyId=${coCriteria.companyDto.companyId}">예약 상세 보러가기>></a>
+						  <a href="/mypage/reservation-detail?category=${coCriteria.companyDto.category}&companyId=${coCriteria.companyDto.companyId}">예약 상세 보러가기>></a>
 						</div>
 
 					  </div>

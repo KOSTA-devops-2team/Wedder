@@ -70,4 +70,5 @@ public class MyPageServiceImplTest {
 		HallInfoDto HallInfoDto = service.hallInfoRead(1);
 		System.out.println("HallInfoDto ="+ HallInfoDto);
 	}
+
 }

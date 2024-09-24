@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.mypage.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.wedder.mypage.domain.CompanyImage;
-import kr.co.wedder.mypage.domain.HallInfoDto;
-import kr.co.wedder.mypage.domain.HistoryDto;
-import kr.co.wedder.mypage.domain.MyPageDTO;
-import kr.co.wedder.mypage.domain.ReservationDto;
-import kr.co.wedder.mypage.domain.VisitCriteria;
 import kr.co.wedder.mypage.service.MyPageService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -119,14 +114,25 @@ public class MyPageController {
 	public String reservationDetail(HttpServletRequest request, Model m) {
 		String category = request.getParameter("category");
 		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
+
 		m.addAttribute("category",category);
 		m.addAttribute("companyId",companyId);
 
-        try {
-            CompanyDto companyDto = myPageService.companyRead(companyId);
+		try {
+			CompanyDto companyDto = myPageService.companyRead(companyId);
+			HallInfoDto hallInfoDto = myPageService.hallInfoRead(1);
+			DressInfo dressInfo = myPageService.dressInfoRead(1);
+			MakeupInfo makeupInfo = myPageService.makeupInfoRead(1);
+			StudioInfo studioInfo = myPageService.studioInfoRead(1);
+			List<OptionDto> optionDto1 = myPageService.optionRead(category);
+			OptionDto optionDto = new OptionDto();
+			m.addAttribute("optionDto",optionDto);
+			VisitCriteria categoryCri = new VisitCriteria(companyDto,hallInfoDto,dressInfo,makeupInfo,studioInfo,optionDto);
+			m.addAttribute("categoryCri",categoryCri);
 			m.addAttribute("companyDto",companyDto);
+			m.addAttribute("makeupInfo",makeupInfo);
+			m.addAttribute("optionDto1",optionDto1);
 			if(category.equals("메이크업")& companyId.equals(companyDto.getCompanyId())){
-				System.out.println("test");
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -150,16 +156,22 @@ public class MyPageController {
 	
 	
 	@GetMapping("/reservation-list")
-	public String reservationList(Integer reservation_id, Model m) {
+	public String reservationList(/*HttpServletRequest request,*/Integer reservation_id, Model m) {
 		Map<String,Object> hallVisitReListMap = new HashMap<String, Object>();
 		Map<String, Object> visitCriteriaMap =new HashMap<String, Object>();
 		Map<String, Object> coReListMap= new HashMap<String, Object>();
+//		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
+
 		try {
-			CompanyDto 		companyDto 		=	myPageService.companyRead(1);
+			CompanyDto 		companyDto 		=	myPageService.companyRead( 1);
 			MyPageDTO 		myPageDto 		=	myPageService.customerRead(1);
 			ReservationDto 	reservationDto	=	myPageService.reservationRead(1);
-			HallInfoDto 		hallInfoDto 		= 	myPageService.hallInfoRead(1);
 			CompanyImage 	companyImage 	= 	myPageService.coImageRead(1);
+			StudioInfo studioInfo = new StudioInfo();
+			DressInfo dressInfo = new DressInfo();
+			MakeupInfo makeupInfo = new MakeupInfo();
+			HallInfoDto 		hallInfoDto 		= 	myPageService.hallInfoRead(1);
+			OptionDto optionDto = new OptionDto();
 			
 			HistoryDto historyDto = myPageService.historyRead(1);
 			
@@ -187,7 +199,9 @@ public class MyPageController {
 			m.addAttribute("hallReList",hallReList);
 			
 			//업체별 예약 내역 
-			VisitCriteria coCriteria = new VisitCriteria(companyDto,myPageDto,reservationDto,companyImage);
+			VisitCriteria coCriteria =
+					new VisitCriteria(
+							companyDto,myPageDto,reservationDto,companyImage,studioInfo,dressInfo,makeupInfo,hallInfoDto,optionDto);
 			m.addAttribute("coCriteria",coCriteria);
 			coReListMap.put("customerId", (Integer) coCriteria.getMyPageDTO().getCustomerId());
 			
@@ -214,7 +228,9 @@ public class MyPageController {
 
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
 			m.addAttribute("visitCriteriaCount",visitCriteriaCount);
-			
+
+
+
 			return "/mypage/reservationList";
 		} catch (Exception e) {
 			e.printStackTrace();

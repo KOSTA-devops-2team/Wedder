@@ -89,9 +89,9 @@ public class MyPageDaoImpl implements MyPageDao {
 	}
 	
 	@Override
-	public OptionDto selectOptionDto(Integer optionId) throws Exception {
+	public List<OptionDto> selectOptionDto(String category) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne(namespace+"selectOptionDto", optionId);
+		return session.selectList(namespace+"selectOptionDto", category);
 	}
 
 	@Override

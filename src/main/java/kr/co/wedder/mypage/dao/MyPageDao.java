@@ -48,7 +48,7 @@ public interface MyPageDao {
 	// 09/ 12일 옵션들 추가
 	MakeupInfo selectMakeupInfo(Integer makeupId) throws Exception;
 
-	OptionDto selectOptionDto(Integer optionId) throws Exception;
+	List<OptionDto> selectOptionDto(String category) throws Exception;
 
 	PackageCategoryDto selectPackCa(Integer categoryId) throws Exception;
 

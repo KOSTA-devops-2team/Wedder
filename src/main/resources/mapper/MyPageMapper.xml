@@ -38,7 +38,16 @@
 	<sql id="selectFromOptionDto">
 	    SELECT * FROM `option`
 	</sql>
-
+	<resultMap id="OptionDtoMap" type="OptionDto">
+		<id column="option_id" property="optionId"/>
+		<result column="hall_id" property="hallId"/>
+		<result column="studio_id" property="studioId"/>
+		<result column="dress_id" property="dressId"/>
+		<result column="makeup_id" property="makeupId"/>
+		<result column="option_name" property="optionName"/>
+		<result column="option_price" property="optionPrice"/>
+		<result column="category" property="category"/>
+	</resultMap>
 	<resultMap type="VisitCriteria" id="joinVisitCriteria">
 	
 		<association property="companyDto" javaType="CompanyDto">
@@ -167,9 +176,9 @@
 	    where dress_id =#{dressId}
 	</select>
 	
-	<select id="selectOptionDto" parameterType="int" resultType="OptionDto">
+	<select id="selectOptionDto" parameterType="String" resultMap="OptionDtoMap">
 		<include refid="selectFromOptionDto"/>
-	    WHERE option_id =#{optionId}
+	    WHERE category =#{category}
 	</select>
 
 	<select id="todayVisitHistory" parameterType="map" resultMap="joinVisitCriteria" >

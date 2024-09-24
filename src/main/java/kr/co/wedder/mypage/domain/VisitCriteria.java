@@ -77,4 +77,19 @@ public class VisitCriteria {
 		this.studioInfo=studioInfo;
 		this.optionDto=optionDto;
 	}
+
+	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDto, ReservationDto reservationDto,
+						 CompanyImage companyImage, StudioInfo studioInfo, DressInfo dressInfo, MakeupInfo makeupInfo,
+						 HallInfoDto hallInfoDto, OptionDto optionDto) {
+
+		this.companyDto=companyDto;
+		this.myPageDTO=myPageDto;
+		this.reservationDto=reservationDto;
+		this.companyImage=companyImage;
+		this.studioInfo=studioInfo;
+		this.dressInfo=dressInfo;
+		this.makeupInfo=makeupInfo;
+		this.hallInfoDto=hallInfoDto;
+		this.optionDto=optionDto;
+	}
 }

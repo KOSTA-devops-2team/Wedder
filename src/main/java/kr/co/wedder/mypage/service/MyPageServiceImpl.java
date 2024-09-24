@@ -49,8 +49,8 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
 	@Override
-	public OptionDto optionRead(Integer optionId) throws Exception {
-		return myPageDao.selectOptionDto(optionId);
+	public List<OptionDto> optionRead(String category) throws Exception {
+		return myPageDao.selectOptionDto(category);
 	}
 
 	@Override
