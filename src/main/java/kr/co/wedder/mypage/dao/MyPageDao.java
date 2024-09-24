@@ -54,5 +54,9 @@ public interface MyPageDao {
 
 	StudioInfo selectStudioInfo(Integer studioId) throws Exception;
 
+	//메이크업을 받는  정보를 불러오는 select
+	MakeupInfo toCustomerMakeupInfo(Map<String,Object> map) throws  Exception;
+	//메이크업을 받는 사람에 대한 옵션
+	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map) throws Exception;
 
 }

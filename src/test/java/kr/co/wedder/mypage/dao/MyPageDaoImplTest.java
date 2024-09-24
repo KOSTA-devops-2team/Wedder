@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.co.wedder.mypage.domain.CompanyImage;
@@ -197,8 +198,33 @@ public class MyPageDaoImplTest {
 
 	}
 
-	
 
+	@Test
+	public void toCustomerMakeupInfo2() throws Exception{
+		MakeupInfo makeupInfo = new MakeupInfo();
+		makeupInfo.setMakeupId(1);
+		makeupInfo.setCompanyId(4);
+		String makeupId = String.valueOf(makeupInfo.getMakeupId());
+		String companyId =	String.valueOf(makeupInfo.getCompanyId());
+		Map<String,Object> map = new HashMap<>();
+		map.put("makeupId",makeupId);
+		map.put("companyId",companyId);
+		MakeupInfo toCustomerMakeupInfoList = dao.toCustomerMakeupInfo(map);
+		System.out.println(toCustomerMakeupInfoList);
+	}
+
+	@Test
+	public void toCustomerOptionInfo() throws Exception{
+		Map<String,Object> map = new HashMap<>();
+		MakeupInfo makeupInfo = new MakeupInfo();
+		makeupInfo.setCompanyId(4);
+		makeupInfo.setMakeupId(1);
+
+		map.put("makeupId",makeupInfo.getMakeupId());
+		map.put("companyId",makeupInfo.getCompanyId());
+		List<VisitCriteria> toCustomerOptionInfo = dao.toCustomerOptionInfo(map);
+//		System.out.println(toCustomerOptionInfo);
+	}
 }
 
 

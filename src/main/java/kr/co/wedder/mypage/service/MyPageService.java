@@ -27,14 +27,16 @@ public interface MyPageService {
 	PackageCategoryDto packageCategoryRead(Integer categoryId) throws Exception;
 	//StudioInfo
 	StudioInfo 	studioInfoRead(Integer studioId) throws Exception;
-
 	//table count service
+
 	Integer todayVisitCount(Map<String, Object> map) throws Exception;
-	
-	// join table service 
+	// join table service
+
 	List<CompanyDto> 	todayReservationHistory(Map<String, Object>map) throws Exception;
 	List<VisitCriteria> todayVisitHistory(Map<String, Object> map) throws Exception;
 	List<VisitCriteria> hallVisitReservatioinList(Map<String, Object> map) throws Exception;
 	List<VisitCriteria> coReservationList(Map<String, Object> map) throws Exception;
-	
+	// 09/24
+	MakeupInfo toCustomerMakeupInfo(Map<String,Object> map) throws Exception;
+	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map) throws Exception;
 }

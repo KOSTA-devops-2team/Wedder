@@ -97,9 +97,16 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
 
-	
 
+	@Override
+	public MakeupInfo toCustomerMakeupInfo(Map<String, Object> map) throws Exception {
+		return myPageDao.toCustomerMakeupInfo(map);
+	}
 
+	@Override
+	public List<VisitCriteria> toCustomerOptionInfo(Map<String, Object> map) throws Exception {
+		return myPageDao.toCustomerOptionInfo(map);
+	}
 
 
 }

@@ -105,8 +105,18 @@ public class MyPageDaoImpl implements MyPageDao {
 		// TODO Auto-generated method stub
 		return session.selectOne(namespace+"selectStudioInfo", studioId);
 	}
+
 	//09/14
 
+	@Override
+	public MakeupInfo toCustomerMakeupInfo(Map<String, Object> map) throws Exception {
+		return session.selectOne(namespace+"ToCustomerMakeupInfo",map);
+	}
+
+	@Override
+	public List<VisitCriteria> toCustomerOptionInfo(Map<String, Object> map) throws Exception {
+		return session.selectList(namespace+"ToCustomerOptionInfo",map);
+	}
 
 
 }

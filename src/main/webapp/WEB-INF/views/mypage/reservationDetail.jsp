@@ -96,11 +96,13 @@
 <%--                  <c:if test="${category} eq '메이크업'">--%>
 
                   <div>카테고리: ${category}</div>
+                  <div>받는대상: ${makeupInfo1.target}</div>
                   <div class="calandar-middle">
-                    <c:forEach var="optionDto" items="${optionDto1}">
+                    <c:forEach var="visitCriteria" items="${toCusotmerOptionInfo}">
                       <div class="calendar-option-list">
-                        <div class="calandar-option"> 옵션명: ${optionDto.option_name}</div>
-                        <div class="calandar-option"> 가격 :${optionDto.optionPrice}</div>
+
+                        <div class="calandar-option"> 옵션명: ${visitCriteria.optionDto.optionName}</div>
+                        <div class="calandar-option"> 가격 :${visitCriteria.optionDto.optionPrice}</div>
                       </div>
                     </c:forEach>
 

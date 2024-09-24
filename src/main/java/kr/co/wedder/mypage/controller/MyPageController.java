@@ -114,25 +114,38 @@ public class MyPageController {
 	public String reservationDetail(HttpServletRequest request, Model m) {
 		String category = request.getParameter("category");
 		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
-
+		Map<String,Object> toCustomerMakeupMap= new HashMap<>();
+		Map<String,Object> toCustomerOptionInfoMap= new HashMap<>();
 		m.addAttribute("category",category);
 		m.addAttribute("companyId",companyId);
-
 		try {
 			CompanyDto companyDto = myPageService.companyRead(companyId);
 			HallInfoDto hallInfoDto = myPageService.hallInfoRead(1);
 			DressInfo dressInfo = myPageService.dressInfoRead(1);
 			MakeupInfo makeupInfo = myPageService.makeupInfoRead(1);
 			StudioInfo studioInfo = myPageService.studioInfoRead(1);
-			List<OptionDto> optionDto1 = myPageService.optionRead(category);
+//			List<OptionDto> optionDto1 = myPageService.optionRead(category);
+
+
+			toCustomerOptionInfoMap.put("makeupId",makeupInfo.getMakeupId());
+			toCustomerOptionInfoMap.put("companyId",companyId);
+			List<VisitCriteria> toCusotmerOptionInfo=myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap);
 			OptionDto optionDto = new OptionDto();
+
+			VisitCriteria visitCriteria=new VisitCriteria(companyDto,hallInfoDto,dressInfo,makeupInfo,studioInfo,optionDto);
+			m.addAttribute("visitCriteria",visitCriteria);
+			m.addAttribute("toCusotmerOptionInfo",toCusotmerOptionInfo);
+
+			toCustomerMakeupMap.put("makeupId",makeupInfo.getMakeupId());
+			toCustomerMakeupMap.put("companyId",companyId);
+			MakeupInfo makeupInfo1=myPageService.toCustomerMakeupInfo(toCustomerMakeupMap);
+
 			m.addAttribute("optionDto",optionDto);
-			VisitCriteria categoryCri = new VisitCriteria(companyDto,hallInfoDto,dressInfo,makeupInfo,studioInfo,optionDto);
-			m.addAttribute("categoryCri",categoryCri);
 			m.addAttribute("companyDto",companyDto);
-			m.addAttribute("makeupInfo",makeupInfo);
-			m.addAttribute("optionDto1",optionDto1);
+//			m.addAttribute("optionDto1",optionDto1);
 			if(category.equals("메이크업")& companyId.equals(companyDto.getCompanyId())){
+				m.addAttribute("makeupInfo",makeupInfo);
+				m.addAttribute("makeupInfo1",makeupInfo1);
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);

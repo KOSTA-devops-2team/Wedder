@@ -38,6 +38,14 @@
 	<sql id="selectFromOptionDto">
 	    SELECT * FROM `option`
 	</sql>
+	<resultMap id="ToCustomerMap" type="MakeupInfo">
+		<id column="makeup_id" property="makeupId"/>
+		<result column="company_id" property="companyId"/>
+		<result column="package_id" property="packageId"/>
+		<result column="target" property="target"/>
+		<result column="makeup_type" property="makeupType"/>
+		<result column="position" property="position"/>
+	</resultMap>
 	<resultMap id="OptionDtoMap" type="OptionDto">
 		<id column="option_id" property="optionId"/>
 		<result column="hall_id" property="hallId"/>
@@ -249,5 +257,18 @@
 		LEFT  JOIN studioInfo         ON c.company_id                 = studioInfo.company_id
 		LEFT  JOIN `option`           ON c.company_category           = option.category
 		where c.company_category IN ('웨딩홀','드레스','메이크업','스튜디오')
+	</select>
+
+<!--메이크업 정보를 불러오는 select	-->
+	<select id="ToCustomerMakeupInfo" parameterType="map" resultMap="ToCustomerMap">
+		select * from makeupInfo
+		where makeup_id=${makeupId} and company_id=${companyId};
+	</select>
+
+	<select id="ToCustomerOptionInfo" parameterType="map" resultMap="joinVisitCriteria">
+		select *
+		from `option`
+		join wedder.makeupInfo mI on `option`.makeup_id = mI.makeup_id
+		where mI.makeup_id=${makeupId} and company_id=${companyId};
 	</select>
 </mapper>
