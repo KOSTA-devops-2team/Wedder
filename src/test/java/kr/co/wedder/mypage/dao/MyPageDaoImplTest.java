@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.*;
@@ -230,6 +231,25 @@ public class MyPageDaoImplTest {
 		MyPageDTO myPageDTO = myPageDTO=dao.customerId("kosta");
 		System.out.println(myPageDTO);
 	}
+	@Test
+	public void retrieveCompanyOptions() throws Exception{
+		Map<String ,Object> map = new HashMap<String,Object>();
+		CompanyDto companyDto = new CompanyDto();
+		HallInfoDto hallInfoDto = new HallInfoDto();
+		StudioInfo studioInfo = new StudioInfo();
+		DressInfo dressInfo = new DressInfo();
+		MakeupInfo makeupInfo = new MakeupInfo();
+		companyDto.setCategory("메이크업");
+		if (companyDto.getCategory().equals("메이크업")){
+			makeupInfo.setCompanyId(4);
+			makeupInfo.setMakeupId(1);
+			map.put("makeupId",makeupInfo.getMakeupId());
+			map.put("companyId",makeupInfo.getCompanyId());
+			List<VisitCriteria> retrieveCompanyOptions =dao.retrieveCompanyOptions(map);
+		}
+
+	}
+
 }
 
 

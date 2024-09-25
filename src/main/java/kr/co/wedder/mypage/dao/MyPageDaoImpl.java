@@ -123,5 +123,10 @@ public class MyPageDaoImpl implements MyPageDao {
 		return session.selectOne(namespace+"customerId",id);
 	}
 
+	@Override
+	public List<VisitCriteria> retrieveCompanyOptions(Map<String, Object> map) throws Exception {
+		return session.selectList(namespace+"retrieveCompanyOptions",map);
+	}
+
 
 }

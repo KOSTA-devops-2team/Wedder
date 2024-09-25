@@ -60,4 +60,8 @@ public interface MyPageDao {
 	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map) throws Exception;
 	// customer Id 를 컨트롤러에 넣기 위해 만든 mapper
 	MyPageDTO customerId(String id) throws Exception;
+
+	// 회사 옵션을 받는 정보를 불러오는 코드
+	List<VisitCriteria> retrieveCompanyOptions(Map<String,Object> map) throws Exception;
+
 }
