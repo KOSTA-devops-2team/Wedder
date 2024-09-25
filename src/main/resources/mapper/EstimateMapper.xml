@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.wedder.company.dao.CompanyMapper">
+    <resultMap id="companyDtoMap" type="kr.co.wedder.company.domain.CompanyDto">
+        <id property="companyId" column="company_id" />
+        <result property="companyName" column="company_name" />
+        <result property="companyAddress" column="company_address" />
+        <result property="introduce" column="company_introduce" />
+        <result property="category" column="company_category" />
+        <result property="phoneNum" column="phone_num" />
+        <result property="operationHours" column="operation_hours" />
+        <result property="instagramUrl" column="instagram_url" />
+        <result property="basicPrice" column="basic_price" />
+        <result property="mood" column="mood" />
+        <result property="location" column="location" />
+        <result property="imgId" column="img_id"/>
+        <result property="imgSeq" column="img_seq" />
+        <result property="imgUrl" column="img_url"/>
+
+        <!--        <collection property="hallDto" resultMap="hallDtoMap" />-->
+
+        <association property="hallDto" javaType="kr.co.wedder.company.domain.HallDto">
+            <id property="hallId" column="hall_id"/>
+            <result property="companyId" column="company_id" />
+            <result property="hallType" column="hall_type" />
+            <result property="minPeople" column="min_people" />
+            <result property="parking" column="parking" />
+            <result property="mealPrice" column="meal_price" />
+        </association>
+    </resultMap>
+
+
+
+    <!-- 스튜디오 목록 가져오기 -->
+    <select id="getStudioList" resultMap="companyDtoMap">
+        SELECT company_id, company_name, company_address, basic_price, img_url, category
+        FROM company
+        WHERE category = '스튜디오'
+    </select>
+
+    <!-- 드레스 목록 가져오기 -->
+    <select id="getDressList" resultMap="companyDtoMap">
+        SELECT company_id, company_name, company_address, basic_price, img_url, category
+        FROM company
+        WHERE category = '드레스'
+    </select>
+
+    <!-- 메이크업 목록 가져오기 -->
+    <select id="getMakeupList" resultMap="companyDtoMap">
+        SELECT company_id, company_name, company_address, basic_price, img_url, category
+        FROM company
+        WHERE category = '메이크업'
+    </select>
+
+</mapper>

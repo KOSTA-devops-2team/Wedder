@@ -108,7 +108,7 @@
                             <a href="${pageContext.request.contextPath}/package">Package</a>
                         </li>
                         <li class="black">
-                            <a href="../../html/estimate/estimateCal.html"
+                            <a href="${pageContext.request.contextPath}/estimate"
                                 >Estimate</a
                             >
                         </li>
