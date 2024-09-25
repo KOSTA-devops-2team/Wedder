@@ -118,5 +118,10 @@ public class MyPageDaoImpl implements MyPageDao {
 		return session.selectList(namespace+"ToCustomerOptionInfo",map);
 	}
 
+	@Override
+	public MyPageDTO customerId(String id) throws Exception {
+		return session.selectOne(namespace+"customerId",id);
+	}
+
 
 }

@@ -39,4 +39,6 @@ public interface MyPageService {
 	// 09/24
 	MakeupInfo toCustomerMakeupInfo(Map<String,Object> map) throws Exception;
 	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map) throws Exception;
+	// 09/25
+	MyPageDTO cutomerId(String id) throws Exception;
 }

@@ -58,5 +58,6 @@ public interface MyPageDao {
 	MakeupInfo toCustomerMakeupInfo(Map<String,Object> map) throws  Exception;
 	//메이크업을 받는 사람에 대한 옵션
 	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map) throws Exception;
-
+	// customer Id 를 컨트롤러에 넣기 위해 만든 mapper
+	MyPageDTO customerId(String id) throws Exception;
 }

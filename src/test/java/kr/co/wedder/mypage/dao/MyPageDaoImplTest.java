@@ -225,6 +225,11 @@ public class MyPageDaoImplTest {
 		List<VisitCriteria> toCustomerOptionInfo = dao.toCustomerOptionInfo(map);
 //		System.out.println(toCustomerOptionInfo);
 	}
+	@Test
+	public void customerId() throws Exception{
+		MyPageDTO myPageDTO = myPageDTO=dao.customerId("kosta");
+		System.out.println(myPageDTO);
+	}
 }
 
 

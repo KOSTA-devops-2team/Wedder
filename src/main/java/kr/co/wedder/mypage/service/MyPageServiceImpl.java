@@ -108,5 +108,10 @@ public class MyPageServiceImpl implements MyPageService {
 		return myPageDao.toCustomerOptionInfo(map);
 	}
 
+	@Override
+	public MyPageDTO cutomerId(String id) throws Exception {
+		return myPageDao.customerId(id);
+	}
+
 
 }

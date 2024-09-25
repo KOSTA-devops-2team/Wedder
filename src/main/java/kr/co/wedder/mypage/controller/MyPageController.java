@@ -11,14 +11,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import kr.co.wedder.mypage.service.MyPageService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/mypage")
@@ -28,10 +26,14 @@ public class MyPageController {
 	MyPageService myPageService;
 	
 	@GetMapping("/mypage")
-	public String mypage(Integer customerId, Model m) {
+	public String mypage(@SessionAttribute("id") String id, Integer customerId, Model m) {
 		try {
-			// 임시용 customer_id
-			customerId=1;
+			System.out.println("id : "+ id);
+			MyPageDTO sessionId=myPageService.cutomerId(id);
+
+			// id에서 받아오는  customer_id
+			customerId=sessionId.getCustomerId();
+			System.out.println(customerId);
 			Integer company_id=1;
 			Integer reservation_id =1;
 			Integer hall_id = 1;
@@ -111,7 +113,7 @@ public class MyPageController {
 	 * reservationDetail() { return "mypage/reservationDetail"; }
 	 */
 	@GetMapping("/reservation-detail")
-	public String reservationDetail(HttpServletRequest request, Model m) {
+	public String reservationDetail(@SessionAttribute("id") String id, HttpServletRequest request, Model m) {
 		String category = request.getParameter("category");
 		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
 		Map<String,Object> toCustomerMakeupMap= new HashMap<>();
@@ -119,6 +121,13 @@ public class MyPageController {
 		m.addAttribute("category",category);
 		m.addAttribute("companyId",companyId);
 		try {
+			System.out.println("id : "+ id);
+			MyPageDTO sessionId=myPageService.cutomerId(id);
+
+			// id에서 받아오는  customer_id
+			int customerId=sessionId.getCustomerId();
+//			System.out.println(customerId);
+
 			CompanyDto companyDto = myPageService.companyRead(companyId);
 			HallInfoDto hallInfoDto = myPageService.hallInfoRead(1);
 			DressInfo dressInfo = myPageService.dressInfoRead(1);
@@ -126,12 +135,12 @@ public class MyPageController {
 			StudioInfo studioInfo = myPageService.studioInfoRead(1);
 //			List<OptionDto> optionDto1 = myPageService.optionRead(category);
 
-
+			//상세 예약 내역
 			toCustomerOptionInfoMap.put("makeupId",makeupInfo.getMakeupId());
 			toCustomerOptionInfoMap.put("companyId",companyId);
 			List<VisitCriteria> toCusotmerOptionInfo=myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap);
 			OptionDto optionDto = new OptionDto();
-
+			
 			VisitCriteria visitCriteria=new VisitCriteria(companyDto,hallInfoDto,dressInfo,makeupInfo,studioInfo,optionDto);
 			m.addAttribute("visitCriteria",visitCriteria);
 			m.addAttribute("toCusotmerOptionInfo",toCusotmerOptionInfo);
@@ -169,15 +178,26 @@ public class MyPageController {
 	
 	
 	@GetMapping("/reservation-list")
-	public String reservationList(/*HttpServletRequest request,*/Integer reservation_id, Model m) {
+	public String reservationList(@SessionAttribute("id") String id,Integer reservation_id, Model m) {
+
+
 		Map<String,Object> hallVisitReListMap = new HashMap<String, Object>();
 		Map<String, Object> visitCriteriaMap =new HashMap<String, Object>();
 		Map<String, Object> coReListMap= new HashMap<String, Object>();
 //		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
 
 		try {
+			// sessionId 받아오는 중~
+				System.out.println("id : "+ id);
+				MyPageDTO sessionId=myPageService.cutomerId(id);
+
+				// id에서 받아오는  customer_id
+				int customerId=sessionId.getCustomerId();
+				System.out.println(customerId);
+			//-----------------------------------------
+
 			CompanyDto 		companyDto 		=	myPageService.companyRead( 1);
-			MyPageDTO 		myPageDto 		=	myPageService.customerRead(1);
+			MyPageDTO 		myPageDto 		=	myPageService.customerRead(customerId);
 			ReservationDto 	reservationDto	=	myPageService.reservationRead(1);
 			CompanyImage 	companyImage 	= 	myPageService.coImageRead(1);
 			StudioInfo studioInfo = new StudioInfo();
@@ -196,8 +216,9 @@ public class MyPageController {
 			
 			//방문 예약 내역
 			VisitCriteria hallCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, hallInfoDto, companyImage);
+			hallCriteria.getMyPageDTO().setCustomerId(customerId);
 			m.addAttribute("hallCriteria",hallCriteria);
-			
+
 			hallVisitReListMap.put("customerId", (Integer) hallCriteria.getMyPageDTO().getCustomerId());
 			hallVisitReListMap.put("category","웨딩홀");
 			

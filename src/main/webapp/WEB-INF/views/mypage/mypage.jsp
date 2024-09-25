@@ -2,8 +2,7 @@
          pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
- 
-<%@ page session="false" %>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -31,6 +30,7 @@
 </head>
  <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
 <body>
+
 <div class="myPage-container hd__inner1100">
     <!-- 0. 마이페이지 사이드 바 -->
     <aside class="myPage-sidebar">
@@ -40,6 +40,7 @@
     <!-- 1.마이페이지 메인페이지 -->
     <div class="myPage-content hd__inner880">
         <section class="summary">
+
             <h1>안녕하세요. ${myPageDTO.name} 고객님 </h1>
             <div class="summary-lists">
                 <div class="summary-item">

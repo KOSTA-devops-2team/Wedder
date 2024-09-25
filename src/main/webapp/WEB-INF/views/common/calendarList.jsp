@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/calendarList.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"  />
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		
 	</head>
 	<body>
 		<section class="calendar-container" id="calendar-section1">

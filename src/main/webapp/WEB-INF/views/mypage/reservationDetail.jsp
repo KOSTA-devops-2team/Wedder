@@ -16,10 +16,12 @@
     />
       	<script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
       	<script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
+        <script src ="${pageContext.request.contextPath}/resources/js/mypage/reservationDetail.js"></script>
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <title>reservationDetail</title>
   </head>
 	<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
+
   <body>
     <div class="hd__inner1100">
       <!-- 사이드 바 -->
@@ -34,19 +36,11 @@
       <div class="hd__inner900">
         <!-- 1. body header-->
         <section class="body-header" id="reservation-detail-section1">
-        <h3>Reservation Details</h3>
-
+            <h3>${companyDto.companyName} 예약 내역</h3>
         </section>
         <!-- 2. brand-filter -->
-        <section class="tabs" id="reservation-detail-section2">
-            <div class="brand-filter">
-              <h3>회사명: ${companyDto.companyName}</h3>
-<%--                <h3 class="tab studio">[스튜디오] 스튜디오</h3>--%>
-<%--                <h3 class="tab dress">[드레스] 드레스</h3>--%>
-<%--                <h3 class="tab makeUp">[메이크업] 메이크업</h3>--%>
-            </div>
-        </section>
-        
+
+
         <script type="text/javascript">
         	$(document).ready(function(){
         		
@@ -91,18 +85,19 @@
         <section class="calandars" id="payment-detail-section3">
             <div class="calandars-payment-list">
                 <%@ include file="/WEB-INF/views/common/calendarList.jsp" %>
+
                 <div class="calandar-Content">
                   <div class="calandar-top">상세 예약 내역</div>
 <%--                  <c:if test="${category} eq '메이크업'">--%>
 
-                  <div>카테고리: ${category}</div>
-                  <div>받는대상: ${makeupInfo1.target}</div>
+                  <%--<div>카테고리: ${category}</div>
+                  <div>받는대상: ${makeupInfo1.target}</div>--%>
                   <div class="calandar-middle">
-                    <c:forEach var="visitCriteria" items="${toCusotmerOptionInfo}">
+                    <c:forEach var="visitCriteria" items="${toCusotmerOptionInfo}" >
                       <div class="calendar-option-list">
 
-                        <div class="calandar-option"> 옵션명: ${visitCriteria.optionDto.optionName}</div>
-                        <div class="calandar-option"> 가격 :${visitCriteria.optionDto.optionPrice}</div>
+                        <div class="calandar-option"> ${visitCriteria.optionDto.optionName}</div>
+                        <div class="calandar-option price"> ${visitCriteria.optionDto.optionPrice}원</div>
                       </div>
                     </c:forEach>
 
@@ -111,15 +106,15 @@
                   <div class="calendar-bottom">
                     <div class="calendar-total-price">
                       <div>정상가 </div>
-                      <div>430,000원</div>
+                      <div id="totalPrice"></div>
                     </div>
                     <div class="calendar-total-price">
                       <div>쿠폰/포인트 할인가</div>
-                      <div>-86,000원</div>
+                      <div id="salePrice"></div>
                     </div>
                     <div class="calendar-total-price">
                       <div>최종금액  </div>
-                      <span>344,000원</span>
+                      <span id="lastPrice"></span>
                     </div>
                   </div>
 <%--                  </c:if>--%>
@@ -130,64 +125,34 @@
         <!-- 옵션 상세내용 -->
         <section class="option-detail" id="payment-detail-section4">
           <div>
-            <ul class="option-tabs">
-              <li class="option-tab">옵션 상세</li>
-              <li class="option-tab"> 환불 안내</li>
+            <ul class="option-tabs ">
+              <li class="option-tab ">옵션 상세</li>
+              <li class="option-tab "> 환불 안내</li>
             </ul>
           </div >
-           	<div id="companyList"></div>
-            <div class="option-information">옵션 정보</div>
             <div>
-              <table class="option-table">
-                <tbody>
-                  <tr>
-                    <th>옵션명</th>
-                    <td>야간촬영</td>
-                    <th>금액</th>
-                    <td>220,000원</td>
-                  </tr>
-                  <tr>
-                    <th>장소</th>
-                    <td> 서울숲 </td>
-                    <th>추가 옵션</th>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <br>
-              <table class="option-table">
-                <tbody>
-                  <tr>
-                    <th>옵션명</th>
-                    <td>들러리</td>
-                    <th>금액</th>
-                    <td>110,000원</td>
-                  </tr>
-                  <tr>
-                    <th>장소</th>
-                    <td> 서울숲 </td>
-                    <th>추가 옵션</th>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <br>
-              <table class="option-table">
-                <tbody>
-                  <tr>
-                    <th>옵션명</th>
-                    <td>애견동반</td>
-                    <th>금액</th>
-                    <td>100,000원</td>
-                  </tr>
-                  <tr>
-                    <th>장소</th>
-                    <td> 서울숲 </td>
-                    <th>추가 옵션</th>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+                <div class="option-information">옵션 정보</div>
+                <c:forEach var="visitCriteria" items="${toCusotmerOptionInfo}">
+                    <div>
+                      <table class="option-table">
+                        <tbody>
+                          <tr>
+                            <th>옵션명</th>
+                            <td>${visitCriteria.optionDto.optionName}</td>
+                            <th>금액</th>
+                            <td>${visitCriteria.optionDto.optionPrice}원</td>
+                          </tr>
+                          <tr>
+                            <th>장소</th>
+                            <td> ${visitCriteria.companyDto.location} </td>
+                            <th>추가 옵션</th>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                        <br/>
+                    </div>
+                </c:forEach>
             </div>
         </section>
         <div class="v-line"></div>

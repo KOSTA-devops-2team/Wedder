@@ -31,7 +31,7 @@
                     <!-- 해더 검색 영역 -->
                     <div class="header-search-form">
                         <form class="form-container">
-                            <div></div>
+
                             <div class="form-text">
                                 <input
                                     type="text"
@@ -49,6 +49,7 @@
                     </div>
                     <!-- 해더 유저 정보 -->
                     <div class="header-user-container">
+                        <p></p>
                         <ul class="header-user">
                             <li>
                                 <a href="<c:url value="${loginoutlink}" />">${loginout}
