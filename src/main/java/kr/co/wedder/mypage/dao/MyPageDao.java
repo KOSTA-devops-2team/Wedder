@@ -56,12 +56,13 @@ public interface MyPageDao {
 
 	//메이크업을 받는  정보를 불러오는 select
 	MakeupInfo toCustomerMakeupInfo(Map<String,Object> map) throws  Exception;
-	//메이크업을 받는 사람에 대한 옵션
+	//메이크업(테이블)에 대한 옵션
 	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map) throws Exception;
+	//스튜디오(테이블)에 대한 옵션
+	List<VisitCriteria> toCustomerOptionInfo2(Map<String,Object> map) throws  Exception;
+	//드레스(테이블)에 대한 옵션
+	List<VisitCriteria> toCustomerOptionInfo3(Map<String,Object> map) throws  Exception;
 	// customer Id 를 컨트롤러에 넣기 위해 만든 mapper
 	MyPageDTO customerId(String id) throws Exception;
-
-	// 회사 옵션을 받는 정보를 불러오는 코드
-	List<VisitCriteria> retrieveCompanyOptions(Map<String,Object> map) throws Exception;
 
 }

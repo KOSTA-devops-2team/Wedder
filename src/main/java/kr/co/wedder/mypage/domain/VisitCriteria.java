@@ -92,4 +92,25 @@ public class VisitCriteria {
 		this.hallInfoDto=hallInfoDto;
 		this.optionDto=optionDto;
 	}
+
+    public VisitCriteria(CompanyDto companyDto, MakeupInfo makeupInfo, OptionDto optionDto, ReservationDto reservationDto) {
+    	this.companyDto=companyDto;
+		this.makeupInfo=makeupInfo;
+		this.optionDto=optionDto;
+		this.reservationDto=reservationDto;
+	}
+
+	public VisitCriteria(CompanyDto companyDto, ReservationDto reservationDto, OptionDto optionDto, StudioInfo studioInfo) {
+		this.companyDto = companyDto;
+		this.reservationDto = reservationDto;
+		this.optionDto = optionDto;
+		this.studioInfo = studioInfo;
+	}
+
+	public VisitCriteria(CompanyDto companyDto, ReservationDto reservationDto, OptionDto optionDto, DressInfo dressInfo) {
+		this.companyDto = companyDto;
+		this.reservationDto = reservationDto;
+		this.optionDto = optionDto;
+		this.dressInfo = dressInfo;
+	}
 }

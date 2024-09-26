@@ -104,8 +104,15 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
 	@Override
-	public List<VisitCriteria> toCustomerOptionInfo(Map<String, Object> map) throws Exception {
-		return myPageDao.toCustomerOptionInfo(map);
+	public List<VisitCriteria> toCustomerOptionInfo(Map<String, Object> map,String category) throws Exception {
+		if (category.equals("메이크업") ){
+			return myPageDao.toCustomerOptionInfo(map);
+		}else if (category.equals("스튜디오")){
+			return myPageDao.toCustomerOptionInfo2(map);
+		} else if (category.equals("드레스")) {
+			return myPageDao.toCustomerOptionInfo3(map);
+		}
+		return null;
 	}
 
 	@Override

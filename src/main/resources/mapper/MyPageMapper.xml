@@ -265,60 +265,34 @@
 		where makeup_id=${makeupId} and company_id=${companyId}
 	</select>
 
-	<select id="ToCustomerOptionInfo" parameterType="map" resultMap="joinVisitCriteria">
-		select *
-		from `option`
-		join wedder.makeupInfo mI on `option`.makeup_id = mI.makeup_id
-		where mI.makeup_id=${makeupId} and company_id=${companyId}
-	</select>
+<!--테이블 값을 불러오는 매퍼	-->
+	<!--메이크업	옵션정보 테이블 -->
+		<select id="ToCustomerOptionInfo" parameterType="map" resultMap="joinVisitCriteria">
+			select *
+			from `option`
+			join wedder.makeupInfo mI on `option`.makeup_id = mI.makeup_id
+			where mI.makeup_id=${makeupId} and company_id=${companyId}
+		</select>
+	<!--스튜디오 옵션정보 테이블	-->
+		<select id="ToCustomerOptionInfo2" parameterType="map" resultMap="joinVisitCriteria">
+			select *
+			from `option`
+			join wedder.studioInfo sI on `option`.studio_id = sI.studio_id
+			where sI.studio_id =${studioId} and company_id =${companyId}
+		</select>
+	<!--드레스 옵션정보 테이블-->
+		<select id="ToCustomerOptionInfo3" parameterType="map" resultMap="joinVisitCriteria">
+			select *
+			from `option`
+			join wedder.dressInfo dI on `option`.dress_id = dI.dress_id
+			where dI.dress_id =${dressId} and company_id =${companyId}
+		</select>
 
-	<select id="customerId" parameterType="String" resultType="MypageDTO">
-		select * from customer
-		where id="${id}";
-	</select>
+		<!-- session으로 얻어온 id 로 customerId를 찾는 mapper-->
+		<select id="customerId" parameterType="String" resultType="MypageDTO">
+			select * from customer
+			where id="${id}";
+		</select>
 
-	<select id="retrieveCompanyOptions" parameterType="map" resultMap="joinVisitCriteria">
-		SELECT c.location,
-		(CASE
-		WHEN c.company_category ='웨딩홀' THEN hI.hall_type
-		WHEN c.company_category ='드레스' THEN dI.dress_type
-		WHEN c.company_category ='메이크업' THEN mI.makeup_type
-		WHEN c.company_category ='스튜디오' THEN sI.shoot_type
-		END) AS category_type,
-		o.*, -- 옵션 테이블의 모든 열을 선택
-		hI.*, -- 웨딩홀 정보 테이블의 모든 열을 선택
-		dI.*, -- 드레스 정보 테이블의 모든 열을 선택
-		mI.*, -- 메이크업 정보 테이블의 모든 열을 선택
-		sI.* -- 스튜디오 정보 테이블의 모든 열을 선택
 
-		FROM company c
-		LEFT JOIN hallInfo hI ON c.company_id = hI.company_id
-		LEFT JOIN dressInfo dI ON c.company_id = dI.company_id
-		LEFT JOIN makeupInfo mI ON c.company_id = mI.company_id
-		LEFT JOIN studioInfo sI ON c.company_id = sI.company_id
-		LEFT JOIN `option` o ON
-		(c.company_category = '웨딩홀' AND o.hall_id = hI.hall_id) OR
-		(c.company_category = '메이크업' AND o.makeup_id = mI.makeup_id) OR
-		(c.company_category = '스튜디오' AND o.studio_id = sI.studio_id) OR
-		(c.company_category = '드레스' AND o.dress_id = dI.dress_id) OR
-		(
-		c.company_category != '드레스' AND
-		c.company_category != '메이크업' AND
-		c.company_category != '스튜디오' AND
-		c.company_category != '드레스' AND
-		c.company_category = o.category)
-		WHERE c.company_category IN ('웨딩홀', '드레스', '메이크업', '스튜디오')
-		<if test="hallId != null">
-			AND (c.company_category != '웨딩홀' OR (hI.hall_id = #{hallId} AND c.company_id = #{companyId}))
-		</if>
-		<if test="makeupId != null">
-			AND (c.company_category != '메이크업' OR (mI.makeup_id = #{makeupId} AND c.company_id = #{companyId}))
-		</if>
-		<if test="studioId != null">
-			AND (c.company_category != '스튜디오' OR (sI.studio_id = #{studioId} AND c.company_id = #{companyId}))
-		</if>
-		<if test="dressId != null">
-			AND (c.company_category != '드레스' OR (dI.dress_id = #{dressId} AND c.company_id = #{companyId}))
-		</if>
-	</select>
 </mapper>

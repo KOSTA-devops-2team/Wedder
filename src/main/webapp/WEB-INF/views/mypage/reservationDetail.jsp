@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -132,27 +131,75 @@
           </div >
             <div>
                 <div class="option-information">옵션 정보</div>
-                <c:forEach var="visitCriteria" items="${toCusotmerOptionInfo}">
-                    <div>
-                      <table class="option-table">
-                        <tbody>
-                          <tr>
-                            <th>옵션명</th>
-                            <td>${visitCriteria.optionDto.optionName}</td>
-                            <th>금액</th>
-                            <td>${visitCriteria.optionDto.optionPrice}원</td>
-                          </tr>
-                          <tr>
-                            <th>장소</th>
-                            <td> ${visitCriteria.companyDto.location} </td>
-                            <th>추가 옵션</th>
-                            <td></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                        <br/>
-                    </div>
-                </c:forEach>
+                    <c:if test="${category eq'메이크업'}">
+                        <c:forEach var="makeupCri" items="${ToCustomerMakeupInfo}">
+                            <div>
+                              <table class="option-table">
+                                <tbody>
+                                  <tr>
+                                    <th>옵션명</th>
+                                    <td>${makeupCri.optionDto.optionName}</td>
+                                    <th>금액</th>
+                                    <td>${makeupCri.optionDto.optionPrice}원</td>
+                                  </tr>
+                                  <tr>
+                                    <th>장소</th>
+                                    <td> ${makeupCri.companyDto.location} </td>
+                                    <th>추가 옵션</th>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                                <br/>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${category eq'스튜디오'}">
+                        <c:forEach var="studioCri" items="${ToCustomerStudioInfo}">
+                            <div>
+                                <table class="option-table">
+                                    <tbody>
+                                    <tr>
+                                        <th>옵션명</th>
+                                        <td>${studioCri.optionDto.optionName}</td>
+                                        <th>금액</th>
+                                        <td>${studioCri.optionDto.optionPrice}원</td>
+                                    </tr>
+                                    <tr>
+                                        <th>장소</th>
+                                        <td> ${studioCri.companyDto.location} </td>
+                                        <th>추가 옵션</th>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <br/>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+                <c:if test="${category eq'드레스'}">
+                    <c:forEach var="dressCri" items="${ToCustomerStudioInfo}">
+                        <div>
+                            <table class="option-table">
+                                <tbody>
+                                <tr>
+                                    <th>옵션명</th>
+                                    <td>${dressCri.optionDto.optionName}</td>
+                                    <th>금액</th>
+                                    <td>${dressCri.optionDto.optionPrice}원</td>
+                                </tr>
+                                <tr>
+                                    <th>장소</th>
+                                    <td> ${dressCri.companyDto.location} </td>
+                                    <th>추가 옵션</th>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+                        </div>
+                    </c:forEach>
+                </c:if>
             </div>
         </section>
         <div class="v-line"></div>

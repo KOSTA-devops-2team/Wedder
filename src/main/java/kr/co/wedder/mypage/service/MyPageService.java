@@ -38,7 +38,7 @@ public interface MyPageService {
 	List<VisitCriteria> coReservationList(Map<String, Object> map) throws Exception;
 	// 09/24
 	MakeupInfo toCustomerMakeupInfo(Map<String,Object> map) throws Exception;
-	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map) throws Exception;
+	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map,String category) throws Exception;
 	// 09/25
 	MyPageDTO cutomerId(String id) throws Exception;
 }

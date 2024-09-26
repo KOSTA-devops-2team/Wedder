@@ -114,36 +114,71 @@ public class MyPageController {
 	 */
 	@GetMapping("/reservation-detail")
 	public String reservationDetail(@SessionAttribute("id") String id, HttpServletRequest request, Model m) {
+		//카테고리 및 회사 인덱스 getmapping으로 얻어오는 값 추가
 		String category = request.getParameter("category");
 		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
+		//map 추가
 		Map<String,Object> toCustomerMakeupMap= new HashMap<>();
 		Map<String,Object> toCustomerOptionInfoMap= new HashMap<>();
+		
+		//카테고리
 		m.addAttribute("category",category);
+		//회사 인덱스
 		m.addAttribute("companyId",companyId);
 		try {
+			// request로 입력받은 id 추가하여 customerId를 받아옴
 			System.out.println("id : "+ id);
 			MyPageDTO sessionId=myPageService.cutomerId(id);
 
 			// id에서 받아오는  customer_id
 			int customerId=sessionId.getCustomerId();
 //			System.out.println(customerId);
-
+			//객체들 넣기
 			CompanyDto companyDto = myPageService.companyRead(companyId);
-			HallInfoDto hallInfoDto = myPageService.hallInfoRead(1);
-			DressInfo dressInfo = myPageService.dressInfoRead(1);
+			HallInfoDto hallInfoDto = new HallInfoDto();
+			DressInfo dressInfo = new DressInfo();
 			MakeupInfo makeupInfo = myPageService.makeupInfoRead(1);
-			StudioInfo studioInfo = myPageService.studioInfoRead(1);
-//			List<OptionDto> optionDto1 = myPageService.optionRead(category);
+			StudioInfo studioInfo = new StudioInfo();
+			OptionDto optionDto = new OptionDto();
+			ReservationDto reservationDto = new ReservationDto();
+			
+			//전부다 companyId가 필요하므로 map에 입력
+			toCustomerOptionInfoMap.put("companyId",companyId);
 
 			//상세 예약 내역
-			toCustomerOptionInfoMap.put("makeupId",makeupInfo.getMakeupId());
-			toCustomerOptionInfoMap.put("companyId",companyId);
-			List<VisitCriteria> toCusotmerOptionInfo=myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap);
-			OptionDto optionDto = new OptionDto();
-			
+
+
 			VisitCriteria visitCriteria=new VisitCriteria(companyDto,hallInfoDto,dressInfo,makeupInfo,studioInfo,optionDto);
+			List<VisitCriteria> toCusotmerOptionInfo=myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
 			m.addAttribute("visitCriteria",visitCriteria);
 			m.addAttribute("toCusotmerOptionInfo",toCusotmerOptionInfo);
+			// 카테고리가 GetMapping으로 메이크업 이 string 값으로 넘어올때
+			System.out.println(category.equals("스튜디오"));
+			if(category.equals("메이크업")){
+				//map 에 makeupId 입력
+				toCustomerOptionInfoMap.put("makeupId",makeupInfo.getMakeupId());
+
+			 	VisitCriteria makeupCri =new VisitCriteria(companyDto,makeupInfo,optionDto,reservationDto);
+			 	List<VisitCriteria> ToCustomerMakeupInfo = myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
+				 m.addAttribute("makeupCri",makeupCri);
+				 m.addAttribute("ToCustomerMakeupInfo",ToCustomerMakeupInfo);
+			}else if (category.equals("스튜디오")){
+				studioInfo.setStudioId(2);
+				toCustomerOptionInfoMap.put("studioId",studioInfo.getStudioId());
+				VisitCriteria studioCri =new VisitCriteria(companyDto,reservationDto,optionDto,studioInfo);
+				List<VisitCriteria> ToCustomerStudioInfo = myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
+				m.addAttribute("studioCri",studioCri);
+				m.addAttribute("ToCustomerStudioInfo",ToCustomerStudioInfo);
+			}else if (category.equals("드레스")){
+				dressInfo.setDressId(2);
+				toCustomerOptionInfoMap.put("dressId",dressInfo.getDressId());
+				VisitCriteria dressCri =new VisitCriteria(companyDto,reservationDto,optionDto,dressInfo);
+				List<VisitCriteria> ToCustomerStudioInfo = myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
+				m.addAttribute("dressCri",dressCri);
+				m.addAttribute("ToCustomerStudioInfo",ToCustomerStudioInfo);
+			}
+			
+
 
 			toCustomerMakeupMap.put("makeupId",makeupInfo.getMakeupId());
 			toCustomerMakeupMap.put("companyId",companyId);
@@ -151,7 +186,7 @@ public class MyPageController {
 
 			m.addAttribute("optionDto",optionDto);
 			m.addAttribute("companyDto",companyDto);
-//			m.addAttribute("optionDto1",optionDto1);
+
 			if(category.equals("메이크업")& companyId.equals(companyDto.getCompanyId())){
 				m.addAttribute("makeupInfo",makeupInfo);
 				m.addAttribute("makeupInfo1",makeupInfo1);
