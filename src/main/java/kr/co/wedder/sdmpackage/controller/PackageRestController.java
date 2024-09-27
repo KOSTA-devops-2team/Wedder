@@ -44,7 +44,7 @@ public class PackageRestController {
 
     }
 
-    // 금액범위에 따른 패키지 필터링
+    // 금액별 범위에 따른 패키지 필터링
     @GetMapping("/filter")
     public ResponseEntity<List<PackageDetailDto>> filterPackagesByPrice(int minPrice, int maxPrice) {
 

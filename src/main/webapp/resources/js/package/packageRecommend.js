@@ -83,7 +83,7 @@ function updatePackageList(packages) {
     $('.package-search-container').html(packageHtml);
 }
 
-// 3. 별
+// 3. 금액별 범위에 따른 패키지 필터링
 $(".btn-price").click(function (e) {
 
     e.preventDefault();
