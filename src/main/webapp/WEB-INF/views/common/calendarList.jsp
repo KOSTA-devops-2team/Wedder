@@ -163,7 +163,7 @@
                              	url: "/calendar/send2", //요청 URI
                              	headers:{"Content-Type":"application/json"}, //요청 헤더
                              	data: JSON.stringify(test),
-                             	dataType: "text", //전송 받을 데이터의 타입더
+                             	dataType: "json", //전송 받을 데이터의 타입더
                              	success: function(result){ // 서버로부터 응답이 도착하면 호출될 함수 
                              		test2 =JSON.parse(result) //result는 서버가 전송한 데이터 
                              		alert("received: "+result)
