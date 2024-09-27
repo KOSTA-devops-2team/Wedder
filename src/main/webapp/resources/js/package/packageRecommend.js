@@ -21,7 +21,14 @@ $('#autoComplete').autocomplete({
 
             },
             error: function () { //실패
-                alert("오류가 발생했습니다.");
+                //alert("오류가 발생했습니다.");
+                Swal.fire({
+                    title: '오류가 발생했습니다..',
+                    text: '재입고 알림을 신청하시겠습니까?',
+                    confirmButtonText: '신청하기',
+                    cancelButtonText: '취소',
+                    showCancelButton: true
+                })
             }
         });
     },
@@ -100,7 +107,15 @@ $(".btn-price").click(function (e) {
                 console.log("금액별 필터링된 패키지 리스트:", data);
                 updatePackageList(data)
             } else {
-                alert("조건에 해당하는 결과가 없습니다.")
+                Swal.fire({
+                    title: "조건에 해당하는 결과가 없습니다.",
+                    icon  : "warning",
+                    text: "다른 조건으로 검색하겠습니까?",
+                    confirmButtonText: "검색하기",
+                    cancelButtonText: "취소",
+                    showCancelButton: true,
+                    closeOnClickOutside : false // 백그라운드 클릭해도 안꺼짐
+                });
             }
         },
         error: function () {
