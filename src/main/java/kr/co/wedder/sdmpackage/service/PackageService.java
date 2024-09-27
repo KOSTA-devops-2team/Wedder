@@ -11,4 +11,6 @@ public interface PackageService {
     List<PackageDto> getMDPickPackages();
     PackageDetailDto getPackageDetail(int packageId);
     List<PackageDetailDto> searchPackages(String query);
+
+
 }

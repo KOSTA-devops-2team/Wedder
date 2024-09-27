@@ -30,6 +30,39 @@
             <result property="parking" column="parking" />
             <result property="mealPrice" column="meal_price" />
         </association>
+
+        <association property="studioDto" javaType="kr.co.wedder.company.domain.StudioDto">
+            <id property="studioId" column="studio_id" />
+            <result property="companyId" column="company_id" />
+            <result property="shootType" column="shoot_type" />
+            <result property="shootFocus" column="shoot_focus" />
+            <result property="rentalClothing" column="rental_clothing" />
+            <result property="shootDuration" column="shoot_duration" />
+            <result property="shootLocationType" column="shoot_location_type" />
+            <result property="product" column="product" />
+            <result property="hairChangeAvailability" column="hair_change_availability" />
+            <result property="equipmentIncluded" column="equipment_included" />
+        </association>
+
+        <association property="dressDto" javaType="kr.co.wedder.company.domain.DressDto">
+            <id property="dressId" column="dress_id" />
+            <result property="companyId" column="company_id" />
+            <result property="dressType" column="dress_type" />
+            <result property="repairService" column="repair_service" />
+            <result property="consultationTime" column="consultation_time" />
+            <result property="fittingCnt" column="fitting_cnt" />
+            <result property="measurementTime" column="measurement_time" />
+            <result property="composition" column="composition" />
+        </association>
+
+        <association property="makeupDto" javaType="kr.co.wedder.company.domain.MakeupDto">
+            <id property="makeupId" column="makeup_id" />
+            <result property="companyId" column="company_id" />
+            <result property="target" column="target" />
+            <result property="makeupType" column="makeup_type" />
+            <result property="position" column="position" />
+        </association>
+
     </resultMap>
 
     <sql id="selectFromCompany">
@@ -40,7 +73,10 @@
     </sql>
 
     <sql id="searchCondition">
-        AND company_name LIKE concat('%', #{keyword}, '%')
+        c.company_name LIKE concat('%', #{companyName}, '%')
+        <if test="category != null and category != ''">
+            AND c.company_category = #{category}
+        </if>
     </sql>
 
     <select id="selectCompanyById" parameterType="int" resultMap="companyDtoMap">
@@ -60,24 +96,33 @@
         SELECT count(*) FROM company
     </select>
 
-    <select id="searchResultCnt" parameterType="SearchItem" resultMap="companyDtoMap">
-        SELECT count(*) FROM company
-        WHERE true
-        <include refid="searchCondition" />
-    </select>
+<!--    <select id="searchResultCnt" parameterType="SearchItem" resultMap="companyDtoMap">-->
+<!--        SELECT count(*) FROM company-->
+<!--        WHERE true-->
+<!--        <include refid="searchCondition" />-->
+<!--    </select>-->
 
-    <select id="selectPage" parameterType="map" resultMap="companyDtoMap">
-        <include refid="selectFromCompany" />
-        limit #{pageSize} offset #{offset}
-    </select>
+<!--    <select id="selectPage" parameterType="map" resultMap="companyDtoMap">-->
+<!--        <include refid="selectFromCompany" />-->
+<!--        limit #{pageSize} offset #{offset}-->
+<!--    </select>-->
 
-    <select id="searchSelectPage" parameterType="SearchItem" resultMap="companyDtoMap">
-        SELECT company_id, company_name, company_address, company_introduce, company_category, phone_num, operation_hours, instagram_url, basic_price, mood, location
-        FROM company
-        where true
-        <include refid="searchCondition" />
-        limit #{pageSize} offset #{offset}
-    </select>
+<!--    <select id="searchSelectPage" parameterType="SearchItem" resultMap="companyDtoMap">-->
+<!--        SELECT company_id, company_name, company_address, company_introduce, company_category, phone_num, operation_hours, instagram_url, basic_price, mood, location-->
+<!--        FROM company-->
+<!--        where true-->
+<!--        <include refid="searchCondition" />-->
+<!--        limit #{pageSize} offset #{offset}-->
+<!--    </select>-->
 
+    <select id="searchCompany" resultMap="companyDtoMap">
+        SELECT c.company_id, c.company_name, c.company_address, c.phone_num, c.operation_hours, c.instagram_url, c.company_category, h.min_people, h.meal_price, i.img_id, i.img_seq, i.img_url
+        FROM company c
+        LEFT JOIN hallInfo h ON c.company_id = h.company_id
+        LEFT JOIN companyImage i ON c.company_id = i.company_id
+        <where>
+            <include refid="searchCondition" />
+        </where>
+    </select>
 
 </mapper>

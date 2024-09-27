@@ -6,6 +6,7 @@ import kr.co.wedder.company.domain.SearchItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,8 +27,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<CompanyDto> getSearchResultPage(SearchItem sc) throws Exception {
-        return companyDao.searchSelectPage(sc);
+    public List<CompanyDto> searchCompanies(String companyName, String category) throws Exception {
+        return companyDao.searchCompany(companyName, category);
     }
 
     @Override

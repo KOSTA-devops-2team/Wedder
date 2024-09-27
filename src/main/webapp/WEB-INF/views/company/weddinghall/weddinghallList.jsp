@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/weddinghall/weddinghallList.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/company/weddinghall/weddinghallList.js"></script>
     <%--<script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
@@ -35,13 +36,6 @@
                 </div>
                 <div>
                         <span
-                        >날짜<img
-                                id="date-icon"
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
-                        /></span>
-                </div>
-                <div>
-                        <span
                         >예산<img
                                 id="cost-icon"
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
@@ -54,24 +48,26 @@
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
                         /></span>
                 </div>
-                <div>
-                        <span
-                        >업체명으로 검색<img
-                                id="company-icon"
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/search-icon.png"
-                        /></span>
+                <div class="search-container">
+                    <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색">
+                    <button class="search-btn">
+                        <img
+                            id="search-icon"
+                            src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/search-icon.png"
+                        />
+                    </button>
                 </div>
             </div>
-            <div class="search-btn">
+            <div class="search-btns">
                 <button class="list-search-btn dark-pink">
-                    <a href="weddinghallList"
-                    >목록으로 보기</a
-                    >
+                    <a href="weddinghallList">
+                        목록으로 보기
+                    </a>
                 </button>
                 <button class="map-search-btn">
-                    <a href="mapViewWithFilters"
-                    >지도로 보기</a
-                    >
+                    <a href="mapViewWithFilters">
+                        지도로 보기
+                    </a>
                 </button>
             </div>
         </section>
