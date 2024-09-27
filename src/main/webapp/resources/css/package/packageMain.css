@@ -69,7 +69,7 @@ span.color {
 
 /* 1. 패키지 설명 */
 .container {
-    padding: 250px 0 200px 0;
+    padding: 150px 0 200px 0;
 }
 
 .package-info h1 {
@@ -218,4 +218,128 @@ span.color {
     color: white;
     border-radius: 5px;
     text-align: center;
+}
+
+
+/*패키지 배너*/
+.swiper-slide {
+    overflow: hidden;
+}
+
+.swiper-container {
+    overflow: hidden;
+}
+
+.first-title {
+    color: #5D493E;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.first-title-2 {
+    color: #004C8C;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.second-title {
+    font-weight: bold;
+    font-size: 38px;
+    margin-bottom: 30px;
+    color: #333333;
+}
+
+.third-title {
+    font-size: 20px;
+    color: #ca1a5a;
+}
+
+.third-title-2 {
+    font-size: 20px;
+    color: #DAA520;
+}
+
+.package-top-banner-1 {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    background-color: #FFFBF0;
+}
+
+.package-top-banner-2 {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    background-color: #f4f5f5;
+}
+
+.package-main-content {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.package-show-button {
+    position: absolute;
+    top: 212px;
+    background-color: #ca1a5a;
+    color: #ffffff;
+    padding: 7px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 17px;
+    margin-top: 35px;
+}
+
+.package-show-button:hover {
+    color: #ffffff;
+}
+
+.estimate {
+    background-color: #004C8C;
+    color: #ffffff;
+    margin-top: 7px;
+}
+
+.banner-coin {
+    position: absolute;
+    top: 247px;
+    right: 330px;
+    height: 149px;
+}
+
+.banner-gift {
+    position: absolute;
+    top: 93px;
+    right: 120px;
+    height: 251px;
+}
+
+
+/*배너 화살표 css*/
+.swiper-button-prev, .swiper-button-next {
+    color: black;
+}
+
+.swiper-prev {
+    position: absolute;
+    left: 10px;
+    top: 45%;
+}
+
+.swiper-next {
+    position: absolute;
+    right: 10px;
+    top: 45%;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: 275px;
+    top: auto;
+    left: 0;
+    width: 100%;
 }

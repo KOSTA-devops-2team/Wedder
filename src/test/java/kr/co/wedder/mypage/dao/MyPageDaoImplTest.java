@@ -9,6 +9,7 @@ import java.util.Map;
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.*;
 import kr.co.wedder.sdmpackage.dao.PackageDao;
+import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
 import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -173,7 +174,7 @@ public class MyPageDaoImplTest {
 	@Test
 	public void selectPackage() throws Exception{
 
-		List<PackageDto> list =packageDao.selectBestPackages();
+		List<PackageDetailDto> list =packageDao.selectBestPackages();
 		System.out.println(list);
 	}
 
