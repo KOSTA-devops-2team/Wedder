@@ -1,7 +1,5 @@
 package kr.co.wedder.estimate.controller;
 
-import kr.co.wedder.company.domain.CompanyDto;
-import kr.co.wedder.company.service.CompanyService;
 import kr.co.wedder.estimate.domain.EstimateDto;
 import kr.co.wedder.estimate.service.EstimateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/estimate")
@@ -65,5 +62,38 @@ public class EstimateController {
 
         // 처리 후 성공 응답 반환
         return ResponseEntity.ok("선택된 목록이 성공적으로 업데이트되었습니다.");
+    }
+
+    // 선택한 업체 목록을 세션에 저장
+    @PostMapping("/saveSelectedCompanies")
+    public String saveSelectedCompanies(@RequestBody Map<String, EstimateDto> selectedCompanies, HttpSession session) {
+
+        session.setAttribute("selectedCompanies", selectedCompanies);
+
+        // 세션에 저장된 데이터를 로그로 출력해 확인
+//        selectedCompanies.forEach((key, value) -> {
+//            System.out.println("Category: " + key + ", Name: " + value.getCompanyName() + ", Price: " + value.getBasicPrice());
+//        });
+
+        // 세션에 저장된 데이터를 로그로 출력해 확인
+        selectedCompanies.forEach((key, value) -> {
+            switch (key) {
+                case "studio":
+                    System.out.println("Category: studio, Name: " + value.getStudioName() + ", Price: " + value.getBasicPrice());
+                    break;
+                case "dress":
+                    System.out.println("Category: dress, Name: " + value.getDressName() + ", Price: " + value.getBasicPrice());
+                    break;
+                case "makeup":
+                    System.out.println("Category: makeup, Name: " + value.getMakeupName() + ", Price: " + value.getBasicPrice());
+                    break;
+            }
+        });
+        return "redirect:/estimate/estimateOption"; // 다음 페이지로 이동
+    }
+
+    @GetMapping("/estimateOption")
+    public String showEstimateOptionPage() {
+        return "estimate/estimateOption"; // JSP 파일을 반환
     }
 }

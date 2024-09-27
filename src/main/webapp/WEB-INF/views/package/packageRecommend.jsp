@@ -110,50 +110,40 @@
             <div class="price-title">금액대</div>
             <!-- 검색 영역 -->
             <div class="header-search-form">
+                <form class="search-box" action="" method="get">
+                    <input class="search-txt" type="text" name="" placeholder="검색어를 입력하세요.">
+                    <button class="search-btn" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
                 <form class="form-container">
                     <div></div>
                     <div class="form-text">
-                        <input
-                                type="text"
-                                id="search_word"
-                                class="textfield"
-                        />
+                        <input type="text" id="autoComplete"/>
                     </div>
                     <button type="submit" class="btn_search">
-                        <img
-                                src="https://image.hago.kr/dev/main/pc/pc_search.svg"
-                                alt="search"
-                        />
+                        <img src="https://image.hago.kr/dev/main/pc/pc_search.svg" alt="search"/>
                     </button>
                 </form>
             </div>
             <div class="price-range">
-                <button class="btn-price">
-                    <a href="">100만원↓</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">100만원~200만원</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">200만원~300만원</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">300만원~400만원</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">400만원↑</a>
-                </button>
+                <button class="btn-price" data-min="0" data-max="3000000">300만원↓</button>
+                <button class="btn-price" data-min="3000000" data-max="5000000">300만원~500만원</button>
+                <button class="btn-price" data-min="5000000" data-max="7000000">500만원~700만원</button>
+                <button class="btn-price" data-min="7000000" data-max="9000000">700만원~900만원</button>
+                <button class="btn-price" data-min="9000000" data-max="999999999">900만원↑</button>
             </div>
+
         </div>
-    <!-- 패키지 검색 -->
-    <div class="grid-bottom">
+    <!-- 패키지 검색 결과 -->
+    <div class="package-search-container">
         <c:forEach var="AllPackage" items="${AllPackages}">
         <div class="grid-content">
             <div class="grid-pic">
                 <img src="${AllPackage.packageImg}" alt="패키지 이미지">
             </div>
             <p class="name">${AllPackage.studioName} + ${AllPackage.dressName} + ${AllPackage.makeupName}</p>
-            <p class="cost">패키지 가격 들어올 부분</p>
+            <p class="cost"><fmt:formatNumber value="${finalPrice}" type="number" pattern="#,###"/></p>
         </div>
         </c:forEach>
     </div>
