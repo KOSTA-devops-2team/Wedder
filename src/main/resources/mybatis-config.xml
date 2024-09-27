@@ -17,6 +17,7 @@
         <typeAlias alias="CompanyDto" type="kr.co.wedder.company.domain.CompanyDto" />
         <typeAlias  alias="PackageDto" type="kr.co.wedder.sdmpackage.domain.PackageDto" />
         <typeAlias  alias="PackageDetailDto" type="kr.co.wedder.sdmpackage.domain.PackageDetailDto" />
+        <typeAlias  alias="EstimateDto" type="kr.co.wedder.estimate.domain.EstimateDto" />
 
         <!--calendar alias  -->
         <typeAlias alias="CompanyScheduleDto" type="kr.co.wedder.calendar.domain.CompanyScheduleDto"/>
