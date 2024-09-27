@@ -1,5 +1,6 @@
 package kr.co.wedder.sdmpackage.domain;
 
+import kr.co.wedder.company.domain.CompanyDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

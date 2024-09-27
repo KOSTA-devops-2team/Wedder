@@ -2,9 +2,7 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ page session="false" %>
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
@@ -15,6 +13,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/header/header.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
@@ -54,8 +53,7 @@
                                     <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.makeupDetail}</p>--%>
                             </div>
                         </div>
-                        <a class="detail" href="${pageContext.request.contextPath}/package/${BestPackage.packageId}/detail">상품
-                            자세히 보기 &#62;</a>
+                        <a class="detail" href="${pageContext.request.contextPath}/package/${BestPackage.packageId}/detail">상품 자세히 보기 &#62;</a>
                     </div>
                 </div>
             </c:forEach>
@@ -112,6 +110,12 @@
             <div class="price-title">금액대</div>
             <!-- 검색 영역 -->
             <div class="header-search-form">
+                <form class="search-box" action="" method="get">
+                    <input class="search-txt" type="text" name="" placeholder="검색어를 입력하세요.">
+                    <button class="search-btn" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
                 <form class="form-container">
                     <div></div>
                     <div class="form-text">
@@ -123,25 +127,16 @@
                 </form>
             </div>
             <div class="price-range">
-                <button class="btn-price">
-                    <a href="">100만원↓</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">100만원~200만원</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">200만원~300만원</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">300만원~400만원</a>
-                </button>
-                <button class="btn-price">
-                    <a href="">400만원↑</a>
-                </button>
+                <button class="btn-price" data-min="0" data-max="3000000">300만원↓</button>
+                <button class="btn-price" data-min="3000000" data-max="5000000">300만원~500만원</button>
+                <button class="btn-price" data-min="5000000" data-max="7000000">500만원~700만원</button>
+                <button class="btn-price" data-min="7000000" data-max="9000000">700만원~900만원</button>
+                <button class="btn-price" data-min="9000000" data-max="999999999">900만원↑</button>
             </div>
+
         </div>
     <!-- 패키지 검색 결과 -->
-    <div class="grid-bottom">
+    <div class="package-search-container">
         <c:forEach var="AllPackage" items="${AllPackages}">
         <div class="grid-content">
             <div class="grid-pic">

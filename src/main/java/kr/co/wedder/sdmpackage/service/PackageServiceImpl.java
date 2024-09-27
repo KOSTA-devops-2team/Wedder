@@ -41,17 +41,23 @@ public class PackageServiceImpl implements PackageService{
     }
 
     @Override
-    public List<Map<String, Object>> autocomplete(Map<String, Object> paramMap) throws Exception {
+    public List<PackageDetailDto> autocomplete(Map<String, Object> paramMap) throws Exception {
 
-        List<Map<String, Object>> result = packageDao.autocomplete(paramMap);
+        List<PackageDetailDto> result = packageDao.autocomplete(paramMap);
         System.out.println("Service Result: " + result);
         return result;
     }
 
-//    @Override
-//    public List<PackageDetailDto> searchPackages(String query) {
-//
-//        System.out.println("Service: getAllPackages 호출됨");
-//        return packageDao.searchPackages(query);
-//    }
+    @Override
+    public List<PackageDetailDto> searchPackagesByCompany(String companyName) {
+
+        return packageDao.selectAllPackagesByCompany(companyName);
+    }
+
+    @Override
+    public List<PackageDetailDto> filterPackagesByPrice(int minPrice, int maxPrice) {
+
+        System.out.println("PackageServiceImpl.filterPackagesByPrice");
+        return packageDao.selectPackagesByPriceRange(minPrice, maxPrice);
+    }
 }

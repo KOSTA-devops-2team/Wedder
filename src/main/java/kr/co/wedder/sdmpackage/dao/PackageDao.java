@@ -12,8 +12,7 @@ public interface PackageDao {
     List<PackageDetailDto> selectBestPackages();
     List<PackageDetailDto> selectMDPickPackages();
     List<PackageDetailDto> selectPackageDetail(int packageId);
-    List<Map<String, Object>>autocomplete(Map<String, Object> paramMap) throws Exception;
-
-    //List<PackageDetailDto> searchPackages(String query);
-
+    List<PackageDetailDto>autocomplete(Map<String, Object> paramMap) throws Exception;
+    List<PackageDetailDto> selectAllPackagesByCompany(String companyName);
+    List<PackageDetailDto> selectPackagesByPriceRange(int minPrice, int maxPrice);
 }

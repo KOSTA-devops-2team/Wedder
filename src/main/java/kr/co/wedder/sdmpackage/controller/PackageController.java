@@ -62,21 +62,6 @@ public class PackageController {
     }
 
 
-    // 패키지 금액별 필터링
-
-    // 패키지 키워드 검색
-    @RequestMapping(value = "/ajax/autocomplete.do")
-    public @ResponseBody Map<String, Object> autocomplete (@RequestParam Map<String, Object> paramMap) throws Exception{
-
-        System.out.println("Request Parameters: " + paramMap); // 요청 파라미터 확인
-        List<Map<String, Object>> resultList = packageService.autocomplete(paramMap);
-        paramMap.put("resultList", resultList);
-        System.out.println("PackageController: resultList" + resultList);
-        return paramMap;
-    }
-
-
-
     // 패키지 디테일
     @GetMapping(value = "/{packageId}/detail")
     public String packageDetail(@PathVariable("packageId") int packageId, Model model) {

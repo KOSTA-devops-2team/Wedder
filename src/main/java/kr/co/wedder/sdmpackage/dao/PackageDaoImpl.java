@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,16 +42,29 @@ public class PackageDaoImpl implements PackageDao {
     }
 
     @Override
-    public List<Map<String, Object>> autocomplete(Map<String, Object> paramMap) throws Exception {
+    public List<PackageDetailDto> autocomplete(Map<String, Object> paramMap) throws Exception {
 
         System.out.println("PackageDaoImpl: paramMap - " + paramMap);
         return sqlSession.selectList(namespace + "autocomplete", paramMap);
     }
 
-//    @Override
-//    public List<PackageDetailDto> searchPackages(String query) {
-//
-//        System.out.println("DAO: searchPackages 호출됨");
-//        return sqlSession.selectList(namespace + "searchPackages");
-//    }
+    // 전체 패키지 검색
+    @Override
+    public List<PackageDetailDto> selectAllPackagesByCompany(String companyName) {
+
+        return sqlSession.selectList(namespace + "selectAllPackagesByCompanyName", companyName);
+    }
+
+    // 금액별 패키지 필터링
+    @Override
+    public List<PackageDetailDto> selectPackagesByPriceRange(int minPrice, int maxPrice) {
+
+        Map map = new HashMap<>();
+        System.out.println("PackageDaoImp의 map " + map);
+        map.put("minPrice", minPrice);
+        map.put("maxPrice", maxPrice);
+
+        System.out.println("PackageDaoImpl.selectPackagesByPriceRange");
+        return sqlSession.selectList(namespace + "selectPackagesByPriceRange", map);
+    }
 }

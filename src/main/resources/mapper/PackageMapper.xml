@@ -72,7 +72,7 @@
         WHERE pc.package_id = #{packageId}
     </select>
 
-    <!--패키지 검색-->
+    <!--업체명 자동완성 기능-->
     <select id="autocomplete" parameterType="map" resultType="PackageDetailDto">
         SELECT
         p.package_id,
@@ -98,15 +98,52 @@
         makeupName LIKE CONCAT('%', #{value}, '%'));
     </select>
 
+    <select id="selectAllPackagesByCompanyName" parameterType="String" resultType="PackageDetailDto">
+        SELECT
+        p.package_id,
+        p.package_name,
+        p.package_img,
+        p.description,
+        p.discount_rate,
+        GROUP_CONCAT(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studioName,
+        GROUP_CONCAT(CASE WHEN c.company_category = '스튜디오' THEN ci.img_url END) AS studio_img_url,
+        GROUP_CONCAT(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dressName,
+        GROUP_CONCAT(CASE WHEN c.company_category = '드레스' THEN ci.img_url END) AS dress_img_url,
+        GROUP_CONCAT(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName,
+        GROUP_CONCAT(CASE WHEN c.company_category = '메이크업' THEN ci.img_url END) AS makeup_img_url
+        FROM package p
+        JOIN packageCategory pc ON p.package_id = pc.package_id
+        JOIN company c ON pc.company_id = c.company_id
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id AND ci.img_seq = 1
+        GROUP BY
+        p.package_id, p.package_name, p.package_img, p.description, p.discount_rate
+        HAVING
+        (studioName LIKE CONCAT('%', #{companyName}, '%') OR
+        dressName LIKE CONCAT('%', #{companyName}, '%') OR
+        makeupName LIKE CONCAT('%', #{companyName}, '%'));
 
+    </select>
 
+    <select id="selectPackagesByPriceRange" parameterType="map" resultType="PackageDetailDto">
+        SELECT  p.package_id,
+        p.package_name,
+        p.package_img,
+        p.description,
+        p.discount_rate,
+        GROUP_CONCAT(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studioName,
+        GROUP_CONCAT(CASE WHEN c.company_category = '스튜디오' THEN ci.img_url END) AS studio_img_url,
+        GROUP_CONCAT(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dressName,
+        GROUP_CONCAT(CASE WHEN c.company_category = '드레스' THEN ci.img_url END) AS dress_img_url,
+        GROUP_CONCAT(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName,
+        GROUP_CONCAT(CASE WHEN c.company_category = '메이크업' THEN ci.img_url END) AS makeup_img_url,
+        SUM(c.basic_price * (1 - p.discount_rate / 100)) AS final_price
+        FROM package p
+        JOIN packageCategory pc ON p.package_id = pc.package_id
+        JOIN company c ON pc.company_id = c.company_id
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id AND ci.img_seq = 1
+        GROUP BY p.package_id, p.package_name
+        HAVING final_price BETWEEN #{minPrice} AND #{maxPrice}
+        ORDER BY final_price ASC
+    </select>
 
-    <!--    <select id="searchPackages" resultType="kr.co.wedder.sdmpackage.domain.PackageDetailDto">-->
-<!--        SELECT-->
-<!--        *-->
-<!--        FROM package p-->
-<!--        JOIN packageCategory pc ON p.package_id = pc.package_id-->
-<!--        JOIN company c ON pc.company_id = c.company_id-->
-<!--        WHERE c.company_name LIKE CONCAT('% ', #{companyName}, ' %');-->
-<!--    </select>-->
 </mapper>

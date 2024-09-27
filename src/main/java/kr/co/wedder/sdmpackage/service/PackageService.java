@@ -11,5 +11,7 @@ public interface PackageService {
     List<PackageDetailDto> getBestPackages();
     List<PackageDetailDto> getMDPickPackages();
     List<PackageDetailDto> getPackageDetail(int packageId);
-    List<Map<String, Object>>autocomplete(Map<String, Object> paramMap) throws Exception;
+    List<PackageDetailDto> autocomplete(Map<String, Object> paramMap) throws Exception;
+    List<PackageDetailDto> searchPackagesByCompany(String companyName);
+    List<PackageDetailDto> filterPackagesByPrice(int minPrice, int maxPrice);
 }
