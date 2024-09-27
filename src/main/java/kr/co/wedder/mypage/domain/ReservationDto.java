@@ -6,6 +6,7 @@ import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -13,17 +14,18 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class ReservationDto {
 	
-	private Integer reservation_id;
+	private Integer reservationId;
 	private Integer companyId;
-	private Integer customer_id;
+	private Integer customerId;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private Date reservation_date;
-	private String reservation_time;
-	private boolean visit_reservation;
-	private Date hope_date;
+	private Date 	reservationDate;
+	private String 	reservationTime;
+	private boolean visitReservation;
+	private Date 	hopeDate;
 
 	
 }

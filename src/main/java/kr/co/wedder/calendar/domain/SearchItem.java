@@ -4,22 +4,28 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.util.Objects.requireNonNullElse;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.web.util.UriComponentsBuilder;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class SearchItem {
-	public static final int DEFAULT_PAGE_SIZE = 10;
+	public static final int DEFAULTPAGESIZE = 10;
 	public static final int MIN_PAGE_SIZE = 5;
 	public static final int MAX_PAGE_SIZE = 50;
 	
 	private int page = 1;					// 현재 페이지 
-	private int pageSize = DEFAULT_PAGE_SIZE;	// 한 페이지당 게시물 건수 
+	private int pageSize = DEFAULTPAGESIZE;	// 한 페이지당 게시물 건수
 	private String option = "";
 	private String keyword = "";
 	
-	public SearchItem() {}
 
 	public SearchItem(Integer page, Integer pageSize) {
-		//super();
 		this(page, pageSize, "", "");
 	}
 
@@ -47,50 +53,4 @@ public class SearchItem {
 				.build().toString();
 	}
 
-	public int getPage() {
-		return page;
-	}
-
-	public void setPage(int page) {
-		this.page = page;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = requireNonNullElse(pageSize, DEFAULT_PAGE_SIZE);
-		//   MIN_PAGE_SIZE <=  pageSize <= MAX_PAGE_SIZE
-		this.pageSize = max(MIN_PAGE_SIZE, min(this.pageSize, MAX_PAGE_SIZE));
-	}
-
-	public Integer getOffset() {
-		int result = (page-1) * pageSize;
-		if(result < 0) result = 0;
-		return result;
-	}
-
-	public String getOption() {
-		return option;
-	}
-
-	public void setOption(String option) {
-		this.option = option;
-	}
-
-	public String getKeyword() {
-		return keyword;
-	}
-
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
-
-	@Override
-	public String toString() {
-		return "SearchItem [page=" + page + ", pageSize=" + pageSize + ", option=" + option + ", keyword=" + keyword
-				+ "]";
-	}
-	
 }

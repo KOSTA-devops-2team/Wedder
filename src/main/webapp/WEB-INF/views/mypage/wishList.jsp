@@ -102,7 +102,7 @@
               <ul>
                 <li class="ListIndex">3.</li>
                 <img
-                  src=" resources/assets/images/bestPackage1.png"
+                  src="/resources/assets/images/bestPackage1.png"
                   alt="우측 리스트-이미지"
                 />
                 <div class="followList-content">

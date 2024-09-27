@@ -54,7 +54,7 @@ public class MyPageServiceImplTest {
 		VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto,historyDto,hallInfoDto);
 		map.put("company_id",  (Integer) visitCriteria.getCompanyDto().getCompanyId());
 		map.put("customer_id", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
-		map.put("reservation_status", visitCriteria.getHistoryDto().getReservation_status());
+		map.put("reservation_status", visitCriteria.getHistoryDto().getReservationStatus());
 
 		System.out.println("========================");
 		System.out.println("map"+map);

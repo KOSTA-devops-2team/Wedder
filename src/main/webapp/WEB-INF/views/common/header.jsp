@@ -4,6 +4,7 @@
 <c:set var="loginId" value="${sessionScope.id }" />
 <c:set var="loginout" value="${sessionScope.id==null ? 'Login' : 'Logout' }" />
 <c:set var="loginoutlink" value="${sessionScope.id==null ? '/log/login' : '/log/logout' }" />
+<c:set var="mypagelink" value="${sessionScope.id == null ? '/log/login' : '/mypage/mypage' }" />
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -20,7 +21,7 @@
                 <div class="header-top">
                     <!-- 해더 로고 -->
                     <div class="header-logo">
-                        <a href="main">
+                        <a href="${pageContext.request.contextPath}/main">
                             <img
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/wedder-logo2.png"
                             />
@@ -57,7 +58,7 @@
                                 /></a>
                             </li>
                             <li>
-                                <a href="../../html/mypage/mypage.html"
+                                <a href="<c:url value='${mypagelink}' />"
                                     ><img
                                         src="https://image.hago.kr/dev/main/pc/mypage.svg"
                                         alt="마이페이지"
@@ -81,21 +82,21 @@
                     <ul>
                         <div id="horizontal-underline"></div>
                         <li class="black">
-                            <a href="../../html/main/main.html">Home</a>
+                            <a href="${pageContext.request.contextPath}/main">Home</a>
                         </li>
                         <li class="black">
                             <a
-                                href="weddinghallList"
+                                href="${pageContext.request.contextPath}/weddinghallList"
                                 >Wedding Hall</a
                             >
                         </li>
                         <li class="black">
-                            <a href="studioList"
+                            <a href="${pageContext.request.contextPath}/studioList"
                                 >Studio</a
                             >
                         </li>
                         <li class="black">
-                            <a href="dressList">Dress</a>
+                            <a href="${pageContext.request.contextPath}/dressList">Dress</a>
                         </li>
                         <li class="black">
                             <a href="makeupList"
@@ -106,13 +107,13 @@
                             <a href="${pageContext.request.contextPath}/package">Package</a>
                         </li>
                         <li class="black">
-                            <a href="../../html/estimate/estimateCal.html"
+                            <a href="${pageContext.request.contextPath}/estimate"
                                 >Estimate</a
                             >
                         </li>
                         <li class="black">
                             <a
-                                href="reservationOption"
+                                href="${pageContext.request.contextPath}/reservation"
                                 >Reservation</a
                             >
                         </li>
