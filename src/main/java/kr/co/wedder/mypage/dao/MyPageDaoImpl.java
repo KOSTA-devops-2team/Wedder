@@ -128,6 +128,11 @@ public class MyPageDaoImpl implements MyPageDao {
 		return session.selectList(namespace+"ToCustomerOptionInfo3",map);
 	}
 
+	@Override
+	public List<VisitCriteria> toCustomerOptionInfo4(Map<String, Object> map) throws Exception {
+		return session.selectList(namespace+"ToCustomerOptionInfo4",map);
+	}
+
 
 	//세션아이디로 customerId를 찾는 기능
 	@Override

@@ -113,4 +113,11 @@ public class VisitCriteria {
 		this.optionDto = optionDto;
 		this.dressInfo = dressInfo;
 	}
+
+	public VisitCriteria(CompanyDto companyDto, ReservationDto reservationDto, OptionDto optionDto, HallInfoDto hallInfoDto) {
+		this.companyDto = companyDto;
+		this.reservationDto = reservationDto;
+		this.optionDto = optionDto;
+		this.hallInfoDto=hallInfoDto;
+	}
 }

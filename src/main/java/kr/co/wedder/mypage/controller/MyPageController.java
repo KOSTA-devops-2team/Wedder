@@ -173,9 +173,17 @@ public class MyPageController {
 				dressInfo.setDressId(2);
 				toCustomerOptionInfoMap.put("dressId",dressInfo.getDressId());
 				VisitCriteria dressCri =new VisitCriteria(companyDto,reservationDto,optionDto,dressInfo);
-				List<VisitCriteria> ToCustomerStudioInfo = myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
+				List<VisitCriteria> ToCustomerDressInfo = myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
 				m.addAttribute("dressCri",dressCri);
-				m.addAttribute("ToCustomerStudioInfo",ToCustomerStudioInfo);
+				m.addAttribute("ToCustomerDressInfo",ToCustomerDressInfo);
+			}
+			else if (category.equals("웨딩홀")){
+				hallInfoDto.setHallId(2);
+				toCustomerOptionInfoMap.put("hallId",hallInfoDto.getHallId());
+				VisitCriteria hallCri =new VisitCriteria(companyDto,reservationDto,optionDto,hallInfoDto);
+				List<VisitCriteria> ToCustomerHallInfo = myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
+				m.addAttribute("hallCri",hallCri);
+				m.addAttribute("ToCustomerHallInfo",ToCustomerHallInfo);
 			}
 			
 
@@ -306,8 +314,9 @@ public class MyPageController {
 			return "redirect: /mypage/mypage";
 		}
 	}
-	
-	@RequestMapping(value="/wishlist")
+
+	// -> 커플 페이지 생략
+	@RequestMapping("/wishlist")
 	public String wishList() {
 		return "mypage/wishList";
 	}

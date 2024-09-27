@@ -262,7 +262,7 @@
 <!--메이크업 정보를 불러오는 select	-->
 	<select id="ToCustomerMakeupInfo" parameterType="map" resultMap="ToCustomerMap">
 		select * from makeupInfo
-		where makeup_id=${makeupId} and company_id=${companyId}
+		where makeup_id=#{makeupId} and company_id=#{companyId}
 	</select>
 
 <!--테이블 값을 불러오는 매퍼	-->
@@ -271,28 +271,37 @@
 			select *
 			from `option`
 			join wedder.makeupInfo mI on `option`.makeup_id = mI.makeup_id
-			where mI.makeup_id=${makeupId} and company_id=${companyId}
+			where mI.makeup_id=#{makeupId} and company_id=#{companyId}
 		</select>
 	<!--스튜디오 옵션정보 테이블	-->
 		<select id="ToCustomerOptionInfo2" parameterType="map" resultMap="joinVisitCriteria">
 			select *
 			from `option`
 			join wedder.studioInfo sI on `option`.studio_id = sI.studio_id
-			where sI.studio_id =${studioId} and company_id =${companyId}
+			where sI.studio_id =#{studioId} and company_id =#{companyId}
 		</select>
 	<!--드레스 옵션정보 테이블-->
 		<select id="ToCustomerOptionInfo3" parameterType="map" resultMap="joinVisitCriteria">
 			select *
 			from `option`
 			join wedder.dressInfo dI on `option`.dress_id = dI.dress_id
-			where dI.dress_id =${dressId} and company_id =${companyId}
+			where dI.dress_id =#{dressId} and company_id =#{companyId}
+		</select>
+	<!--웨딩홀  옵션정보 테이블-->
+		<select id="ToCustomerOptionInfo4" parameterType="map" resultMap="joinVisitCriteria">
+			select *
+			from `option`
+			join wedder.hallInfo hI on `option`.hall_id = hI.hall_id
+			where hI.hall_id =#{hallId} and company_id =#{companyId}
 		</select>
 
-		<!-- session으로 얻어온 id 로 customerId를 찾는 mapper-->
-		<select id="customerId" parameterType="String" resultType="MypageDTO">
-			select * from customer
-			where id="${id}";
-		</select>
+
+	<!-- session 으로 얻어온 id 로 customerId를 찾는 mapper-->
+	<select id="customerId" parameterType="String" resultType="MypageDTO">
+		select * from customer
+		where id="${id}";
+	</select>
+
 
 
 </mapper>

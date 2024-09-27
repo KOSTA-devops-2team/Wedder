@@ -111,6 +111,8 @@ public class MyPageServiceImpl implements MyPageService {
 			return myPageDao.toCustomerOptionInfo2(map);
 		} else if (category.equals("드레스")) {
 			return myPageDao.toCustomerOptionInfo3(map);
+		} else if (category.equals("웨딩홀")) {
+			return myPageDao.toCustomerOptionInfo4(map);
 		}
 		return null;
 	}
@@ -119,6 +121,5 @@ public class MyPageServiceImpl implements MyPageService {
 	public MyPageDTO cutomerId(String id) throws Exception {
 		return myPageDao.customerId(id);
 	}
-
 
 }

@@ -9,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wish List</title>
     
-      <link rel="stylesheet" href="<c:url value='resources/css/mypage/wishList.css'/>" />
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/wishList.css" />
   		<link
                 rel="stylesheet"
-                href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
+                href="${pageContext.request.contextPath}/resources/css/common/sidebar/sidebarMypage.css"
         />
       <script defer src="resources/js/main/main.js"></script>
       <script defer src="resources/js/mypage/wishList.js"></script>

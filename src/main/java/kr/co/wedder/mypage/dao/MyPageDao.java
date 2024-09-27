@@ -62,6 +62,8 @@ public interface MyPageDao {
 	List<VisitCriteria> toCustomerOptionInfo2(Map<String,Object> map) throws  Exception;
 	//드레스(테이블)에 대한 옵션
 	List<VisitCriteria> toCustomerOptionInfo3(Map<String,Object> map) throws  Exception;
+	//웨딩홀(테이블)에 대한 옵션
+	List<VisitCriteria> toCustomerOptionInfo4(Map<String,Object> map) throws  Exception;
 	// customer Id 를 컨트롤러에 넣기 위해 만든 mapper
 	MyPageDTO customerId(String id) throws Exception;
 

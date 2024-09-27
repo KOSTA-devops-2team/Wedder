@@ -41,43 +41,10 @@
 
 
         <script type="text/javascript">
-        	$(document).ready(function(){
-        		
-	        	$(".tab").on("click",function(){
-		        	//모든 탭에서 onTab클래스 제거
-		        	$(".tab").removeClass("onTab");
-		        	//현재 클릭한 탭만 생성
-		        	$(this).addClass("onTab");
-	        	})
-        	})
-        	/*  */
-        	let compnay_id=2;
-        	let showList =function(company_id){
-        		$.ajax({
-        			type: 'GET',
-        			url: "/wedder/mypage/historys?company_id="+company_id,
-        			success: function(result){
-        				$("#companyList").html(toHtml(result))
-        			},
-        			error:function(){
-        				alert("error")
-        			}
-        		})
-        	}
-        	/*  */
-        	$(document).ready(function(){
-        		showList(compnay_id)
-        	})
-        	
-        	/* 
-        	tab에는 스튜디오, 드레스 , 메이크업 3가지가 있는데, 
-        	스튜디오를 누를 시 스튜디오 업체의 정보를 가지고 오고,
-        	드레스를 누를 시 드레스 정보를 가지고 오고, 
-        	메이크업을 누를 시 메이크업 정보를 가져옴 
-        	
-        	 */
-        	 
-        	
+            $(document).ready(function(){
+
+            })
+
         </script>
         
         <!-- 3.calandar -->
@@ -92,13 +59,42 @@
                   <%--<div>카테고리: ${category}</div>
                   <div>받는대상: ${makeupInfo1.target}</div>--%>
                   <div class="calandar-middle">
-                    <c:forEach var="visitCriteria" items="${toCusotmerOptionInfo}" >
-                      <div class="calendar-option-list">
+                    <c:if test="${category eq'메이크업'}">
+                        <c:forEach var="makeupCri" items="${ToCustomerMakeupInfo}" >
+                          <div class="calendar-option-list">
 
-                        <div class="calandar-option"> ${visitCriteria.optionDto.optionName}</div>
-                        <div class="calandar-option price"> ${visitCriteria.optionDto.optionPrice}원</div>
-                      </div>
-                    </c:forEach>
+                            <div class="calandar-option"> ${makeupCri.optionDto.optionName}</div>
+                            <div class="calandar-option price"> ${makeupCri.optionDto.optionPrice}원</div>
+                          </div>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${category eq'스튜디오'}">
+                        <c:forEach var="studioCri" items="${ToCustomerStudioInfo}" >
+                          <div class="calendar-option-list">
+
+                            <div class="calandar-option"> ${studioCri.optionDto.optionName}</div>
+                            <div class="calandar-option price"> ${studioCri.optionDto.optionPrice}원</div>
+                          </div>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${category eq'드레스'}">
+                      <c:forEach var="dressCri" items="${ToCustomerDressInfo}" >
+                          <div class="calendar-option-list">
+
+                              <div class="calandar-option"> ${dressCri.optionDto.optionName}</div>
+                              <div class="calandar-option price"> ${dressCri.optionDto.optionPrice}원</div>
+                          </div>
+                      </c:forEach>
+                    </c:if>
+                      <c:if test="${category eq'웨딩홀'}">
+                          <c:forEach var="hallCri" items="${ToCustomerHallInfo}" >
+                              <div class="calendar-option-list">
+
+                                  <div class="calandar-option"> ${hallCri.optionDto.optionName}</div>
+                                  <div class="calandar-option price"> ${hallCri.optionDto.optionPrice}원</div>
+                              </div>
+                          </c:forEach>
+                      </c:if>
 
                     <div class="calendar-total-price"></div>
                   </div>
@@ -177,29 +173,52 @@
                             </div>
                         </c:forEach>
                     </c:if>
-                <c:if test="${category eq'드레스'}">
-                    <c:forEach var="dressCri" items="${ToCustomerStudioInfo}">
-                        <div>
-                            <table class="option-table">
-                                <tbody>
-                                <tr>
-                                    <th>옵션명</th>
-                                    <td>${dressCri.optionDto.optionName}</td>
-                                    <th>금액</th>
-                                    <td>${dressCri.optionDto.optionPrice}원</td>
-                                </tr>
-                                <tr>
-                                    <th>장소</th>
-                                    <td> ${dressCri.companyDto.location} </td>
-                                    <th>추가 옵션</th>
-                                    <td></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <br/>
-                        </div>
-                    </c:forEach>
-                </c:if>
+                    <c:if test="${category eq'드레스'}">
+                        <c:forEach var="dressCri" items="${ToCustomerDressInfo}">
+                            <div>
+                                <table class="option-table">
+                                    <tbody>
+                                    <tr>
+                                        <th>옵션명</th>
+                                        <td>${dressCri.optionDto.optionName}</td>
+                                        <th>금액</th>
+                                        <td>${dressCri.optionDto.optionPrice}원</td>
+                                    </tr>
+                                    <tr>
+                                        <th>장소</th>
+                                        <td> ${dressCri.companyDto.location} </td>
+                                        <th>추가 옵션</th>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <br/>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${category eq'웨딩홀'}">
+                        <c:forEach var="hallCri" items="${ToCustomerHallInfo}">
+                            <div>
+                                <table class="option-table">
+                                    <tbody>
+                                    <tr>
+                                        <th>옵션명</th>
+                                        <td>${hallCri.optionDto.optionName}</td>
+                                        <th>금액</th>
+                                        <td>${hallCri.optionDto.optionPrice}원</td>
+                                    </tr>
+                                    <tr>
+                                        <th>장소</th>
+                                        <td> ${hallCri.companyDto.location} </td>
+                                        <th>추가 옵션</th>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <br/>
+                            </div>
+                        </c:forEach>
+                    </c:if>
             </div>
         </section>
         <div class="v-line"></div>
