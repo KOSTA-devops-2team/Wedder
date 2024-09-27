@@ -82,21 +82,21 @@
                     <ul>
                         <div id="horizontal-underline"></div>
                         <li class="black">
-                            <a href="../../html/main/main.html">Home</a>
+                            <a href="${pageContext.request.contextPath}/main">Home</a>
                         </li>
                         <li class="black">
                             <a
-                                href="weddinghallList"
+                                href="${pageContext.request.contextPath}/weddinghallList"
                                 >Wedding Hall</a
                             >
                         </li>
                         <li class="black">
-                            <a href="studioList"
+                            <a href="${pageContext.request.contextPath}/studioList"
                                 >Studio</a
                             >
                         </li>
                         <li class="black">
-                            <a href="dressList">Dress</a>
+                            <a href="${pageContext.request.contextPath}/dressList">Dress</a>
                         </li>
                         <li class="black">
                             <a href="makeupList"
@@ -107,13 +107,13 @@
                             <a href="${pageContext.request.contextPath}/package">Package</a>
                         </li>
                         <li class="black">
-                            <a href="../../html/estimate/estimateCal.html"
+                            <a href="${pageContext.request.contextPath}/estimate"
                                 >Estimate</a
                             >
                         </li>
                         <li class="black">
                             <a
-                                href="reservationOption"
+                                href="${pageContext.request.contextPath}/reservation"
                                 >Reservation</a
                             >
                         </li>

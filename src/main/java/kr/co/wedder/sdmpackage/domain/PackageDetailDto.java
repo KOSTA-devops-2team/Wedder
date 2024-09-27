@@ -1,5 +1,6 @@
 package kr.co.wedder.sdmpackage.domain;
 
+import kr.co.wedder.company.domain.CompanyDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class PackageDetailDto {
     private String studioProduct;
     private boolean studioHairChangeAvailability;
     private boolean studioEquipmentIncluded;
+    private String studioImgUrl;
 
     // 드레스 정보
     private String dressName;
@@ -35,13 +37,14 @@ public class PackageDetailDto {
     private int dressFittingCnt;
     private int dressMeasurementTime;
     private String dressComposition;
+    private String dressImgUrl;
 
     // 메이크업 정보
     private String makeupName;
     private String makeupTarget;
     private String makeupType;
     private String makeupPosition;
-
+    private String makeupImgUrl;
 
     // 회사 정보
     private String companyName;
@@ -54,7 +57,6 @@ public class PackageDetailDto {
     private int basicPrice;
     private String mood;
     private String location;
-
 
     // 업체 이미지
     private String imgUrl;
