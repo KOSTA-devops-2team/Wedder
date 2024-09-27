@@ -156,10 +156,13 @@
     width: 450px;
 }
 .select-list {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    justify-content: space-between;
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 5px;
-    height: 692px;
 }
 .select-title {
     padding-left: 10px;
@@ -169,30 +172,21 @@
     border-bottom: 2px solid #333;
 }
 .select-item {
-    display: flex;
-    align-items: center;
     margin-top: 10px;
     margin-bottom: 389px;
+    overflow-y: auto; /* 선택 목록이 많아질 경우 스크롤이 가능하도록 설정 */
     padding: 10px;
-    box-sizing: border-box;
+    flex-grow: 1; /* 목록이 공간을 채우게 함 */
+}
+.selected-item {
+    padding: 10px; /* 선택된 아이템에 약간의 패딩을 줘서 구분 가능하게 */
+    background-color: #f9f9f9; /* 약간의 배경색을 주면 구분하기 쉽습니다 */
+    border: 1px solid #ddd; /* 경계선 */
+    border-radius: 5px; /* 부드러운 모서리 */
 }
 .price {
-    margin-bottom: 10px;
-}
-.price-regular {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-.price-discount {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #757575;
-}
-.price-discount .color {
-    color: #CA1A5A;
+    padding: 10px;
+    background-color: #fff;
 }
 .price-total {
     display: flex;
@@ -201,12 +195,13 @@
     font-weight: 700;
     margin-top: 20px;
     margin-bottom: 20px;
+    border-bottom: 1px solid #757575;
+    padding-bottom: 5px;
 }
 .reselection {
-    display: flex;
-    justify-content: right;
-    margin-top: 37px;
     font-size: 13px;
+    text-align: right;
+    margin-top: 10px;
 }
 .material-symbols-outlined {
     font-variation-settings:

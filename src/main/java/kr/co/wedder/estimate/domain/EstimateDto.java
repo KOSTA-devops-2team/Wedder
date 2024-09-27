@@ -1,8 +1,12 @@
 package kr.co.wedder.estimate.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class EstimateDto {
 
     // 견적서 아이디
@@ -35,6 +39,7 @@ public class EstimateDto {
     private String makeupPosition;
 
     // 회사 정보
+    private Integer companyId;
     private String companyName;
     private String companyAddress;
     private String companyIntroduce;

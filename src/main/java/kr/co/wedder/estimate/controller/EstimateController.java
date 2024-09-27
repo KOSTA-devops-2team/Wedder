@@ -2,6 +2,8 @@ package kr.co.wedder.estimate.controller;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.company.service.CompanyService;
+import kr.co.wedder.estimate.domain.EstimateDto;
+import kr.co.wedder.estimate.service.EstimateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -18,57 +21,49 @@ import java.util.Map;
 @RequestMapping("/estimate")
 public class EstimateController {
 
-    private final CompanyService companyService;
-
     @Autowired
-    public EstimateController(CompanyService companyService) {
-        this.companyService = companyService;
-    }
+    private EstimateService estimateService;
 
     @GetMapping("")
-    public String estimate(Model model) {return "estimate/estimateCompany"; }
-
-    @GetMapping("/estimateCompany")
     public String showEstimatePage(Model model) {
         // 스튜디오, 드레스, 메이크업 리스트 가져오기
-        List<CompanyDto> studioList = companyService.getStudioList();
-        List<CompanyDto> dressList = companyService.getDressList();
-        List<CompanyDto> makeupList = companyService.getMakeupList();
-
-        // 데이터가 제대로 들어오는지 로그로 확인
-        System.out.println("Company List: " + studioList);
-
-        // 모델에 리스트를 추가
+        List<EstimateDto> studioList = estimateService.getStudioList();
+        System.out.println("Studio List: " + studioList); // 로그로 데이터 확인
         model.addAttribute("studioList", studioList);
+
+        List<EstimateDto> dressList = estimateService.getDressList();
+        System.out.println("Dress List: " + dressList); // 로그로 데이터 확인
         model.addAttribute("dressList", dressList);
+
+        List<EstimateDto> makeupList = estimateService.getMakeupList();
+        System.out.println("Makeup List: " + makeupList); // 로그로 데이터 확인S
         model.addAttribute("makeupList", makeupList);
 
         return "estimate/estimateCompany";  // JSP 페이지 반환
     }
 
+    // Ajax로 선택된 회사 목록 업데이트
     @PostMapping("/updateSelectedCompanies")
     public ResponseEntity<String> updateSelectedCompanies(@RequestBody Map<String, Map<String, Object>> selectedCompanies) {
-        // 선택된 스튜디오, 드레스, 메이크업을 처리
-        System.out.println("선택된 회사 목록이 서버로 전달되었습니다: " + selectedCompanies);
 
-        // 여기서 선택된 목록을 세션에 저장하거나 DB 업데이트하는 로직을 추가할 수 있습니다.
-        // 예: HttpSession session = request.getSession();
-        // session.setAttribute("selectedCompanies", selectedCompanies);
+        // selectedCompanies는 각 카테고리별로 선택된 회사 정보가 들어있는 Map
+        if (selectedCompanies == null || selectedCompanies.isEmpty()) {
+            return ResponseEntity.badRequest().body("잘못된 데이터");
+        }
 
-        return ResponseEntity.ok("선택된 회사 목록이 업데이트되었습니다.");
+        // 선택된 회사 정보를 처리 (로그 출력, DB 저장 등)
+        selectedCompanies.forEach((category, companyData) -> {
+            if (companyData != null) {
+                Integer id = (Integer) companyData.get("id");
+                String name = (String) companyData.get("name");
+                Integer basicPrice = (Integer) companyData.get("basicPrice");
+
+                // DB 저장 로직 또는 기타 처리 로직
+                System.out.printf("Category: %s, ID: %d, Name: %s, Basic Price: %d%n", category, id, name, basicPrice);
+            }
+        });
+
+        // 처리 후 성공 응답 반환
+        return ResponseEntity.ok("선택된 목록이 성공적으로 업데이트되었습니다.");
     }
-
-//    @RequestMapping(value = "/estimateCompany")
-//    public String estimateCompany() {
-//        return "estimate/estimateCompany";
-//    }
-//    @RequestMapping(value="/estimateOption")
-//    public String estimateDetail() {
-//        return "estimate/estimateOption";
-//    }
-//    @RequestMapping(value = "/estimateTotal")
-//    public String estimateFinal() {
-//        return "estimate/estimateTotal";
-//    }
-    // 선택된 회사 목록을 처리하는 메서드
 }
