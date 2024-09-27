@@ -82,7 +82,7 @@
                     <ul>
                         <div id="horizontal-underline"></div>
                         <li class="black">
-                            <a href="../../html/main/main.html">Home</a>
+                            <a href="${pageContext.request.contextPath}/main">Home</a>
                         </li>
                         <li class="black">
                             <a
