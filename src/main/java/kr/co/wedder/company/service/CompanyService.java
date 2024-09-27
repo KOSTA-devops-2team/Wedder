@@ -11,11 +11,11 @@ public interface CompanyService {
     List<CompanyDto> getPage(Map map) throws Exception;
     int getCount() throws Exception;
 
-    List<CompanyDto> getSearchResultPage(SearchItem sc) throws Exception;
+    List<CompanyDto> searchCompanies(String companyName, String category) throws Exception;
+
     int getSearchResultCount(SearchItem sc) throws Exception;
 
     CompanyDto companyRead(Integer companyId) throws Exception;
     List<CompanyDto> getHallList() throws Exception;
-
 
 }

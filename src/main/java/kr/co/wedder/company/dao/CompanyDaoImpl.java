@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,14 @@ public class CompanyDaoImpl implements CompanyDao {
     public List<CompanyDto> selectCompanyByCategory() throws Exception {
         System.out.println("Dao : getHallList");
         return session.selectList(namespace + "selectCompanyByCategory");
+    }
+
+    @Override
+    public List<CompanyDto> searchCompany(String companyName, String category) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("companyName", companyName);
+        params.put("category", category);
+        return session.selectList(namespace + "searchCompany", params);
     }
 
     @Override
