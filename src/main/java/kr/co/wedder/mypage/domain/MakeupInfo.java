@@ -16,6 +16,7 @@ public class MakeupInfo {
 	private Integer makeupId;
 	private Integer companyId;
 	private String packageId;
+	private String target;
 	private String makeupType;
 	private String position;
 

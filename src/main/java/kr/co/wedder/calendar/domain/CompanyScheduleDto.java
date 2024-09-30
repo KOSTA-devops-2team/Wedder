@@ -12,7 +12,6 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class CompanyScheduleDto {
 	
 	private Integer scheduleId;

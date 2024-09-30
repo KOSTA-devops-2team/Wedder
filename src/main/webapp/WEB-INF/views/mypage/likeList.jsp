@@ -8,18 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>likelist</title>
     <!-- 링크 -->
-      <link rel="stylesheet" href="<c:url value='resources/css/mypage/LikeList.css'/>"/>
-      <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/LikeList.css"/>
       <link
         rel="stylesheet"
-        href="<c:url value="resources/css/common/sidebar/sidebarMypage.css"/>"
+        href="${pageContext.request.contextPath}/resources/css/common/sidebar/sidebarMypage.css"
       />
     
     <!-- 스크립트 -->
     
-      <script defer src="<c:url value="resources/js/mypage/LikeList.js"/>"></script>
-      <script defer src="<c:url value="resources/js/main/main.js"/>"></script>
-      <script defer src="<c:url value="resources/js/mypage/myPageMain.js"/>"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/LikeList.js"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
     
   </head>
   <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>

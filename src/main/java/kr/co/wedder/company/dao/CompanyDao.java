@@ -18,4 +18,5 @@ public interface CompanyDao {
     int count() throws Exception;
     int searchResultCnt(SearchItem sc) throws Exception;
 
+
 }

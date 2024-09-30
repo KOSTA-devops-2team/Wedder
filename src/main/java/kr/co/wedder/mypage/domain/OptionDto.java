@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.Objects;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +16,7 @@ public class OptionDto {
 	private Integer studioId;
 	private Integer dressId;
 	private Integer makeupId;
-	private Boolean optionName;
+	private String optionName;
 	private Integer optionPrice;
-
+	private String category;
 }

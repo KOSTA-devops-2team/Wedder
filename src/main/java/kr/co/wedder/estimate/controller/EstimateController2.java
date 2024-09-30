@@ -1,7 +1,6 @@
 package kr.co.wedder.estimate.controller;
 
-import kr.co.wedder.company.domain.CompanyDto;
-import kr.co.wedder.company.service.CompanyService;
+
 import kr.co.wedder.estimate.domain.EstimateDto;
 import kr.co.wedder.estimate.service.EstimateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 @Controller
 @RequestMapping("/estimate")
-public class EstimateController {
+public class EstimateController2 {
 
     @Autowired
     private EstimateService estimateService;

@@ -16,4 +16,5 @@ public class HallInfoDto {
 	private String hallType;
 	private Integer minPeople;
 	private Integer parking;
+	private Integer mealPrice;
 }
