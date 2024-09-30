@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/user/login.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/customer/login.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
@@ -69,7 +69,7 @@
                 <img src="${pageContext.request.contextPath}/resources/images/apple-logo.png"/>
             </button>
         </div>
-        <a href=<c:url value="/user/register" />>
+        <a href=<c:url value="/customer/register" />>
             <button class="signup-btn">간편 회원가입하기</button>
         </a>
         <div class="user-support">
@@ -80,6 +80,6 @@
     </section>
 </div>
 <script> const contextPath = '${pageContext.request.contextPath}';</script>
-<script src="${pageContext.request.contextPath}/resources/js/user/login.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/customer/login.js"></script>
 </body>
 </html>

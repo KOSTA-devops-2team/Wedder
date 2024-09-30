@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/customer")
 public class RegisterController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class RegisterController {
 
     @GetMapping("/register")
     public String loginForm() {
-        return "/user/registerForm";
+        return "/customer/registerForm";
     }
 
     // 회원가입 처리

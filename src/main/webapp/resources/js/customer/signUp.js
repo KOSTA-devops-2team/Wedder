@@ -63,7 +63,7 @@ $(function() {
             // $.ajax()를 통해서 수행할 수 있으며 매개값으로 객체형식으로 진행
             $.ajax({
                 type : 'POST', // 서버에 전송하는 HTTP 방식
-                url : '/user/checkId', // 서버 요청 url
+                url : '/customer/checkId', // 서버 요청 url
                 contentType: 'application/json',
                 // dataType : 'json', // 서버로 부터 응답받을 데이터의 형태
                 // data : checkId, // 사용자가 입력한 id 데이터를 서버로 전송
@@ -229,7 +229,7 @@ $(function() {
             // 비동기 방식
             $.ajax({
                 type:'post',
-                url:'/user/registerProceed',
+                url:'/customer/registerProceed',
                 contentType: 'application/json',
                 dataType: 'text',
                 data: JSON.stringify(customerDto),
