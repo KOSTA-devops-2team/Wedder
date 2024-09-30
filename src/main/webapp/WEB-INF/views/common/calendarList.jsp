@@ -14,7 +14,6 @@
 	</head>
 	<body>
 		<section class="calendar-container" id="calendar-section1">
-			<form action="" id="form" class="frm" method="post">
 				<div class="calendar-header">
 					<button id="prevBtn"> <</button>
 					<div id="yearMonth">
@@ -62,7 +61,6 @@
 					<div class = "calendar-footer">
 				</div>
 				
-			</form>
 				<section id="calendarBoard">
 					<div style="text-align: center;">
 						<div class="schedule-container">

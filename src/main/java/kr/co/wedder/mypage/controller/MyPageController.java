@@ -1,5 +1,6 @@
 package kr.co.wedder.mypage.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -117,6 +118,8 @@ public class MyPageController {
 		//카테고리 및 회사 인덱스 getmapping으로 얻어오는 값 추가
 		String category = request.getParameter("category");
 		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
+		String date=request.getParameter("date");
+		m.addAttribute("date", date);
 		//map 추가
 		Map<String,Object> toCustomerMakeupMap= new HashMap<>();
 		Map<String,Object> toCustomerOptionInfoMap= new HashMap<>();

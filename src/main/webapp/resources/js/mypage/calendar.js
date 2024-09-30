@@ -58,27 +58,21 @@ prevBtn.addEventListener("click", () => {
 		currentMonth = 11;
 		currentYear--;
 	}
-	//
-	// var calendarData1 = new Object();
-	// calendarData1.year=currentYear;
-	// calendarData1.month=currentMonth;
-	//
-	let calendarData1={
-		year: currentYear,
-		month: currentMonth
-	}
-	const jsonData=JSON.stringify(calendarData1);
-	let test={}
+
+
+	var calendarData = new Object();
+	calendarData.year=currentYear;
+	calendarData.month=currentMonth;
+
+	const jsonData=JSON.stringify(calendarData);
 	$.ajax({
-		type: 'POST', // POST 요청
 		url: '/calendar/list', // URL 경로
-		headers:{"Content-Type":"application/json"}, //요청 헤더
+		type: 'POST', // POST 요청
+		contentType: 'application/json', // JSON 형식으로 데이터를 전송
 		data: jsonData, // 객체를 JSON 문자열로 변환
 		dataType: 'json', // 응답 형식
-		contentType: 'application/json', // JSON 형식으로 데이터를 전송
 		success: function(result) {
-			test = JSON.parse(result);
-			console.log(test); // 서버에서 받은 응답 출력
+			console.log(result); // 서버에서 받은 응답 출력
 			renderCalendar(currentYear,currentMonth);
 		},
 		error: function() {
@@ -120,6 +114,13 @@ nextBtn.addEventListener("click", () => {
 
 });
 
+
+
+
+
+
+
+/*test */
 var testData2=new Object();
 	testData2.name="jiwon";
 	testData2.age=20;
@@ -141,6 +142,11 @@ $(document).ready(function() {
 			console.log("Error occurred"); // 에러 처리
 		}
 	});
+
+
+	let date=document.getElementById("getDate");
+	
+
 });
 
 // 공휴일을 추가하는 방법

@@ -36,26 +36,13 @@ public class CalendarRestController {
 
         return scheduleDto;
     }
-    @PostMapping("/list/{year}-{month}")
-    public ResponseEntity<Map<String,Object>> getCalendarData(@PathVariable int year, @PathVariable int month) {
 
-        try {
-            Map<String ,Object> map = new HashMap<String ,Object>();
-
-            map.put("year",year);
-            map.put("month",month);
-            return new ResponseEntity<>(map, HttpStatus.OK);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
     @PostMapping("/list")
     public ResponseEntity<Map<String,Object>> list(@RequestBody  Map<String, Object> params) {
         try {
             // 요청에서 넘어온 year, month 값을 받음
             int year = (int)params.get("year");
-            int month = (int)params.get("month")+1;
+            int month = (int)params.get("month");
 
             System.out.println("Year:"+year+",Month:"+month);
 
@@ -77,7 +64,7 @@ public class CalendarRestController {
 
 
     @PostMapping("/test")
-    public ResponseEntity<String> testEndpoint(@RequestBody Map<String, Object> data) {
+    public ResponseEntity<String> testEndpoint(@RequestParam Map<String, Object> data) {
         // 받은 데이터 처리
         String name = (String) data.get("name");
         int age = (int) data.get("age");

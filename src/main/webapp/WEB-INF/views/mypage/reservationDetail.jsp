@@ -52,6 +52,11 @@
             <div class="calandars-payment-list">
                 <%@ include file="/WEB-INF/views/common/calendarList.jsp" %>
 
+                <%-- get 정보로 예약된 날짜를 가져오는 중--%>
+                <div style="display: none" id="getDate">
+                    ${date}
+                </div>
+
                 <div class="calandar-Content">
                   <div class="calandar-top">상세 예약 내역</div>
 <%--                  <c:if test="${category} eq '메이크업'">--%>
