@@ -65,6 +65,7 @@
                                             ${studio.companyName}
                                     </a>
                                     <div class="address">${studio.companyAddress}</div>
+                                    <div class="price-info">${studio.basicPrice}</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
@@ -107,6 +108,7 @@
                                             ${dress.companyName}
                                     </a>
                                     <div class="address">${dress.companyAddress}</div>
+                                    <div class="price-info">${dress.basicPrice}</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
@@ -149,6 +151,7 @@
                                             ${makeup.companyName}
                                     </a>
                                     <div class="address">${makeup.companyAddress}</div>
+                                    <div class="price-info">${makeup.basicPrice}</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>

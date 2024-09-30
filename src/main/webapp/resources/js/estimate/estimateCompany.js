@@ -41,17 +41,6 @@ $(document).ready(function() {
         const companyName = $(this).data("companyName");
         const basicPrice = Number($(this).data("basicPrice")); // 회사의 기본 가격을 숫자로 변환
 
-        // // 해당 카테고리에서 이미 선택된 회사가 있는지 확인
-        // if (selectedCompanies[category] === null) {
-        //     // 선택되지 않은 경우 추가
-        //     selectedCompanies[category] = { id: companyId, name: companyName, basicPrice: basicPrice };
-        //     addCompanyToList(category, companyId, companyName, basicPrice);
-        // } else {
-        //     // 이미 선택된 경우 삭제
-        //     removeCompanyFromList(category, companyId);
-        //     selectedCompanies[category] = null;
-        // }
-
         // 동일 카테고리에서 이미 선택된 항목이 있는지 확인
         if (selectedCompanies[category] !== null) {
             // 동일 카테고리에서 이미 선택된 항목이 있을 경우, 알림을 띄우고 추가하지 않음
