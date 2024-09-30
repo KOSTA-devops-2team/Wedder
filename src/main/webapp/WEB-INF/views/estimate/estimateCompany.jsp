@@ -206,69 +206,6 @@
             <button onclick="location.href='estimate/estimateOption'" class="next">다음으로</button>
         </div>
     </div>
-<%--    <!-- 모달창 -->--%>
-<%--    <section id="modal" class="modal-region">--%>
-<%--        <div class="modal-content">--%>
-<%--            <h2 class="modal-q">지역</h2>--%>
-<%--            <p>위치 조건을 통해 웨딩홀을 알아보세요</p>--%>
-<%--            <div class="dropdown">--%>
-<%--                <select id="options" class="options">--%>
-<%--                    <option value="option1">서울</option>--%>
-<%--                    <option value="option2">경기</option>--%>
-<%--                    <option value="option3">강원</option>--%>
-<%--                    <option value="option4">충북</option>--%>
-<%--                    <option value="option5">충남</option>--%>
-<%--                    <option value="option6">전북</option>--%>
-<%--                    <option value="option7">전남</option>--%>
-<%--                    <option value="option8">경북</option>--%>
-<%--                    <option value="option9">경남</option>--%>
-<%--                    <option value="option10">제주</option>--%>
-<%--                </select>--%>
-<%--                <select id="options" class="options">--%>
-<%--                    <option value="option1">Option 1</option>--%>
-<%--                    <option value="option2">Option 2</option>--%>
-<%--                    <option value="option3">Option 3</option>--%>
-<%--                </select>--%>
-<%--            </div>--%>
-<%--            <div class="modal-btn">--%>
-<%--                <a href="#">--%>
-<%--                    <button class="apply-btn">Apply</button>--%>
-<%--                </a>--%>
-<%--                <a href="#">--%>
-<%--                    <button class="cancel-btn">취소</button>--%>
-<%--                </a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </section>--%>
-
-
-<%--    <section id="modal" class="modal-budget">--%>
-<%--        <div class="modal-content">--%>
-<%--            <h2 class="modal-q">예산</h2>--%>
-<%--            <p>위치 조건을 통해 웨딩홀을 알아보세요</p>--%>
-<%--            <div class="dropdown">--%>
-<%--                <select id="options" class="options">--%>
-<%--                    <option value="option1">100만원</option>--%>
-<%--                    <option value="option2">200만원</option>--%>
-<%--                    <option value="option3">300만원</option>--%>
-<%--                </select>--%>
-<%--                <select id="options" class="options">--%>
-<%--                    <option value="option1">400만원</option>--%>
-<%--                    <option value="option2">500만원</option>--%>
-<%--                    <option value="option3">600만원</option>--%>
-<%--                </select>--%>
-<%--            </div>--%>
-<%--            <div class="modal-btn">--%>
-<%--                <a href="#">--%>
-<%--                    <button class="apply-btn">Apply</button>--%>
-<%--                </a>--%>
-<%--                <a href="#">--%>
-<%--                    <button class="cancel-btn">취소</button>--%>
-<%--                </a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </section>--%>
-
 </div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

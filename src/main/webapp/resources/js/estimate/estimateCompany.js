@@ -25,37 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// /* 모달창 */
-// document.addEventListener("DOMContentLoaded", function () {
-//     const modal1 = document.querySelector(".modal-region");
-//     const modal3 = document.querySelector(".modal-budget");
-//     const modalBtn1 = document.querySelector(".region-btn");
-//     const modalBtn3 = document.querySelector(".budget-btn");
-//     const closeBtn = document.querySelector(".cancel-btn");
-//
-//     modalBtn1.addEventListener("click", function() {
-//         modal1.classList.add("show");
-//     });
-//     modalBtn3.addEventListener("click", function() {
-//         modal3.classList.add("show");
-//     });
-//
-//     closeBtn.addEventListener("click", function() {
-//         modal1.classList.remove("show");
-//         modal3.classList.remove("show");
-//     });
-//
-//     /* 외부 클릭 시 모달창 닫기 */
-//     window.addEventListener("click", function(event) {
-//         if (event.target === modal) {
-//             modal.classList.remove("show");
-//         }
-//         if (event.target === modal2) {
-//             modal3.classList.remove("show");
-//         }
-//     });
-// });
-
 /* 선택하신 목록 Ajax */
 $(document).ready(function() {
     // 각 카테고리별로 선택된 회사 저장
