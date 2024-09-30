@@ -140,7 +140,10 @@
 .address {
     margin: 5px 0;
     font-size: 10px;
-    margin-bottom: 60px;
+}
+.price-info {
+    font-size: 10px;
+    margin-bottom: 34px;
 }
 .link {
     display: flex;
@@ -156,10 +159,13 @@
     width: 450px;
 }
 .select-list {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    justify-content: space-between;
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 5px;
-    height: 692px;
 }
 .select-title {
     padding-left: 10px;
@@ -169,30 +175,21 @@
     border-bottom: 2px solid #333;
 }
 .select-item {
-    display: flex;
-    align-items: center;
     margin-top: 10px;
     margin-bottom: 389px;
+    overflow-y: auto; /* 선택 목록이 많아질 경우 스크롤이 가능하도록 설정 */
     padding: 10px;
-    box-sizing: border-box;
+    flex-grow: 1; /* 목록이 공간을 채우게 함 */
+}
+.selected-item {
+    padding: 10px; /* 선택된 아이템에 약간의 패딩을 줘서 구분 가능하게 */
+    background-color: #f9f9f9; /* 약간의 배경색을 주면 구분하기 쉽습니다 */
+    border: 1px solid #ddd; /* 경계선 */
+    border-radius: 5px; /* 부드러운 모서리 */
 }
 .price {
-    margin-bottom: 10px;
-}
-.price-regular {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-.price-discount {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #757575;
-}
-.price-discount .color {
-    color: #CA1A5A;
+    padding: 10px;
+    background-color: #fff;
 }
 .price-total {
     display: flex;
@@ -201,12 +198,13 @@
     font-weight: 700;
     margin-top: 20px;
     margin-bottom: 20px;
+    border-bottom: 1px solid #757575;
+    padding-bottom: 5px;
 }
 .reselection {
-    display: flex;
-    justify-content: right;
-    margin-top: 37px;
     font-size: 13px;
+    text-align: right;
+    margin-top: 10px;
 }
 .material-symbols-outlined {
     font-variation-settings:
@@ -227,7 +225,7 @@
     font-weight: 700;
 }
 
-/* 이전, 다음 버튼 */   
+/* 이전, 다음 버튼 */
 .btn {
     display: flex;
     justify-content: space-between;
@@ -242,7 +240,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-} 
+}
 .btn .back {
     width: 270px;
     height: auto;
@@ -261,93 +259,4 @@
 }
 .contents-active {
     display: block;
-}
-
-/* 모달창 */
-.region-btn:hover {
-    background-color: #717171;
-    border: 1px solid #717171;
-}
-select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-}
-.options {
-    width: 200px;
-}
-.modal1, .modal3 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
-.modal-content {
-    max-width: 400px;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    padding: 45px;
-}
-.modal-q {
-    font-size: 30px;
-    font-weight: 600;
-    text-align: left;
-    margin: 0;
-    color: #000;
-}
-.modal-content p {
-    font-size: 16px;
-    font-weight: 400;
-    color: #545454;
-    text-align: left;
-    line-height: 1.5;
-    margin: 10px 0;
-}
-.modal-btn {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-}
-.apply-btn {
-    font-size: 14px;
-    padding: 8px 40px;
-    border: 1px solid #CA1A5A;
-    border-radius: 7px;
-    color: #fff;
-    background-color: #CA1A5A;
-    cursor: pointer;
-}
-.apply-btn:hover {
-    border: 1px solid rgba(202, 26, 90, 0.2);
-    background-color: rgba(202, 26, 90, 0.4);
-}
-.cancel-btn {
-    font-size: 14px;
-    padding: 8px 40px;
-    border: 1px solid #CA1A5A;
-    border-radius: 7px;
-    color: #CA1A5A;
-    cursor: pointer;
-}
-.cancel-btn:hover {
-    background-color: rgba(202, 26, 90, 0.1);
-}
-.modal.show { 
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
 }

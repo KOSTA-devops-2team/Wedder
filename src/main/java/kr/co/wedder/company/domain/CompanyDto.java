@@ -23,6 +23,9 @@ public class CompanyDto {
     private String location;
 
     private HallDto hallDto;
+    private StudioDto studioDto;
+    private DressDto dressDto;
+    private MakeupDto makeupDto;
 
     private Integer imgId;
     private Integer imgSeq;

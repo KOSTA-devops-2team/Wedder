@@ -1,6 +1,8 @@
 package kr.co.wedder.company.controller;
 
+import kr.co.wedder.calendar.domain.PageResolver;
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.Pagination;
 import kr.co.wedder.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,6 +26,9 @@ public class HallController {
     public String whallList(Model m, HttpServletRequest request) {
         System.out.println("Controller : getHallList");
         try{
+
+            Pagination pagination = new Pagination();
+            m.addAttribute("pr", pagination);
 
             List<CompanyDto> hallList = companyService.getHallList();
             m.addAttribute("hallList", hallList);

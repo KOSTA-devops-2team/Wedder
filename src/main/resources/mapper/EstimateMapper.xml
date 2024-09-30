@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.wedder.dao.EstimateMapper">
+
+    <select id="getStudioList" resultType="EstimateDto">
+        SELECT
+        c.company_id AS companyId,
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_category = '스튜디오';
+    </select>
+
+    <select id="getDressList" resultType="EstimateDto">
+        SELECT
+        c.company_id AS companyId,
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_category = '드레스';
+    </select>
+
+    <select id="getMakeupList" resultType="EstimateDto">
+        SELECT
+        c.company_id AS companyId,
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_category = '메이크업';
+    </select>
+</mapper>

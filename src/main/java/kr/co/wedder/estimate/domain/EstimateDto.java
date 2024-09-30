@@ -1,21 +1,16 @@
-package kr.co.wedder.sdmpackage.domain;
+package kr.co.wedder.estimate.domain;
 
-import kr.co.wedder.company.domain.CompanyDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class PackageDetailDto {
+@AllArgsConstructor
+public class EstimateDto {
 
-    // 패키지 기본 정보
-    private int packageId;
-    private String packageName;
-    private String packageImg;
-    private String description;
-    private int discountRate;
+    // 견적서 아이디
+    private int estimateId;
 
     // 스튜디오 정보
     private String studioName;
@@ -27,7 +22,6 @@ public class PackageDetailDto {
     private String studioProduct;
     private boolean studioHairChangeAvailability;
     private boolean studioEquipmentIncluded;
-    private String studioImgUrl;
 
     // 드레스 정보
     private String dressName;
@@ -37,16 +31,15 @@ public class PackageDetailDto {
     private int dressFittingCnt;
     private int dressMeasurementTime;
     private String dressComposition;
-    private String dressImgUrl;
 
     // 메이크업 정보
     private String makeupName;
     private String makeupTarget;
     private String makeupType;
     private String makeupPosition;
-    private String makeupImgUrl;
 
     // 회사 정보
+    private Integer companyId;
     private String companyName;
     private String companyAddress;
     private String companyIntroduce;
@@ -60,5 +53,4 @@ public class PackageDetailDto {
 
     // 업체 이미지
     private String imgUrl;
-
 }

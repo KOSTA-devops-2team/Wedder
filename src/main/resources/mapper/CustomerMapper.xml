@@ -16,10 +16,4 @@
     <select id="findById" parameterType="string" resultType="kr.co.wedder.customer.domain.CustomerDTO">
         SELECT id FROM customer WHERE id = #{id}
     </select>
-
-<!--    &lt;!&ndash; 로그인 시 아이디와 비밀번호 확인 쿼리 &ndash;&gt;-->
-<!--    <select id="loginCheck" parameterType="Customer" resultType="Customer">-->
-<!--        SELECT id, password FROM customer WHERE id = #{id} AND password = #{password}-->
-<!--    </select>-->
-<!--    -->
 </mapper>
