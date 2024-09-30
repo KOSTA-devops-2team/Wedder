@@ -1,9 +1,6 @@
 package kr.co.wedder.mypage.controller;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.*;
@@ -119,7 +116,9 @@ public class MyPageController {
 		String category = request.getParameter("category");
 		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
 		String date=request.getParameter("date");
-		m.addAttribute("date", date);
+
+		m.addAttribute("date",date);
+
 		//map 추가
 		Map<String,Object> toCustomerMakeupMap= new HashMap<>();
 		Map<String,Object> toCustomerOptionInfoMap= new HashMap<>();
@@ -327,4 +326,25 @@ public class MyPageController {
 	public String calendarTest() {
 		return "common/calendar";
 	}
+	
+	public List OnlyDate(String date){
+		if(date != null && !date.isEmpty()){
+			String[] parts = date.split(" ");
+
+			if(parts.length==6){
+				String year= parts[5];
+				String month = parts[1];
+				String day = parts[2];
+				String onlyDate = year+"-"+month+"-"+day;
+				List list = new ArrayList();
+				list.add(1,year);
+				list.add(2,month);
+				list.add(3,day);
+				System.out.println(onlyDate);
+				return list;
+			}
+		}
+		return null;
+	}
 }
+
