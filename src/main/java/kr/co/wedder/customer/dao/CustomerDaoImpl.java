@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import kr.co.wedder.customer.domain.CustomerDTO;
+import kr.co.wedder.customer.domain.CustomerDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -48,8 +48,8 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public CustomerDTO selectCustomer(String id) {
-        CustomerDTO customerDTO = null;
+    public CustomerDto selectCustomer(String id) {
+        CustomerDto customerDTO = null;
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -65,7 +65,7 @@ public class CustomerDaoImpl implements CustomerDao {
             rs = pstmt.executeQuery();		//select
 
             if(rs.next()) {
-                customerDTO = new CustomerDTO();
+                customerDTO = new CustomerDto();
                 customerDTO.setId(rs.getString("id"));  // 숫자가 아닌 칼럼명???
                 customerDTO.setPassword(rs.getString("password"));
                 customerDTO.setName(rs.getString("name"));
@@ -84,7 +84,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public int insertCustomer(CustomerDTO customerDTO) {
+    public int insertCustomer(CustomerDto customerDTO) {
         Connection conn = null;
         PreparedStatement pstmt = null;
 
@@ -126,7 +126,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public int updateCustomer(CustomerDTO customerDTO) {
+    public int updateCustomer(CustomerDto customerDTO) {
         int rowCnt = FAIL;
 
         String sql = "update customer set password = ?, name = ?, phone = ?, email = ? , gender = ? where id = ? ";
@@ -166,12 +166,12 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public CustomerDTO customerJoin(CustomerDTO customerDTO) {
+    public CustomerDto customerJoin(CustomerDto customerDTO) {
         return session.selectOne(namespace+"customerJoin",customerDTO);
     }
 
     @Override
-    public CustomerDTO findById(String id) {
+    public CustomerDto findById(String id) {
         return session.selectOne(namespace+"findById",id);
     }
 

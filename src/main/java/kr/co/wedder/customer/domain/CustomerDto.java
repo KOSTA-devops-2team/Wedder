@@ -2,7 +2,7 @@ package kr.co.wedder.customer.domain;
 
 import java.util.Objects;
 
-public class CustomerDTO {
+public class CustomerDto {
     private int customerId;
     private String id;
     private String password;
@@ -12,11 +12,11 @@ public class CustomerDTO {
     private Integer gender;
 
     // 기본 생성자
-    public CustomerDTO() {
+    public CustomerDto() {
     }
 
     // 모든 필드를 포함한 생성자
-    public CustomerDTO(String id, String password, String name, String phone, String email, Integer gender) {
+    public CustomerDto(String id, String password, String name, String phone, String email, Integer gender) {
         this.id = id;
         this.password = password;
         this.name = name;
@@ -81,7 +81,7 @@ public class CustomerDTO {
     // `toString` 메서드
     @Override
     public String toString() {
-        return "CustomerDTO{" +
+        return "CustomerDto{" +
                 "customerId=" + customerId +
                 ", id='" + id + '\'' +
                 ", password='" + password + '\'' +
@@ -97,7 +97,7 @@ public class CustomerDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CustomerDTO that = (CustomerDTO) o;
+        CustomerDto that = (CustomerDto) o;
         return Objects.equals(gender, that.gender) &&
                 Objects.equals(id, that.id) &&
                 Objects.equals(password, that.password) &&

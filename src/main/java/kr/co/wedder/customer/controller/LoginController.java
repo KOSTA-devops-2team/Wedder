@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mysql.cj.BindValue;
 import kr.co.wedder.customer.dao.CustomerDao;
-import kr.co.wedder.customer.domain.CustomerDTO;
+import kr.co.wedder.customer.domain.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -81,7 +80,7 @@ public class LoginController {
 
 	private boolean loginCheck(String id, String password) {
 
-		CustomerDTO customerDTO = customerDao.selectCustomer(id);
+		CustomerDto customerDTO = customerDao.selectCustomer(id);
 		if(customerDTO ==null) return false;
 
 		return customerDTO.getPassword().equals(password);

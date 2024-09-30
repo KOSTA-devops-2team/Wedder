@@ -1,9 +1,9 @@
 package kr.co.wedder.customer.service;
 
-import kr.co.wedder.customer.domain.CustomerDTO;
+import kr.co.wedder.customer.domain.CustomerDto;
 
 public interface CustomerService {
-    boolean customerJoin(CustomerDTO customerDTO) throws Exception;
+    boolean customerJoin(CustomerDto customerDTO) throws Exception;
 
     boolean checkIdAvailability(String id);
 }
