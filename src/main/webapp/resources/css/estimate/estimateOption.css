@@ -1,7 +1,3 @@
-.container {
-    display: flex;
-    vertical-align: middle;
-}
 .container-title {
     font-size: 30px;
     color: #CA1A5A;
@@ -27,20 +23,18 @@
 }
 
 /* 그리드 */
-.main-grid {
-    display: grid;
-    grid-template-columns: 690px auto;
-    grid-gap: 15px;
+.divide {
+    display: flex;
+    justify-content: space-between;
 }
-.left-panel {
-    grid-row-start: 1;
-    grid-row-end: 3;
+.body {
+    display: none;
+}
+.body-grid {
+    width: 700px;
     border: 1px solid #757575;
     border-radius: 10px;
     padding: 10px 30px;
-}
-.main {
-    display: flex;
 }
 .main-content img {
     width: 200px;
@@ -107,11 +101,17 @@
 }
 
 /* 선택하신 목록 */
+.select-container {
+    margin-left: 30px;
+    width: 450px;
+}
 .selected-list {
-    height: 700px;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
     border: 1px solid #757575;
-    border-radius: 10px;
-    padding: 10px 20px;
+    border-radius: 5px;
+    padding: 20px;
 }
 .selected-list h2 {
     font-size: 20px;
@@ -122,7 +122,7 @@
 .item-title {
     display: flex;
     justify-content: space-between;
-    font-size: 16x;
+    font-size: 16px;
     font-weight: 700;
     padding-top: 10px;
     margin-bottom: 30px;
@@ -221,4 +221,13 @@
     border: 1px solid #000;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* js 설정 */
+.tab-selected {
+    color: #ca1a5a;
+    border-bottom: 2px solid #ca1a5a;
+}
+.contents-active {
+    display: block;
 }
