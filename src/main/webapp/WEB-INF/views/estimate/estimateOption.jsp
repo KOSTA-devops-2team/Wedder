@@ -37,23 +37,25 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <img src="../../assets/images/estimate-detail1.png" alt="Studio Image">
-                            <div class="selected">
-                                <div class="content-main">
-                                    <p class="bold">S 스튜디오</p>
-                                    <p class="address">서울특별시 서초구 신반포로 4길 7</p>
-                                </div>
-                                <div class="basic-option">
-                                    <div class="basic-detail">
-                                        <p><strong>기본 옵션</strong></p>
-                                        <p>원본 데이터</p>
-                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                            <c:forEach var="studio" items="${studioSelected}">
+                                <img src="${studio.imgUrl}" alt="${studio.companyName}">
+                                <div class="selected">
+                                    <div class="content-main">
+                                        <p class="bold">${studio.companyName}</p>
+                                        <p class="address">${studio.companyAddress}</p>
                                     </div>
-                                    <div class="main-price">
-                                        <p>330,000원</p>
+                                    <div class="basic-option">
+                                        <div class="basic-detail">
+                                            <p><strong>기본 옵션</strong></p>
+                                            <p>원본 데이터</p>
+                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                                        </div>
+                                        <div class="main-price">
+                                            <p>330,000원</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </c:forEach>
                         </div>
                         <!-- 세부 옵션 -->
                         <div class="option">
@@ -69,23 +71,25 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <img src="../../assets/images/estimate-detail1.png" alt="Studio Image">
-                            <div class="selected">
-                                <div class="content-main">
-                                    <p class="bold">S 스튜디오</p>
-                                    <p class="address">서울특별시 서초구 신반포로 4길 7</p>
-                                </div>
-                                <div class="basic-option">
-                                    <div class="basic-detail">
-                                        <p><strong>기본 옵션</strong></p>
-                                        <p>원본 데이터</p>
-                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                            <c:forEach var="dress" items="${dressSelected}">
+                                <img src="${dress.imgUrl}" alt="${dress.companyName}">
+                                <div class="selected">
+                                    <div class="content-main">
+                                        <p class="bold">${dress.companyName}</p>
+                                        <p class="address">${dress.companyAddress}</p>
                                     </div>
-                                    <div class="main-price">
-                                        <p>330,000원</p>
+                                    <div class="basic-option">
+                                        <div class="basic-detail">
+                                            <p><strong>기본 옵션</strong></p>
+                                            <p>원본 데이터</p>
+                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                                        </div>
+                                        <div class="main-price">
+                                            <p>330,000원</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </c:forEach>
                         </div>
                         <!-- 세부 옵션 -->
                         <div class="option">
@@ -101,23 +105,25 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <img src="../../assets/images/estimate-detail1.png" alt="Studio Image">
-                            <div class="selected">
-                                <div class="content-main">
-                                    <p class="bold">S 스튜디오</p>
-                                    <p class="address">서울특별시 서초구 신반포로 4길 7</p>
-                                </div>
-                                <div class="basic-option">
-                                    <div class="basic-detail">
-                                        <p><strong>기본 옵션</strong></p>
-                                        <p>원본 데이터</p>
-                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                            <c:forEach var="makeup" items="${makeupSelected}">
+                                <img src="${makeup.imgUrl}" alt="${makeup.companyName}">
+                                <div class="selected">
+                                    <div class="content-main">
+                                        <p class="bold">${makeup.companyName}</p>
+                                        <p class="address">${makeup.companyAddress}</p>
                                     </div>
-                                    <div class="main-price">
-                                        <p>330,000원</p>
+                                    <div class="basic-option">
+                                        <div class="basic-detail">
+                                            <p><strong>기본 옵션</strong></p>
+                                            <p>원본 데이터</p>
+                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                                        </div>
+                                        <div class="main-price">
+                                            <p>330,000원</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </c:forEach>
                         </div>
                         <!-- 세부 옵션 -->
                         <div class="option">
