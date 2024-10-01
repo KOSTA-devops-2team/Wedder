@@ -2,7 +2,14 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%
+    String customerEmail = (String) session.getAttribute("customerEmail");
+    String customerName = (String) session.getAttribute("customerName");
+    String customerTel = (String) session.getAttribute("customerTel");
+%>
+
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
     <meta charset="UTF-8"/>
@@ -15,9 +22,15 @@
     <script defer src="${pageContext.request.contextPath}/resources/js/package/packagePayment.js"></script>
     <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- SweetAlert2 사용 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
 <script>
     var kakaoPayKey = "${paymentKeys.kakaoPayKey}";
+    var customerEmail = '<%= customerEmail %>';
+    var customerName = '<%= customerName %>';
+    var customerTel = '<%= customerTel %>';
 </script>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
