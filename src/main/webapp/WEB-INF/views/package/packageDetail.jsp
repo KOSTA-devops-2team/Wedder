@@ -3,13 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
+    Integer customerId =  (Integer) session.getAttribute("customerId");
     String customerEmail = (String) session.getAttribute("customerEmail");
     String customerName = (String) session.getAttribute("customerName");
     String customerTel = (String) session.getAttribute("customerTel");
 %>
 
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
     <meta charset="UTF-8"/>
@@ -28,6 +28,7 @@
 </head>
 <script>
     var kakaoPayKey = "${paymentKeys.kakaoPayKey}";
+    var customerId = '<%= customerId %>';
     var customerEmail = '<%= customerEmail %>';
     var customerName = '<%= customerName %>';
     var customerTel = '<%= customerTel %>';

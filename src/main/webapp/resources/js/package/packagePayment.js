@@ -14,19 +14,19 @@ function createOrderNum() {
 
 // 결제 데이터 생성 함수
 function createPaymentData() {
-    var amount = $('.final-price').text();  // 최종 결제 금액
-    var orderId = createOrderNum();  // 주문 번호 생성
-    var orderName = $('.product-name').text(); // 제품명
+    var amount = $('.final-price').text();
+    var orderId = createOrderNum();
+    var orderName = $('.product-name').text();
 
     data = {
-        amount: amount.replace(/,/g, ''),  // 금액에서 콤마 제거
+        amount: amount.replace(/,/g, ''),
         orderId: orderId,
         orderName: orderName,
+        customerId: customerId,
         customerEmail: customerEmail,
         customerName: customerName,
         customerTel: customerTel
     }
-
     return data;
 }
 
@@ -42,7 +42,7 @@ $('.pay').on('click', function (e) {
     IMP.request_pay({
         pg: 'kakaopay',
         pay_method: 'card',
-        merchant_uid: 'merchant_' + new Date().getTime(),  // 임의의 거래 ID 생성
+        merchant_uid: 'merchant_' + new Date().getTime(),
         orderId: data.orderId,
         name: data.orderName,
         amount: data.amount,
@@ -50,7 +50,7 @@ $('.pay').on('click', function (e) {
         buyer_name: data.customerName,
         buyer_tel: data.customerTel
     }, function (rsp) {
-        console.log("rsp: ", rsp);  // 전체 응답 객체를 확인
+        console.log("rsp: ", rsp);
 
         if (typeof rsp !== 'undefined' && rsp.success) {
             Swal.fire({
@@ -70,8 +70,8 @@ $('.pay').on('click', function (e) {
                         impUid: rsp.imp_uid,
                         merchantUid: rsp.merchant_uid,
                         paidAmount: rsp.paid_amount,
-                        // approvalCode: rsp.apply_num,
                         paymentTime: paymentTime,
+                        customerId: data.customerId,
                         customerEmail: data.customerEmail,
                         customerName: data.customerName,
                         customerTel: data.customerTel,
@@ -86,15 +86,19 @@ $('.pay').on('click', function (e) {
                 });
             });
         } else {
-            // 실패 처리 시 메시지 출력
-            var msg = '결제에 실패하였습니다.\n';
             var msg = '결제에 실패하였습니다.\n';
             if (rsp !== undefined) {
-                msg += '에러내용 : ' + rsp.error_msg + '\n';  // rsp.error_msg 출력
+                msg += '에러내용 : ' + rsp.error_msg + '\n';
             } else {
                 msg += '결제 응답을 받지 못했습니다.';
             }
-            alert(msg);
+
+            Swal.fire({
+                title: '결제 실패',
+                text: msg,
+                icon: 'error',  // 실패 아이콘 표시
+                confirmButtonText: '확인'
+            });
         }
     });
 });

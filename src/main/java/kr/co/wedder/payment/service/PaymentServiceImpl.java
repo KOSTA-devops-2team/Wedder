@@ -21,7 +21,6 @@ public class PaymentServiceImpl implements PaymentService {
     @Transactional
     public void savePaymentInfo(PaymentRequest paymentRequest) {
 
-        System.out.println("PaymentServiceImpl.savePaymentInfo");
         paymentDao.insertPaymentInfo(paymentRequest);
     }
 }

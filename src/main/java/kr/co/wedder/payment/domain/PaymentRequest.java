@@ -8,12 +8,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaymentRequest {
-    //private int customerId;
+    private int customerId;
     private String impUid;
     private String merchantUid;
     private int paidAmount;
-    //private String approvalCode;  // 승인 코드
-    private String paymentTime;   // 결제 시간
+    private String paymentTime;
     private String customerEmail;
     private String customerName;
     private String customerTel;

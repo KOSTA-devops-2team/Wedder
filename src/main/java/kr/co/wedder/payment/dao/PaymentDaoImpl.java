@@ -15,7 +15,6 @@ public class PaymentDaoImpl implements PaymentDao {
     @Override
     public void insertPaymentInfo(PaymentRequest paymentRequest) {
 
-        System.out.println("PaymentDaoImpl.insertPaymentInfo");
         sqlSession.insert(namespace + "insertPaymentInfo", paymentRequest);
     }
 }

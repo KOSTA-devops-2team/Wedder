@@ -23,20 +23,13 @@ public class PaymentRestController {
 
     @PostMapping("/complete")
     public ResponseEntity<String> paymentComplete(@RequestBody PaymentRequest paymentRequest) {
-        System.out.println("PaymentController.paymentComplete: " + paymentRequest);
-        System.out.println("Received customerEmail: " + paymentRequest.getCustomerEmail());
-        System.out.println("Received customerName: " + paymentRequest.getCustomerName());
 
         String impUid = paymentRequest.getImpUid();
-        System.out.println("PaymentController: impUid = " + impUid);
-
         boolean validPayment = paymentService.verifyPayment(impUid);
-
-        System.out.println("PaymentController.validPayment: " + validPayment);
 
         if (validPayment) {
             paymentService.savePaymentInfo(paymentRequest);
-            return ResponseEntity.ok("결제가 성공적으로 처리되었습니다.");
+            return ResponseEntity.ok("결제 성공");
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("결제 실패");
         }
