@@ -4,6 +4,8 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.co.wedder.customer.dao.CustomerMapper">
+
+    <!-- 회원 가입 -->
     <insert id="customerJoin" parameterType="CustomerDTO">
         insert into customer (id, password, name, phone, email, gender) values(#{id},#{password},#{name},#{phone},#{email},#{gender})
     </insert>
@@ -13,7 +15,8 @@
         SELECT COUNT(*) FROM customer WHERE id = #{id}
     </select>
 
-    <select id="findById" parameterType="string" resultType="kr.co.wedder.customer.domain.CustomerDto">
-        SELECT id FROM customer WHERE id = #{id}
+    <!-- 아이디로 사용자 정보 조회 -->
+    <select id="findById" parameterType="string" resultType="customerDTO">
+        SELECT * FROM customer WHERE id = #{id}
     </select>
 </mapper>

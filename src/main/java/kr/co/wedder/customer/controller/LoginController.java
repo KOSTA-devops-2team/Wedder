@@ -46,9 +46,7 @@ public class LoginController {
 
 		if(!loginCheck(id, password)) {
 			String msg = URLEncoder.encode("id 또는 password가 일치하지 않습니다.", "utf-8");
-//			return "redirect:/log/login?msg="+msg;
 			return "redirect:/log/login?msg=" + msg + "&id=" + URLEncoder.encode(id, "utf-8");
-
 		}
 
 		//2-2. 일치하면 로그인 후 화면(홈화면)으로 이동
@@ -80,7 +78,7 @@ public class LoginController {
 
 	private boolean loginCheck(String id, String password) {
 
-		CustomerDto customerDTO = customerDao.selectCustomer(id);
+		CustomerDto customerDTO = customerDao.findById(id);
 		if(customerDTO ==null) return false;
 
 		return customerDTO.getPassword().equals(password);

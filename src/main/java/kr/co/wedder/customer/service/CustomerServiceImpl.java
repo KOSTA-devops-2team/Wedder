@@ -11,6 +11,13 @@ public class CustomerServiceImpl implements CustomerService {
     CustomerDao customerDao;
 
     @Override
+    public boolean loginCheck(String id, String password) {
+        CustomerDto customerDTO = customerDao.findById(id);
+        // 고객 정보가 없거나 비밀번호가 맞지 않으면 false 반환
+        return customerDTO != null && customerDTO.getPassword().equals(password);
+    }
+
+    @Override
     public boolean customerJoin(CustomerDto customerDTO) {
         // 회원 가입 처리 로직
         try {
