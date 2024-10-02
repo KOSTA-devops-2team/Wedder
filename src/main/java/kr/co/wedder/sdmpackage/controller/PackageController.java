@@ -57,7 +57,6 @@ public class PackageController {
         List<PackageDetailDto> mdPickPackages = packageService.getMDPickPackages();
         model.addAttribute("MDPickPackages", mdPickPackages);
 
-
         return "package/packageRecommend";
     }
 
@@ -94,8 +93,6 @@ public class PackageController {
         model.addAttribute("packageDetails", packageDetails);
         model.addAttribute("paymentKeys", paymentKeys);
 
-        return "package/packageDetail";  // 패키지 상세 페이지로 이동
+        return "package/packageDetail";
     }
-
-
 }

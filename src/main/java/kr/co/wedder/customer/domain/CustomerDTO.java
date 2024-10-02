@@ -1,7 +1,14 @@
 package kr.co.wedder.customer.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Objects;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CustomerDTO {
     private int customerId;
     private String id;
@@ -11,9 +18,6 @@ public class CustomerDTO {
     private String email;
     private Integer gender;
 
-    // 기본 생성자
-    public CustomerDTO() {
-    }
 
     // 모든 필드를 포함한 생성자
     public CustomerDTO(String id, String password, String name, String phone, String email, Integer gender) {
