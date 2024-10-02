@@ -43,61 +43,58 @@ public class EstimateController {
         return "estimate/estimateCompany";  // JSP 페이지 반환
     }
 
-    // Ajax로 선택된 회사 목록 업데이트
-    @PostMapping("/updateSelectedCompanies")
-    public ResponseEntity<String> updateSelectedCompanies(@RequestBody Map<String, Map<String, Object>> selectedCompanies) {
+//    // Ajax로 선택된 회사 목록 업데이트
+//    @PostMapping("/updateSelectedCompanies")
+//    public ResponseEntity<String> updateSelectedCompanies(@RequestBody Map<String, Map<String, Object>> selectedCompanies) {
+//
+//        // selectedCompanies는 각 카테고리별로 선택된 회사 정보가 들어있는 Map
+//        if (selectedCompanies == null || selectedCompanies.isEmpty()) {
+//            return ResponseEntity.badRequest().body("잘못된 데이터");
+//        }
+//
+//        // 선택된 회사 정보를 처리 (로그 출력, DB 저장 등)
+//        selectedCompanies.forEach((category, companyData) -> {
+//            if (companyData != null) {
+//                Integer id = (Integer) companyData.get("id");
+//                String name = (String) companyData.get("name");
+//                Integer basicPrice = (Integer) companyData.get("basicPrice");
+//
+//                // DB 저장 로직 또는 기타 처리 로직
+//                System.out.printf("Category: %s, ID: %d, Name: %s, Basic Price: %d%n", category, id, name, basicPrice);
+//            }
+//        });
+//
+//        // 처리 후 성공 응답 반환
+//        return ResponseEntity.ok("선택된 목록이 성공적으로 업데이트되었습니다.");
+//    }
 
-        // selectedCompanies는 각 카테고리별로 선택된 회사 정보가 들어있는 Map
+    @PostMapping("/updateSelectedCompanies")
+    public ResponseEntity<String> updateSelectedCompanies(@RequestBody Map<String, Map<String, Object>> selectedCompanies, HttpSession session) {
+
         if (selectedCompanies == null || selectedCompanies.isEmpty()) {
             return ResponseEntity.badRequest().body("잘못된 데이터");
         }
 
-        // 선택된 회사 정보를 처리 (로그 출력, DB 저장 등)
-        selectedCompanies.forEach((category, companyData) -> {
-            if (companyData != null) {
-                Integer id = (Integer) companyData.get("id");
-                String name = (String) companyData.get("name");
-                Integer basicPrice = (Integer) companyData.get("basicPrice");
+        // 선택된 업체 정보를 세션에 저장
+        session.setAttribute("selectedCompanies", selectedCompanies);
 
-                // DB 저장 로직 또는 기타 처리 로직
-                System.out.printf("Category: %s, ID: %d, Name: %s, Basic Price: %d%n", category, id, name, basicPrice);
-            }
-        });
-
-        // 처리 후 성공 응답 반환
         return ResponseEntity.ok("선택된 목록이 성공적으로 업데이트되었습니다.");
     }
 
-    // 선택한 업체 목록을 세션에 저장
-    @PostMapping("/saveSelectedCompanies")
-    public String saveSelectedCompanies(@RequestBody Map<String, EstimateDto> selectedCompanies, HttpSession session) {
-
-        session.setAttribute("selectedCompanies", selectedCompanies);
-
-        // 세션에 저장된 데이터를 로그로 출력해 확인
-//        selectedCompanies.forEach((key, value) -> {
-//            System.out.println("Category: " + key + ", Name: " + value.getCompanyName() + ", Price: " + value.getBasicPrice());
-//        });
-
-        // 세션에 저장된 데이터를 로그로 출력해 확인
-        selectedCompanies.forEach((key, value) -> {
-            switch (key) {
-                case "studio":
-                    System.out.println("Category: studio, Name: " + value.getStudioName() + ", Price: " + value.getBasicPrice());
-                    break;
-                case "dress":
-                    System.out.println("Category: dress, Name: " + value.getDressName() + ", Price: " + value.getBasicPrice());
-                    break;
-                case "makeup":
-                    System.out.println("Category: makeup, Name: " + value.getMakeupName() + ", Price: " + value.getBasicPrice());
-                    break;
-            }
-        });
-        return "redirect:/estimate/estimateOption"; // 다음 페이지로 이동
-    }
-
     @GetMapping("/estimateOption")
-    public String showEstimateOptionPage() {
-        return "estimate/estimateOption"; // JSP 파일을 반환
+    public String showEstimateOptionPage(HttpSession session, Model model) {
+        // 세션에서 선택된 업체 목록을 가져옴
+        Map<String, Map<String, Object>> selectedCompanies = (Map<String, Map<String, Object>>) session.getAttribute("selectedCompanies");
+
+        // 선택한 업체가 없을 경우 처리
+        if (selectedCompanies == null || selectedCompanies.isEmpty()) {
+            return "redirect:/estimate";  // 선택된 업체가 없으면 다시 견적 페이지로 리다이렉트
+        }
+
+        // 선택된 업체 목록을 모델에 추가하여 뷰로 전달
+        model.addAttribute("selectedCompanies", selectedCompanies);
+
+        // estimateOption.jsp 페이지로 이동
+        return "estimate/estimateOption"; // JSP 파일의 경로를 반환
     }
 }

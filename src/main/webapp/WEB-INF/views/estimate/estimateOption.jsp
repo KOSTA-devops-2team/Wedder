@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -37,25 +37,23 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <c:forEach var="studio" items="${studioSelected}">
-                                <img src="${studio.imgUrl}" alt="${studio.companyName}">
-                                <div class="selected">
-                                    <div class="content-main">
-                                        <p class="bold">${studio.companyName}</p>
-                                        <p class="address">${studio.companyAddress}</p>
+                            <img src="${sessionScope.selectedCompanies.studio.imgUrl}" alt="${sessionScope.selectedCompanies.studio.name}">
+                            <div class="selected">
+                                <div class="content-main">
+                                    <p class="bold">${sessionScope.selectedCompanies.studio.name}</p>
+                                    <p class="address">${sessionScope.selectedCompanies.studio.companyAddress}</p>
+                                </div>
+                                <div class="basic-option">
+                                    <div class="basic-detail">
+                                        <p><strong>기본 옵션</strong></p>
+                                        <p>원본 데이터</p>
+                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
                                     </div>
-                                    <div class="basic-option">
-                                        <div class="basic-detail">
-                                            <p><strong>기본 옵션</strong></p>
-                                            <p>원본 데이터</p>
-                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
-                                        </div>
-                                        <div class="main-price">
-                                            <p>330,000원</p>
-                                        </div>
+                                    <div class="main-price">
+                                        <p>330,000원</p>
                                     </div>
                                 </div>
-                            </c:forEach>
+                            </div>
                         </div>
                         <!-- 세부 옵션 -->
                         <div class="option">
@@ -71,25 +69,23 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <c:forEach var="dress" items="${dressSelected}">
-                                <img src="${dress.imgUrl}" alt="${dress.companyName}">
-                                <div class="selected">
-                                    <div class="content-main">
-                                        <p class="bold">${dress.companyName}</p>
-                                        <p class="address">${dress.companyAddress}</p>
+                            <img src="${sessionScope.selectedCompanies.dress.imgUrl}" alt="${sessionScope.selectedCompanies.dress.name}">
+                            <div class="selected">
+                                <div class="content-main">
+                                    <p class="bold">${sessionScope.selectedCompanies.dress.name}</p>
+                                    <p class="address">${sessionScope.selectedCompanies.dress.companyAddress}</p>
+                                </div>
+                                <div class="basic-option">
+                                    <div class="basic-detail">
+                                        <p><strong>기본 옵션</strong></p>
+                                        <p>원본 데이터</p>
+                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
                                     </div>
-                                    <div class="basic-option">
-                                        <div class="basic-detail">
-                                            <p><strong>기본 옵션</strong></p>
-                                            <p>원본 데이터</p>
-                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
-                                        </div>
-                                        <div class="main-price">
-                                            <p>330,000원</p>
-                                        </div>
+                                    <div class="main-price">
+                                        <p>330,000원</p>
                                     </div>
                                 </div>
-                            </c:forEach>
+                            </div>
                         </div>
                         <!-- 세부 옵션 -->
                         <div class="option">
@@ -105,25 +101,23 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <c:forEach var="makeup" items="${makeupSelected}">
-                                <img src="${makeup.imgUrl}" alt="${makeup.companyName}">
-                                <div class="selected">
-                                    <div class="content-main">
-                                        <p class="bold">${makeup.companyName}</p>
-                                        <p class="address">${makeup.companyAddress}</p>
+                            <img src="${sessionScope.selectedCompanies.makeup.imgUrl}" alt="${sessionScope.selectedCompanies.makeup.name}">
+                            <div class="selected">
+                                <div class="content-main">
+                                    <p class="bold">${sessionScope.selectedCompanies.makeup.name}</p>
+                                    <p class="address">${sessionScope.selectedCompanies.makeup.companyAddress}</p>
+                                </div>
+                                <div class="basic-option">
+                                    <div class="basic-detail">
+                                        <p><strong>기본 옵션</strong></p>
+                                        <p>원본 데이터</p>
+                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
                                     </div>
-                                    <div class="basic-option">
-                                        <div class="basic-detail">
-                                            <p><strong>기본 옵션</strong></p>
-                                            <p>원본 데이터</p>
-                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
-                                        </div>
-                                        <div class="main-price">
-                                            <p>330,000원</p>
-                                        </div>
+                                    <div class="main-price">
+                                        <p>330,000원</p>
                                     </div>
                                 </div>
-                            </c:forEach>
+                            </div>
                         </div>
                         <!-- 세부 옵션 -->
                         <div class="option">
@@ -142,9 +136,20 @@
                         <h2>선택하신 목록</h2>
                         <div class="list">
                             <div class="item-title">
-                                <span>S 스튜디오</span>
-                                <span>330,000원</span>
+                                <p>이름: ${sessionScope.selectedCompanies.studio.name}</p>
+                                <p>가격: ${sessionScope.selectedCompanies.studio.basicPrice}</p>
                             </div>
+
+                            <div class="item-title">
+                                <p>이름: ${sessionScope.selectedCompanies.dress.name}</p>
+                                <p>가격: ${sessionScope.selectedCompanies.dress.basicPrice}</p>
+                            </div>
+
+                            <div class="item-title">
+                                <p>이름: ${sessionScope.selectedCompanies.makeup.name}</p>
+                                <p>가격: ${sessionScope.selectedCompanies.makeup.basicPrice}</p>
+                            </div>
+
                             <div class="items">
                                 <div class="item">
                                     <p><img src="../../assets/images/icon-minus.png" alt="">수정 데이터</p>

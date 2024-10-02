@@ -229,7 +229,7 @@
         </div>
         <div class="btn">
             <button class="back">이전</button>
-            <button onclick="location.href='estimate/estimateOption'" class="next">다음으로</button>
+                <button class="next">다음으로</button>
         </div>
     </div>
 </div>

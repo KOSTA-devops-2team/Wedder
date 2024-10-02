@@ -70,11 +70,19 @@ $(document).ready(function() {
 
     // 선택된 목록에 회사 추가
     function addCompanyToList(category, companyId, companyName, basicPrice) {
-        const listItem = `<div id="${category}-${companyId}" class="selected-item">
-                            <a href="javascript:void(0);" class="selected-company-link" data-category="${category}" data-company-id="${companyId}">
-                                ${companyName} (${category}) - ${basicPrice.toLocaleString()}원
-                            </a>
-                          </div>`;
+        // const listItem = `<div id="${category}-${companyId}" class="selected-item">
+        //                     <a href="javascript:void(0);" class="selected-company-link" data-category="${category}" data-company-id="${companyId}">
+        //                         ${companyName} (${category}) ${basicPrice.toLocaleString()}원
+        //                     </a>
+        //                   </div>`;
+        const listItem = `
+        <div id="${category}-${companyId}" class="selected-item">
+            <a href="javascript:void(0);" class="selected-company-link" data-category="${category}" data-company-id="${companyId}">
+                <span class="company-info">${companyName} (${category})</span>
+                <span class="company-price">${basicPrice.toLocaleString()}원</span>
+            </a>
+        </div>`;
+
         $("#select-item").append(listItem);
 
         // 선택한 항목 클릭 시 삭제
@@ -100,7 +108,6 @@ $(document).ready(function() {
             }
         }
         // toLocaleString()을 사용하여 천 단위 구분
-        // $("#price-regular").text(`${totalPrice.toLocaleString()}원`);
         $("#price-total").text(`${totalPrice.toLocaleString()}원`);
     }
 
@@ -120,5 +127,30 @@ $(document).ready(function() {
 
         // 가격 초기화
         updatePrice();
+    });
+    $(".next").on("click", function() {
+        // 선택된 업체가 있는지 확인
+        if (!selectedCompanies.studio && !selectedCompanies.dress && !selectedCompanies.makeup) {
+            alert("업체를 선택하세요.");
+            return; // 선택된 업체가 없을 때 이후 코드 실행을 막음
+        }
+
+        // 선택한 업체 데이터를 서버로 전송하는 AJAX 요청
+        $.ajax({
+            url: "/estimate/updateSelectedCompanies", // 데이터를 전송할 URL
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(selectedCompanies), // 선택한 업체 데이터를 JSON 형식으로 전송
+            success: function(response) {
+                console.log("선택된 업체 목록이 서버에 성공적으로 전송되었습니다.");
+
+                // 전송 성공 시 다음 페이지로 이동
+                window.location.href = '/estimate/estimateOption';
+            },
+            error: function() {
+                console.log("서버에 선택한 업체 목록을 전송하는 데 실패했습니다.");
+                alert("업체 목록 전송에 실패했습니다. 다시 시도하세요.");
+            }
+        });
     });
 });
