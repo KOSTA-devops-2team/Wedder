@@ -69,7 +69,6 @@ public class CustomerDaoImpl implements CustomerDao {
                 customerDTO.setCustomerId(rs.getInt("customer_id"));  // customer_id 값
                 customerDTO.setId(rs.getString("id"));  // 숫자가 아닌 칼럼명???
                 customerDTO.setPassword(rs.getString("password"));
-                customerDTO.setPassword(rs.getString("password"));
                 customerDTO.setName(rs.getString("name"));
                 customerDTO.setPhone(rs.getString("phone"));
                 customerDTO.setEmail(rs.getString("email"));
