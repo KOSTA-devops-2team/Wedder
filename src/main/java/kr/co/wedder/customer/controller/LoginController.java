@@ -70,6 +70,12 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		// 세션 객체에 id를 저장
 		session.setAttribute("id", id);
+		CustomerDTO customerDTO = customerDao.selectCustomer(id);
+		session.setAttribute("customerId", customerDTO.getCustomerId());
+		System.out.println("LoginController.login" +  customerDTO.getCustomerId());
+		session.setAttribute("customerName", customerDTO.getName());
+		session.setAttribute("customerEmail", customerDTO.getEmail());
+		session.setAttribute("customerTel", customerDTO.getPhone());
 		//4. 뷰이동
 		toURL = toURL==null || toURL.equals("") ? "/" : toURL;
 

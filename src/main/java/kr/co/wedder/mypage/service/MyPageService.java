@@ -21,20 +21,25 @@ public interface MyPageService {
 	DressInfo dressInfoRead(Integer dressId) throws Exception;
 	//MakeupInfo
 	MakeupInfo makeupInfoRead(Integer makeupId) throws Exception;
+	List<OptionDto> optionRead(String category) throws Exception;
 	//OptionInfo
-	OptionDto optionRead(Integer optionId) throws Exception;
 	//packageCategory
 	PackageCategoryDto packageCategoryRead(Integer categoryId) throws Exception;
 	//StudioInfo
 	StudioInfo 	studioInfoRead(Integer studioId) throws Exception;
-
 	//table count service
+
 	Integer todayVisitCount(Map<String, Object> map) throws Exception;
-	
-	// join table service 
+	// join table service
+
 	List<CompanyDto> 	todayReservationHistory(Map<String, Object>map) throws Exception;
 	List<VisitCriteria> todayVisitHistory(Map<String, Object> map) throws Exception;
 	List<VisitCriteria> hallVisitReservatioinList(Map<String, Object> map) throws Exception;
 	List<VisitCriteria> coReservationList(Map<String, Object> map) throws Exception;
-	
+	// 09/24
+	MakeupInfo toCustomerMakeupInfo(Map<String,Object> map) throws Exception;
+	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map,String category) throws Exception;
+	// 09/25
+	MyPageDTO cutomerId(String id) throws Exception;
+
 }

@@ -39,15 +39,32 @@ public interface MyPageDao {
 
 	List<VisitCriteria> coReservationList(Map<String, Object> map) throws Exception;
 
+	// 09/23일 상세 예약 내역
+	List<VisitCriteria> coReservationDetail(Map<String, Object> map) throws Exception;
+
 	// 0912
 	DressInfo selectDressInfo(Integer dressId) throws Exception;
 
 	// 09/ 12일 옵션들 추가
 	MakeupInfo selectMakeupInfo(Integer makeupId) throws Exception;
 
-	OptionDto selectOptionDto(Integer optionId) throws Exception;
+	List<OptionDto> selectOptionDto(String category) throws Exception;
 
 	PackageCategoryDto selectPackCa(Integer categoryId) throws Exception;
 
 	StudioInfo selectStudioInfo(Integer studioId) throws Exception;
+
+	//메이크업을 받는  정보를 불러오는 select
+	MakeupInfo toCustomerMakeupInfo(Map<String,Object> map) throws  Exception;
+	//메이크업(테이블)에 대한 옵션
+	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map) throws Exception;
+	//스튜디오(테이블)에 대한 옵션
+	List<VisitCriteria> toCustomerOptionInfo2(Map<String,Object> map) throws  Exception;
+	//드레스(테이블)에 대한 옵션
+	List<VisitCriteria> toCustomerOptionInfo3(Map<String,Object> map) throws  Exception;
+	//웨딩홀(테이블)에 대한 옵션
+	List<VisitCriteria> toCustomerOptionInfo4(Map<String,Object> map) throws  Exception;
+	// customer Id 를 컨트롤러에 넣기 위해 만든 mapper
+	MyPageDTO customerId(String id) throws Exception;
+
 }

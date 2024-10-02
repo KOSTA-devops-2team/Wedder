@@ -44,7 +44,6 @@ public class PackageDaoImpl implements PackageDao {
     @Override
     public List<PackageDetailDto> autocomplete(Map<String, Object> paramMap) throws Exception {
 
-        System.out.println("PackageDaoImpl: paramMap - " + paramMap);
         return sqlSession.selectList(namespace + "autocomplete", paramMap);
     }
 
@@ -60,11 +59,9 @@ public class PackageDaoImpl implements PackageDao {
     public List<PackageDetailDto> selectPackagesByPriceRange(int minPrice, int maxPrice) {
 
         Map map = new HashMap<>();
-        System.out.println("PackageDaoImp의 map " + map);
         map.put("minPrice", minPrice);
         map.put("maxPrice", maxPrice);
 
-        System.out.println("PackageDaoImpl.selectPackagesByPriceRange");
         return sqlSession.selectList(namespace + "selectPackagesByPriceRange", map);
     }
 }

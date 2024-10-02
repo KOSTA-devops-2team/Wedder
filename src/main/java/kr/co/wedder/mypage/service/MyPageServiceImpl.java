@@ -49,8 +49,8 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
 	@Override
-	public OptionDto optionRead(Integer optionId) throws Exception {
-		return myPageDao.selectOptionDto(optionId);
+	public List<OptionDto> optionRead(String category) throws Exception {
+		return myPageDao.selectOptionDto(category);
 	}
 
 	@Override
@@ -97,9 +97,29 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
 
-	
 
+	@Override
+	public MakeupInfo toCustomerMakeupInfo(Map<String, Object> map) throws Exception {
+		return myPageDao.toCustomerMakeupInfo(map);
+	}
 
+	@Override
+	public List<VisitCriteria> toCustomerOptionInfo(Map<String, Object> map,String category) throws Exception {
+		if (category.equals("메이크업") ){
+			return myPageDao.toCustomerOptionInfo(map);
+		}else if (category.equals("스튜디오")){
+			return myPageDao.toCustomerOptionInfo2(map);
+		} else if (category.equals("드레스")) {
+			return myPageDao.toCustomerOptionInfo3(map);
+		} else if (category.equals("웨딩홀")) {
+			return myPageDao.toCustomerOptionInfo4(map);
+		}
+		return null;
+	}
 
+	@Override
+	public MyPageDTO cutomerId(String id) throws Exception {
+		return myPageDao.customerId(id);
+	}
 
 }

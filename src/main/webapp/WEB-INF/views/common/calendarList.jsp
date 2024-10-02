@@ -9,12 +9,11 @@
 		<title>calendarList</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/calendarList.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"  />
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		
 	</head>
 	<body>
 		<section class="calendar-container" id="calendar-section1">
-			<form action="" id="form" class="frm" method="post">
 				<div class="calendar-header">
 					<button id="prevBtn"> <</button>
 					<div id="yearMonth">
@@ -26,6 +25,7 @@
 					</div>
 					<button id="nextBtn"> > </button>
 				</div>
+
 				<div id="scheduleBtn">
 				
 					<button id ="regBtn" type="button" class="btn btn-write"
@@ -61,19 +61,10 @@
 					<div class = "calendar-footer">
 				</div>
 				
-			</form>
 				<section id="calendarBoard">
 					<div style="text-align: center;">
 						<div class="schedule-container">
-							<!-- <div class="searcdh-container">
-								<form action="" class="search-form" method="get">
-									<select class="search-option" name="option">
-										
-									</select>
-									<input type="text" name="key"> 
-								</form>
-							</div> -->
-							
+
 							<div>${dto.scheduleId }</div>
 							
 							<table>
@@ -167,10 +158,10 @@
                              
                              $.ajax({
                              	type: 'post', // 요청메서드 
-                             	url: "/wedder/calendar/send2", //요청 URI
+                             	url: "/calendar/send2", //요청 URI
                              	headers:{"Content-Type":"application/json"}, //요청 헤더
                              	data: JSON.stringify(test),
-                             	dataType: "text", //전송 받을 데이터의 타입더
+                             	dataType: "json", //전송 받을 데이터의 타입더
                              	success: function(result){ // 서버로부터 응답이 도착하면 호출될 함수 
                              		test2 =JSON.parse(result) //result는 서버가 전송한 데이터 
                              		alert("received: "+result)

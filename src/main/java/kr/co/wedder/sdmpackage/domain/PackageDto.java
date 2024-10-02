@@ -1,26 +1,19 @@
 package kr.co.wedder.sdmpackage.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PackageDto {
-
-//        private int packageId;
-//        private String packageName;
-//        private String packageImg;
-//        private String description;
-//        private int discountRate;
-//        private String studioName;
-//        private String dressName;
-//        private String makeupName;
 
         private String makeupImgUrl;
         private String studioImgUrl;
         private String dressImgUrl;
-
-
 
         // 패키지 기본 정보
         private int packageId;

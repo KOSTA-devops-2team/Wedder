@@ -35,9 +35,7 @@
 	if(msg == "MOD_ERR") alert("게시물 수정에 실패하였습니다. 다시 시도해 주세요.")
 	
 	$(document).ready(function() {
-		//let schedule_id=1
-		//let schedule_id =$("input[name=schedule_id]").val()
-		
+
 		//보드 목록 버튼 
 		$("#listBtn").on("click",function(){
 			location.href="<c:url value="/calendar/list${searchItem.queryString}"/>"

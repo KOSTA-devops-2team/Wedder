@@ -36,17 +36,42 @@
 	    SELECT * FROM dressInfo
 	</sql>
 	<sql id="selectFromOptionDto">
-	    SELECT * FROM optionDto
+	    SELECT * FROM `option`
 	</sql>
-
+	<resultMap id="ToCustomerMap" type="MakeupInfo">
+		<id column="makeup_id" property="makeupId"/>
+		<result column="company_id" property="companyId"/>
+		<result column="package_id" property="packageId"/>
+		<result column="target" property="target"/>
+		<result column="makeup_type" property="makeupType"/>
+		<result column="position" property="position"/>
+	</resultMap>
+	<resultMap id="OptionDtoMap" type="OptionDto">
+		<id column="option_id" property="optionId"/>
+		<result column="hall_id" property="hallId"/>
+		<result column="studio_id" property="studioId"/>
+		<result column="dress_id" property="dressId"/>
+		<result column="makeup_id" property="makeupId"/>
+		<result column="option_name" property="optionName"/>
+		<result column="option_price" property="optionPrice"/>
+		<result column="category" property="category"/>
+	</resultMap>
 	<resultMap type="VisitCriteria" id="joinVisitCriteria">
 	
 		<association property="companyDto" javaType="CompanyDto">
 			<result column="company_id" property="companyId"/>
 			<result column="company_name" property="companyName"/>
+			<result column="company_address" property="companyAddress"/>
+			<result column="company_introduce" property="introduce"/>
 			<result column="company_category" property="category"/>
+			<result column="phone_num" property="phoneNum"/>
+			<result column="operation_hours" property="operationHours"/>
+			<result column="instagram_url" property="instagramUrl"/>
+			<result column="basic_price" property="basicPrice"/>
+			<result column="mood" property="mood"/>
+			<result column="location" property="location"/>
 		</association>
-		
+
 		<association property="myPageDTO" javaType="MyPageDTO">
 			<result column="customer_id" property="customerId"/>
 			<result column="name" property="name"/>
@@ -64,9 +89,43 @@
 		</association>
 		
 		<association property="hallInfoDto" javaType="HallInfoDto">
+			<result column="hall_id" property="hallId"/>
+			<result column="hall_type" property="hallType"/>
 			<result column="min_people" property="minPeople"/>
+			<result column="parking" property="parking"/>
+			<result column="meal_price" property="mealPrice"/>
 		</association>
-		
+		<association property="dressInfo" javaType="DressInfo">
+			<result column="dress_id" property="dressId"/>
+			<result column="dress_type" property="dressType"/>
+			<result column="repair_service" property="dressRepairService"/>
+			<result column="consultation_time" property="dressConsultationTime"/>
+			<result column="fitting_cnt" property="fittingCnt"/>
+			<result column="measurement_time" property="dressMeasurementTime"/>
+			<result column="composition" property="dressComposition"/>
+		</association>
+		<association property="makeupInfo" javaType="MakeupInfo">
+			<result column="makeup_id" property="makeupId"/>
+			<result column="company_id" property="companyId"/>
+			<result column="package_id" property="packageId"/>
+			<result column="target" property="target"/>
+			<result column="makeup_type" property="makeupType"/>
+			<result column="position" property="position"/>
+		</association>
+		<association property="studioInfo" javaType="StudioInfo">
+
+		</association>
+		<association property="optionDto" javaType="OptionDto">
+			<result column="option_id" property="optionId"/>
+			<result column="hall_id" property="hallId"/>
+			<result column="studio_id" property="studioId"/>
+			<result column="dress_id" property="dressId"/>
+			<result column="makeup_id" property="makeupId"/>
+			<result column="option_name" property="optionName"/>
+			<result column="option_price" property="optionPrice"/>
+			<result column="category" property="category"/>
+
+		</association>
 		<association property="companyImage" javaType="CompanyImage">
 			<result column="img_url" property="imgUrl"/>
 		</association>
@@ -125,9 +184,9 @@
 	    where dress_id =#{dressId}
 	</select>
 	
-	<select id="selectOptionDto" parameterType="int" resultType="OptionDto">
+	<select id="selectOptionDto" parameterType="String" resultMap="OptionDtoMap">
 		<include refid="selectFromOptionDto"/>
-	    WHERE option_id =#{optionId}
+	    WHERE category =#{category}
 	</select>
 
 	<select id="todayVisitHistory" parameterType="map" resultMap="joinVisitCriteria" >
@@ -155,8 +214,7 @@
 	</select>
 	
 	<select id="hallVisitReservatioinList" parameterType="map" resultMap="joinVisitCriteria">
-		select companyImage.img_url,			customer.name, company.company_name,
-				reservation.reservation_date, 	reservation.reservation_time, hallInfo.min_people
+		select *
 		From reservation
 			JOIN company 			ON 	company.company_id 			= reservation.company_id
     		JOIN customer 			ON 	reservation.customer_id 	= customer.customer_id
@@ -168,8 +226,7 @@
    		and 						reservation.visit_reservation 	= #{visitReservation}
 	</select>
 	<select id="coReservationList" parameterType="map" resultMap="joinVisitCriteria">
-		select companyImage.img_url,customer.name, company.company_name,
-				reservation.reservation_date, reservation.reservation_time
+		select *
 		From reservation
 	         JOIN company 			ON 	company.company_id 			= reservation.company_id
 	         JOIN customer 			ON 	reservation.customer_id 	= customer.customer_id
@@ -177,5 +234,74 @@
 
 		where   					customer.customer_id 			= #{customerId}
 	  	and   		    			company.company_category 		= #{category}
-	</select> 
+	</select>
+
+	<select id="coReservationDetail" parameterType="map" resultMap="joinVisitCriteria">
+		SELECT * ,
+		(CASE
+		WHEN c.company_category ='웨딩홀' THEN hallInfo.hall_type
+		end )as '웨딩홀',
+		(CASE
+		WHEN c.company_category ='드레스' THEN dressInfo.dress_type
+		end )as '드레스',
+		(CASE
+		WHEN c.company_category ='메이크업' THEN makeupInfo.makeup_type
+		end ) as '메이크업',
+		(CASE
+		WHEN c.company_category ='스튜디오' THEN studioInfo.shoot_type
+		end ) as '스튜디오'
+		from company c
+		LEFT  JOIN hallInfo           ON c.company_id                 = hallInfo.company_id
+		LEFT  JOIN dressInfo          ON c.company_id                 = dressInfo.company_id
+		LEFT  JOIN makeupInfo         ON c.company_id                 = makeupInfo.company_id
+		LEFT  JOIN studioInfo         ON c.company_id                 = studioInfo.company_id
+		LEFT  JOIN `option`           ON c.company_category           = option.category
+		where c.company_category IN ('웨딩홀','드레스','메이크업','스튜디오')
+	</select>
+
+<!--메이크업 정보를 불러오는 select	-->
+	<select id="ToCustomerMakeupInfo" parameterType="map" resultMap="ToCustomerMap">
+		select * from makeupInfo
+		where makeup_id=#{makeupId} and company_id=#{companyId}
+	</select>
+
+<!--테이블 값을 불러오는 매퍼	-->
+	<!--메이크업	옵션정보 테이블 -->
+		<select id="ToCustomerOptionInfo" parameterType="map" resultMap="joinVisitCriteria">
+			select *
+			from `option`
+			join wedder.makeupInfo mI on `option`.makeup_id = mI.makeup_id
+			where mI.makeup_id=#{makeupId} and company_id=#{companyId}
+		</select>
+	<!--스튜디오 옵션정보 테이블	-->
+		<select id="ToCustomerOptionInfo2" parameterType="map" resultMap="joinVisitCriteria">
+			select *
+			from `option`
+			join wedder.studioInfo sI on `option`.studio_id = sI.studio_id
+			where sI.studio_id =#{studioId} and company_id =#{companyId}
+		</select>
+	<!--드레스 옵션정보 테이블-->
+		<select id="ToCustomerOptionInfo3" parameterType="map" resultMap="joinVisitCriteria">
+			select *
+			from `option`
+			join wedder.dressInfo dI on `option`.dress_id = dI.dress_id
+			where dI.dress_id =#{dressId} and company_id =#{companyId}
+		</select>
+	<!--웨딩홀  옵션정보 테이블-->
+		<select id="ToCustomerOptionInfo4" parameterType="map" resultMap="joinVisitCriteria">
+			select *
+			from `option`
+			join wedder.hallInfo hI on `option`.hall_id = hI.hall_id
+			where hI.hall_id =#{hallId} and company_id =#{companyId}
+		</select>
+
+
+	<!-- session 으로 얻어온 id 로 customerId를 찾는 mapper-->
+	<select id="customerId" parameterType="String" resultType="MypageDTO">
+		select * from customer
+		where id="${id}";
+	</select>
+
+
+
 </mapper>
