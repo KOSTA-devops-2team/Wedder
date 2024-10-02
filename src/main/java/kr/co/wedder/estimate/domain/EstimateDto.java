@@ -53,4 +53,9 @@ public class EstimateDto {
 
     // 업체 이미지
     private String imgUrl;
+
+    //옵션 정보
+    private int optionId;
+    private String optionName;
+    private int optionPrice;
 }

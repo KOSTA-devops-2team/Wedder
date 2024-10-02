@@ -37,23 +37,15 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <img src="${sessionScope.selectedCompanies.studio.imgUrl}" alt="${sessionScope.selectedCompanies.studio.name}">
-                            <div class="selected">
-                                <div class="content-main">
-                                    <p class="bold">${sessionScope.selectedCompanies.studio.name}</p>
-                                    <p class="address">${sessionScope.selectedCompanies.studio.companyAddress}</p>
-                                </div>
-                                <div class="basic-option">
-                                    <div class="basic-detail">
-                                        <p><strong>기본 옵션</strong></p>
-                                        <p>원본 데이터</p>
-                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
-                                    </div>
-                                    <div class="main-price">
-                                        <p>330,000원</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <c:if test="${not empty selectedCompanies.studio}">
+                                <h2>스튜디오</h2>
+                                <p>이름: ${selectedCompanies.studio.name}</p>
+                                <p>기본 가격: ${selectedCompanies.studio.basicPrice}</p>
+                                <h3>옵션 목록</h3>
+                                <c:forEach var="option" items="${companyOptions.studio}">
+                                    <p>옵션 이름: ${option.optionName} - ${option.optionPrice}원</p>
+                                </c:forEach>
+                            </c:if>
                         </div>
                         <!-- 세부 옵션 -->
                         <div class="option">
@@ -138,6 +130,14 @@
                             <div class="item-title">
                                 <p>이름: ${sessionScope.selectedCompanies.studio.name}</p>
                                 <p>가격: ${sessionScope.selectedCompanies.studio.basicPrice}</p>
+                            </div>
+                            <div id="selected-options">
+                                <c:forEach var="category" items="${selectedOptions}">
+                                    <h3>${category.key}</h3>
+                                    <c:forEach var="option" items="${category.value}">
+                                        <p>옵션 이름: ${option.optionName} - ${option.optionPrice}원</p>
+                                    </c:forEach>
+                                </c:forEach>
                             </div>
 
                             <div class="item-title">

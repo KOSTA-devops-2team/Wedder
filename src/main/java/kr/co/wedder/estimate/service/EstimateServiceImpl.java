@@ -30,4 +30,11 @@ public class EstimateServiceImpl implements EstimateService {
         System.out.println("Service: getMakeupList 호출됨");
         return estimateDao.getMakeupList();
     }
+
+    // companyId와 category를 사용하여 해당 업체의 옵션을 가져옴
+    public List<EstimateDto> getOptionsByCompanyId(int companyId, String category) {
+        System.out.println("Company ID: " + companyId + ", Category: " + category);
+
+        return estimateDao.findOptionsByCompanyIdAndCategory(companyId, category);
+    }
 }

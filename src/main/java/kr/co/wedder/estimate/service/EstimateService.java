@@ -8,4 +8,5 @@ public interface EstimateService {
     List<EstimateDto> getStudioList();
     List<EstimateDto> getDressList();
     List<EstimateDto> getMakeupList();
+    List<EstimateDto> getOptionsByCompanyId(int companyId, String category);
 }

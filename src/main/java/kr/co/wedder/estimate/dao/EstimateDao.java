@@ -7,4 +7,5 @@ public interface EstimateDao {
     List<EstimateDto> getStudioList();
     List<EstimateDto> getDressList();
     List<EstimateDto> getMakeupList();
+    List<EstimateDto> findOptionsByCompanyIdAndCategory(int companyId, String category);
 ;}

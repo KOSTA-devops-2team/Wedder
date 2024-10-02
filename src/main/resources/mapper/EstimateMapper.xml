@@ -40,4 +40,11 @@
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
         WHERE c.company_category = '메이크업';
     </select>
+
+    <select id="getOptionsByCompanyIdAndCategory" parameterType="map" resultType="OptionDto">
+        SELECT option_id, option_name, option_price
+        FROM `option`
+        WHERE company_id = #{companyId} AND category = #{category}
+    </select>
+
 </mapper>
