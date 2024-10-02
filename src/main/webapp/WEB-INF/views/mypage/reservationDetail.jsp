@@ -17,6 +17,7 @@
       	<script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
         <script src ="${pageContext.request.contextPath}/resources/js/mypage/reservationDetail.js"></script>
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
     <title>reservationDetail</title>
   </head>
 	<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
@@ -52,8 +53,11 @@
             <div class="calandars-payment-list">
                 <%@ include file="/WEB-INF/views/common/calendarList.jsp" %>
 
-                <%-- get 정보로 예약된 날짜를 가져오는 중--%>
-                <div id="getDate"> ${date} </div>
+
+                <%--get 정보로 예약된 날짜를 가져오는 중--%>
+                    <div id="getYear" style="display: none"> ${OnlyYear} </div>
+                    <div id="getMonth"  style="display: none" > ${OnlyMonth} </div>
+                    <div id="getDay"  style="display: none" > ${OnlyDay} </div>
 
                 <div class="calandar-Content">
                   <div class="calandar-top">상세 예약 내역</div>

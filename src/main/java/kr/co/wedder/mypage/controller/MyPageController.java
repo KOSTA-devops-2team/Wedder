@@ -116,8 +116,13 @@ public class MyPageController {
 		String category = request.getParameter("category");
 		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
 		String date=request.getParameter("date");
+		String OnlyYear=OnlyDate(date,"year");
+		String OnlyMonth=OnlyDate(date,"month");
+		String OnlyDay=OnlyDate(date, "day");
 
-		m.addAttribute("date",date);
+		m.addAttribute("OnlyYear",OnlyYear);
+		m.addAttribute("OnlyMonth",OnlyMonth);
+		m.addAttribute("OnlyDay",OnlyDay);
 
 		//map 추가
 		Map<String,Object> toCustomerMakeupMap= new HashMap<>();
@@ -327,21 +332,24 @@ public class MyPageController {
 		return "common/calendar";
 	}
 	
-	public List OnlyDate(String date){
+	public String OnlyDate(String date,String datetype){
 		if(date != null && !date.isEmpty()){
-			String[] parts = date.split(" ");
+			String[] parts = date.split("-");
 
-			if(parts.length==6){
-				String year= parts[5];
+			if(parts.length==3){
+				String year= parts[0];
 				String month = parts[1];
 				String day = parts[2];
 				String onlyDate = year+"-"+month+"-"+day;
-				List list = new ArrayList();
-				list.add(1,year);
-				list.add(2,month);
-				list.add(3,day);
+				if (datetype.equals("year")){
+					onlyDate=year;
+				} else if (datetype.equals("month")) {
+					onlyDate=month;
+				} else if (datetype.equals("day")) {
+					onlyDate=day;
+				}
 				System.out.println(onlyDate);
-				return list;
+				return onlyDate;
 			}
 		}
 		return null;

@@ -84,6 +84,7 @@
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
         <artifact name="wedder:war exploded" />
+        <artifact name="wedder:war" />
       </option>
     </method>
   </configuration>

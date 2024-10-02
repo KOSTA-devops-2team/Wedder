@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +21,7 @@
       <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
       <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
       <script defer src="${pageContext.request.contextPath}/resources/js/mypage/reservationList.js"></script>
-      
+
   </head>
   <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
   <body>
@@ -229,12 +231,12 @@
 						  </div>
 						  <div class="inputs">
 							<p>${coCriteria.myPageDTO.name}</p>
-							<p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate}" pattern="yyyy-MM-dd"/></p>
+							<p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate}" pattern="yyyy-MM-dd" var="formattedDate"/>${formattedDate}</p>
 							<p>${coCriteria.reservationDto.reservationTime }</p>
 						  </div>
 						</div>
 						<div class="content-end">
-						  <a href="/mypage/reservation-detail?category=${coCriteria.companyDto.category}&companyId=${coCriteria.companyDto.companyId}&date=${coCriteria.reservationDto.reservationDate}">예약 상세 보러가기>></a>
+						  <a href="/mypage/reservation-detail?category=${coCriteria.companyDto.category}&companyId=${coCriteria.companyDto.companyId}&date=${formattedDate}">예약 상세 보러가기>></a>
 						</div>
 
 					  </div>

@@ -6,12 +6,15 @@ const nextBtn = document.getElementById("nextBtn");
 const currentHourElement=document.getElementById("currentHour");
 const currentMinuteElement=document.getElementById("currentMinute");
 const currentSecondElement=document.getElementById("currentSecond");
+/*reservation-detail에서 사용*/
+
 
 const today=new Date();
 // 현재 날짜를 나타내는 Date 객체를 저장한다.
 let currentMonth = today.getMonth();
 /* 현재 월을 나타내는 값을 저장한다. getMonth() 메서드는 0부터 시작하는 월을 반환하므로
 1월이면 0, 2월이면 1을 반환한다. */
+
 let currentYear = today.getFullYear();
 // 변수에 현재 연도를 나타내는 값을 저장한다.
 let currentHour=today.getHours();
@@ -114,6 +117,14 @@ nextBtn.addEventListener("click", () => {
 
 });
 
+/*날짜 표시 */
+$(document).ready(function(){
+console.log(getInfoYear);
+console.log(getInfoMonth);
+console.log(getInfoDay);
+
+
+})
 
 
 
