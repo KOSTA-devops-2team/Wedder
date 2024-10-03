@@ -239,8 +239,8 @@ $(function() {
                     // ajax를 통해 서버에 값을 보내고
                     // 서버에서 다시 값을 보내면 result에 들어감
                     console.log('통신 성공 : ' + result);
-                    alert("회원가입을 환영합니다! 홈페이지로 돌아갑니다.");
-                    location.href = '/';
+                    alert("회원가입을 환영합니다! 로그인 페이지로 돌아갑니다.");
+                    location.href = '/log/login';
                     // 메인 페이지로 보냄
                 },
                 error : function(xhr, status, error) {
