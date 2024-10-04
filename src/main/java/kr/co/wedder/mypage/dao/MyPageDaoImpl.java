@@ -1,11 +1,11 @@
 package kr.co.wedder.mypage.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.*;
-import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -139,5 +139,7 @@ public class MyPageDaoImpl implements MyPageDao {
 	public MyPageDTO customerId(String id) throws Exception {
 		return session.selectOne(namespace+"customerId",id);
 	}
+
+
 
 }

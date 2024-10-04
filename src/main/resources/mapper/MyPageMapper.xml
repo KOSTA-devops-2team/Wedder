@@ -299,9 +299,7 @@
 	<!-- session 으로 얻어온 id 로 customerId를 찾는 mapper-->
 	<select id="customerId" parameterType="String" resultType="MypageDTO">
 		select * from customer
-		where id="${id}";
+		where id="#{id}";
 	</select>
-
-
 
 </mapper>

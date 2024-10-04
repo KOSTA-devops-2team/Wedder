@@ -97,10 +97,12 @@ public class MyPageController {
 	public String likeList() {
 		return "mypage/likeList";
 	}
+
 	@RequestMapping(value="/mypayment")
 	public String myPayment() {
 		return "mypage/myPayment";
 	}
+
 	@RequestMapping(value="/payment-detail")
 	public String paymentDetail() {
 		return "mypage/paymentDetail";

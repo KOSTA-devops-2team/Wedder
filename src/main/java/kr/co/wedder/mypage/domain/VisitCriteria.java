@@ -25,6 +25,8 @@ public class VisitCriteria {
 	private PackageCategoryDto packageCategoryDto;
 
 
+
+
 	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,
 			HistoryDto historyDto) {
 		this.companyDto = companyDto;
