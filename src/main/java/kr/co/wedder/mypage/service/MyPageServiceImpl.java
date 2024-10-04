@@ -122,4 +122,9 @@ public class MyPageServiceImpl implements MyPageService {
 		return myPageDao.customerId(id);
 	}
 
+	@Override
+	public List<Map<String, Object>> paymentHistory(Integer customer_id) throws Exception {
+		return myPageDao.paymentTest(customer_id);
+	}
+
 }

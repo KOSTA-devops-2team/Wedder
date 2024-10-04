@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.*;
+import kr.co.wedder.mypage.service.MyPageService;
 import kr.co.wedder.sdmpackage.dao.PackageDao;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
 import kr.co.wedder.sdmpackage.domain.PackageDto;
@@ -233,7 +234,23 @@ public class MyPageDaoImplTest {
 		System.out.println(myPageDTO);
 	}
 
+	@Autowired
+	private MyPageService service;
+	@Test
+	public void paymentTest() throws Exception{
+		/*List<Map<String,Object>> testList = dao.paymentTest(1);
+		System.out.println(testList);
+		System.out.println(testList.get(1).get("customer_tel"));*/
 
+
+		List<Map<String,Object>> serviceList =service.paymentHistory(1);
+		System.out.println(serviceList);
+		System.out.println(serviceList.get(1));
+		System.out.println("날짜"+serviceList.get(1).get("payment_time"));
+		System.out.println("주문 "+serviceList.get(1).get("order_name"));
+		System.out.println("금액 "+serviceList.get(1).get("paid_amount"));
+
+	}
 }
 
 

@@ -42,4 +42,5 @@ public interface MyPageService {
 	// 09/25
 	MyPageDTO cutomerId(String id) throws Exception;
 
+	List<Map<String,Object>> paymentHistory(Integer customer_id) throws Exception;
 }
