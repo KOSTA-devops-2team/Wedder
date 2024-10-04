@@ -187,10 +187,7 @@
     align-items: center; /* 세로 정렬 중앙 맞춤 */
 }
 .selected-item {
-    padding: 10px; /* 선택된 아이템에 약간의 패딩을 줘서 구분 가능하게 */
-    background-color: #f9f9f9; /* 약간의 배경색을 주면 구분하기 쉽습니다 */
-    border: 1px solid #ddd; /* 경계선 */
-    border-radius: 5px; /* 부드러운 모서리 */
+    padding: 10px;
 }
 .company-info,
 .company-price {

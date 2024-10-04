@@ -128,8 +128,8 @@
                         <h2>선택하신 목록</h2>
                         <div class="list">
                             <div class="item-title">
-                                <p>이름: ${sessionScope.selectedCompanies.studio.name}</p>
-                                <p>가격: ${sessionScope.selectedCompanies.studio.basicPrice}</p>
+                                <p>${sessionScope.selectedCompanies.studio.name}</p>
+                                <p>${sessionScope.selectedCompanies.studio.basicPrice}</p>
                             </div>
                             <div id="selected-options">
                                 <c:forEach var="category" items="${selectedOptions}">
@@ -141,13 +141,13 @@
                             </div>
 
                             <div class="item-title">
-                                <p>이름: ${sessionScope.selectedCompanies.dress.name}</p>
-                                <p>가격: ${sessionScope.selectedCompanies.dress.basicPrice}</p>
+                                <p>${sessionScope.selectedCompanies.dress.name}</p>
+                                <p>${sessionScope.selectedCompanies.dress.basicPrice}</p>
                             </div>
 
                             <div class="item-title">
-                                <p>이름: ${sessionScope.selectedCompanies.makeup.name}</p>
-                                <p>가격: ${sessionScope.selectedCompanies.makeup.basicPrice}</p>
+                                <p>${sessionScope.selectedCompanies.makeup.name}</p>
+                                <p>${sessionScope.selectedCompanies.makeup.basicPrice}</p>
                             </div>
 
                             <div class="items">
@@ -169,9 +169,6 @@
                         <div class="price">
                             <div class="price-regular">
                                 <span>정상가</span><span>330,000원</span>
-                            </div>
-                            <div class="price-discount">
-                                <span>쿠폰/포인트 할인가</span><span class="color">-0원</span>
                             </div>
                             <div class="price-total">
                                 <span>최종 금액</span><span>330,000원</span>

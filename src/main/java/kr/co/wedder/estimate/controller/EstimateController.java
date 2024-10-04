@@ -55,22 +55,6 @@ public class EstimateController {
         return ResponseEntity.ok("선택된 목록이 성공적으로 업데이트되었습니다.");
     }
 
-//    @GetMapping("/estimateOption")
-//    public String showEstimateOptionPage(HttpSession session, Model model) {
-//        // 세션에서 선택된 업체 목록을 가져옴
-//        Map<String, Map<String, Object>> selectedCompanies = (Map<String, Map<String, Object>>) session.getAttribute("selectedCompanies");
-//
-//        // 선택한 업체가 없을 경우 처리
-//        if (selectedCompanies == null || selectedCompanies.isEmpty()) {
-//            return "redirect:/estimate";  // 선택된 업체가 없으면 다시 견적 페이지로 리다이렉트
-//        }
-//
-//        // 선택된 업체 목록을 모델에 추가하여 뷰로 전달
-//        model.addAttribute("selectedCompanies", selectedCompanies);
-//
-//        // estimateOption.jsp 페이지로 이동
-//        return "estimate/estimateOption"; // JSP 파일의 경로를 반환
-//    }
     @GetMapping("/estimateOption")
     public String showEstimateOptionPage(HttpSession session, Model model) {
         // 세션에서 선택된 업체 목록을 가져옴
