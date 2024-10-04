@@ -41,4 +41,6 @@ public interface MyPageService {
 	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map,String category) throws Exception;
 	// 09/25
 	MyPageDTO cutomerId(String id) throws Exception;
+
+	List<Map<String,Object>> paymentHistory(Integer customer_id) throws Exception;
 }

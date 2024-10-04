@@ -302,4 +302,12 @@
 		where id="#{id}";
 	</select>
 
+	<!--payment test-->
+	<select id="paymentTest" parameterType="map" resultType="map">
+		select p.*
+		from payment p
+		JOIN customer cu ON p.customer_name = cu.name and p.customer_tel=cu.phone
+		where p.customer_id=#{customer_id};
+	</select>
+
 </mapper>

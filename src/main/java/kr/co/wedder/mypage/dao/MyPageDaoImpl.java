@@ -6,6 +6,7 @@ import java.util.Map;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.*;
+import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -140,6 +141,12 @@ public class MyPageDaoImpl implements MyPageDao {
 		return session.selectOne(namespace+"customerId",id);
 	}
 
+	@Override
+	public List<Map<String, Object>> paymentTest(Integer customer_id) throws Exception {
+		Map<String, Object> parameterTypeMap =new  HashMap<>();
+		parameterTypeMap.put("customer_id",customer_id);
 
+		return session.selectList(namespace+"paymentTest",customer_id);
+	}
 
 }
