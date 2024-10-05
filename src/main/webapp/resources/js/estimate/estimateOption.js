@@ -24,26 +24,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
-$(document).ready(function() {
-    // 옵션 선택 버튼 클릭 시
-    $(".select-option").on("click", function() {
-        var optionId = $(this).data("option-id");
-        var category = $(this).data("category");
-
-        // 옵션 선택 AJAX 요청
-        $.ajax({
-            url: "/estimate/selectOption",
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify({
-                optionId: optionId,
-                category: category
-            }),
-            success: function(response) {
-                alert("옵션이 성공적으로 선택되었습니다.");
-                // 선택된 옵션 목록 갱신 로직 추가 가능
-            }
-        });
-    });
-});

@@ -40,6 +40,7 @@ $(document).ready(function() {
         const companyId = $(this).data("companyId");
         const companyName = $(this).data("companyName");
         const basicPrice = Number($(this).data("basicPrice")); // 회사의 기본 가격을 숫자로 변환
+        console.log("Basic Price: ", basicPrice);
 
         // 동일 카테고리에서 이미 선택된 항목이 있는지 확인
         if (selectedCompanies[category] !== null) {
@@ -54,7 +55,7 @@ $(document).ready(function() {
 
         // AJAX로 서버에 선택된 목록 업데이트
         $.ajax({
-            url: "/estimate/updateSelectedCompanies",
+            url: "/estimate/updateCompany",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify(selectedCompanies),
@@ -66,15 +67,10 @@ $(document).ready(function() {
                 console.log("서버에 선택된 목록을 업데이트하는 데 실패했습니다.");
             }
         });
-    });
+
 
     // 선택된 목록에 회사 추가
     function addCompanyToList(category, companyId, companyName, basicPrice) {
-        // const listItem = `<div id="${category}-${companyId}" class="selected-item">
-        //                     <a href="javascript:void(0);" class="selected-company-link" data-category="${category}" data-company-id="${companyId}">
-        //                         ${companyName} (${category}) ${basicPrice.toLocaleString()}원
-        //                     </a>
-        //                   </div>`;
         const listItem = `
         <div id="${category}-${companyId}" class="selected-item">
             <a href="javascript:void(0);" class="selected-company-link" data-category="${category}" data-company-id="${companyId}">
@@ -107,6 +103,7 @@ $(document).ready(function() {
                 totalPrice += selectedCompanies[category].basicPrice; // 선택된 회사의 basicPrice를 합산
             }
         }
+        console.log("Total Price: ", totalPrice); // 계산된 총 금액 출력
         // toLocaleString()을 사용하여 천 단위 구분
         $("#price-total").text(`${totalPrice.toLocaleString()}원`);
     }
@@ -128,29 +125,35 @@ $(document).ready(function() {
         // 가격 초기화
         updatePrice();
     });
+
+    // "다음으로" 버튼 클릭 시 URL로 이동
     $(".next").on("click", function() {
-        // 선택된 업체가 있는지 확인
-        if (!selectedCompanies.studio && !selectedCompanies.dress && !selectedCompanies.makeup) {
-            alert("업체를 선택하세요.");
-            return; // 선택된 업체가 없을 때 이후 코드 실행을 막음
+        // 하나라도 선택된 업체가 있는지 확인
+        if (selectedCompanies.studio === null && selectedCompanies.dress === null && selectedCompanies.makeup === null) {
+            alert("하나 이상의 업체를 선택하세요.");
+            return; // 선택된 업체가 없으면 이후 코드 실행을 막음
         }
 
-        // 선택한 업체 데이터를 서버로 전송하는 AJAX 요청
-        $.ajax({
-            url: "/estimate/updateSelectedCompanies", // 데이터를 전송할 URL
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(selectedCompanies), // 선택한 업체 데이터를 JSON 형식으로 전송
-            success: function(response) {
-                console.log("선택된 업체 목록이 서버에 성공적으로 전송되었습니다.");
-
-                // 전송 성공 시 다음 페이지로 이동
-                window.location.href = '/estimate/estimateOption';
-            },
-            error: function() {
-                console.log("서버에 선택한 업체 목록을 전송하는 데 실패했습니다.");
-                alert("업체 목록 전송에 실패했습니다. 다시 시도하세요.");
+        // URL에 선택된 업체의 ID를 포함시켜 이동
+        let url = '/estimate/estimateOption?';
+        if (selectedCompanies.studio !== null) {
+            url += 'studioId=' + selectedCompanies.studio.id;
+        }
+        if (selectedCompanies.dress !== null) {
+            if (url !== '/estimate/estimateOption?') {
+                url += '&';
             }
+            url += 'dressId=' + selectedCompanies.dress.id;
+        }
+        if (selectedCompanies.makeup !== null) {
+            if (url !== '/estimate/estimateOption?') {
+                url += '&';
+            }
+            url += 'makeupId=' + selectedCompanies.makeup.id;
+        }
+
+        // 페이지 이동
+        window.location.href = url;
         });
     });
 });

@@ -41,10 +41,37 @@
         WHERE c.company_category = '메이크업';
     </select>
 
-    <select id="getOptionsByCompanyIdAndCategory" parameterType="map" resultType="OptionDto">
-        SELECT option_id, option_name, option_price
-        FROM `option`
-        WHERE company_id = #{companyId} AND category = #{category}
+    <!-- 스튜디오 옵션 조회 -->
+    <select id="getStudioOptionsByCompanyId" parameterType="map" resultType="EstimateDto">
+        SELECT
+        o.option_id AS optionId,
+        o.option_name AS optionName,
+        o.option_price AS optionPrice
+        FROM `option` o
+        JOIN studioInfo s ON o.studio_id = s.studio_id
+        WHERE s.company_id = #{companyId}
+    </select>
+
+    <!-- 드레스 옵션 조회 -->
+    <select id="getDressOptionsByCompanyId" parameterType="map" resultType="EstimateDto">
+        SELECT
+        o.option_id AS optionId,
+        o.option_name AS optionName,
+        o.option_price AS optionPrice
+        FROM `option` o
+        JOIN dressInfo d ON o.dress_id = d.dress_id
+        WHERE d.company_id = #{companyId}
+    </select>
+
+    <!-- 메이크업 옵션 조회 -->
+    <select id="getMakeupOptionsByCompanyId" parameterType="map" resultType="EstimateDto">
+        SELECT
+        o.option_id AS optionId,
+        o.option_name AS optionName,
+        o.option_price AS optionPrice
+        FROM `option` o
+        JOIN makeupInfo m ON o.makeup_id = m.makeup_id
+        WHERE m.company_id = #{companyId}
     </select>
 
 </mapper>

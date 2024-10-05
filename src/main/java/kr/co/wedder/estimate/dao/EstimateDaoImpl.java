@@ -31,9 +31,18 @@ public class EstimateDaoImpl implements EstimateDao {
     }
 
     @Override
-    public List<EstimateDto> findOptionsByCompanyIdAndCategory(int companyId, String category) {
-        // MyBatis 쿼리를 통해 옵션을 조회
-
-        return sqlSession.selectList(namespace + "getOptionsByCompanyIdAndCategory", Map.of("companyId", companyId, "category", category));
+    public List<EstimateDto> getStudioOptionsByCompanyId(int companyId) {
+        return sqlSession.selectList(namespace + "getStudioOptionsByCompanyId", companyId);
     }
+
+    @Override
+    public List<EstimateDto> getDressOptionsByCompanyId(int companyId) {
+        return sqlSession.selectList(namespace + "getDressOptionsByCompanyId", companyId);
+    }
+
+    @Override
+    public List<EstimateDto> getMakeupOptionsByCompanyId(int companyId) {
+        return sqlSession.selectList(namespace + "getMakeupOptionsByCompanyId", companyId);
+    }
+
 }

@@ -37,23 +37,32 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <c:if test="${not empty selectedCompanies.studio}">
-                                <h2>스튜디오</h2>
-                                <p>이름: ${selectedCompanies.studio.name}</p>
-                                <p>기본 가격: ${selectedCompanies.studio.basicPrice}</p>
-                                <h3>옵션 목록</h3>
-                                <c:forEach var="option" items="${companyOptions.studio}">
-                                    <p>옵션 이름: ${option.optionName} - ${option.optionPrice}원</p>
-                                </c:forEach>
-                            </c:if>
-                        </div>
-                        <!-- 세부 옵션 -->
-                        <div class="option">
-                            <div class="option-item">
-                                <span class="title">추가 비용 옵션</span>
-                                <span>업체에 직접 결제하는 추가 비용이 있을 수 있어요.</span>
-                                <span>실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.</span>
+                            <img src="${sessionScope.selectedCompanies.studio.imgUrl}" alt="${sessionScope.selectedCompanies.studio.name}">
+                            <div class="selected">
+                                <div class="content-main">
+                                    <p class="bold">${sessionScope.selectedCompanies.studio.name}</p>
+                                    <p class="address">${sessionScope.selectedCompanies.studio.companyAddress}</p>
+                                </div>
+                                <div class="basic-option">
+                                    <div class="basic-detail">
+                                        <p><strong>기본 옵션</strong></p>
+                                        <p>원본 데이터</p>
+                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                                    </div>
+                                    <div class="main-price">
+                                        <p>330,000원</p>
+                                    </div>
+                                </div>
                             </div>
+                            <!-- 스튜디오 옵션 출력 -->
+                            <c:if test="${not empty companyOptions.studio}">
+                                <h2>스튜디오 옵션</h2>
+                                <ul>
+                                    <c:forEach var="option" items="${companyOptions.studio}">
+                                        <li>${option.optionName} ${option.optionPrice}원</li>
+                                    </c:forEach>
+                                </ul>
+                            </c:if>
                         </div>
                     </div>
                 </section>
@@ -81,11 +90,15 @@
                         </div>
                         <!-- 세부 옵션 -->
                         <div class="option">
-                            <div class="option-item">
-                                <span class="title">추가 비용 옵션</span>
-                                <span>업체에 직접 결제하는 추가 비용이 있을 수 있어요.</span>
-                                <span>실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.</span>
-                            </div>
+                            <!-- 드레스 옵션 출력 -->
+                            <c:if test="${not empty companyOptions.dress}">
+                                <h2>드레스 옵션</h2>
+                                <ul>
+                                    <c:forEach var="option" items="${companyOptions.dress}">
+                                        <li>${option.optionName} ${option.optionPrice}원</li>
+                                    </c:forEach>
+                                </ul>
+                            </c:if>
                         </div>
                     </div>
                 </section>
@@ -114,9 +127,15 @@
                         <!-- 세부 옵션 -->
                         <div class="option">
                             <div class="option-item">
-                                <span class="title">추가 비용 옵션</span>
-                                <span>업체에 직접 결제하는 추가 비용이 있을 수 있어요.</span>
-                                <span>실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.</span>
+                                <!-- 메이크업 옵션 출력 -->
+                                <c:if test="${not empty companyOptions.makeup}">
+                                    <h2>메이크업 옵션</h2>
+                                    <ul>
+                                        <c:forEach var="option" items="${companyOptions.makeup}">
+                                            <li>${option.optionName} ${option.optionPrice}원</li>
+                                        </c:forEach>
+                                    </ul>
+                                </c:if>
                             </div>
                         </div>
                     </div>

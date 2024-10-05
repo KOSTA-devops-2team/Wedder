@@ -12,32 +12,6 @@ public class EstimateDto {
     // 견적서 아이디
     private int estimateId;
 
-    // 스튜디오 정보
-    private String studioName;
-    private String studioShootType;
-    private String studioShootFocus;
-    private int studioRentalClothing;
-    private String studioShootDuration;
-    private String studioShootLocationType;
-    private String studioProduct;
-    private boolean studioHairChangeAvailability;
-    private boolean studioEquipmentIncluded;
-
-    // 드레스 정보
-    private String dressName;
-    private String dressType;
-    private boolean dressRepairService;
-    private int dressConsultationTime;
-    private int dressFittingCnt;
-    private int dressMeasurementTime;
-    private String dressComposition;
-
-    // 메이크업 정보
-    private String makeupName;
-    private String makeupTarget;
-    private String makeupType;
-    private String makeupPosition;
-
     // 회사 정보
     private Integer companyId;
     private String companyName;
@@ -54,7 +28,8 @@ public class EstimateDto {
     // 업체 이미지
     private String imgUrl;
 
-    private Integer optionId;
+    // 옵션
+    private int optionId;
     private Integer hallId;
     private Integer studioId;
     private Integer dressId;
@@ -62,4 +37,28 @@ public class EstimateDto {
     private String optionName;
     private Integer optionPrice;
     private String category;
+
+    // 스튜디오 정보
+    private String shootType;
+    private String shootFocus;
+    private int rentalClothing;
+    private String shootDuration;
+    private String shootLocationType;
+    private String product;
+    private Boolean hairChangeAvailability;
+    private Boolean equipmentIncluded;
+
+    // 드레스 정보
+    private String dressType;
+    private String repairService;
+    private int consultationTime;
+    private int fittingCnt;
+    private int measurementTime;
+    private String composition;
+
+    // 메이크업 정보
+    private String target;
+    private String makeupType;
+    private String position;
+
 }
