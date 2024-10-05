@@ -1,5 +1,6 @@
 package kr.co.wedder.sdmpackage.service;
 
+import kr.co.wedder.sdmpackage.domain.CompanyScheduleDTO;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
 import kr.co.wedder.sdmpackage.domain.PackageDto;
 import java.util.List;
@@ -14,4 +15,6 @@ public interface PackageService {
     List<PackageDetailDto> autocomplete(Map<String, Object> paramMap) throws Exception;
     List<PackageDetailDto> searchPackagesByCompany(String companyName);
     List<PackageDetailDto> filterPackagesByPrice(int minPrice, int maxPrice);
+    List<CompanyScheduleDTO> getAvailableDateList(String companyName);
+    List<CompanyScheduleDTO> getAvailableTimeList(String companyName, String date);
 }

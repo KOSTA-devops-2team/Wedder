@@ -1,8 +1,10 @@
 package kr.co.wedder.sdmpackage.controller;
 
+import kr.co.wedder.sdmpackage.domain.CompanyScheduleDTO;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
 import kr.co.wedder.sdmpackage.service.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,6 +52,34 @@ public class PackageRestController {
 
         List<PackageDetailDto> filteredPackages = packageService.filterPackagesByPrice(minPrice, maxPrice);
         return ResponseEntity.ok(filteredPackages);
+    }
+
+    // 가능한 날짜 데이터 불러오기
+    @GetMapping("/getAvailableDate")
+    public ResponseEntity<List<CompanyScheduleDTO>> getAvailableDateSlots(@RequestParam String companyName) {
+
+        System.out.println("companyName = " + companyName );
+        List<CompanyScheduleDTO> availableDateSlots = packageService.getAvailableDateList(companyName);
+        System.out.println("availableDateSlots = " + availableDateSlots);
+        if (availableDateSlots.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);  // 데이터가 없을 경우
+        }
+
+        return new ResponseEntity<>(availableDateSlots, HttpStatus.OK);  // 성공적으로 데이터 반환
+    }
+
+    // 가능한 시간 데이터 불러오기
+    @GetMapping("/getAvailableTimeList")
+    public ResponseEntity<List<CompanyScheduleDTO>> getAvailableTimeSlots(@RequestParam String companyName, @RequestParam String date) {
+
+        System.out.println("companyName = " + companyName + "  date " +date);
+        List<CompanyScheduleDTO> availableTimeSlots = packageService.getAvailableTimeList(companyName, date);
+        System.out.println("availableTimeSlots = " + availableTimeSlots);
+        if (availableTimeSlots.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);  // 데이터가 없을 경우
+        }
+
+        return new ResponseEntity<>(availableTimeSlots, HttpStatus.OK);  // 성공적으로 데이터 반환
     }
 }
 

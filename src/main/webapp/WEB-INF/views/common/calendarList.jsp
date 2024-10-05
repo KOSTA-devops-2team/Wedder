@@ -58,7 +58,6 @@
 					<div class="calendar-dates" id="calendarDates"></div>
 					
 				</div>
-					<div class = "calendar-footer">
 				</div>
 				
 				<section id="calendarBoard">

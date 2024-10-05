@@ -1,5 +1,6 @@
 package kr.co.wedder.sdmpackage.dao;
 
+import kr.co.wedder.sdmpackage.domain.CompanyScheduleDTO;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
 import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.apache.ibatis.session.SqlSession;
@@ -63,5 +64,22 @@ public class PackageDaoImpl implements PackageDao {
         map.put("maxPrice", maxPrice);
 
         return sqlSession.selectList(namespace + "selectPackagesByPriceRange", map);
+    }
+
+    @Override
+    public List<CompanyScheduleDTO> selectAvailableDateList(String companyName) {
+
+        return sqlSession.selectList(namespace + "selectAvailableDateList", companyName);
+    }
+
+
+    @Override
+    public List<CompanyScheduleDTO> selectAvailableTimeList(String companyName, String date) {
+        Map map = new HashMap<>();
+        map.put("companyName", companyName);
+        map.put("date", date);
+
+        System.out.println("dao map = " + map);
+        return sqlSession.selectList(namespace + "selectAvailableTimeList", map);
     }
 }

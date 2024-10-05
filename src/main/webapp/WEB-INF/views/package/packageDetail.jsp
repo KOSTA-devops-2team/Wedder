@@ -8,7 +8,6 @@
     String customerName = (String) session.getAttribute("customerName");
     String customerTel = (String) session.getAttribute("customerTel");
 %>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -32,9 +31,21 @@
     var customerEmail = '<%= customerEmail %>';
     var customerName = '<%= customerName %>';
     var customerTel = '<%= customerTel %>';
+    var packageDetails = ${packageDetails};
 </script>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
+
+<script>
+    var packageDetails = [];
+    <c:forEach var="detail" items="${packageDetails}">
+    packageDetails.push({
+        companyName: "${detail.companyName}",
+        companyCategory: "${detail.companyCategory}"
+    });
+    </c:forEach>
+</script>
+
 <div class="hd__inner960">
     <div class="container">
         <div class="header">
@@ -56,6 +67,23 @@
                 </div>
             </div>
         </c:forEach>
+
+        <!--패키지 예약 가능일정 확인 -->
+        <section>
+            <h2>예약 가능한 일정 확인</h2>
+            <!-- 3.calandar -->
+            <section class="calandars" id="payment-detail-section3">
+                <div class="calandars-payment-list">
+                    <%@ include file="/WEB-INF/views/package/packageCalendar.jsp" %>
+
+                    <%-- get 정보로 예약된 날짜를 가져오는 중--%>
+                    <div style="display: none" id="getDate">
+                        ${date}
+                    </div>
+                </div>
+            </section>
+        </section>
+
 
         <!-- 가격 안내 부분-->
         <div class="total">

@@ -1,6 +1,7 @@
 package kr.co.wedder.sdmpackage.service;
 
 import kr.co.wedder.sdmpackage.dao.PackageDao;
+import kr.co.wedder.sdmpackage.domain.CompanyScheduleDTO;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
 import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,5 +60,39 @@ public class PackageServiceImpl implements PackageService{
 
         System.out.println("PackageServiceImpl.filterPackagesByPrice");
         return packageDao.selectPackagesByPriceRange(minPrice, maxPrice);
+    }
+
+    @Override
+    public List<CompanyScheduleDTO> getAvailableDateList(String companyName) {
+        System.out.println("PackageServiceImpl : companyName " + companyName);
+
+        List<CompanyScheduleDTO> result = packageDao.selectAvailableDateList(companyName);
+
+        // 결과가 없는 경우 빈 리스트 반환
+        if (result.isEmpty()) {
+            // 원하는 처리 방식: 로그 출력 또는 예외 던지기
+            System.out.println("해당 조건에 맞는 스케줄이 없습니다.");
+        }
+
+        System.out.println("PackageServiceImpl : result" + result);
+        return result;
+    }
+
+    @Override
+    public List<CompanyScheduleDTO> getAvailableTimeList(String companyName, String date) {
+
+        System.out.println("PackageServiceImpl : companyName" + companyName);
+        System.out.println("PackageServiceImpl : date" + date);
+
+        List<CompanyScheduleDTO> result = packageDao.selectAvailableTimeList(companyName, date);
+
+        // 결과가 없는 경우 빈 리스트 반환
+        if (result.isEmpty()) {
+            // 원하는 처리 방식: 로그 출력 또는 예외 던지기
+            System.out.println("해당 조건에 맞는 스케줄이 없습니다.");
+        }
+
+        System.out.println("PackageServiceImpl : result" + result);
+        return result;
     }
 }
