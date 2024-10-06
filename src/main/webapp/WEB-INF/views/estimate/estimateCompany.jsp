@@ -69,21 +69,6 @@
                             </div>
                         </c:forEach>
                     </div>
-                    <div class="similar-buttons">
-                        <button class="similar-button left" id="similar-prevButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"
-                            />
-                        </button>
-                        <div class="current-page" id="similar-currentPage">1</div>
-                        <div class="slice">/</div>
-                        <div class="total-pages" id="similar-totalPages">3</div>
-                        <button class="similar-button right" id="similar-nextButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"
-                            />
-                        </button>
-                    </div>
                 </div>
             </section>
 
@@ -112,21 +97,6 @@
                             </div>
                         </c:forEach>
                     </div>
-                    <div class="similar-buttons">
-                        <button class="similar-button left" id="similar-prevButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"
-                            />
-                        </button>
-                        <div class="current-page" id="similar-currentPage">1</div>
-                        <div class="slice">/</div>
-                        <div class="total-pages" id="similar-totalPages">3</div>
-                        <button class="similar-button right" id="similar-nextButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"
-                            />
-                        </button>
-                    </div>
                 </div>
             </section>
 
@@ -154,21 +124,6 @@
                                 </div>
                             </div>
                         </c:forEach>
-                    </div>
-                    <div class="similar-buttons">
-                        <button class="similar-button left" id="similar-prevButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"
-                            />
-                        </button>
-                        <div class="current-page" id="similar-currentPage">1</div>
-                        <div class="slice">/</div>
-                        <div class="total-pages" id="similar-totalPages">3</div>
-                        <button class="similar-button right" id="similar-nextButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"
-                            />
-                        </button>
                     </div>
                 </div>
             </section>
