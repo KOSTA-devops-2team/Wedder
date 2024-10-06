@@ -137,19 +137,19 @@ $(document).ready(function() {
         // URL에 선택된 업체의 ID를 포함시켜 이동
         let url = '/estimate/estimateOption?';
         if (selectedCompanies.studio !== null) {
-            url += 'studioId=' + selectedCompanies.studio.id;
+            url += 'studioCompanyId=' + selectedCompanies.studio.id;
         }
         if (selectedCompanies.dress !== null) {
             if (url !== '/estimate/estimateOption?') {
                 url += '&';
             }
-            url += 'dressId=' + selectedCompanies.dress.id;
+            url += 'dressCompanyId=' + selectedCompanies.dress.id;
         }
         if (selectedCompanies.makeup !== null) {
             if (url !== '/estimate/estimateOption?') {
                 url += '&';
             }
-            url += 'makeupId=' + selectedCompanies.makeup.id;
+            url += 'makeupCompanyId=' + selectedCompanies.makeup.id;
         }
 
         // 페이지 이동

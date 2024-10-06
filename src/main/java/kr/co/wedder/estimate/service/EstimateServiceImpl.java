@@ -31,6 +31,22 @@ public class EstimateServiceImpl implements EstimateService {
         return estimateDao.getMakeupList();
     }
     @Override
+    public EstimateDto getStudioById(int companyId){
+        System.out.println("Service: getStudioById 호출됨");
+        return estimateDao.getStudioById(companyId);
+    }
+    @Override
+    public EstimateDto getDressById(int companyId){
+        System.out.println("Service: getDressById 호출됨");
+        return estimateDao.getDressById(companyId);
+    }
+    @Override
+    public EstimateDto getMakeupById(int companyId){
+        System.out.println("Service: getMakeupById 호출됨");
+        return estimateDao.getMakeupById(companyId);
+    }
+
+    @Override
     public List<EstimateDto> getStudioOptionsByCompanyId(int companyId) {
         List<EstimateDto> studioOptions = estimateDao.getStudioOptionsByCompanyId(companyId);
         System.out.println("Studio Options for companyId " + companyId + ": " + studioOptions);

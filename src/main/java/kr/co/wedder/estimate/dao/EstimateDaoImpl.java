@@ -29,6 +29,20 @@ public class EstimateDaoImpl implements EstimateDao {
     public List<EstimateDto> getMakeupList() {
         return sqlSession.selectList(namespace + "getMakeupList");
     }
+    @Override
+    public EstimateDto getStudioById(int companyId) {
+        return sqlSession.selectOne(namespace + "getStudioById", companyId);
+    }
+
+    @Override
+    public EstimateDto getDressById(int companyId) {
+        return sqlSession.selectOne(namespace + "getDressById", companyId);
+    }
+
+    @Override
+    public EstimateDto getMakeupById(int companyId) {
+        return sqlSession.selectOne(namespace + "getMakeupById", companyId);
+    }
 
     @Override
     public List<EstimateDto> getStudioOptionsByCompanyId(int companyId) {

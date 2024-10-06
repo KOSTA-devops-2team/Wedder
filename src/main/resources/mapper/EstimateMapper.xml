@@ -41,6 +41,44 @@
         WHERE c.company_category = '메이크업';
     </select>
 
+    <!-- 특정 스튜디오 조회 -->
+    <select id="getStudioById" resultType="EstimateDto">
+        SELECT
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+
+    <!-- 특정 드레스 조회 -->
+    <select id="getDressById" resultType="EstimateDto">
+        SELECT
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+
+    <!-- 특정 메이크업 조회 -->
+    <select id="getMakeupById" resultType="EstimateDto" >
+        SELECT
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
     <!-- 스튜디오 옵션 조회 -->
     <select id="getStudioOptionsByCompanyId" parameterType="map" resultType="EstimateDto">
         SELECT

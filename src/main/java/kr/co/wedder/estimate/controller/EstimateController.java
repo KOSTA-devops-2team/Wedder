@@ -48,11 +48,35 @@ public class EstimateController {
     // URL을 통해 companyId 값을 전송받고 처리
     @GetMapping("/estimateOption")
     public String showEstimateOptionPage(
-            @RequestParam(value = "studioId", required = false) Integer studioId,
-            @RequestParam(value = "dressId", required = false) Integer dressId,
-            @RequestParam(value = "makeupId", required = false) Integer makeupId,
+            @RequestParam(value = "studioCompanyId", required = false) Integer studioId,
+            @RequestParam(value = "dressCompanyId", required = false) Integer dressId,
+            @RequestParam(value = "makeupCompanyId", required = false) Integer makeupId,
             Model model
     ) {
+
+        // 스튜디오 정보 가져오기 (특정 스튜디오 ID에 해당하는 정보만)
+        if (studioId != null) {
+            EstimateDto studioData = estimateService.getStudioById(studioId);
+            model.addAttribute("studioData", studioData);
+            System.out.println("Studio Data: " + studioData);
+
+        }
+
+        // 드레스 정보 가져오기 (특정 드레스 ID에 해당하는 정보만)
+        if (dressId != null) {
+            EstimateDto dressData = estimateService.getDressById(dressId);
+            model.addAttribute("dressData", dressData);
+            System.out.println("Studio Data: " + dressData);
+
+        }
+
+        // 메이크업 정보 가져오기 (특정 메이크업 ID에 해당하는 정보만)
+        if (makeupId != null) {
+            EstimateDto makeupData = estimateService.getMakeupById(makeupId);
+            model.addAttribute("makeupData", makeupData);
+            System.out.println("Studio Data: " + makeupData);
+        }
+
         // 옵션 데이터를 담을 맵
         Map<String, List<EstimateDto>> companyOptions = new HashMap<>();
 
@@ -74,7 +98,6 @@ public class EstimateController {
             companyOptions.put("makeup", makeupOptions);
         }
 
-        // 옵션 데이터를 모델에 추가하여 JSP로 전달
         model.addAttribute("companyOptions", companyOptions);
 
         return "estimate/estimateOption";

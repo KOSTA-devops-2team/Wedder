@@ -15,7 +15,7 @@
     <!-- 스크립트 -->
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/estimate/estimateOption.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -37,23 +37,25 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <img src="${sessionScope.selectedCompanies.studio.imgUrl}" alt="${sessionScope.selectedCompanies.studio.name}">
-                            <div class="selected">
-                                <div class="content-main">
-                                    <p class="bold">${sessionScope.selectedCompanies.studio.name}</p>
-                                    <p class="address">${sessionScope.selectedCompanies.studio.companyAddress}</p>
-                                </div>
-                                <div class="basic-option">
-                                    <div class="basic-detail">
-                                        <p><strong>기본 옵션</strong></p>
-                                        <p>원본 데이터</p>
-                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                            <c:if test="${not empty studioData}">
+                                <img src="${studioData.imgUrl}" alt="${studioData.companyName}">
+                                <div class="selected">
+                                    <div class="content-main">
+                                        <p class="bold">${studioData.companyName}</p>
+                                        <p class="address">${studioData.companyAddress}</p>
                                     </div>
-                                    <div class="main-price">
-                                        <p>330,000원</p>
+                                    <div class="basic-option">
+                                        <div class="basic-detail">
+                                            <p><strong>기본 옵션</strong></p>
+                                            <p>원본 데이터</p>
+                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                                        </div>
+                                        <div class="main-price">
+                                            <p>${studioData.basicPrice}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </c:if>
                             <!-- 세부 옵션 -->
                             <div class="option">
                                 <div class="option-item">
@@ -75,36 +77,38 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <img src="${sessionScope.selectedCompanies.dress.imgUrl}" alt="${sessionScope.selectedCompanies.dress.name}">
-                            <div class="selected">
-                                <div class="content-main">
-                                    <p class="bold">${sessionScope.selectedCompanies.dress.name}</p>
-                                    <p class="address">${sessionScope.selectedCompanies.dress.companyAddress}</p>
-                                </div>
-                                <div class="basic-option">
-                                    <div class="basic-detail">
-                                        <p><strong>기본 옵션</strong></p>
-                                        <p>원본 데이터</p>
-                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                            <c:if test="${not empty dressData}">
+                                <img src="${dressData.imgUrl}" alt="${dressData.companyName}">
+                                <div class="selected">
+                                    <div class="content-main">
+                                        <p class="bold">${dressData.companyName}</p>
+                                        <p class="address">${dressData.companyAddress}</p>
                                     </div>
-                                    <div class="main-price">
-                                        <p>330,000원</p>
+                                    <div class="basic-option">
+                                        <div class="basic-detail">
+                                            <p><strong>기본 옵션</strong></p>
+                                            <p>원본 데이터</p>
+                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                                        </div>
+                                        <div class="main-price">
+                                            <p>${dressData.basicPrice}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- 세부 옵션 -->
-                        <div class="option">
-                            <div class="option-item">
-                                <!-- 드레스 옵션 출력 -->
-                                <c:if test="${not empty companyOptions.dress}">
-                                    <h2>드레스 옵션</h2>
-                                    <ul>
-                                        <c:forEach var="option" items="${companyOptions.dress}">
-                                            <li>${option.optionName} ${option.optionPrice}원</li>
-                                        </c:forEach>
-                                    </ul>
-                                </c:if>
+                            </c:if>
+                            <!-- 세부 옵션 -->
+                            <div class="option">
+                                <div class="option-item">
+                                    <!-- 스튜디오 옵션 출력 -->
+                                    <c:if test="${not empty companyOptions.dress}">
+                                        <h2>스튜디오 옵션</h2>
+                                        <ul>
+                                            <c:forEach var="option" items="${companyOptions.dress}">
+                                                <li>${option.optionName} ${option.optionPrice}원</li>
+                                            </c:forEach>
+                                        </ul>
+                                    </c:if>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -113,36 +117,38 @@
                 <section class="body">
                     <div class="body-grid">
                         <div class="main">
-                            <img src="${sessionScope.selectedCompanies.makeup.imgUrl}" alt="${sessionScope.selectedCompanies.makeup.name}">
-                            <div class="selected">
-                                <div class="content-main">
-                                    <p class="bold">${sessionScope.selectedCompanies.makeup.name}</p>
-                                    <p class="address">${sessionScope.selectedCompanies.makeup.companyAddress}</p>
-                                </div>
-                                <div class="basic-option">
-                                    <div class="basic-detail">
-                                        <p><strong>기본 옵션</strong></p>
-                                        <p>원본 데이터</p>
-                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                            <c:if test="${not empty makeupData}">
+                                <img src="${makeupData.imgUrl}" alt="${makeupData.companyName}">
+                                <div class="selected">
+                                    <div class="content-main">
+                                        <p class="bold">${makeupData.companyName}</p>
+                                        <p class="address">${makeupData.companyAddress}</p>
                                     </div>
-                                    <div class="main-price">
-                                        <p>330,000원</p>
+                                    <div class="basic-option">
+                                        <div class="basic-detail">
+                                            <p><strong>기본 옵션</strong></p>
+                                            <p>원본 데이터</p>
+                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                                        </div>
+                                        <div class="main-price">
+                                            <p>${makeupData.basicPrice}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- 세부 옵션 -->
-                        <div class="option">
-                            <div class="option-item">
-                                <!-- 메이크업 옵션 출력 -->
-                                <c:if test="${not empty companyOptions.makeup}">
-                                    <h2>메이크업 옵션</h2>
-                                    <ul>
-                                        <c:forEach var="option" items="${companyOptions.makeup}">
-                                            <li>${option.optionName} ${option.optionPrice}원</li>
-                                        </c:forEach>
-                                    </ul>
-                                </c:if>
+                            </c:if>
+                            <!-- 세부 옵션 -->
+                            <div class="option">
+                                <div class="option-item">
+                                    <!-- 스튜디오 옵션 출력 -->
+                                    <c:if test="${not empty companyOptions.makeup}">
+                                        <h2>스튜디오 옵션</h2>
+                                        <ul>
+                                            <c:forEach var="option" items="${companyOptions.makeup}">
+                                                <li>${option.optionName} ${option.optionPrice}원</li>
+                                            </c:forEach>
+                                        </ul>
+                                    </c:if>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -154,26 +160,9 @@
                         <h2>선택하신 목록</h2>
                         <div class="list">
                             <div class="item-title">
-                                <p>${sessionScope.selectedCompanies.studio.name}</p>
-                                <p>${sessionScope.selectedCompanies.studio.basicPrice}</p>
                             </div>
                             <div id="selected-options">
-                                <c:forEach var="category" items="${selectedOptions}">
-                                    <h3>${category.key}</h3>
-                                    <c:forEach var="option" items="${category.value}">
-                                        <p>옵션 이름: ${option.optionName} - ${option.optionPrice}원</p>
-                                    </c:forEach>
-                                </c:forEach>
-                            </div>
 
-                            <div class="item-title">
-                                <p>${sessionScope.selectedCompanies.dress.name}</p>
-                                <p>${sessionScope.selectedCompanies.dress.basicPrice}</p>
-                            </div>
-
-                            <div class="item-title">
-                                <p>${sessionScope.selectedCompanies.makeup.name}</p>
-                                <p>${sessionScope.selectedCompanies.makeup.basicPrice}</p>
                             </div>
 
                             <div class="items">
