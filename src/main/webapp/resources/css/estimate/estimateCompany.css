@@ -48,7 +48,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 260px;
+    width: 340px;
 }
 .search-btn {
     background-color: #000;
@@ -169,7 +169,7 @@
 }
 .select-title {
     padding-left: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     font-size: 20px;
     font-weight: 700;
     border-bottom: 2px solid #333;
@@ -194,9 +194,9 @@
     font-weight: 700;
 }
 
+/* 가격 표시 */
 .price {
     padding: 10px;
-    background-color: #fff;
 }
 .price-total {
     display: flex;
@@ -208,17 +208,17 @@
     border-bottom: 1px solid #757575;
     padding-bottom: 5px;
 }
-.reselection {
-    font-size: 13px;
-    text-align: right;
-    margin-top: 10px;
-}
 .material-symbols-outlined {
     font-variation-settings:
     'FILL' 0,
     'wght' 200,
     'GRAD' 0,
     'opsz' 14
+}
+.reselection {
+    font-size: 13px;
+    text-align: right;
+    margin-top: 10px;
 }
 .note {
     border: 1px solid #ccc;

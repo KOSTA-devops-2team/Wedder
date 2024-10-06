@@ -12,6 +12,7 @@
     <!-- 링크 -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estimate/estimateOption.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- 스크립트 -->
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/estimate/estimateOption.js"></script>
@@ -56,20 +57,17 @@
                                     </div>
                                 </div>
                             </c:if>
-                            <!-- 세부 옵션 -->
-                            <div class="option">
-                                <div class="option-item">
-                                    <!-- 스튜디오 옵션 출력 -->
-                                    <c:if test="${not empty companyOptions.studio}">
-                                        <h2>스튜디오 옵션</h2>
-                                        <ul>
-                                            <c:forEach var="option" items="${companyOptions.studio}">
-                                                <li>${option.optionName} ${option.optionPrice}원</li>
-                                            </c:forEach>
-                                        </ul>
-                                    </c:if>
+                            <!-- 스튜디오 옵션 출력 -->
+                            <c:if test="${not empty companyOptions.studio}">
+                                <div class="option">
+                                    <c:forEach var="option" items="${companyOptions.studio}">
+                                        <div class="option-item">
+                                            <span class="option-name">${option.optionName}</span>
+                                            <span class="option-price">${option.optionPrice}원</span>
+                                        </div>
+                                    </c:forEach>
                                 </div>
-                            </div>
+                            </c:if>
                         </div>
                     </div>
                 </section>
@@ -87,8 +85,8 @@
                                     <div class="basic-option">
                                         <div class="basic-detail">
                                             <p><strong>기본 옵션</strong></p>
-                                            <p>원본 데이터</p>
-                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                                            <p>본식 드레스</p>
+                                            <p>무료 피팅서비스</p>
                                         </div>
                                         <div class="main-price">
                                             <p>${dressData.basicPrice}</p>
@@ -96,20 +94,17 @@
                                     </div>
                                 </div>
                             </c:if>
-                            <!-- 세부 옵션 -->
-                            <div class="option">
-                                <div class="option-item">
-                                    <!-- 스튜디오 옵션 출력 -->
-                                    <c:if test="${not empty companyOptions.dress}">
-                                        <h2>스튜디오 옵션</h2>
-                                        <ul>
-                                            <c:forEach var="option" items="${companyOptions.dress}">
-                                                <li>${option.optionName} ${option.optionPrice}원</li>
-                                            </c:forEach>
-                                        </ul>
-                                    </c:if>
+                            <!-- 드레스 옵션 출력 -->
+                            <c:if test="${not empty companyOptions.dress}">
+                                <div class="option">
+                                    <c:forEach var="option" items="${companyOptions.dress}">
+                                        <div class="option-item">
+                                            <span class="option-name">${option.optionName}</span>
+                                            <span class="option-price">${option.optionPrice}원</span>
+                                        </div>
+                                    </c:forEach>
                                 </div>
-                            </div>
+                            </c:if>
                         </div>
                     </div>
                 </section>
@@ -127,8 +122,8 @@
                                     <div class="basic-option">
                                         <div class="basic-detail">
                                             <p><strong>기본 옵션</strong></p>
-                                            <p>원본 데이터</p>
-                                            <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                                            <p>신부 헤어메이크업</p>
+                                            <p>부원장 or 원장 맞춤 스타일링</p>
                                         </div>
                                         <div class="main-price">
                                             <p>${makeupData.basicPrice}</p>
@@ -136,67 +131,44 @@
                                     </div>
                                 </div>
                             </c:if>
-                            <!-- 세부 옵션 -->
-                            <div class="option">
-                                <div class="option-item">
-                                    <!-- 스튜디오 옵션 출력 -->
-                                    <c:if test="${not empty companyOptions.makeup}">
-                                        <h2>스튜디오 옵션</h2>
-                                        <ul>
-                                            <c:forEach var="option" items="${companyOptions.makeup}">
-                                                <li>${option.optionName} ${option.optionPrice}원</li>
-                                            </c:forEach>
-                                        </ul>
-                                    </c:if>
+                            <!-- 메이크업 옵션 출력 -->
+                            <c:if test="${not empty companyOptions.makeup}">
+                                <div class="option">
+                                    <c:forEach var="option" items="${companyOptions.makeup}">
+                                        <div class="option-item">
+                                            <span class="option-name">${option.optionName}</span>
+                                            <span class="option-price">${option.optionPrice}원</span>
+                                        </div>
+                                    </c:forEach>
                                 </div>
-                            </div>
+                            </c:if>
                         </div>
                     </div>
                 </section>
 
                 <!-- 선택하신 목록 -->
                 <div class="select-container">
-                    <div class="selected-list">
-                        <h2>선택하신 목록</h2>
-                        <div class="list">
-                            <div class="item-title">
-                            </div>
-                            <div id="selected-options">
+                    <div class="select-list">
+                        <div class="top">
+                            <div class="select-title">선택하신 목록</div>
+                            <div class="select-item">
 
-                            </div>
-
-                            <div class="items">
-                                <div class="item">
-                                    <p><img src="../../assets/images/icon-minus.png" alt="">수정 데이터</p>
-                                    <p>165,000원</p>
-                                </div>
-                                <div class="item">
-                                    <p><img src="../../assets/images/icon-minus.png" alt="">플라리 촬영</p>
-                                    <p>155,000원</p>
-                                </div>
-                                <div class="item">
-                                    <p><img src="../../assets/images/icon-minus.png" alt="">야간 촬영</p>
-                                    <p>110,000원</p>
-                                </div>
                             </div>
                         </div>
+
                         <!-- 가격 표시-->
                         <div class="price">
-                            <div class="price-regular">
-                                <span>정상가</span><span>330,000원</span>
-                            </div>
                             <div class="price-total">
                                 <span>최종 금액</span><span>330,000원</span>
                             </div>
                             <div class="reselection">
-                                <a href=""><span class="material-symbols-outlined">
-                                        replay
-                                        </span>업체 다시 선택</a>
+                                <a href=""><span class="material-symbols-outlined">replay</span>업체 다시 선택</a>
                             </div>
                         </div>
                     </div>
+
                     <div class="note">
-                        <p>꼭 확인해주세요!</p>
+                        <p class="note-bold">꼭 확인하세요!</p>
                         <p>이 견적서는 기본 가격 정보들을 담은 견적금 참고용 견적서입니다.</p>
                         <p>본 견적상 담의 금액이 실제 결제 금액은 아닙니다.</p>
                         <p>실제 결제할 금액을 확인할 수 있으며, Wedder에서는 이에 대해 책임을 지지 않습니다.</p>

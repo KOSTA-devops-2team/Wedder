@@ -74,7 +74,7 @@ $(document).ready(function() {
         const listItem = `
         <div id="${category}-${companyId}" class="selected-item">
             <a href="javascript:void(0);" class="selected-company-link" data-category="${category}" data-company-id="${companyId}">
-                <span class="company-info">${companyName} (${category})</span>
+                <span class="company-info">${companyName}</span>
                 <span class="company-price">${basicPrice.toLocaleString()}원</span>
             </a>
         </div>`;
