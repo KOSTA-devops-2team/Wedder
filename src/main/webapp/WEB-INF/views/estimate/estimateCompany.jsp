@@ -36,31 +36,6 @@
 
         <!-- 필터 -->
         <div class="filter">
-            <select name="지역" class="location">
-                <option disabled hidden selected>지역</option>
-                <option value="#">강남/서초</option>
-                <option value="#">중구/종로/용산</option>
-                <option value="#">영등포/동작/양천/강서</option>
-                <option value="#">송파/광진/강동</option>
-                <option value="#">성동/동대문</option>
-                <option value="#">동작/관악/구로/금천</option>
-                <option value="#">마포/서대문/은평</option>
-                <option value="#">성북/강북/노원</option>
-                <option value="#">경기/수원/인천</option>
-            </select>
-            <select name="예산" class="basic-price">
-                <option disabled hidden selected>예산</option>
-                <option value="#">100만원 미만</option>
-                <option value="#">100만원 - 200만원</option>
-                <option value="#">200만원 - 300만원</option>
-            </select>
-            <select class="mood">
-                <option disabled hidden selected>분위기</option>
-                <option value="#">따듯한</option>
-                <option value="#">우아한</option>
-                <option value="#">웅장한</option>
-                <option value="#">청순</option>
-            </select>
             <div class="search-box">
                 <input type="text" placeholder="업체명으로 검색">
                 <button class="search-btn">검색하기</button>

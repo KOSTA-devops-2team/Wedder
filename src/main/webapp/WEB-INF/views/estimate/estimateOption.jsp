@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="true" %>
+<%@ page session="false" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -54,15 +54,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- 스튜디오 옵션 출력 -->
-                            <c:if test="${not empty companyOptions.studio}">
-                                <h2>스튜디오 옵션</h2>
-                                <ul>
-                                    <c:forEach var="option" items="${companyOptions.studio}">
-                                        <li>${option.optionName} ${option.optionPrice}원</li>
-                                    </c:forEach>
-                                </ul>
-                            </c:if>
+                            <!-- 세부 옵션 -->
+                            <div class="option">
+                                <div class="option-item">
+                                    <!-- 스튜디오 옵션 출력 -->
+                                    <c:if test="${not empty companyOptions.studio}">
+                                        <h2>스튜디오 옵션</h2>
+                                        <ul>
+                                            <c:forEach var="option" items="${companyOptions.studio}">
+                                                <li>${option.optionName} ${option.optionPrice}원</li>
+                                            </c:forEach>
+                                        </ul>
+                                    </c:if>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -90,15 +95,17 @@
                         </div>
                         <!-- 세부 옵션 -->
                         <div class="option">
-                            <!-- 드레스 옵션 출력 -->
-                            <c:if test="${not empty companyOptions.dress}">
-                                <h2>드레스 옵션</h2>
-                                <ul>
-                                    <c:forEach var="option" items="${companyOptions.dress}">
-                                        <li>${option.optionName} ${option.optionPrice}원</li>
-                                    </c:forEach>
-                                </ul>
-                            </c:if>
+                            <div class="option-item">
+                                <!-- 드레스 옵션 출력 -->
+                                <c:if test="${not empty companyOptions.dress}">
+                                    <h2>드레스 옵션</h2>
+                                    <ul>
+                                        <c:forEach var="option" items="${companyOptions.dress}">
+                                            <li>${option.optionName} ${option.optionPrice}원</li>
+                                        </c:forEach>
+                                    </ul>
+                                </c:if>
+                            </div>
                         </div>
                     </div>
                 </section>
