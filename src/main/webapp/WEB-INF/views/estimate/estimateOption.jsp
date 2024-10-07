@@ -182,11 +182,11 @@
                             <div class="price-total">
                                 <span>최종 금액</span><span id="price-total">0원</span>
                             </div>
-                                <div class="reselection">
-                                    <a href="javascript:void(0);" id="reset-button">
-                                        <span class="material-symbols-outlined">replay</span>업체 다시 선택
-                                    </a>
-                                </div>
+                            <div class="reselection">
+                                <a href="javascript:void(0);" id="reset-button">
+                                    <span class="material-symbols-outlined">replay</span>옵션 다시 선택
+                                </a>
+                            </div>
                         </div>
                     </div>
 
