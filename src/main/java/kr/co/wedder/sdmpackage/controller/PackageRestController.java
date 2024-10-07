@@ -59,13 +59,11 @@ public class PackageRestController {
     public ResponseEntity<List<CompanyScheduleDTO>> getAvailableDateSlots(@RequestParam String companyName) {
 
         System.out.println("companyName = " + companyName );
-        List<CompanyScheduleDTO> availableDateSlots = packageService.getAvailableDateList(companyName);
-        System.out.println("availableDateSlots = " + availableDateSlots);
-        if (availableDateSlots.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);  // 데이터가 없을 경우
-        }
+        List<CompanyScheduleDTO> availableDates = packageService.getAvailableDateList(companyName);
+        System.out.println("availableDates = " + availableDates);
 
-        return new ResponseEntity<>(availableDateSlots, HttpStatus.OK);  // 성공적으로 데이터 반환
+        // 데이터가 없을 경우에도 빈 배열과 OK 상태 코드 반환
+        return new ResponseEntity<>(availableDates != null ? availableDates : new ArrayList<>(), HttpStatus.OK);
     }
 
     // 가능한 시간 데이터 불러오기

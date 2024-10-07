@@ -7,6 +7,7 @@ import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -66,16 +67,16 @@ public class PackageServiceImpl implements PackageService{
     public List<CompanyScheduleDTO> getAvailableDateList(String companyName) {
         System.out.println("PackageServiceImpl : companyName " + companyName);
 
-        List<CompanyScheduleDTO> result = packageDao.selectAvailableDateList(companyName);
+        List<CompanyScheduleDTO> availableDates = packageDao.selectAvailableDateList(companyName);
 
         // 결과가 없는 경우 빈 리스트 반환
-        if (result.isEmpty()) {
+        if (availableDates.isEmpty()) {
             // 원하는 처리 방식: 로그 출력 또는 예외 던지기
             System.out.println("해당 조건에 맞는 스케줄이 없습니다.");
         }
 
-        System.out.println("PackageServiceImpl : result" + result);
-        return result;
+        System.out.println("PackageServiceImpl : result" + availableDates);
+        return availableDates != null ? availableDates : new ArrayList<>();
     }
 
     @Override

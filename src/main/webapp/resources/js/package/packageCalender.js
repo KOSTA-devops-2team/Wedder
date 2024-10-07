@@ -40,8 +40,13 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (response) {
                     console.log("서버 응답 (예약 가능한 날짜):", response);
-                    //availableDates[selectedCompanyName] = response || [];
-                    availableDates[selectedCompanyName] = response.map(item => item.date) || [];
+                    // response가 undefined일 경우 대비
+                    if (response && Array.isArray(response)) {
+                        availableDates[selectedCompanyName] = response.map(item => item.date);
+                    } else {
+                        availableDates[selectedCompanyName] = []; // 빈 배열로 설정
+                    }
+
                     updateDateColors(); // 날짜 색상 업데이트 함수 호출
                 },
                 error: function () {
