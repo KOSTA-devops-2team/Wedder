@@ -182,9 +182,11 @@
                             <div class="price-total">
                                 <span>최종 금액</span><span id="price-total">0원</span>
                             </div>
-                            <div class="reselection">
-                                <a href=""><span class="material-symbols-outlined">replay</span>업체 다시 선택</a>
-                            </div>
+                                <div class="reselection">
+                                    <a href="javascript:void(0);" id="reset-button">
+                                        <span class="material-symbols-outlined">replay</span>업체 다시 선택
+                                    </a>
+                                </div>
                         </div>
                     </div>
 
@@ -198,7 +200,7 @@
             </div>
             <!-- 이전, 다음 버튼 -->
             <div class="btn">
-                <button onclick="location.href='/estimate/estimateCompany'" class="back">이전</button>
+                <button onclick="history.back()" class="back">이전</button>
                 <button onclick="location.href='/estimate/estimateFinal'" class="next">다음으로</button>
             </div>
         </div>

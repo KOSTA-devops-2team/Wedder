@@ -139,3 +139,25 @@ function updateSelectedOptions(category, options) {
     }
     updateTotalPrice(); // 전체 가격 업데이트
 }
+
+/* 옵션선택 초기화 */
+function resetSelectedOptions() {
+    // 선택된 옵션 객체 초기화
+    selectedOptions.studio = [];
+    selectedOptions.dress = [];
+    selectedOptions.makeup = [];
+
+    // 선택된 옵션을 표시하는 컨테이너 비우기
+    $('#selected-studio-options').empty();
+    $('#selected-dress-options').empty();
+    $('#selected-makeup-options').empty();
+
+    // 전체 가격 초기화
+    updateTotalPrice();
+}
+// 업체 다시 선택 버튼 클릭 시 모든 옵션 초기화
+document.addEventListener("DOMContentLoaded", function() {
+    $('#reset-button').on('click', function() {
+        resetSelectedOptions();
+    });
+});
