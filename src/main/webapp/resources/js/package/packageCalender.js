@@ -3,7 +3,7 @@ $(document).ready(function () {
     let availableDates = {}; // 예약 가능한 날짜 저장 객체
     let selectedData = {}; // 업체별로 선택된 정보 저장 객체
 
-    // 업체 버튼 클릭 이벤트 처리
+    // 1. 업체 버튼 클릭 이벤트 처리
     $(".calendar-category button").on("click", function (e) {
         e.preventDefault();
         let newCompanyName = $(this).text();
@@ -28,12 +28,11 @@ $(document).ready(function () {
         $(this).addClass("select");
         console.log("클릭한 업체 이름:", selectedCompanyName);
 
-        // 선택된 업체의 예약 가능한 날짜 정보를 서버로 요청
+        // 2. 선택된 업체의 예약 가능한 날짜 정보를 서버로 요청
         if (selectedCompanyName) {
             $.ajax({
                 type: 'GET',
                 url: "/package/getAvailableDate",
-                contentType: "application/json",
                 data: {
                     companyName: selectedCompanyName
                 },
@@ -42,7 +41,8 @@ $(document).ready(function () {
                     console.log("서버 응답 (예약 가능한 날짜):", response);
                     // response가 undefined일 경우 대비
                     if (response && Array.isArray(response)) {
-                        availableDates[selectedCompanyName] = response.map(item => item.date);
+                        // 날짜만 추출해서 availableDates에 저장
+                        availableDates[selectedCompanyName] = response.map(item => item.date); // 필요한 경우 포맷만 변경
                     } else {
                         availableDates[selectedCompanyName] = []; // 빈 배열로 설정
                     }
@@ -115,14 +115,12 @@ $(document).ready(function () {
         let availableDatesForCompany = availableDates[selectedCompanyName] || [];
 
         dates.each(function () {
-            let day = $(this).text();
+            let day = $(this).text().padStart(2, '0');
             let fullDate = year + "-" + month.padStart(2, '0') + "-" + day;
 
-            if (availableDatesForCompany.includes(fullDate)) {
-                $(this).addClass("available"); // 예약 가능한 날짜는 검정색으로 표시
-            } else {
-                $(this).addClass("unavailable"); // 예약 불가능한 날짜는 연회색으로 표시
-            }
+            if (availableDatesForCompany.includes(fullDate))
+                $(this).addClass("available"); // 예약 가능한 날짜 color: #000000;
+
         });
     }
 
@@ -160,3 +158,5 @@ $(document).ready(function () {
         }
     }
 });
+
+

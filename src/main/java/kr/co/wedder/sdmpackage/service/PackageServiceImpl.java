@@ -1,13 +1,13 @@
 package kr.co.wedder.sdmpackage.service;
 
+import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.sdmpackage.dao.PackageDao;
-import kr.co.wedder.sdmpackage.domain.CompanyScheduleDTO;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
-import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -64,10 +64,10 @@ public class PackageServiceImpl implements PackageService{
     }
 
     @Override
-    public List<CompanyScheduleDTO> getAvailableDateList(String companyName) {
+    public List<CompanyScheduleDto> getAvailableDateList(String companyName) {
         System.out.println("PackageServiceImpl : companyName " + companyName);
 
-        List<CompanyScheduleDTO> availableDates = packageDao.selectAvailableDateList(companyName);
+        List<CompanyScheduleDto> availableDates = packageDao.selectAvailableDateList(companyName);
 
         // 결과가 없는 경우 빈 리스트 반환
         if (availableDates.isEmpty()) {
@@ -80,12 +80,12 @@ public class PackageServiceImpl implements PackageService{
     }
 
     @Override
-    public List<CompanyScheduleDTO> getAvailableTimeList(String companyName, String date) {
+    public List<CompanyScheduleDto> getAvailableTimeList(String companyName, Date date) {
 
         System.out.println("PackageServiceImpl : companyName" + companyName);
         System.out.println("PackageServiceImpl : date" + date);
 
-        List<CompanyScheduleDTO> result = packageDao.selectAvailableTimeList(companyName, date);
+        List<CompanyScheduleDto> result = packageDao.selectAvailableTimeList(companyName, date);
 
         // 결과가 없는 경우 빈 리스트 반환
         if (result.isEmpty()) {

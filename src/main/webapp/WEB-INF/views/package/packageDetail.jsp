@@ -69,11 +69,12 @@
         </c:forEach>
 
         <!--패키지 예약 가능일정 확인 -->
-        <section>
+        <section class="schedule-available">
             <h2>예약 가능한 일정 확인</h2>
-            <!-- 3.calandar -->
-            <section class="calandars" id="payment-detail-section3">
-                <div class="calandars-payment-list">
+            <h4>✔️ 스튜디오, 드레스, 메이크업 업체를 클릭 후 일정을 선택해주세요.</h4>
+            <!-- 3.calendar -->
+            <section class="calendar" id="payment-detail-section3">
+                <div class="calendar-payment-list">
                     <%@ include file="/WEB-INF/views/package/packageCalendar.jsp" %>
 
                     <%-- get 정보로 예약된 날짜를 가져오는 중--%>

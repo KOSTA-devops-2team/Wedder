@@ -40,18 +40,13 @@
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	font-size: 18px;
+	color: #CCCCCC;
 }
 
 .calendar-dates > div {
 	padding: 17px 5px;
 	text-align: center;
 }
-
-.calendar-dates > div:hover {
-	background-color: #F0F0F0;
-}
-
-
 
 .date {
   cursor: pointer;

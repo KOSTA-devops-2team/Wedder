@@ -55,11 +55,10 @@
         <div id="timeSlotsContainer">
             <!-- 여기서 동적으로 시간대를 추가합니다 -->
         </div>
-
     </section>
 </section>
 <section id="selectedInfo">
-    <h3>선택된 정보</h3>
+    <h4>✔️ 선택된 정보</h4>
     <ul id="infoList">
         <!-- 여기서 동적으로 선택한 일정 추가합니다 -->
     </ul>

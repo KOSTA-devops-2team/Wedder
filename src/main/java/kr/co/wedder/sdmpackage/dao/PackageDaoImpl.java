@@ -1,12 +1,12 @@
 package kr.co.wedder.sdmpackage.dao;
 
-import kr.co.wedder.sdmpackage.domain.CompanyScheduleDTO;
+import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
-import kr.co.wedder.sdmpackage.domain.PackageDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,14 +67,14 @@ public class PackageDaoImpl implements PackageDao {
     }
 
     @Override
-    public List<CompanyScheduleDTO> selectAvailableDateList(String companyName) {
+    public List<CompanyScheduleDto> selectAvailableDateList(String companyName) {
 
         return sqlSession.selectList(namespace + "selectAvailableDateList", companyName);
     }
 
 
     @Override
-    public List<CompanyScheduleDTO> selectAvailableTimeList(String companyName, String date) {
+    public List<CompanyScheduleDto> selectAvailableTimeList(String companyName, Date date) {
         Map map = new HashMap<>();
         map.put("companyName", companyName);
         map.put("date", date);

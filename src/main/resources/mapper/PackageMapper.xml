@@ -158,5 +158,6 @@
         FROM company_schedule
         WHERE company_name = #{companyName}
         AND date = #{date}
+        ORDER BY time;
     </select>
 </mapper>
