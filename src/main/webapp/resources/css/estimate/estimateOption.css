@@ -127,6 +127,20 @@
     padding-top: 10px;
     margin-bottom: 30px;
 }
+.selected-studio, .selected-dress, .selected-makeup {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.company-info,
+.company-price {
+    font-weight: 700;
+}
+.option-item-added {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
 
 /* 가격 표시 */
 .price {

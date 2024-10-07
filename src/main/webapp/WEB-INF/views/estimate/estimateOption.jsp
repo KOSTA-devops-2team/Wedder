@@ -153,41 +153,34 @@
                             <div class="select-title">선택하신 목록</div>
                             <div class="select-item">
                                 <!-- 선택한 스튜디오 정보 -->
-                                <div id="selected-studio">
-                                    <p>${studioData.companyName}</p>
-                                    <p>${studioData.basicPrice}원</p>
+                                <div class="selected-studio" id="selected-studio">
+                                    <span class="company-info" >${studioData.companyName}</span>
+                                    <span class="company-price" data-price="${studioData.basicPrice}">${studioData.basicPrice}원</span>
                                 </div>
                                 <!-- 스튜디오 옵션 -->
-                                <div id="selected-studio-options">
-                                    <p>선택된 스튜디오 옵션이 없습니다.</p>
-                                </div>
+                                <div id="selected-studio-options"></div>
 
                                 <!-- 선택한 드레스 정보 -->
-                                <div id="selected-dress">
-                                    <p>${dressData.companyName}</p>
-                                    <p>${dressData.basicPrice}원</p>
+                                <div class="selected-dress" id="selected-dress">
+                                    <span class="company-info">${dressData.companyName}</span>
+                                    <span class="company-price" data-price="${dressData.basicPrice}">${dressData.basicPrice}원</span>
                                 </div>
                                 <!-- 드레스 옵션 -->
-                                <div id="selected-dress-options">
-                                    <p>선택된 드레스 옵션이 없습니다.</p>
-                                </div>
+                                <div id="selected-dress-options"></div>
 
                                 <!-- 선택한 메이크업 정보 -->
-                                <div id="selected-makeup">
-                                    <p>${makeupData.companyName}</p>
-                                    <p>${makeupData.basicPrice}원</p>
+                                <div class="selected-makeup" id="selected-makeup">
+                                    <span class="company-info">${makeupData.companyName}</span>
+                                    <span class="company-price" data-price="${makeupData.basicPrice}">${makeupData.basicPrice}원</span>
                                 </div>
                                 <!-- 메이크업 옵션 -->
-                                <div id="selected-makeup-options">
-                                    <p>선택된 메이크업 옵션이 없습니다.</p>
-                                </div>
-
+                                <div id="selected-makeup-options"></div>
                             </div>
                         </div>
                         <!-- 가격 표시-->
                         <div class="price">
                             <div class="price-total">
-                                <span>최종 금액</span><span>0원</span>
+                                <span>최종 금액</span><span id="price-total">0원</span>
                             </div>
                             <div class="reselection">
                                 <a href=""><span class="material-symbols-outlined">replay</span>업체 다시 선택</a>

@@ -41,6 +41,39 @@ $('.studio-option, .dress-option, .makeup-option').on('click', function () {
     toggleOption(category, optionName, optionPrice);
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    // HTML 요소에서 기본 가격을 가져옴
+    const studioPrice = parseInt(document.querySelector('#selected-studio .company-price').dataset.price) || 0;
+    const dressPrice = parseInt(document.querySelector('#selected-dress .company-price').dataset.price) || 0;
+    const makeupPrice = parseInt(document.querySelector('#selected-makeup .company-price').dataset.price) || 0;
+
+    // 기본 가격 설정 함수 호출
+    setBasicPrices(studioPrice, dressPrice, makeupPrice);
+});
+
+// 기본 가격을 설정하는 함수
+let totalBasicPrice = 0;
+
+function setBasicPrices(studioPrice, dressPrice, makeupPrice) {
+    totalBasicPrice = studioPrice + dressPrice + makeupPrice;
+    updateTotalPrice(); // 초기 기본 가격으로 총합 계산
+}
+
+function updateTotalPrice() {
+    // 초기값은 모든 업체의 기본 가격의 합계
+    let totalPrice = totalBasicPrice;
+
+    // 각 카테고리의 선택된 옵션들의 가격을 합산하여 totalPrice에 더함
+    for (const category in selectedOptions) {
+        selectedOptions[category].forEach(option => {
+            totalPrice += option.price;
+        });
+    }
+
+    // 화면에 업데이트
+    $("#price-total").text(`${totalPrice.toLocaleString()}원`);
+}
+
 // 옵션 추가/삭제 처리 함수 (여러 개 선택 가능하게 수정)
 function toggleOption(category, optionName, optionPrice) {
     // 선택된 옵션 목록 가져오기
@@ -71,6 +104,7 @@ function toggleOption(category, optionName, optionPrice) {
         success: function(response) {
             console.log("AJAX 응답 데이터:", response);
             updateSelectedOptions(category, options); // 서버에서 받은 최신 목록으로 업데이트
+            updateTotalPrice();
         },
         error: function(xhr, status, error) {
             console.error("AJAX 요청 오류:", status, error);
@@ -88,21 +122,20 @@ function updateSelectedOptions(category, options) {
         options.forEach(option => {
             // 선택된 옵션을 화면에 표시
             const optionElement = `
-                <p class="option-item" data-name="${option.name}" data-price="${option.price}">
-                    ${option.name}: ${option.price.toLocaleString()}원
+                <p class="option-item-added" data-name="${option.name}" data-price="${option.price}">
+                    <span class="option-info">${option.name}</span>
+                    <span class="option-price">${option.price.toLocaleString()}원</span>
                 </p>
             `;
             $selectedContainer.append(optionElement);
         });
 
         // 동적으로 생성된 요소에 이벤트 바인딩
-        $selectedContainer.find('.option-item').on('click', function() {
+        $selectedContainer.find('.option-item, .option-item-added').on('click', function() {
             const optionName = $(this).data('name');
             const optionPrice = $(this).data('price');
             toggleOption(category, optionName, optionPrice); // 옵션 제거를 위한 요청
         });
-    } else {
-        // 선택된 옵션이 없을 때
-        $selectedContainer.append(`<p>선택된 옵션이 없습니다.</p>`);
     }
+    updateTotalPrice(); // 전체 가격 업데이트
 }
