@@ -102,4 +102,64 @@ public class EstimateController {
 
         return "estimate/estimateOption";
     }
+    // 선택한 옵션을 저장하는 맵 (옵션은 각 카테고리별로 관리: 스튜디오, 드레스, 메이크업)
+    private Map<String, List<Map<String, Object>>> selectedOptions = new HashMap<>();
+
+    public EstimateController() {
+        // 선택된 옵션들을 빈 리스트로 초기화
+        selectedOptions.put("studio", new ArrayList<>());
+        selectedOptions.put("dress", new ArrayList<>());
+        selectedOptions.put("makeup", new ArrayList<>());
+    }
+
+    @PostMapping("/updateOption")
+    public ResponseEntity<Map<String, List<Map<String, Object>>>> updateOption(
+            @RequestBody Map<String, Object> requestData) {
+
+        String category = (String) requestData.get("category");
+        String optionName = (String) requestData.get("optionName");
+
+        // Null check for category and optionName
+        if (category == null || optionName == null) {
+            return ResponseEntity.badRequest().body(null); // 혹은 적절한 에러 처리
+        }
+
+        Integer optionPrice = null;
+        if (requestData.get("optionPrice") instanceof Integer) {
+            optionPrice = (Integer) requestData.get("optionPrice");
+        } else if (requestData.get("optionPrice") instanceof String) {
+            optionPrice = Integer.parseInt((String) requestData.get("optionPrice"));
+        }
+
+        // Null check for optionPrice
+        if (optionPrice == null) {
+            return ResponseEntity.badRequest().body(null); // 혹은 적절한 에러 처리
+        }
+
+        // 카테고리별로 선택된 옵션 목록 가져오기 (없으면 빈 리스트를 반환)
+        List<Map<String, Object>> options = selectedOptions.getOrDefault(category, new ArrayList<>());
+
+        // 선택된 옵션이 이미 있는지 확인
+        boolean exists = options.stream().anyMatch(option -> optionName.equals(option.get("name")));
+
+        if (exists) {
+            // 이미 선택된 옵션이 있으면 제거
+            options.removeIf(option -> optionName.equals(option.get("name")));
+        } else {
+            // 새로 선택한 옵션이면 추가
+            Map<String, Object> newOption = new HashMap<>();
+            newOption.put("name", optionName);
+            newOption.put("price", optionPrice);
+            options.add(newOption);
+        }
+
+        // 선택된 옵션 목록을 맵에 다시 저장 (새로운 카테고리가 있을 경우 대비)
+        selectedOptions.put(category, options);
+
+        // 선택된 옵션 목록을 응답으로 반환
+        Map<String, List<Map<String, Object>>> response = new HashMap<>();
+        response.put(category, options);
+        return ResponseEntity.ok(response);
+    }
+
 }

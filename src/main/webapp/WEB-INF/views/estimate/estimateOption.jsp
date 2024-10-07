@@ -61,7 +61,7 @@
                             <c:if test="${not empty companyOptions.studio}">
                                 <div class="option">
                                     <c:forEach var="option" items="${companyOptions.studio}">
-                                        <div class="option-item">
+                                        <div class="option-item studio-option">
                                             <span class="option-name">${option.optionName}</span>
                                             <span class="option-price">${option.optionPrice}원</span>
                                         </div>
@@ -98,7 +98,7 @@
                             <c:if test="${not empty companyOptions.dress}">
                                 <div class="option">
                                     <c:forEach var="option" items="${companyOptions.dress}">
-                                        <div class="option-item">
+                                        <div class="option-item dress-option">
                                             <span class="option-name">${option.optionName}</span>
                                             <span class="option-price">${option.optionPrice}원</span>
                                         </div>
@@ -135,7 +135,7 @@
                             <c:if test="${not empty companyOptions.makeup}">
                                 <div class="option">
                                     <c:forEach var="option" items="${companyOptions.makeup}">
-                                        <div class="option-item">
+                                        <div class="option-item makeup-option">
                                             <span class="option-name">${option.optionName}</span>
                                             <span class="option-price">${option.optionPrice}원</span>
                                         </div>
@@ -152,14 +152,42 @@
                         <div class="top">
                             <div class="select-title">선택하신 목록</div>
                             <div class="select-item">
+                                <!-- 선택한 스튜디오 정보 -->
+                                <div id="selected-studio">
+                                    <p>${studioData.companyName}</p>
+                                    <p>${studioData.basicPrice}원</p>
+                                </div>
+                                <!-- 스튜디오 옵션 -->
+                                <div id="selected-studio-options">
+                                    <p>선택된 스튜디오 옵션이 없습니다.</p>
+                                </div>
+
+                                <!-- 선택한 드레스 정보 -->
+                                <div id="selected-dress">
+                                    <p>${dressData.companyName}</p>
+                                    <p>${dressData.basicPrice}원</p>
+                                </div>
+                                <!-- 드레스 옵션 -->
+                                <div id="selected-dress-options">
+                                    <p>선택된 드레스 옵션이 없습니다.</p>
+                                </div>
+
+                                <!-- 선택한 메이크업 정보 -->
+                                <div id="selected-makeup">
+                                    <p>${makeupData.companyName}</p>
+                                    <p>${makeupData.basicPrice}원</p>
+                                </div>
+                                <!-- 메이크업 옵션 -->
+                                <div id="selected-makeup-options">
+                                    <p>선택된 메이크업 옵션이 없습니다.</p>
+                                </div>
 
                             </div>
                         </div>
-
                         <!-- 가격 표시-->
                         <div class="price">
                             <div class="price-total">
-                                <span>최종 금액</span><span>330,000원</span>
+                                <span>최종 금액</span><span>0원</span>
                             </div>
                             <div class="reselection">
                                 <a href=""><span class="material-symbols-outlined">replay</span>업체 다시 선택</a>
@@ -177,8 +205,8 @@
             </div>
             <!-- 이전, 다음 버튼 -->
             <div class="btn">
-                <button onclick="location.href='estimate-calculator.html'" class="back">이전</button>
-                <button onclick="location.href='estimate-final.html'" class="next">다음으로</button>
+                <button onclick="location.href='/estimate/estimateCompany'" class="back">이전</button>
+                <button onclick="location.href='/estimate/estimateFinal'" class="next">다음으로</button>
             </div>
         </div>
     </div>
