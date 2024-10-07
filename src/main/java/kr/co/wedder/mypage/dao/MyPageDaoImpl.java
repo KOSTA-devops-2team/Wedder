@@ -142,11 +142,20 @@ public class MyPageDaoImpl implements MyPageDao {
 	}
 
 	@Override
-	public List<Map<String, Object>> paymentTest(Integer customer_id) throws Exception {
+	public List<Map<String, Object>> getMyPayment(Integer customer_id) throws Exception {
 		Map<String, Object> parameterTypeMap =new  HashMap<>();
 		parameterTypeMap.put("customer_id",customer_id);
 
 		return session.selectList(namespace+"paymentTest",customer_id);
+	}
+
+	@Override
+	public List<Map<String, Object>> searchOrderName(Integer customer_id, String order_name) throws Exception {
+		Map<String,Object> parameterTypeMap = new HashMap<>();
+		parameterTypeMap.put("customer_id",customer_id);
+		parameterTypeMap.put("order_name",order_name);
+
+		return session.selectList(namespace+"searchOrderName",parameterTypeMap);
 	}
 
 }

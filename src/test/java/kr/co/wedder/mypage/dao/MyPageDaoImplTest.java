@@ -237,7 +237,7 @@ public class MyPageDaoImplTest {
 	@Autowired
 	private MyPageService service;
 	@Test
-	public void paymentTest() throws Exception{
+	public void getMyPayment() throws Exception{
 		/*List<Map<String,Object>> testList = dao.paymentTest(1);
 		System.out.println(testList);
 		System.out.println(testList.get(1).get("customer_tel"));*/
@@ -250,6 +250,12 @@ public class MyPageDaoImplTest {
 		System.out.println("주문 "+serviceList.get(1).get("order_name"));
 		System.out.println("금액 "+serviceList.get(1).get("paid_amount"));
 
+	}
+	@Test
+	public void searchOrderName() throws Exception{
+		List<Map<String,Object>> testList  = dao.searchOrderName(1,"Best Package1");
+		System.out.println(testList);
+		System.out.println(testList.get(1).get("order_name"));
 	}
 }
 

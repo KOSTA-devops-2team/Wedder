@@ -40,7 +40,8 @@ public interface MyPageService {
 	MakeupInfo toCustomerMakeupInfo(Map<String,Object> map) throws Exception;
 	List<VisitCriteria> toCustomerOptionInfo(Map<String,Object> map,String category) throws Exception;
 	// 09/25
-	MyPageDTO cutomerId(String id) throws Exception;
+	MyPageDTO customerId(String id) throws Exception;
 
 	List<Map<String,Object>> paymentHistory(Integer customer_id) throws Exception;
+	List<Map<String,Object>> searchMyPayment(Integer customer_id,String order_name)throws Exception;
 }

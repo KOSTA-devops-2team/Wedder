@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import kr.co.wedder.mypage.service.MyPageService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/mypage")
@@ -27,7 +26,7 @@ public class MyPageController {
 	public String mypage(@SessionAttribute("id") String id, Integer customerId, Model m) {
 		try {
 			System.out.println("id : "+ id);
-			MyPageDTO sessionId=myPageService.cutomerId(id);
+			MyPageDTO sessionId=myPageService.customerId(id);
 
 			// id에서 받아오는  customer_id
 			customerId=sessionId.getCustomerId();
@@ -98,10 +97,40 @@ public class MyPageController {
 		return "mypage/likeList";
 	}
 
-	@RequestMapping(value="/mypayment")
-	public String myPayment() {
-		return "mypage/myPayment";
+
+	@GetMapping("/mypayment")
+	public String getMyPayment(@SessionAttribute("id") String id,Integer customerId,Model model){
+		try {
+			/* mypayment 값 가져옴*/
+			System.out.println("id= "+id);
+			MyPageDTO sessionId=myPageService.customerId(id);
+			customerId=sessionId.getCustomerId();
+			List<Map<String, Object>> myPayment = myPageService.paymentHistory(customerId);
+			model.addAttribute("myPayment",myPayment);
+			model.addAttribute("customerId",customerId);
+			System.out.println(myPayment.get(1).get("payment_time"));
+
+			/*마이페이지의 헤더*/
+			MyPageDTO myPageDTO = myPageService.customerRead(customerId);
+			model.addAttribute("myPageDTO",myPageDTO);
+
+			/*금일 방문 일정 카운트*/
+			/*Map parameter type*/
+			Map<String,Object> vistCriteriaMap = new HashMap<>();
+
+			vistCriteriaMap.put("customerId",customerId);
+
+			Integer visitCriteriaCount = myPageService.todayVisitCount(vistCriteriaMap);
+			model.addAttribute("visitCriteriaCount",visitCriteriaCount);
+			
+			
+			return "mypage/myPayment";
+		}catch (Exception e){
+			e.printStackTrace();
+			return "redirect:/main";
+		}
 	}
+
 
 	@RequestMapping(value="/payment-detail")
 	public String paymentDetail() {
@@ -137,7 +166,7 @@ public class MyPageController {
 		try {
 			// request로 입력받은 id 추가하여 customerId를 받아옴
 			System.out.println("id : "+ id);
-			MyPageDTO sessionId=myPageService.cutomerId(id);
+			MyPageDTO sessionId=myPageService.customerId(id);
 
 			// id에서 받아오는  customer_id
 			int customerId=sessionId.getCustomerId();
@@ -241,7 +270,7 @@ public class MyPageController {
 		try {
 			// sessionId 받아오는 중~
 				System.out.println("id : "+ id);
-				MyPageDTO sessionId=myPageService.cutomerId(id);
+				MyPageDTO sessionId=myPageService.customerId(id);
 
 				// id에서 받아오는  customer_id
 				int customerId=sessionId.getCustomerId();
