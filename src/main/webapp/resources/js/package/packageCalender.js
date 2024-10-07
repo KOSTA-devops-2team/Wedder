@@ -11,7 +11,7 @@ $(document).ready(function () {
         // 기존에 선택된 다른 업체가 있으면 날짜와 시간 초기화
         // if (selectedCompanyName !== newCompanyName) {
         //     $(".date").removeClass("highlight"); // 이전 업체의 날짜 선택 해제
-        //     $(".time-slot").removeClass("selected"); // 이전 업체의 시간 선택 해제
+        //     $(".time-slot").removeClass("time-selected"); // 이전 업체의 시간 선택 해제
         //     $("#timeSlotsContainer").empty(); // 이전 업체의 시간 슬롯 초기화
         //
         // }
@@ -19,7 +19,7 @@ $(document).ready(function () {
         // 기존에 선택된 다른 업체가 있으면 날짜와 시간 초기화
         if (selectedCompanyName !== newCompanyName) {
             $(".date").removeClass("highlight").removeClass("available").removeClass("unavailable");
-            $(".time-slot").removeClass("selected");
+            $(".time-slot").removeClass("time-selected");
             $("#timeListContainer").empty(); // 이전 업체의 시간 슬롯 초기화
         }
 
@@ -61,7 +61,8 @@ $(document).ready(function () {
         let date = $(this);
         let month = $("#currentMonth").text();
         let year = $("#currentYear").text();
-        let day = date.text();
+        //let day = date.text();
+        let day = date.text().padStart(2, '0');
         let selectedDate = year + "-" + month + "-" + day; // 선택된 날짜 저장
         console.log("클릭한 날짜:", selectedDate);
 
@@ -72,8 +73,9 @@ $(document).ready(function () {
             selectedData[selectedCompanyName] = {};
         }
         selectedData[selectedCompanyName].date = selectedDate;
-
         console.log("현재 선택된 정보:", selectedData);
+        // 선택한 날짜를 표시하는 부분 업데이트
+        $(`#selectedDateTime_${selectedCompanyName}`).text(`${selectedDate} • 선택한 시간`);
 
         // 선택한 업체와 날짜에 해당하는 시간대를 서버로 요청
         if (selectedCompanyName && selectedDate) {
@@ -94,7 +96,7 @@ $(document).ready(function () {
                         console.log("선택한 날짜에 예약 가능한 시간이 없습니다.");
                         alert("선택한 날짜에 예약 가능한 시간이 없습니다.");
                     } else {
-                        renderTimeSlots(response); // 시간대를 렌더링하는 함수 호출
+                        renderTimeLists(response); // 시간대를 렌더링하는 함수 호출
                     }
                 },
                 error: function () {
@@ -105,6 +107,7 @@ $(document).ready(function () {
             alert("업체와 날짜를 모두 선택해주세요.");
         }
     });
+
 
 
     // 예약 가능한 날짜에 따라 날짜 색상 업데이트하는 함수
@@ -125,38 +128,58 @@ $(document).ready(function () {
     }
 
     // 예약 가능한 시간대를 동적으로 표시하는 함수
-    function renderTimeSlots(timeSlots) {
+    function renderTimeLists(timeLists) {
         let container = $("#timeListContainer");
         container.empty(); // 기존 시간대들을 비움
 
-        // timeSlots가 undefined일 경우 빈 배열로 초기화
-        timeSlots = timeSlots || [];
-        if(timeSlots.length === 0) {
-            container.append("<p>선택한 날짜에 예약 가능한 시간이 없습니다.</p>");
-        } else{
-            timeSlots.forEach(function (list) {
+        timeLists.forEach(function (list) {
 
-                let slotElement = $("<div></div>")
-                    .addClass("time-slot")
-                    .text(list.time);
+            let slotElement = $("<div></div>")
+                .addClass("time-slot")
+                .text(list.time);
 
-                slotElement.on("click", function () {
-                    $(".time-slot").removeClass("selected");
-                    $(this).addClass("selected");
+            slotElement.on("click", function () {
+                $(".time-slot").removeClass("time-selected");
+                $(this).addClass("time-selected");
 
-                    // 시간대 정보를 현재 업체에 저장
-                    if (!selectedData[selectedCompanyName]) {
-                        selectedData[selectedCompanyName] = {};
-                    }
-                    selectedData[selectedCompanyName].time = list.time; // 선택된 시간 저장
-                    console.log(`선택한 시간: ${list.time} (업체: ${selectedCompanyName})`);
-                    console.log("현재 선택된 정보:", selectedData);
-                });
+                // 시간대 정보를 현재 업체와 날짜에 저장
+                if (!selectedData[selectedCompanyName]) {
+                    selectedData[selectedCompanyName] = {};
+                }
+                if (!selectedData[selectedCompanyName][selectedDate]) {
+                    selectedData[selectedCompanyName][selectedDate] = {};
+                }
 
-                container.append(slotElement); // 시간대 요소를 컨테이너에 추가
+                // 선택된 시간을 해당 업체와 날짜에 저장
+                selectedData[selectedCompanyName][selectedDate].time = list.time;
+                console.log(`선택한 시간: ${list.time} (업체: ${selectedCompanyName}, 날짜: ${selectedDate})`);
+                console.log("현재 선택된 정보:", selectedData);
+
+                // 선택된 시간과 날짜를 UI에 반영
+                $("#selectedDateTime").text(`${selectedDate} • ${list.time}`);
             });
-        }
+
+            container.append(slotElement); // 시간대 요소를 컨테이너에 추가
+        });
     }
+
+    // 3. 시간 슬롯 클릭 이벤트 처리
+    $(document).on("click", ".time-slot", function () {
+        let selectedTime = $(this).text(); // 선택한 시간을 가져옴
+        $(".time-slot").removeClass("time-selected");
+        $(this).addClass("time-selected");
+
+        let selectedDate = selectedData[selectedCompanyName].date;
+
+        // 시간 선택 정보 업데이트
+        selectedData[selectedCompanyName].time = selectedTime;
+
+        // 선택한 시간과 날짜를 해당 업체의 일정 표시 영역에 업데이트
+        $(`#selectedDateTime_${selectedCompanyName}`).text(`${selectedDate} • ${selectedTime}`);
+
+        console.log("현재 선택된 정보:", selectedData);
+    });
+
 });
 
 

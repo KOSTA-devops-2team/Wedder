@@ -68,7 +68,7 @@
                 <div class="company-name">${detail.companyName}</div>
                 <div class="schedule-info">
                     <span>일정</span>
-                    <p>선택한 날짜 • 선택한 시간</p>
+                    <p id="selectedDateTime_${detail.companyName}">선택한 날짜 • 선택한 시간</p>
                 </div>
             </div>
         </c:forEach>

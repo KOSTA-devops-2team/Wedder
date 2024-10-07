@@ -60,7 +60,7 @@
 
 .highlight{
 	border-radius: 7px;
-	background-color: #CA1A5A;
+	background-color: #CA1A5A !important;
 	color: white;
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -124,7 +124,7 @@
 	/*box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);*/
 }
 
-.time-slot.selected {
+.time-slot.time-selected {
 	background-color: rgba(255, 203, 222, 0.31);
 	color: #CA1A5A;
 	border: 1px solid #CA1A5A;
@@ -135,6 +135,7 @@
 .available {
 	color: #000000; /* 예약 가능한 날짜: 검정색 */
 }
+
 
 .unavailable {
 	color: #CCCCCC; /* 예약 불가능한 날짜: 연회색 */
