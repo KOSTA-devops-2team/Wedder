@@ -70,7 +70,7 @@
 
         <!--패키지 예약 가능일정 확인 -->
         <section class="schedule-available">
-            <h2>예약 가능한 일정 확인</h2>
+            <h2>패키지 예약하기</h2>
             <h4>✔️ 스튜디오, 드레스, 메이크업 업체를 클릭 후 일정을 선택해주세요.</h4>
             <!-- 3.calendar -->
             <section class="calendar" id="payment-detail-section3">
@@ -87,9 +87,9 @@
 
 
         <!-- 가격 안내 부분-->
+        <div class="total-title">결제할 금액</div>
         <div class="total">
             <section>
-            <div class="total-title">패키지 특전</div>
             <div class="total-cost">
                 <div class="tag">정상가</div>
                 <div class="price"><fmt:formatNumber value="${packagePrice}" type="number" pattern="#,###"/>원</div>

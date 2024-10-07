@@ -52,17 +52,27 @@
     </section>
 
     <section class="calendar-list">
-        <div id="timeSlotsContainer">
-            <!-- 여기서 동적으로 시간대를 추가합니다 -->
+        <div class="time-list-container">
+            <div id="timeListContainer" class="time-lists">
+                <!-- 여기서 동적으로 시간대를 추가합니다 -->
+            </div>
         </div>
+
     </section>
 </section>
 <section id="selectedInfo">
-    <h4>✔️ 선택된 정보</h4>
+    <h4>✔️ 아래 내용이 맞는지 확인해 주세요.</h4>
     <ul id="infoList">
-        <!-- 여기서 동적으로 선택한 일정 추가합니다 -->
+        <c:forEach var="detail" items="${packageDetails}">
+            <div class="card">
+                <div class="company-name">${detail.companyName}</div>
+                <div class="schedule-info">
+                    <span>일정</span>
+                    <p>선택한 날짜 • 선택한 시간</p>
+                </div>
+            </div>
+        </c:forEach>
     </ul>
 </section>
-
 </body>
 </html>

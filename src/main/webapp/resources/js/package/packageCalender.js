@@ -20,7 +20,7 @@ $(document).ready(function () {
         if (selectedCompanyName !== newCompanyName) {
             $(".date").removeClass("highlight").removeClass("available").removeClass("unavailable");
             $(".time-slot").removeClass("selected");
-            $("#timeSlotsContainer").empty(); // 이전 업체의 시간 슬롯 초기화
+            $("#timeListContainer").empty(); // 이전 업체의 시간 슬롯 초기화
         }
 
         selectedCompanyName = newCompanyName;
@@ -56,7 +56,7 @@ $(document).ready(function () {
         }
     });
 
-    // 날짜 클릭 이벤트 처리
+    // 3. 날짜 클릭 이벤트 처리
     $(".date").on("click", function () {
         let date = $(this);
         let month = $("#currentMonth").text();
@@ -66,7 +66,7 @@ $(document).ready(function () {
         console.log("클릭한 날짜:", selectedDate);
 
         $(".date").removeClass("highlight");
-        $(this).addClass("highlight");
+        $(this).addClass("highlight").removeClass("available");
 
         if (!selectedData[selectedCompanyName]) {
             selectedData[selectedCompanyName] = {};
@@ -126,7 +126,7 @@ $(document).ready(function () {
 
     // 예약 가능한 시간대를 동적으로 표시하는 함수
     function renderTimeSlots(timeSlots) {
-        let container = $("#timeSlotsContainer");
+        let container = $("#timeListContainer");
         container.empty(); // 기존 시간대들을 비움
 
         // timeSlots가 undefined일 경우 빈 배열로 초기화

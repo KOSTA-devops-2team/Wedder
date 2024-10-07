@@ -116,11 +116,11 @@
 
 .time-slot {
 	padding: 10px;
-	margin: 12px 0;
 	background-color: #EEEEEE;
 	border: 1px solid #000000;
 	cursor: pointer;
 	border-radius: 5px;
+	text-align: center;
 	/*box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);*/
 }
 
@@ -139,4 +139,51 @@
 .unavailable {
 	color: #CCCCCC; /* 예약 불가능한 날짜: 연회색 */
 	pointer-events: none; /* 클릭 불가 */
+}
+
+.time-list-container {
+	margin-top: 100px;
+}
+
+.time-lists {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 20px;
+	row-gap: 10px;
+}
+
+/*선태한 일정 보여주는 부분*/
+#selectedInfo .card {
+	border: 1px solid #ddd;
+	padding: 16px;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#selectedInfo .company-name {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.schedule-info {
+	display: flex;
+	justify-content: flex-start;
+}
+
+#selectedInfo .schedule-info span {
+	font-size: 15px;
+	color: #939396;
+	margin-right: 7px;
+}
+
+#selectedInfo .schedule-info p {
+	font-size: 15px;
+	color: #222225;
+}
+
+#infoList {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 20px;
 }
