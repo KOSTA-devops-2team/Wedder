@@ -131,16 +131,15 @@ public class MyPageController {
 		}
 	}
 
-
-	@RequestMapping(value="/payment-detail")
-	public String paymentDetail() {
+	@GetMapping("/payment-detail")
+	public String getPaymentDetail(){
 		return "mypage/paymentDetail";
 	}
-	
-	/*
-	 * @RequestMapping(value="/reservation-detail") public String
-	 * reservationDetail() { return "mypage/reservationDetail"; }
-	 */
+	@PostMapping("/payment-detail")
+	public String postPaymentDetail(){
+		return "mypage/paymentDetail";
+	}
+
 	@GetMapping("/reservation-detail")
 	public String reservationDetail(@SessionAttribute("id") String id, HttpServletRequest request, Model m) {
 		//카테고리 및 회사 인덱스 getmapping으로 얻어오는 값 추가
@@ -344,7 +343,9 @@ public class MyPageController {
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
 			m.addAttribute("visitCriteriaCount",visitCriteriaCount);
 
-
+			/*예약 일정 달력에 추가*/
+			List<Map<String, Object>> getCalendarEvents = myPageService.getCalendarEvents(customerId);
+			m.addAttribute("getCalendarEvents",getCalendarEvents);
 
 			return "/mypage/reservationList";
 		} catch (Exception e) {

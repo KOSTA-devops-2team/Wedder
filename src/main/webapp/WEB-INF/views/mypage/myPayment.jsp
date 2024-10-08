@@ -70,7 +70,7 @@
                   <dl>
                     <div aria-label="주문 날짜">결제 날짜 : ${payment.payment_time} </div>
                   </dl>
-                  <a href="payment-detail" class="body-top-link">
+                  <a href="${pageContext.request.contextPath}/mypage/payment-detail?merchantId=${payment.merchant_uid}" class="body-top-link">
                     <span>결제 상세</span>
                     <span> > </span>
                   </a>

@@ -18,12 +18,26 @@ public class MyPageRestController {
 
     @PostMapping("/mypayment")
     public List<Map<String,Object>> postMyPayment(@RequestParam(value = "order_name",required = false)String order_name, @SessionAttribute("id") String id, Integer customerId) throws Exception {
-        System.out.println("id= "+id);
-        MyPageDTO sessionId=myPageService.customerId(id);
-        customerId = sessionId.getCustomerId();
+        /*customerid를 찾는 함수 참조*/
+        customerId=SearchCustomerId(id,customerId);
 
-        System.out.println(myPageService.searchMyPayment(customerId, order_name).get(customerId));
-        
         return myPageService.searchMyPayment(customerId, order_name);
+    }
+    @GetMapping("/calendar/events")
+    public List<Map<String,Object>> getCalendarEvents(@SessionAttribute("id") String id, Integer customerId) throws Exception{
+        /*customerid를 찾는 함수 참조*/
+        customerId=SearchCustomerId(id,customerId);
+
+    return myPageService.getCalendarEvents(customerId);
+    }
+
+    
+    
+    /* 반복되는 method문*/
+    /*sesssion 에서 id를 얻어와 customerid 를 찾는 함수*/
+    public int SearchCustomerId(String id,Integer customerId ) throws Exception{
+        MyPageDTO sessionId=myPageService.customerId(id);
+        customerId=sessionId.getCustomerId();
+        return customerId;
     }
 }

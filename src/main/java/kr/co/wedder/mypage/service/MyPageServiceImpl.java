@@ -132,4 +132,9 @@ public class MyPageServiceImpl implements MyPageService {
 		return myPageDao.searchOrderName(customer_id,order_name);
 	}
 
+	@Override
+	public List<Map<String, Object>> getCalendarEvents(Integer customer_id) {
+		return myPageDao.getCalendarEvents(customer_id);
+	}
+
 }

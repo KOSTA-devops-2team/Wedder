@@ -158,4 +158,11 @@ public class MyPageDaoImpl implements MyPageDao {
 		return session.selectList(namespace+"searchOrderName",parameterTypeMap);
 	}
 
+	@Override
+	public List<Map<String, Object>> getCalendarEvents(Integer customer_id) {
+		Map<String,Object> parameterTypeMap = new HashMap<>();
+		parameterTypeMap.put("customer_id",customer_id);
+		return session.selectList(namespace+"getCalendarEvents",parameterTypeMap);
+	}
+
 }

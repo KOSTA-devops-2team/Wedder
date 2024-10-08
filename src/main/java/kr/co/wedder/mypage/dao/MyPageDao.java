@@ -70,5 +70,6 @@ public interface MyPageDao {
 	List<Map<String,Object>> getMyPayment(Integer customer_id)throws Exception;
 	//payment Searching -> test(ajax 로 보내는 값)
 	List<Map<String,Object>> searchOrderName(Integer customer_id,String order_name)throws Exception;
-
+	//post Calendar ajax로 일정 추가
+	List<Map<String,Object>> getCalendarEvents(Integer customer_id);
 }

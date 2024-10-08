@@ -44,4 +44,6 @@ public interface MyPageService {
 
 	List<Map<String,Object>> paymentHistory(Integer customer_id) throws Exception;
 	List<Map<String,Object>> searchMyPayment(Integer customer_id,String order_name)throws Exception;
+	// post Calendar plan 일정조회
+	List<Map<String,Object>> getCalendarEvents(Integer customer_id);
 }

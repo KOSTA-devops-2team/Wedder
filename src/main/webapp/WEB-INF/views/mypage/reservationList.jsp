@@ -54,6 +54,10 @@
             </div>
           </div>
         </section>
+		  <section id="reservationCalendar">
+			  <%@ include file="/WEB-INF/views/common/calendarList.jsp" %>
+
+		  </section>
         <div class="reservationList">
           <h3 class="reservation-h3-1">예약 내역</h3>
           <div class="reservationList-visithall-top">
