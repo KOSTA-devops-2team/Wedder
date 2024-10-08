@@ -6,6 +6,7 @@ import kr.co.wedder.payment.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ public class PaymentRestController {
     @PostMapping("/complete")
     public ResponseEntity<String> paymentComplete(@RequestBody PaymentRequest paymentRequest) {
 
+        System.out.println("Kakao Pay Key: " + paymentKeys.getKakaoPayKey()); // 이 값을 확인하여 null인지 체크
         String impUid = paymentRequest.getImpUid();
         boolean validPayment = paymentService.verifyPayment(impUid);
 
@@ -34,6 +36,4 @@ public class PaymentRestController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("결제 실패");
         }
     }
-
-
 }

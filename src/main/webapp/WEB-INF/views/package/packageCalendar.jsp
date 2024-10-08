@@ -11,11 +11,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageCalendar.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js"></script>
-    <script defer type="text/javascript"
-            src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js"></script>
-    <script defer type="text/javascript"
-            src="${pageContext.request.contextPath}/resources/js/package/packageCalender.js"></script>
-
 </head>
 <section class="calendar-wrapper">
     <section class="calendar-container" id="calendar-section1">
@@ -74,5 +69,9 @@
         </c:forEach>
     </ul>
 </section>
+<script type="text/javascript"
+        src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js"></script>
+<script type="text/javascript"
+        src="${pageContext.request.contextPath}/resources/js/package/packageCalender.js"></script>
 </body>
 </html>

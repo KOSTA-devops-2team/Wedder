@@ -16,17 +16,17 @@
     <title>package detail</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageDetail.css"/>
-    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-    <script defer src="${pageContext.request.contextPath}/resources/js/package/packageDetail.js"></script>
-    <script defer src="${pageContext.request.contextPath}/resources/js/package/packagePayment.js"></script>
-    <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<%--    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>--%>
+<%--    <script defer src="${pageContext.request.contextPath}/resources/js/package/packageDetail.js"></script>--%>
+<%--    <script defer src="${pageContext.request.contextPath}/resources/js/package/packagePayment.js"></script>--%>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <!-- SweetAlert2 사용 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
 <script>
-    var kakaoPayKey = "${paymentKeys.kakaoPayKey}";
+    var kakaoPayKey = '${paymentKeys.kakaoPayKey}';
     var customerId = '<%= customerId %>';
     var customerEmail = '<%= customerEmail %>';
     var customerName = '<%= customerName %>';
@@ -77,7 +77,6 @@
                 <div class="calendar-payment-list">
                     <%@ include file="/WEB-INF/views/package/packageCalendar.jsp" %>
 
-                    <%-- get 정보로 예약된 날짜를 가져오는 중--%>
                     <div style="display: none" id="getDate">
                         ${date}
                     </div>
@@ -120,6 +119,11 @@
         </div>
     </div>
 </div>
+<!-- 스크립트는 body 마지막에 배치하여 DOM 로딩 이후에 실행되도록 -->
+<script src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/package/packageDetail.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/package/packagePayment.js"></script>
+
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

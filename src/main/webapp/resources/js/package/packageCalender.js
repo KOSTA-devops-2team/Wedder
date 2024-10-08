@@ -3,18 +3,9 @@ $(document).ready(function () {
     let availableDates = {}; // 예약 가능한 날짜 저장 객체
     let selectedData = {}; // 업체별로 선택된 정보 저장 객체
 
-    // 1. 업체 버튼 클릭 이벤트 처리
     $(".calendar-category button").on("click", function (e) {
         e.preventDefault();
         let newCompanyName = $(this).text();
-
-        // 기존에 선택된 다른 업체가 있으면 날짜와 시간 초기화
-        // if (selectedCompanyName !== newCompanyName) {
-        //     $(".date").removeClass("highlight"); // 이전 업체의 날짜 선택 해제
-        //     $(".time-slot").removeClass("time-selected"); // 이전 업체의 시간 선택 해제
-        //     $("#timeSlotsContainer").empty(); // 이전 업체의 시간 슬롯 초기화
-        //
-        // }
 
         // 기존에 선택된 다른 업체가 있으면 날짜와 시간 초기화
         if (selectedCompanyName !== newCompanyName) {
@@ -28,6 +19,54 @@ $(document).ready(function () {
         $(this).addClass("select");
         console.log("클릭한 업체 이름:", selectedCompanyName);
 
+        // 1. 선택한 업체에 대한 저장된 정보가 있으면 달력과 시간을 표시
+        if (selectedData[selectedCompanyName] && selectedData[selectedCompanyName].date) {
+            let savedDate = selectedData[selectedCompanyName].date;
+            let savedTime = selectedData[selectedCompanyName].time;
+
+            // 선택된 날짜가 있다면 highlight 처리
+            let month = $("#currentMonth").text();
+            let year = $("#currentYear").text();
+            $(".date").each(function () {
+                let day = $(this).text().padStart(2, '0');
+                let fullDate = year + "-" + month.padStart(2, '0') + "-" + day;
+
+                if (fullDate === savedDate) {
+                    $(this).addClass("highlight");
+                }
+            });
+
+            // 선택된 시간이 있다면 time-selected 처리
+            if (savedTime) {
+                // 시간대 요청해서 화면에 다시 그리기
+                $.ajax({
+                    type: 'GET',
+                    url: "/package/getAvailableTimeList",
+                    contentType: "application/json",
+                    data: {
+                        companyName: selectedCompanyName,
+                        date: savedDate
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        renderTimeLists(response);
+
+                        // 시간이 선택된 상태라면 시간 슬롯에 반영
+                        if (savedTime) {
+                            $(".time-slot").each(function () {
+                                if ($(this).text() === savedTime) {
+                                    $(this).addClass("time-selected");
+                                }
+                            });
+                        }
+                    },
+                    error: function () {
+                        alert("시간대 정보를 불러오는데 실패했습니다.");
+                    }
+                });
+            }
+        }
+
         // 2. 선택된 업체의 예약 가능한 날짜 정보를 서버로 요청
         if (selectedCompanyName) {
             $.ajax({
@@ -39,14 +78,11 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (response) {
                     console.log("서버 응답 (예약 가능한 날짜):", response);
-                    // response가 undefined일 경우 대비
                     if (response && Array.isArray(response)) {
-                        // 날짜만 추출해서 availableDates에 저장
-                        availableDates[selectedCompanyName] = response.map(item => item.date); // 필요한 경우 포맷만 변경
+                        availableDates[selectedCompanyName] = response.map(item => item.date);
                     } else {
-                        availableDates[selectedCompanyName] = []; // 빈 배열로 설정
+                        availableDates[selectedCompanyName] = [];
                     }
-
                     updateDateColors(); // 날짜 색상 업데이트 함수 호출
                 },
                 error: function () {
@@ -56,12 +92,12 @@ $(document).ready(function () {
         }
     });
 
+
     // 3. 날짜 클릭 이벤트 처리
     $(".date").on("click", function () {
         let date = $(this);
         let month = $("#currentMonth").text();
         let year = $("#currentYear").text();
-        //let day = date.text();
         let day = date.text().padStart(2, '0');
         let selectedDate = year + "-" + month + "-" + day; // 선택된 날짜 저장
         console.log("클릭한 날짜:", selectedDate);
@@ -128,7 +164,7 @@ $(document).ready(function () {
     }
 
     // 예약 가능한 시간대를 동적으로 표시하는 함수
-    function renderTimeLists(timeLists) {
+    function renderTimeLists(timeLists, selectedDate) {
         let container = $("#timeListContainer");
         container.empty(); // 기존 시간대들을 비움
 
