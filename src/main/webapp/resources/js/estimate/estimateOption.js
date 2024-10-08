@@ -168,27 +168,49 @@ document.addEventListener("DOMContentLoaded", function() {
     nextButton.addEventListener("click", function(event) {
         event.preventDefault();
 
-        // 스튜디오, 드레스, 메이크업 섹션의 data-img-url 속성 값 가져오기
-        const studioImgUrl = document.querySelectorAll('.main')[0].dataset.imgUrl;
-        const dressImgUrl = document.querySelectorAll('.main')[1].dataset.imgUrl;
-        const makeupImgUrl = document.querySelectorAll('.main')[2].dataset.imgUrl;
-
-        // 기타 필요한 정보 가져오기
+        // 기본 정보 가져오기
         const studioName = document.querySelector('#selected-studio .company-info').innerText;
         const studioPrice = document.querySelector('#selected-studio .company-price').dataset.price;
+        const studioImgUrl = document.querySelectorAll('.main')[0].dataset.imgUrl;
 
         const dressName = document.querySelector('#selected-dress .company-info').innerText;
         const dressPrice = document.querySelector('#selected-dress .company-price').dataset.price;
+        const dressImgUrl = document.querySelectorAll('.main')[1].dataset.imgUrl;
 
         const makeupName = document.querySelector('#selected-makeup .company-info').innerText;
         const makeupPrice = document.querySelector('#selected-makeup .company-price').dataset.price;
+        const makeupImgUrl = document.querySelectorAll('.main')[2].dataset.imgUrl;
 
-        // URL에 포함하여 페이지 이동
+        // 옵션 데이터를 JSON 문자열로 변환
+        const selectedOptions = {
+            studio: [],
+            dress: [],
+            makeup: []
+        };
+
+        ['studio', 'dress', 'makeup'].forEach(category => {
+            const options = document.querySelectorAll(`#selected-${category}-options .option-item-added`);
+            options.forEach(option => {
+                const optionData = {
+                    name: option.querySelector('.option-info').innerText,
+                    price: option.querySelector('.option-price').innerText.replace('원', '').replace(',', '')
+                };
+                selectedOptions[category].push(optionData);
+            });
+        });
+
+        const optionsJSON = encodeURIComponent(JSON.stringify(selectedOptions));
+
+        // URL 구성
         let url = `/estimate/estimateFinal?studioName=${encodeURIComponent(studioName)}&studioPrice=${studioPrice}&studioImgUrl=${encodeURIComponent(studioImgUrl)}`;
         url += `&dressName=${encodeURIComponent(dressName)}&dressPrice=${dressPrice}&dressImgUrl=${encodeURIComponent(dressImgUrl)}`;
         url += `&makeupName=${encodeURIComponent(makeupName)}&makeupPrice=${makeupPrice}&makeupImgUrl=${encodeURIComponent(makeupImgUrl)}`;
+        url += `&options=${optionsJSON}`;
 
+        // 최종 URL 확인용 콘솔 출력
+        console.log("Generated URL:", url);
+
+        // 다음 페이지로 이동
         location.href = url;
     });
 });
-

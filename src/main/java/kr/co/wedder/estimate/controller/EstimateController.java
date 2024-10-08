@@ -1,5 +1,8 @@
 package kr.co.wedder.estimate.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import java.net.URLDecoder;
 import kr.co.wedder.estimate.domain.EstimateDto;
 import kr.co.wedder.estimate.service.EstimateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -172,42 +173,35 @@ public class EstimateController {
             @RequestParam(value = "makeupName", required = false) String makeupName,
             @RequestParam(value = "makeupPrice", required = false) Integer makeupPrice,
             @RequestParam(value = "makeupImgUrl", required = false) String makeupImgUrl,
-            @RequestParam Map<String, String> allParams,
-            Model model
-    ) {
-        // 기본 옵션 정보들 JSP에 전달
+            @RequestParam(value = "options", required = false) String optionsJSON,
+            Model model) {
+
+        // 기본 옵션 JSP에 전달
         model.addAttribute("studioName", studioName);
         model.addAttribute("studioPrice", studioPrice);
         model.addAttribute("studioImgUrl", studioImgUrl);
-
         model.addAttribute("dressName", dressName);
         model.addAttribute("dressPrice", dressPrice);
         model.addAttribute("dressImgUrl", dressImgUrl);
-
         model.addAttribute("makeupName", makeupName);
         model.addAttribute("makeupPrice", makeupPrice);
         model.addAttribute("makeupImgUrl", makeupImgUrl);
 
-        // 옵션들을 동적으로 추출하고 JSP에 전달
+        // JSON을 Map으로 변환하여 옵션 처리
+        ObjectMapper mapper = new ObjectMapper();
         Map<String, List<Map<String, Object>>> selectedOptions = new HashMap<>();
 
-        for (String key : allParams.keySet()) {
-            if (key.endsWith("Option") && key.contains("studio")) {
-                selectedOptions.computeIfAbsent("studio", k -> new ArrayList<>())
-                        .add(Map.of("name", allParams.get(key), "price", Integer.parseInt(allParams.get(key + "Price"))));
-            } else if (key.endsWith("Option") && key.contains("dress")) {
-                selectedOptions.computeIfAbsent("dress", k -> new ArrayList<>())
-                        .add(Map.of("name", allParams.get(key), "price", Integer.parseInt(allParams.get(key + "Price"))));
-            } else if (key.endsWith("Option") && key.contains("makeup")) {
-                selectedOptions.computeIfAbsent("makeup", k -> new ArrayList<>())
-                        .add(Map.of("name", allParams.get(key), "price", Integer.parseInt(allParams.get(key + "Price"))));
-            }
+        try {
+            // JSON 문자열을 Java Map 형태로 변환
+            selectedOptions = mapper.readValue(URLDecoder.decode(optionsJSON, "UTF-8"),
+                    new TypeReference<>() {
+                    });
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         model.addAttribute("selectedOptions", selectedOptions);
 
-        // estimateTotal.jsp 반환
         return "estimate/estimateTotal";
     }
-
 }

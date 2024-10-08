@@ -62,12 +62,25 @@
                                     <div class="options">
                                         <p class="option-detail">세부옵션</p>
                                         <c:if test="${not empty selectedOptions.studio}">
-                                            <div>
+
                                                 <c:forEach var="option" items="${selectedOptions.studio}">
-                                                    <p>${option.name} ${option.price}원</p>
+                                                    <div class="option">
+                                                        <p>${option.name}</p><p>${option.price}원</p>
+                                                    </div>
+                                                </c:forEach>
+
+                                        </c:if>
+                                        <c:if test="${not empty companyOptions.studio}">
+                                            <div class="option">
+                                                <c:forEach var="option" items="${companyOptions.studio}">
+                                                    <div class="option-item studio-option">
+                                                        <span class="option-name">${option.optionName}</span>
+                                                        <span class="option-price">${option.optionPrice}원</span>
+                                                    </div>
                                                 </c:forEach>
                                             </div>
                                         </c:if>
+
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +100,7 @@
                                             <c:if test="${not empty selectedOptions.dress}">
                                                 <c:forEach var="option" items="${selectedOptions.dress}">
                                                     <div class="option">
-                                                        <p>옵션명: ${option.name} - 가격: ${option.price}원</p>
+                                                        <p>${option.name}</p><p>${option.price}원</p>
                                                     </div>
                                                 </c:forEach>
                                             </c:if>
@@ -110,8 +123,8 @@
                                     <p class="option-detail">세부옵션</p>
                                     <c:if test="${not empty selectedOptions.makeup}">
                                         <c:forEach var="option" items="${selectedOptions.makeup}">
-                                            <div>
-                                                <p>옵션명: ${option.name} - 가격: ${option.price}원</p>
+                                            <div class="option">
+                                                <p>${option.name}</p><p>${option.price}원</p>
                                             </div>
                                         </c:forEach>
                                     </c:if>
