@@ -23,7 +23,7 @@ public class MyPageRestController {
         customerId = sessionId.getCustomerId();
 
         System.out.println(myPageService.searchMyPayment(customerId, order_name).get(customerId));
-
+        
         return myPageService.searchMyPayment(customerId, order_name);
     }
 }

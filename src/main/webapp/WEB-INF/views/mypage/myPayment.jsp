@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -91,7 +92,7 @@
                   </div>
                   <div class="payment-content2">
                     <div class="content2-price">
-                      <span>금액: ${payment.paid_amount}</span>
+                      <span>금액: <fmt:formatNumber value="${payment.paid_amount}" type="number"/>원</span>
                     </div>
 
                   </div>
