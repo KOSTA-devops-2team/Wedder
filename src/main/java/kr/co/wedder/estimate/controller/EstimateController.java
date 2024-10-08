@@ -161,5 +161,53 @@ public class EstimateController {
         response.put(category, options);
         return ResponseEntity.ok(response);
     }
+    @GetMapping("/estimateFinal")
+    public String showEstimateFinal(
+            @RequestParam(value = "studioName", required = false) String studioName,
+            @RequestParam(value = "studioPrice", required = false) Integer studioPrice,
+            @RequestParam(value = "studioImgUrl", required = false) String studioImgUrl,
+            @RequestParam(value = "dressName", required = false) String dressName,
+            @RequestParam(value = "dressPrice", required = false) Integer dressPrice,
+            @RequestParam(value = "dressImgUrl", required = false) String dressImgUrl,
+            @RequestParam(value = "makeupName", required = false) String makeupName,
+            @RequestParam(value = "makeupPrice", required = false) Integer makeupPrice,
+            @RequestParam(value = "makeupImgUrl", required = false) String makeupImgUrl,
+            @RequestParam Map<String, String> allParams,
+            Model model
+    ) {
+        // 기본 옵션 정보들 JSP에 전달
+        model.addAttribute("studioName", studioName);
+        model.addAttribute("studioPrice", studioPrice);
+        model.addAttribute("studioImgUrl", studioImgUrl);
+
+        model.addAttribute("dressName", dressName);
+        model.addAttribute("dressPrice", dressPrice);
+        model.addAttribute("dressImgUrl", dressImgUrl);
+
+        model.addAttribute("makeupName", makeupName);
+        model.addAttribute("makeupPrice", makeupPrice);
+        model.addAttribute("makeupImgUrl", makeupImgUrl);
+
+        // 옵션들을 동적으로 추출하고 JSP에 전달
+        Map<String, List<Map<String, Object>>> selectedOptions = new HashMap<>();
+
+        for (String key : allParams.keySet()) {
+            if (key.endsWith("Option") && key.contains("studio")) {
+                selectedOptions.computeIfAbsent("studio", k -> new ArrayList<>())
+                        .add(Map.of("name", allParams.get(key), "price", Integer.parseInt(allParams.get(key + "Price"))));
+            } else if (key.endsWith("Option") && key.contains("dress")) {
+                selectedOptions.computeIfAbsent("dress", k -> new ArrayList<>())
+                        .add(Map.of("name", allParams.get(key), "price", Integer.parseInt(allParams.get(key + "Price"))));
+            } else if (key.endsWith("Option") && key.contains("makeup")) {
+                selectedOptions.computeIfAbsent("makeup", k -> new ArrayList<>())
+                        .add(Map.of("name", allParams.get(key), "price", Integer.parseInt(allParams.get(key + "Price"))));
+            }
+        }
+
+        model.addAttribute("selectedOptions", selectedOptions);
+
+        // estimateTotal.jsp 반환
+        return "estimate/estimateTotal";
+    }
 
 }

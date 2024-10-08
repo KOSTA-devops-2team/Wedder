@@ -37,7 +37,7 @@
 
                 <section class="body">
                     <div class="body-grid">
-                        <div class="main">
+                        <div class="main" data-img-url="${studioData.imgUrl}">
                             <c:if test="${not empty studioData}">
                                 <img src="${studioData.imgUrl}" alt="${studioData.companyName}">
                                 <div class="selected">
@@ -74,7 +74,7 @@
 
                 <section class="body">
                     <div class="body-grid">
-                        <div class="main">
+                        <div class="main" data-img-url="${dressData.imgUrl}">
                             <c:if test="${not empty dressData}">
                                 <img src="${dressData.imgUrl}" alt="${dressData.companyName}">
                                 <div class="selected">
@@ -111,7 +111,7 @@
 
                 <section class="body">
                     <div class="body-grid">
-                        <div class="main">
+                        <div class="main" data-img-url="${makeupData.imgUrl}">
                             <c:if test="${not empty makeupData}">
                                 <img src="${makeupData.imgUrl}" alt="${makeupData.companyName}">
                                 <div class="selected">
@@ -201,7 +201,7 @@
             <!-- 이전, 다음 버튼 -->
             <div class="btn">
                 <button onclick="history.back()" class="back">이전</button>
-                <button onclick="location.href='/estimate/estimateFinal'" class="next">다음으로</button>
+                <button class="next">다음으로</button>
             </div>
         </div>
     </div>

@@ -66,5 +66,4 @@ public class EstimateServiceImpl implements EstimateService {
         System.out.println("Makeup Options for companyId " + companyId + ": " + makeupOptions);
         return makeupOptions;
     }
-
 }

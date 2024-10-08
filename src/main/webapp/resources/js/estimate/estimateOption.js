@@ -161,3 +161,34 @@ document.addEventListener("DOMContentLoaded", function() {
         resetSelectedOptions();
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const nextButton = document.querySelector(".next");
+
+    nextButton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        // 스튜디오, 드레스, 메이크업 섹션의 data-img-url 속성 값 가져오기
+        const studioImgUrl = document.querySelectorAll('.main')[0].dataset.imgUrl;
+        const dressImgUrl = document.querySelectorAll('.main')[1].dataset.imgUrl;
+        const makeupImgUrl = document.querySelectorAll('.main')[2].dataset.imgUrl;
+
+        // 기타 필요한 정보 가져오기
+        const studioName = document.querySelector('#selected-studio .company-info').innerText;
+        const studioPrice = document.querySelector('#selected-studio .company-price').dataset.price;
+
+        const dressName = document.querySelector('#selected-dress .company-info').innerText;
+        const dressPrice = document.querySelector('#selected-dress .company-price').dataset.price;
+
+        const makeupName = document.querySelector('#selected-makeup .company-info').innerText;
+        const makeupPrice = document.querySelector('#selected-makeup .company-price').dataset.price;
+
+        // URL에 포함하여 페이지 이동
+        let url = `/estimate/estimateFinal?studioName=${encodeURIComponent(studioName)}&studioPrice=${studioPrice}&studioImgUrl=${encodeURIComponent(studioImgUrl)}`;
+        url += `&dressName=${encodeURIComponent(dressName)}&dressPrice=${dressPrice}&dressImgUrl=${encodeURIComponent(dressImgUrl)}`;
+        url += `&makeupName=${encodeURIComponent(makeupName)}&makeupPrice=${makeupPrice}&makeupImgUrl=${encodeURIComponent(makeupImgUrl)}`;
+
+        location.href = url;
+    });
+});
+
