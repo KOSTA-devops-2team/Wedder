@@ -52,7 +52,7 @@
                 </div>
                 <div class="action">
                     <button class="heart"></button>
-                    <a href="#">리뷰 보러가기</a>
+                    <a href="#">리뷰 보러가기 </a>
                 </div>
             </div>
         </c:forEach>
