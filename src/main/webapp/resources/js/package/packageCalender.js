@@ -1,10 +1,24 @@
 $(document).ready(function () {
+    let isLoggedIn = '<%= session.getAttribute("customerId") != null %>' === 'true';
     let selectedCompanyName = "";
     let availableDates = {}; // 예약 가능한 날짜 저장 객체
     let selectedData = {}; // 업체별로 선택된 정보 저장 객체
 
     $(".calendar-category button").on("click", function (e) {
         e.preventDefault();
+
+        if (!isLoggedIn) {
+            Swal.fire({
+                title:'로그인 필요',
+                text: '패키지 예약은 회원만 가능합니다. 로그인 페이지로 이동합니다.',
+                icon: 'warning',
+                confirmButtonText: '확인'
+            }).then(() => {
+                let currentUrl = window.location.href;
+                console.log("현재 URL: ", currentUrl); // 현재 URL 확인
+                window.location.href =  "/log/login?redirect=" + encodeURIComponent(currentUrl)
+            });
+        } else {
         let newCompanyName = $(this).text();
 
         // 기존에 선택된 다른 업체가 있으면 날짜와 시간 초기화
@@ -89,7 +103,7 @@ $(document).ready(function () {
                     alert("예약 가능한 날짜 정보를 불러오는데 실패했습니다.");
                 }
             });
-        }
+        }}
     });
 
 

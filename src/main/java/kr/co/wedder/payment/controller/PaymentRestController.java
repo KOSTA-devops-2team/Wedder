@@ -25,7 +25,6 @@ public class PaymentRestController {
     @PostMapping("/complete")
     public ResponseEntity<String> paymentComplete(@RequestBody PaymentRequest paymentRequest) {
 
-        System.out.println("Kakao Pay Key: " + paymentKeys.getKakaoPayKey()); // 이 값을 확인하여 null인지 체크
         String impUid = paymentRequest.getImpUid();
         boolean validPayment = paymentService.verifyPayment(impUid);
 

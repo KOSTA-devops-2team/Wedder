@@ -30,10 +30,8 @@ function createPaymentData() {
     return data;
 }
 
-$('.pay').on('click', function (e) {
+$('.kakao-pay').on('click', function (e) {
     e.preventDefault();
-    console.log("Pay button clicked"); // 이벤트 발생 여부 확인
-
     IMP.init(kakaoPayKey);
 
     // 결제 데이터 생성

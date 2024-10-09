@@ -16,36 +16,33 @@
     <title>package detail</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageDetail.css"/>
-<%--    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>--%>
-<%--    <script defer src="${pageContext.request.contextPath}/resources/js/package/packageDetail.js"></script>--%>
-<%--    <script defer src="${pageContext.request.contextPath}/resources/js/package/packagePayment.js"></script>--%>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-    <!-- SweetAlert2 사용 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
-<script>
-    var kakaoPayKey = '${paymentKeys.kakaoPayKey}';
-    var customerId = '<%= customerId %>';
-    var customerEmail = '<%= customerEmail %>';
-    var customerName = '<%= customerName %>';
-    var customerTel = '<%= customerTel %>';
-    var packageDetails = ${packageDetails};
-</script>
-<body>
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
 
+<body>
 <script>
-    var packageDetails = [];
+    let kakaoPayKey = '${paymentKeys.kakaoPayKey}';
+    let customerId = '<%= customerId %>';
+    let customerEmail = '<%= customerEmail %>';
+    let customerName = '<%= customerName %>';
+    let customerTel = '<%= customerTel %>';
+
+    let packageDetails = [];
+
     <c:forEach var="detail" items="${packageDetails}">
     packageDetails.push({
         companyName: "${detail.companyName}",
         companyCategory: "${detail.companyCategory}"
     });
     </c:forEach>
-</script>
 
+    console.log("Kakao Pay Key!!!! : ", kakaoPayKey);
+    console.log("Package Details!!! : ", packageDetails);
+</script>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
 <div class="hd__inner960">
     <div class="container">
         <div class="header">
@@ -115,15 +112,13 @@
 
         <div class="btn">
            <button class="back"><a class="main-button" href="${pageContext.request.contextPath}/package/recommend">뒤로 가기</a></button>
-            <button class="pay">패키지 결제하기</button>
+            <button class="kakao-pay">패키지 결제하기</button>
         </div>
     </div>
 </div>
-<!-- 스크립트는 body 마지막에 배치하여 DOM 로딩 이후에 실행되도록 -->
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 <script src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/package/packageDetail.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/package/packagePayment.js"></script>
-
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
