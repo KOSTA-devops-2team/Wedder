@@ -34,12 +34,12 @@
 }
 
 
-.calendar {
+.calandar {
   width: 550px;
   height: 500px;
   padding: 20px;
 }
-.calendar .calendar-payment-list {
+.calandars .calandars-payment-list {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

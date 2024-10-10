@@ -36,14 +36,12 @@
 
         <!-- 필터 -->
         <div class="filter">
-            <button id="modal-btn" class="region-btn">지역</button>
-            <button>날짜</button>
-            <button id="modal-btn" class="budget-btn">예산</button>
             <div class="search-box">
                 <input type="text" placeholder="업체명으로 검색">
                 <button class="search-btn">검색하기</button>
             </div>
         </div>
+
         <div class="divide">
 
             <!-- 스튜디오 그리드 -->
@@ -65,25 +63,11 @@
                                             ${studio.companyName}
                                     </a>
                                     <div class="address">${studio.companyAddress}</div>
+                                    <div class="price-info">${studio.basicPrice}</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
                         </c:forEach>
-                    </div>
-                    <div class="similar-buttons">
-                        <button class="similar-button left" id="similar-prevButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"
-                            />
-                        </button>
-                        <div class="current-page" id="similar-currentPage">1</div>
-                        <div class="slice">/</div>
-                        <div class="total-pages" id="similar-totalPages">3</div>
-                        <button class="similar-button right" id="similar-nextButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"
-                            />
-                        </button>
                     </div>
                 </div>
             </section>
@@ -107,25 +91,11 @@
                                             ${dress.companyName}
                                     </a>
                                     <div class="address">${dress.companyAddress}</div>
+                                    <div class="price-info">${dress.basicPrice}</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
                         </c:forEach>
-                    </div>
-                    <div class="similar-buttons">
-                        <button class="similar-button left" id="similar-prevButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"
-                            />
-                        </button>
-                        <div class="current-page" id="similar-currentPage">1</div>
-                        <div class="slice">/</div>
-                        <div class="total-pages" id="similar-totalPages">3</div>
-                        <button class="similar-button right" id="similar-nextButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"
-                            />
-                        </button>
                     </div>
                 </div>
             </section>
@@ -149,25 +119,11 @@
                                             ${makeup.companyName}
                                     </a>
                                     <div class="address">${makeup.companyAddress}</div>
+                                    <div class="price-info">${makeup.basicPrice}</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
                         </c:forEach>
-                    </div>
-                    <div class="similar-buttons">
-                        <button class="similar-button left" id="similar-prevButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"
-                            />
-                        </button>
-                        <div class="current-page" id="similar-currentPage">1</div>
-                        <div class="slice">/</div>
-                        <div class="total-pages" id="similar-totalPages">3</div>
-                        <button class="similar-button right" id="similar-nextButton">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"
-                            />
-                        </button>
                     </div>
                 </div>
             </section>
@@ -202,73 +158,10 @@
             </div>
         </div>
         <div class="btn">
-            <button class="back">이전</button>
-            <button onclick="location.href='estimate/estimateOption'" class="next">다음으로</button>
+            <button onclick="history.back()" class="back">이전</button>
+            <button class="next">다음으로</button>
         </div>
     </div>
-<%--    <!-- 모달창 -->--%>
-<%--    <section id="modal" class="modal-region">--%>
-<%--        <div class="modal-content">--%>
-<%--            <h2 class="modal-q">지역</h2>--%>
-<%--            <p>위치 조건을 통해 웨딩홀을 알아보세요</p>--%>
-<%--            <div class="dropdown">--%>
-<%--                <select id="options" class="options">--%>
-<%--                    <option value="option1">서울</option>--%>
-<%--                    <option value="option2">경기</option>--%>
-<%--                    <option value="option3">강원</option>--%>
-<%--                    <option value="option4">충북</option>--%>
-<%--                    <option value="option5">충남</option>--%>
-<%--                    <option value="option6">전북</option>--%>
-<%--                    <option value="option7">전남</option>--%>
-<%--                    <option value="option8">경북</option>--%>
-<%--                    <option value="option9">경남</option>--%>
-<%--                    <option value="option10">제주</option>--%>
-<%--                </select>--%>
-<%--                <select id="options" class="options">--%>
-<%--                    <option value="option1">Option 1</option>--%>
-<%--                    <option value="option2">Option 2</option>--%>
-<%--                    <option value="option3">Option 3</option>--%>
-<%--                </select>--%>
-<%--            </div>--%>
-<%--            <div class="modal-btn">--%>
-<%--                <a href="#">--%>
-<%--                    <button class="apply-btn">Apply</button>--%>
-<%--                </a>--%>
-<%--                <a href="#">--%>
-<%--                    <button class="cancel-btn">취소</button>--%>
-<%--                </a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </section>--%>
-
-
-<%--    <section id="modal" class="modal-budget">--%>
-<%--        <div class="modal-content">--%>
-<%--            <h2 class="modal-q">예산</h2>--%>
-<%--            <p>위치 조건을 통해 웨딩홀을 알아보세요</p>--%>
-<%--            <div class="dropdown">--%>
-<%--                <select id="options" class="options">--%>
-<%--                    <option value="option1">100만원</option>--%>
-<%--                    <option value="option2">200만원</option>--%>
-<%--                    <option value="option3">300만원</option>--%>
-<%--                </select>--%>
-<%--                <select id="options" class="options">--%>
-<%--                    <option value="option1">400만원</option>--%>
-<%--                    <option value="option2">500만원</option>--%>
-<%--                    <option value="option3">600만원</option>--%>
-<%--                </select>--%>
-<%--            </div>--%>
-<%--            <div class="modal-btn">--%>
-<%--                <a href="#">--%>
-<%--                    <button class="apply-btn">Apply</button>--%>
-<%--                </a>--%>
-<%--                <a href="#">--%>
-<%--                    <button class="cancel-btn">취소</button>--%>
-<%--                </a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </section>--%>
-
 </div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

@@ -8,11 +8,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mypage</title>
+    <title>estimateTotal</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estimate/estimateTotal.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-    <script defer src="${pageContext.request.contextPath}/resources/js/estimate/estimateCompany.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/estimate/estimateTotal.js"></script>
 </head>
 
 <body>
@@ -27,13 +28,11 @@
                 <p>클릭 시 업체 선택창으로 돌아가요.</p>
                 <div class="back-content">
                     <div class="back-btn">
-                        <a href="#">스튜디오 업체명     /</a>
-                        <a href="#">드레스 업체명     /   </a>
-                        <a href="#">헤어메이크업 업체명</a>
+                        <a href="#">${studioName}/</a>
+                        <a href="#">${dressName}/</a>
+                        <a href="#">${makeupName}</a>
                     </div>
-                    <a href=""><span class="material-symbols-outlined">
-                                replay
-                                </span>업체 다시 선택</a>
+                    <a href="${pageContext.request.contextPath}/estimate/"><span class="material-symbols-outlined">replay</span>업체 다시 선택</a>
                 </div>
             </div>
         </div>
@@ -51,101 +50,104 @@
                             <h1>선택하신 목록</h1>
                             <div class="company">
                                 <div class="studio">
-                                    <img src="../../assets/images/weddingThumbnail.png" alt="스튜디오">
+                                    <img src="${studioImgUrl}" alt="${studioName}">
                                     <div class="company-detail">
                                         <div class="company-note">
-                                            <p class="name">S 스튜디오</p>
+                                            <p class="name">${studioName}</p>
                                             <p>[웨딩촬영]앨범 20p + 기본 액자 (20R)</p>
                                         </div>
-                                        <div>330,000원</div>
+                                        <div> ${studioPrice}원</div>
                                     </div>
-                                    <div>
-                                        <div class="options">
-                                            <p class="option-detail">세부옵션</p>
+                                    <div class="options">
+                                        <p class="option-detail">세부옵션</p>
+                                        <c:if test="${not empty selectedOptions.studio}">
+                                            <c:forEach var="option" items="${selectedOptions.studio}">
+                                                <div class="option">
+                                                    <p>${option.name}</p><p>${option.price}원</p>
+                                                </div>
+                                            </c:forEach>
+                                        </c:if>
+                                        <c:if test="${not empty companyOptions.studio}">
                                             <div class="option">
-                                                <p>· 수정본데이터</p>
-                                                <p>165,000원</p>
+                                                <c:forEach var="option" items="${companyOptions.studio}">
+                                                    <div class="option-item studio-option">
+                                                        <span class="option-name">${option.optionName}</span>
+                                                        <span class="option-price">${option.optionPrice}원</span>
+                                                    </div>
+                                                </c:forEach>
                                             </div>
-                                            <div class="option">
-                                                <p>· 들러리 촬영</p>
-                                                <p>150,000원</p>
-                                            </div>
-                                            <div class="option-bot">
-                                                <p>· 야간씬 촬영</p>
-                                                <p>110,000원</p>
-                                            </div>
-                                        </div>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>
                             <div class="company">
                                 <div class="dress">
-                                    <img src="../../assets/images/dressThumbnail.png" alt="스튜디오">
+                                    <img src="${dressImgUrl}" alt="${dressName}">
                                     <div class="company-detail">
                                         <div class="company-note">
-                                            <p class="name">안나스포사</p>
+                                            <p class="name">${dressName}</p>
                                             <p>[촬영] 드레스 3벌</p>
                                         </div>
-                                        <p>1,120,000원</p>
+                                        <p>${dressPrice}원</p>
                                     </div>
                                     <div>
                                         <div class="options">
                                             <p class="option-detail">세부옵션</p>
-                                            <div class="option">
-                                                <p>· 피팅비</p>
-                                                <p>55,000원</p>
-                                            </div>
-                                            <div class="option">
-                                                <p>· 헬퍼비</p>
-                                                <p>250,000원</p>
-                                            </div>
-                                            <div class="option-bot">
-                                                <p>· 드레스 추가</p>
-                                                <p>330,000원</p>
-                                            </div>
+                                            <c:if test="${not empty selectedOptions.dress}">
+                                                <c:forEach var="option" items="${selectedOptions.dress}">
+                                                    <div class="option">
+                                                        <p>${option.name}</p><p>${option.price}원</p>
+                                                    </div>
+                                                </c:forEach>
+                                            </c:if>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="company">
                                 <div class="makeup">
-                                    <img src="../../assets/images/makeupThumbnail.png" alt="스튜디오">
+                                    <img src="${makeupImgUrl}" alt="${makeupName}">
                                     <div class="company-detail">
                                         <div class="company-note">
-                                            <p class="name">제니하우스 청담힐</p>
+                                            <p class="name">${makeupName}</p>
                                             <p>[촬영+본식] 신부신랑 메이크업</p>
                                         </div>
-                                        <p>1,120,000원</p>
+                                        <p>${makeupPrice}원</p>
                                     </div>
                                 </div>
                                 <div class="options">
                                     <p class="option-detail">세부옵션</p>
-                                    <div class="option-bot">
-                                        <p>· 직급 지정 (원장)</p>
-                                        <p>55,000원</p>
-                                    </div>
+                                    <c:if test="${not empty selectedOptions.makeup}">
+                                        <c:forEach var="option" items="${selectedOptions.makeup}">
+                                            <div class="option">
+                                                <p>${option.name}</p><p>${option.price}원</p>
+                                            </div>
+                                        </c:forEach>
+                                    </c:if>
                                 </div>
                             </div>
                             <div class="price">
                                 <div class="price-detail">
-                                    <div class="regular">
-                                        <p>정상가</p>
-                                        <p>3,260,000원</p>
-                                    </div>
-                                    <div class="discount">
-                                        <p>쿠폰/옵션 할인가</p>
-                                        <p class="discount-color">-206,000원</p>
-                                    </div>
+                                    <c:set var="totalPrice" value="${studioPrice + dressPrice + makeupPrice}" />
+                                    <c:forEach var="option" items="${selectedOptions.studio}">
+                                        <c:set var="totalPrice" value="${totalPrice + option.price}" />
+                                    </c:forEach>
+                                    <c:forEach var="option" items="${selectedOptions.dress}">
+                                        <c:set var="totalPrice" value="${totalPrice + option.price}" />
+                                    </c:forEach>
+                                    <c:forEach var="option" items="${selectedOptions.makeup}">
+                                        <c:set var="totalPrice" value="${totalPrice + option.price}" />
+                                    </c:forEach>
                                     <div class="final">
                                         <p>최종 금액</p>
-                                        <p>3,000,000원</p>
+                                        <p>${totalPrice}원</p>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                         <div class="btn">
-                            <button onclick="location.href='estimateDetail.html'" class="back">뒤로가기</button>
+                            <button onclick=history.back() class="back">뒤로가기</button>
                             <button class="add">견적함에 담기</button>
                         </div>
                     </div>
