@@ -10,13 +10,22 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!-- 쿼리에 보내는 파라미터가 null인 경우 에러 발생 방지 -->
         <setting name="jdbcTypeForNull" value="NULL"/>
+        <!-- sql 로그  -->
+        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
     </settings>
     <typeAliases>
 
         <typeAlias  alias="CustomerDTO" type="kr.co.wedder.customer.domain.CustomerDTO" />
-        <typeAlias alias="CompanyDto" type="kr.co.wedder.company.domain.CompanyDto" />
         <typeAlias  alias="PackageDto" type="kr.co.wedder.sdmpackage.domain.PackageDto" />
         <typeAlias  alias="PackageDetailDto" type="kr.co.wedder.sdmpackage.domain.PackageDetailDto" />
+
+        <!-- company alias -->
+        <typeAlias alias="CompanyDto" type="kr.co.wedder.company.domain.CompanyDto" />
+        <typeAlias alias="HallDto" type="kr.co.wedder.company.domain.HallDto" />
+        <typeAlias alias="StudioDto" type="kr.co.wedder.company.domain.StudioDto" />
+        <typeAlias alias="DressDto" type="kr.co.wedder.company.domain.DressDto" />
+        <typeAlias alias="MakeupDto" type="kr.co.wedder.company.domain.MakeupDto" />
+        <typeAlias alias="Pagination" type="kr.co.wedder.company.domain.Pagination" />
 
         <!--calendar alias  -->
         <typeAlias alias="CompanyScheduleDto" type="kr.co.wedder.calendar.domain.CompanyScheduleDto"/>

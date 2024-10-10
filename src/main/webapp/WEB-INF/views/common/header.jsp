@@ -86,20 +86,20 @@
                         </li>
                         <li class="black">
                             <a
-                                href="${pageContext.request.contextPath}/weddinghallList"
+                                href="${pageContext.request.contextPath}/weddinghall"
                                 >Wedding Hall</a
                             >
                         </li>
                         <li class="black">
-                            <a href="${pageContext.request.contextPath}/studioList"
+                            <a href="${pageContext.request.contextPath}/studio"
                                 >Studio</a
                             >
                         </li>
                         <li class="black">
-                            <a href="${pageContext.request.contextPath}/dressList">Dress</a>
+                            <a href="${pageContext.request.contextPath}/dress">Dress</a>
                         </li>
                         <li class="black">
-                            <a href="makeupList"
+                            <a href="${pageContext.request.contextPath}/makeup"
                                 >Make Up</a
                             >
                         </li>

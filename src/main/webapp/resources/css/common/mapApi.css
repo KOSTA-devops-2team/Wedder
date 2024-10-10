@@ -1,0 +1,26 @@
+.info {
+    width: 160px;
+    height: 80px;
+    padding: 8px;
+}
+
+.title {
+    color: #000;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.map-view,
+.direction {
+    width: 60px;
+    height: 28px;
+    margin-top: 10px;
+    border: 1px solid #e4e4e4;
+    color: #333;
+    font-size: 13px;
+    padding: 5px;
+    margin-top: 10px;
+}

@@ -13,5 +13,4 @@ public class MakeupDto {
     private String target;
     private String makeupType;
     private String position;
-
 }

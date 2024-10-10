@@ -1,6 +1,7 @@
 package kr.co.wedder.company.service;
 
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.Pagination;
 import kr.co.wedder.company.domain.SearchItem;
 
 import java.util.List;
@@ -8,14 +9,13 @@ import java.util.Map;
 
 public interface CompanyService {
 
-    List<CompanyDto> getPage(Map map) throws Exception;
-    int getCount() throws Exception;
+    CompanyDto companyRead(Integer companyId) throws Exception;
+    List<CompanyDto> getHallList(Pagination pagination, String category) throws Exception;
 
     List<CompanyDto> searchCompanies(String companyName, String category) throws Exception;
 
-    int getSearchResultCount(SearchItem sc) throws Exception;
+    int getCompanyListCnt(String category) throws Exception;
 
-    CompanyDto companyRead(Integer companyId) throws Exception;
-    List<CompanyDto> getHallList() throws Exception;
-
+    List<CompanyDto> getHallDetail(Integer companyId) throws Exception;
+    List<CompanyDto> getCompanyImages(Integer companyId) throws Exception;
 }
