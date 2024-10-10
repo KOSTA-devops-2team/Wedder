@@ -114,12 +114,12 @@
             <div class="price-title">금액대</div>
             <!-- 검색 영역 -->
             <div class="header-search-form">
-                <form class="search-box" action="" method="get">
-                    <input class="search-txt" type="text" name="" placeholder="검색어를 입력하세요.">
-                    <button class="search-btn" type="submit">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </form>
+<%--                <form class="search-box" action="" method="get">--%>
+<%--                    <input class="search-txt" type="text" name="" placeholder="검색어를 입력하세요.">--%>
+<%--                    <button class="search-btn" type="submit">--%>
+<%--                        <i class="fa-solid fa-magnifying-glass"></i>--%>
+<%--                    </button>--%>
+<%--                </form>--%>
                 <form class="form-container">
                     <div></div>
                     <div class="form-text">

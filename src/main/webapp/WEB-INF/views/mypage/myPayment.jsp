@@ -7,19 +7,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>myPayment</title>
-    	
-      <link rel="stylesheet" href="<c:url value='resources/css/common/reset.css'/>" />
-      <link rel="stylesheet" href="<c:url value='resources/css/mypage/myPayment.css'/>" />
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/myPayment.css" />
       <link
         rel="stylesheet"
-        href="<c:url value='resources/css/common/sidebar/sidebarMypage.css'/>"
+        href="${pageContext.request.contextPath}/resources/css/common/sidebar/sidebarMypage.css"
       />
-      <link rel="stylesheet" href="<c:url value='resources/css/mypage/mypageNaviba.css'/>" />
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/mypageNaviba.css" />
       
-      <script defer src="<c:url value='resources/js/mypage/myPayment.js'/>"></script>
-      <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-      <script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
-      <script defer src="<c:url value='resources/js/mypage/navibar.js'/>"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPayment.js"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/navibar.js"></script>
   </head>
 	<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
 

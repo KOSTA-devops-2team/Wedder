@@ -12,14 +12,13 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class CompanyScheduleDto {
 	
 	private Integer scheduleId;
 	private Integer companyId;
 	private String companyName;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone = "Asia/Seoul")
 	private Date date;
 	private String time;
 

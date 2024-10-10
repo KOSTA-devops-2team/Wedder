@@ -65,7 +65,7 @@
                   ><img
                     id="icon"
                     class="arrow"
-                    src="<c:url value='resources/assets/images/arrow-icon.png'/>"
+                    src="${pageContext.request.contextPath}/resources/assets/images/arrow-icon.png"
                     alt="화살표 아이콘"
                 /></a>
               </div>
@@ -75,7 +75,7 @@
                   <a href="studio-detail"
                     ><img
                       class="company-img"
-                      src="<c:url value='resources/assets/images/estimateDetails1.png'/>"
+                      src="${pageContext.request.contextPath}/resources/assets/images/estimateDetails1.png"
                       alt="studio"
                   /></a>
                   <p>스튜디오</p>
@@ -84,7 +84,7 @@
                   <a href="dress-detail"
                     ><img
                       class="company-img"
-                      src="<c:url value='resources/assets/images/storage-dress.jpg'/>"
+                      src="${pageContext.request.contextPath}/resources/assets/images/storage-dress.jpg"
                       alt="dress"
                   /></a>
                   <p>드레스</p>
@@ -93,7 +93,7 @@
                   <a href="makeup-detail"
                     ><img
                       class="company-img"
-                      src="<c:url value='resources/assets/images/storage-makeup.png'/>"
+                      src="${pageContext.request.contextPath}/resources/assets/images/storage-makeup.png"
                       alt="makeup"
                   /></a>
                   <p>메이크업</p>
@@ -102,7 +102,7 @@
               <div>
                 <img
                   class="storage-delete"
-                  src="<c:url value='resources/assets/images/trashcan.png'/>"
+                  src="${pageContext.request.contextPath}/resources/assets/images/trashcan.png"
                   alt="삭제 아이콘"
                 />
               </div>
@@ -118,7 +118,7 @@
                   ><img
                     id="icon"
                     class="arrow"
-                    src="<c:url value='resources/assets/images/arrow-icon.png'/>"
+                    src="${pageContext.request.contextPath}/resources/assets/images/arrow-icon.png"
                     alt="화살표 아이콘"
                 /></a>
               </div>
@@ -127,7 +127,7 @@
                   <a href="studio-detail"
                     ><img
                       class="company-img"
-                      src="<c:url value='resources/assets/images/storage-studio.jpg'/>"
+                      src="${pageContext.request.contextPath}/resources/assets/images/storage-studio.jpg"
                       alt="studio"
                   /></a>
                   <p>스튜디오</p>
@@ -136,7 +136,7 @@
                   <a href="dress-detail"
                     ><img
                       class="company-img"
-                      src=" <c:url value='resources/assets/images/dress-1.jpg'/>"
+                      src="${pageContext.request.contextPath}/resources/assets/images/dress-1.jpg"
                       alt="dress"
                   /></a>
                   <p>드레스</p>
@@ -145,7 +145,7 @@
               <div>
                 <img
                   class="storage-delete"
-                  src="<c:url value='resources/assets/images/trashcan.png'/>"
+                  src="${pageContext.request.contextPath}/resources/assets/images/trashcan.png"
                   alt="삭제 아이콘"
                 />
               </div>
@@ -161,7 +161,7 @@
                   ><img
                     id="icon"
                     class="arrow"
-                    src="<c:url value='resources/assets/images/arrow-icon.png'/>"
+                    src="${pageContext.request.contextPath}/resources/assets/images/arrow-icon.png"
                     alt="화살표 아이콘"
                 /></a>
               </div>

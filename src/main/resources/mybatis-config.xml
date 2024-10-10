@@ -11,13 +11,16 @@
         <!-- 쿼리에 보내는 파라미터가 null인 경우 에러 발생 방지 -->
         <setting name="jdbcTypeForNull" value="NULL"/>
         <!-- sql 로그  -->
-        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
     <typeAliases>
 
-        <typeAlias  alias="CustomerDTO" type="kr.co.wedder.customer.domain.CustomerDTO" />
+        <typeAlias  alias="CustomerDTO" type="kr.co.wedder.customer.domain.CustomerDto" />
         <typeAlias  alias="PackageDto" type="kr.co.wedder.sdmpackage.domain.PackageDto" />
         <typeAlias  alias="PackageDetailDto" type="kr.co.wedder.sdmpackage.domain.PackageDetailDto" />
+        <typeAlias  alias="EstimateDto" type="kr.co.wedder.estimate.domain.EstimateDto" />
+        <typeAlias  alias="PaymentRequest" type="kr.co.wedder.payment.domain.PaymentRequest" />
+
 
         <!-- company alias -->
         <typeAlias alias="CompanyDto" type="kr.co.wedder.company.domain.CompanyDto" />

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.wedder.dao.PaymentMapper">
+    <insert id="insertPaymentInfo" parameterType="kr.co.wedder.payment.domain.PaymentRequest">
+        INSERT INTO payment (imp_uid, customer_id, merchant_uid, paid_amount, payment_time, customer_email, customer_name, customer_tel, order_name)
+        VALUES (#{impUid}, #{customerId}, #{merchantUid}, #{paidAmount}, #{paymentTime}, #{customerEmail}, #{customerName}, #{customerTel}, #{orderName})
+    </insert>
+</mapper>

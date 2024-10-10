@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.*;
@@ -15,6 +16,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.co.wedder.mypage.domain.CompanyImage;
@@ -164,8 +166,9 @@ public class MyPageDaoImplTest {
 //		DressInfo  dressInfo = dao.selectDressInfo(1);
 //		MakeupInfo makeupInfo = dao.selectMakeupInfo(1);		
 //		PackageCategoryDto packageCategoryDto = dao.selectPackCa(1);
-		StudioInfo studioInfo =dao.selectStudioInfo(1);
-		
+//		StudioInfo studioInfo =dao.selectStudioInfo(1);
+		List<OptionDto> optionDto = dao.selectOptionDto("메이크업");
+		System.out.println(optionDto);
 //		System.out.println("dressInfo ="+dressInfo);
 //		System.out.println("makeupInfo ="+makeupInfo);
 //		System.out.println("packageCategoryDto ="+packageCategoryDto);
@@ -177,5 +180,60 @@ public class MyPageDaoImplTest {
 		List<PackageDetailDto> list =packageDao.selectBestPackages();
 		System.out.println(list);
 	}
+	@Test
+	public void coReservationDetailTest() throws Exception{
+		Map<String,Object> map = new HashMap<String,Object>();
+
+		CompanyDto companyDto =dao.selectCompany(4);
+		HallInfoDto hallInfoDto = dao.selectHallInfo(1);
+		DressInfo dressInfo = dao.selectDressInfo(1);
+		MakeupInfo makeupInfo = dao.selectMakeupInfo(2);
+		StudioInfo studioInfo = dao.selectStudioInfo(4);
+//		OptionDto optionDto = dao.selectOptionDto("메이크업");
+
+//		VisitCriteria visitCriteria = new VisitCriteria(companyDto,hallInfoDto,dressInfo,makeupInfo,studioInfo,optionDto);
+//		map.put("compnayId",visitCriteria.getCompanyDto().getCompanyId());
+//		map.put("category",visitCriteria.getCompanyDto().getCategory());
+
+		List<VisitCriteria> coReDetailList =dao.coReservationDetail(map);
+		System.out.println(coReDetailList);
+
+	}
+
+
+	@Test
+	public void toCustomerMakeupInfo2() throws Exception{
+		MakeupInfo makeupInfo = new MakeupInfo();
+		makeupInfo.setMakeupId(1);
+		makeupInfo.setCompanyId(4);
+		String makeupId = String.valueOf(makeupInfo.getMakeupId());
+		String companyId =	String.valueOf(makeupInfo.getCompanyId());
+		Map<String,Object> map = new HashMap<>();
+		map.put("makeupId",makeupId);
+		map.put("companyId",companyId);
+		MakeupInfo toCustomerMakeupInfoList = dao.toCustomerMakeupInfo(map);
+		System.out.println(toCustomerMakeupInfoList);
+	}
+
+	@Test
+	public void toCustomerOptionInfo() throws Exception{
+		Map<String,Object> map = new HashMap<>();
+		MakeupInfo makeupInfo = new MakeupInfo();
+		makeupInfo.setCompanyId(4);
+		makeupInfo.setMakeupId(1);
+
+		map.put("makeupId",makeupInfo.getMakeupId());
+		map.put("companyId",makeupInfo.getCompanyId());
+		List<VisitCriteria> toCustomerOptionInfo = dao.toCustomerOptionInfo(map);
+//		System.out.println(toCustomerOptionInfo);
+	}
+	@Test
+	public void customerId() throws Exception{
+		MyPageDTO myPageDTO = myPageDTO=dao.customerId("kosta");
+		System.out.println(myPageDTO);
+	}
+
 
 }
+
+

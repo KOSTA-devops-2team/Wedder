@@ -17,6 +17,7 @@ public class DressInfo {
 	private String dressType;
 	private boolean dressRepairService;
 	private Integer dressConsultationTime;
+	private Integer fittingCnt;
 	private Integer dressMeasurementTime;
 	private String dressComposition;
 }

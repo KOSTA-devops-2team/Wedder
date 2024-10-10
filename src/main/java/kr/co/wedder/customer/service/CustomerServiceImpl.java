@@ -1,7 +1,7 @@
 package kr.co.wedder.customer.service;
 
 import kr.co.wedder.customer.dao.CustomerDao;
-import kr.co.wedder.customer.domain.CustomerDTO;
+import kr.co.wedder.customer.domain.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,18 +10,18 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerDao customerDao;
 
-//    public boolean customerJoin(CustomerDTO customerDTO) throws Exception{
-//        customerDTO = new CustomerDTO();
-//
-//        customerMapper.customerJoin(customerDTO);
-//
-//        return false;
-//    }
     @Override
-    public boolean customerJoin(CustomerDTO customerDTO) {
+    public boolean loginCheck(String id, String password) {
+        CustomerDto customerDTO = customerDao.findById(id);
+        // 고객 정보가 없거나 비밀번호가 맞지 않으면 false 반환
+        return customerDTO != null && customerDTO.getPassword().equals(password);
+    }
+
+    @Override
+    public boolean customerJoin(CustomerDto customerDTO) {
         // 회원 가입 처리 로직
         try {
-            CustomerDTO existingCustomer = customerDao.findById(customerDTO.getId());
+            CustomerDto existingCustomer = customerDao.findById(customerDTO.getId());
             if (existingCustomer != null) {
                 return false; // 중복된 아이디가 있으면 false 반환
             }
@@ -37,20 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public boolean checkIdAvailability(String id) {
         // 아이디 중복 체크 로직
-        CustomerDTO existingCustomer = customerDao.findById(id);
+        CustomerDto existingCustomer = customerDao.findById(id);
         return existingCustomer == null; // 중복된 아이디가 없으면 true 반환
     }
-
-//    @Override
-//    public String login(String id, String password) {
-//        // 로그인 처리 로직
-//        CustomerDTO customerDTO = customerMapper.findById(id);
-//        if (customerDTO == null) {
-//            return "idFail";
-//        } else if (!customerDTO.getPassword().equals(password)) {
-//            return "pwFail";
-//        } else {
-//            return "loginSuccess";
-//        }
-//    }
 }

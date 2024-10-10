@@ -1,26 +1,23 @@
 package kr.co.wedder.mypage.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.mypage.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import kr.co.wedder.mypage.domain.CompanyImage;
-import kr.co.wedder.mypage.domain.HallInfoDto;
-import kr.co.wedder.mypage.domain.HistoryDto;
-import kr.co.wedder.mypage.domain.MyPageDTO;
-import kr.co.wedder.mypage.domain.ReservationDto;
-import kr.co.wedder.mypage.domain.VisitCriteria;
 import kr.co.wedder.mypage.service.MyPageService;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/mypage")
@@ -30,10 +27,14 @@ public class MyPageController {
 	MyPageService myPageService;
 	
 	@GetMapping("/mypage")
-	public String mypage(Integer customerId, Model m) {
+	public String mypage(@SessionAttribute("id") String id, Integer customerId, Model m) {
 		try {
-			// 임시용 customer_id
-			customerId=1;
+			System.out.println("id : "+ id);
+			MyPageDTO sessionId=myPageService.cutomerId(id);
+
+			// id에서 받아오는  customer_id
+			customerId=sessionId.getCustomerId();
+			System.out.println(customerId);
 			Integer company_id=1;
 			Integer reservation_id =1;
 			Integer hall_id = 1;
@@ -113,7 +114,97 @@ public class MyPageController {
 	 * reservationDetail() { return "mypage/reservationDetail"; }
 	 */
 	@GetMapping("/reservation-detail")
-	public String reservationDetail() {
+	public String reservationDetail(@SessionAttribute("id") String id, HttpServletRequest request, Model m) {
+		//카테고리 및 회사 인덱스 getmapping으로 얻어오는 값 추가
+		String category = request.getParameter("category");
+		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
+		String date=request.getParameter("date");
+		m.addAttribute("date", date);
+		//map 추가
+		Map<String,Object> toCustomerMakeupMap= new HashMap<>();
+		Map<String,Object> toCustomerOptionInfoMap= new HashMap<>();
+		
+		//카테고리
+		m.addAttribute("category",category);
+		//회사 인덱스
+		m.addAttribute("companyId",companyId);
+		try {
+			// request로 입력받은 id 추가하여 customerId를 받아옴
+			System.out.println("id : "+ id);
+			MyPageDTO sessionId=myPageService.cutomerId(id);
+
+			// id에서 받아오는  customer_id
+			int customerId=sessionId.getCustomerId();
+//			System.out.println(customerId);
+			//객체들 넣기
+			CompanyDto companyDto = myPageService.companyRead(companyId);
+			HallInfoDto hallInfoDto = new HallInfoDto();
+			DressInfo dressInfo = new DressInfo();
+			MakeupInfo makeupInfo = myPageService.makeupInfoRead(1);
+			StudioInfo studioInfo = new StudioInfo();
+			OptionDto optionDto = new OptionDto();
+			ReservationDto reservationDto = new ReservationDto();
+			
+			//전부다 companyId가 필요하므로 map에 입력
+			toCustomerOptionInfoMap.put("companyId",companyId);
+
+			//상세 예약 내역
+
+
+			VisitCriteria visitCriteria=new VisitCriteria(companyDto,hallInfoDto,dressInfo,makeupInfo,studioInfo,optionDto);
+			List<VisitCriteria> toCusotmerOptionInfo=myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
+			m.addAttribute("visitCriteria",visitCriteria);
+			m.addAttribute("toCusotmerOptionInfo",toCusotmerOptionInfo);
+			// 카테고리가 GetMapping으로 메이크업 이 string 값으로 넘어올때
+			System.out.println(category.equals("스튜디오"));
+			if(category.equals("메이크업")){
+				//map 에 makeupId 입력
+				toCustomerOptionInfoMap.put("makeupId",makeupInfo.getMakeupId());
+
+			 	VisitCriteria makeupCri =new VisitCriteria(companyDto,makeupInfo,optionDto,reservationDto);
+			 	List<VisitCriteria> ToCustomerMakeupInfo = myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
+				 m.addAttribute("makeupCri",makeupCri);
+				 m.addAttribute("ToCustomerMakeupInfo",ToCustomerMakeupInfo);
+			}else if (category.equals("스튜디오")){
+				studioInfo.setStudioId(2);
+				toCustomerOptionInfoMap.put("studioId",studioInfo.getStudioId());
+				VisitCriteria studioCri =new VisitCriteria(companyDto,reservationDto,optionDto,studioInfo);
+				List<VisitCriteria> ToCustomerStudioInfo = myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
+				m.addAttribute("studioCri",studioCri);
+				m.addAttribute("ToCustomerStudioInfo",ToCustomerStudioInfo);
+			}else if (category.equals("드레스")){
+				dressInfo.setDressId(2);
+				toCustomerOptionInfoMap.put("dressId",dressInfo.getDressId());
+				VisitCriteria dressCri =new VisitCriteria(companyDto,reservationDto,optionDto,dressInfo);
+				List<VisitCriteria> ToCustomerDressInfo = myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
+				m.addAttribute("dressCri",dressCri);
+				m.addAttribute("ToCustomerDressInfo",ToCustomerDressInfo);
+			}
+			else if (category.equals("웨딩홀")){
+				hallInfoDto.setHallId(2);
+				toCustomerOptionInfoMap.put("hallId",hallInfoDto.getHallId());
+				VisitCriteria hallCri =new VisitCriteria(companyDto,reservationDto,optionDto,hallInfoDto);
+				List<VisitCriteria> ToCustomerHallInfo = myPageService.toCustomerOptionInfo(toCustomerOptionInfoMap,category);
+				m.addAttribute("hallCri",hallCri);
+				m.addAttribute("ToCustomerHallInfo",ToCustomerHallInfo);
+			}
+			
+
+
+			toCustomerMakeupMap.put("makeupId",makeupInfo.getMakeupId());
+			toCustomerMakeupMap.put("companyId",companyId);
+			MakeupInfo makeupInfo1=myPageService.toCustomerMakeupInfo(toCustomerMakeupMap);
+
+			m.addAttribute("optionDto",optionDto);
+			m.addAttribute("companyDto",companyDto);
+
+			if(category.equals("메이크업")& companyId.equals(companyDto.getCompanyId())){
+				m.addAttribute("makeupInfo",makeupInfo);
+				m.addAttribute("makeupInfo1",makeupInfo1);
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 		return "/mypage/reservationDetail";
 	}
 	//업체에 있는 상세 에약내역(옵션을 가져오는 부분) 
@@ -133,16 +224,33 @@ public class MyPageController {
 	
 	
 	@GetMapping("/reservation-list")
-	public String reservationList(Integer reservation_id, Model m) {
+	public String reservationList(@SessionAttribute("id") String id,Integer reservation_id, Model m) {
+
+
 		Map<String,Object> hallVisitReListMap = new HashMap<String, Object>();
 		Map<String, Object> visitCriteriaMap =new HashMap<String, Object>();
 		Map<String, Object> coReListMap= new HashMap<String, Object>();
+//		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
+
 		try {
-			CompanyDto 		companyDto 		=	myPageService.companyRead(1);
-			MyPageDTO 		myPageDto 		=	myPageService.customerRead(1);
+			// sessionId 받아오는 중~
+				System.out.println("id : "+ id);
+				MyPageDTO sessionId=myPageService.cutomerId(id);
+
+				// id에서 받아오는  customer_id
+				int customerId=sessionId.getCustomerId();
+				System.out.println(customerId);
+			//-----------------------------------------
+
+			CompanyDto 		companyDto 		=	myPageService.companyRead( 1);
+			MyPageDTO 		myPageDto 		=	myPageService.customerRead(customerId);
 			ReservationDto 	reservationDto	=	myPageService.reservationRead(1);
-			HallInfoDto 		hallInfoDto 		= 	myPageService.hallInfoRead(1);
 			CompanyImage 	companyImage 	= 	myPageService.coImageRead(1);
+			StudioInfo studioInfo = new StudioInfo();
+			DressInfo dressInfo = new DressInfo();
+			MakeupInfo makeupInfo = new MakeupInfo();
+			HallInfoDto 		hallInfoDto 		= 	myPageService.hallInfoRead(1);
+			OptionDto optionDto = new OptionDto();
 			
 			HistoryDto historyDto = myPageService.historyRead(1);
 			
@@ -154,8 +262,9 @@ public class MyPageController {
 			
 			//방문 예약 내역
 			VisitCriteria hallCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, hallInfoDto, companyImage);
+			hallCriteria.getMyPageDTO().setCustomerId(customerId);
 			m.addAttribute("hallCriteria",hallCriteria);
-			
+
 			hallVisitReListMap.put("customerId", (Integer) hallCriteria.getMyPageDTO().getCustomerId());
 			hallVisitReListMap.put("category","웨딩홀");
 			
@@ -165,12 +274,14 @@ public class MyPageController {
 			m.addAttribute("hallVisitReservatioinList",hallVisitReservatioinList);
 			
 			//웨딩홀 예약
-			hallVisitReListMap.put("visit_reservation", 0);
+			hallVisitReListMap.put("visit_reservation", 1);
 			List<VisitCriteria> hallReList = myPageService.hallVisitReservatioinList(hallVisitReListMap);
 			m.addAttribute("hallReList",hallReList);
 			
 			//업체별 예약 내역 
-			VisitCriteria coCriteria = new VisitCriteria(companyDto,myPageDto,reservationDto,companyImage);
+			VisitCriteria coCriteria =
+					new VisitCriteria(
+							companyDto,myPageDto,reservationDto,companyImage,studioInfo,dressInfo,makeupInfo,hallInfoDto,optionDto);
 			m.addAttribute("coCriteria",coCriteria);
 			coReListMap.put("customerId", (Integer) coCriteria.getMyPageDTO().getCustomerId());
 			
@@ -197,15 +308,18 @@ public class MyPageController {
 
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
 			m.addAttribute("visitCriteriaCount",visitCriteriaCount);
-			
+
+
+
 			return "/mypage/reservationList";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "redirect: /mypage/mypage";
 		}
 	}
-	
-	@RequestMapping(value="/wishlist")
+
+	// -> 커플 페이지 생략
+	@RequestMapping("/wishlist")
 	public String wishList() {
 		return "mypage/wishList";
 	}

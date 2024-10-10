@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.wedder.dao.EstimateMapper">
+
+    <select id="getStudioList" resultType="EstimateDto">
+        SELECT
+        c.company_id AS companyId,
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_category = '스튜디오';
+    </select>
+
+    <select id="getDressList" resultType="EstimateDto">
+        SELECT
+        c.company_id AS companyId,
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_category = '드레스';
+    </select>
+
+    <select id="getMakeupList" resultType="EstimateDto">
+        SELECT
+        c.company_id AS companyId,
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_category = '메이크업';
+    </select>
+
+    <!-- 특정 스튜디오 조회 -->
+    <select id="getStudioById" resultType="EstimateDto">
+        SELECT
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+
+    <!-- 특정 드레스 조회 -->
+    <select id="getDressById" resultType="EstimateDto">
+        SELECT
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+
+    <!-- 특정 메이크업 조회 -->
+    <select id="getMakeupById" resultType="EstimateDto" >
+        SELECT
+        c.company_name AS companyName,
+        c.company_address AS companyAddress,
+        c.basic_price AS basicPrice,
+        ci.img_url AS imgUrl
+        FROM company c
+        LEFT JOIN companyImage ci ON c.company_id = ci.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+    <!-- 스튜디오 옵션 조회 -->
+    <select id="getStudioOptionsByCompanyId" parameterType="map" resultType="EstimateDto">
+        SELECT
+        o.option_id AS optionId,
+        o.option_name AS optionName,
+        o.option_price AS optionPrice,
+        o.option_description AS optionDescription
+        FROM `option` o
+        JOIN studioInfo s ON o.studio_id = s.studio_id
+        WHERE s.company_id = #{companyId}
+    </select>
+
+    <!-- 드레스 옵션 조회 -->
+    <select id="getDressOptionsByCompanyId" parameterType="map" resultType="EstimateDto">
+        SELECT
+        o.option_id AS optionId,
+        o.option_name AS optionName,
+        o.option_price AS optionPrice,
+        o.option_description AS optionDescription
+        FROM `option` o
+        JOIN dressInfo d ON o.dress_id = d.dress_id
+        WHERE d.company_id = #{companyId}
+    </select>
+
+    <!-- 메이크업 옵션 조회 -->
+    <select id="getMakeupOptionsByCompanyId" parameterType="map" resultType="EstimateDto">
+        SELECT
+        o.option_id AS optionId,
+        o.option_name AS optionName,
+        o.option_price AS optionPrice,
+        o.option_description AS optionDescription
+        FROM `option` o
+        JOIN makeupInfo m ON o.makeup_id = m.makeup_id
+        WHERE m.company_id = #{companyId}
+    </select>
+
+</mapper>

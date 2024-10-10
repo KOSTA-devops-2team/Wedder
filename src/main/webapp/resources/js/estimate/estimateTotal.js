@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.classList.remove("show");
     });
 
-    /* 외부 클릭 시 모달창 닫기 */ 
+    /* 외부 클릭 시 모달창 닫기 */
     window.addEventListener("click", function(event) {
         if (event.target === modal) {
             modal.classList.remove("show");

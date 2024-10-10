@@ -5,6 +5,7 @@
 <c:set var="loginout" value="${sessionScope.id==null ? 'Login' : 'Logout' }" />
 <c:set var="loginoutlink" value="${sessionScope.id==null ? '/log/login' : '/log/logout' }" />
 <c:set var="mypagelink" value="${sessionScope.id == null ? '/log/login' : '/mypage/mypage' }" />
+<c:set var="likelink" value="${sessionScope.id == null ? '/log/login' : '/mypage/mypage' }" />  <!-- temporary -->
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -31,7 +32,7 @@
                     <!-- 해더 검색 영역 -->
                     <div class="header-search-form">
                         <form class="form-container">
-                            <div></div>
+
                             <div class="form-text">
                                 <input
                                     type="text"
@@ -49,6 +50,7 @@
                     </div>
                     <!-- 해더 유저 정보 -->
                     <div class="header-user-container">
+                        <p></p>
                         <ul class="header-user">
                             <li>
                                 <a href="<c:url value="${loginoutlink}" />">${loginout}
@@ -66,7 +68,7 @@
                                 <div>마이페이지</div>
                             </li>
                             <li>
-                                <a href="../../html/admin/adminMain.html"
+                                <a href="<c:url value='${mypagelink}' />"
                                     ><img
                                         class="header-heart"
                                         src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
