@@ -14,58 +14,91 @@ function createOrderNum() {
 
 // 결제 데이터 생성 함수
 function createPaymentData() {
-    var amount = $('.final-price').text();  // 최종 결제 금액
-    var orderId = createOrderNum();  // 주문 번호 생성
-    var orderName = $('.product-name').text(); // 제품명
+    var amount = $('.final-price').text();
+    var orderId = createOrderNum();
+    var orderName = $('.product-name').text();
 
     data = {
-        amount: amount,
+        amount: amount.replace(/,/g, ''),
         orderId: orderId,
-        orderName: orderName}
+        orderName: orderName,
+        customerId: customerId,
+        customerEmail: customerEmail,
+        customerName: customerName,
+        customerTel: customerTel
+    }
     return data;
 }
 
-
-
-$('.pay').on('click', function (e) {
+$('.kakao-pay').on('click', function (e) {
     e.preventDefault();
-    // 가맹점 식별코드
     IMP.init(kakaoPayKey);
 
     // 결제 데이터 생성
     var data = createPaymentData();
 
     // 결제 요청
+    console.log("결제 요청 시작");
     IMP.request_pay({
         pg: 'kakaopay',
         pay_method: 'card',
-        merchant_uid: 'merchant_' + new Date().getTime(),  // 임의의 거래 ID 생성
+        merchant_uid: 'merchant_' + new Date().getTime(),
+        orderId: data.orderId,
         name: data.orderName,
         amount: data.amount,
-        buyer_email: 'test@example.com',  // 임의의 이메일
-        buyer_name: '테스트 구매자',  // 임의의 구매자 이름
-        buyer_tel: '010-1234-5678',  // 임의의 전화번호
+        buyer_email: data.customerEmail,
+        buyer_name: data.customerName,
+        buyer_tel: data.customerTel
     }, function (rsp) {
-        console.log(rsp);  // 응답 데이터 확인
-        if (rsp.success) {
-            var msg = '결제가 완료되었습니다.\n';
-            msg += '고유ID : ' + rsp.imp_uid + '\n';
-            msg += '상점 거래ID : ' + rsp.merchant_uid + '\n';
-            msg += '결제 금액 : ' + rsp.paid_amount + '\n';
+        console.log("rsp: ", rsp);
 
-            // 결제 완료 후 폼 데이터 전송
-            var actionForm = $("#pay_form");
-            const a_completed = $("<input type='hidden' value='T' name='a_completed'>");
-            actionForm.append(a_completed);
+        if (typeof rsp !== 'undefined' && rsp.success) {
+            Swal.fire({
+                title: "결제가 완료되었습니다.",
+                icon: "success",
+                confirmButtonText: "확인",
+                closeOnClickOutside: false
+            }).then(function () {
+                var paymentTime = new Date(rsp.paid_at * 1000).toISOString().slice(0, 19).replace('T', ' ');
 
-            // p_id 값을 동적으로 설정
-            actionForm.find("input[name='p_id']").val(e.target.getAttribute("href"));
-            actionForm.submit();  // 폼 제출
-
+                // 결제 성공 데이터를 서버로 전송
+                $.ajax({
+                    type: "POST",
+                    url: "/payment/complete",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        impUid: rsp.imp_uid,
+                        merchantUid: rsp.merchant_uid,
+                        paidAmount: rsp.paid_amount,
+                        paymentTime: paymentTime,
+                        customerId: data.customerId,
+                        customerEmail: data.customerEmail,
+                        customerName: data.customerName,
+                        customerTel: data.customerTel,
+                        orderName: data.orderName
+                    }),
+                    success: function (response) {
+                        location.href = "/mypage/mypage";
+                    },
+                    error: function (error) {
+                        console.error("서버로 결제 데이터 전송 중 오류 발생:", error);
+                    }
+                });
+            });
         } else {
             var msg = '결제에 실패하였습니다.\n';
-            msg += '에러내용 : ' + rsp.error_msg + '\n';
+            if (rsp !== undefined) {
+                msg += '에러내용 : ' + rsp.error_msg + '\n';
+            } else {
+                msg += '결제 응답을 받지 못했습니다.';
+            }
+
+            Swal.fire({
+                title: '결제 실패',
+                text: msg,
+                icon: 'error',  // 실패 아이콘 표시
+                confirmButtonText: '확인'
+            });
         }
-        alert(msg);  // 결제 결과 메시지 출력
     });
 });

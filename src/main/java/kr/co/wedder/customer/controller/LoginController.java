@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/log")
@@ -29,8 +30,12 @@ public class LoginController {
 	}
 
 	@PostMapping("/login")
-	public String login(String id, String password, String toURL, boolean rememberId,
+	public String login(String id, String password, @RequestParam(value = "toURL", required = false)  String toURL, boolean rememberId,
 						HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+
+
+		// 로그로 toURL 확인
+		System.out.println("로그인 요청에 전달된 toURL: " + toURL);
 
 		//1. id와 pw를 확인
 		//2-1. 일치않으면
@@ -73,8 +78,16 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		// 세션 객체에 id를 저장
 		session.setAttribute("id", id);
+		CustomerDTO customerDTO = customerDao.selectCustomer(id);
+		session.setAttribute("customerId", customerDTO.getCustomerId());
+		System.out.println("LoginController.login" +  customerDTO.getCustomerId());
+		session.setAttribute("customerName", customerDTO.getName());
+		session.setAttribute("customerEmail", customerDTO.getEmail());
+		session.setAttribute("customerTel", customerDTO.getPhone());
 		//4. 뷰이동
 		toURL = toURL==null || toURL.equals("") ? "/" : toURL;
+		System.out.println("리다이렉트할 URL: " + toURL);  // 리다이렉트할 URL 확인
+
 
 		return "redirect:" + toURL;
 	}

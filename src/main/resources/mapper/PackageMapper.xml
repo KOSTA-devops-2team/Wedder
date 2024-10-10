@@ -146,4 +146,18 @@
         ORDER BY final_price ASC
     </select>
 
+    <select id="selectAvailableDateList" parameterType="String" resultType="CompanyScheduleDTO">
+        SELECT *
+        FROM company_schedule
+        WHERE company_name = #{companyName}
+    </select>
+
+    <!--패키지 일정 -->
+    <select id="selectAvailableTimeList" parameterType="map" resultType="CompanyScheduleDTO">
+        SELECT *
+        FROM company_schedule
+        WHERE company_name = #{companyName}
+        AND date = #{date}
+        ORDER BY time;
+    </select>
 </mapper>
