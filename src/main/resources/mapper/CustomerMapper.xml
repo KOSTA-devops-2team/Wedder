@@ -13,7 +13,7 @@
         SELECT COUNT(*) FROM customer WHERE id = #{id}
     </select>
 
-    <select id="findById" parameterType="string" resultType="kr.co.wedder.customer.domain.CustomerDTO">
-        SELECT id FROM customer WHERE id = #{id}
+    <select id="findById" parameterType="string" resultType="kr.co.wedder.customer.domain.CustomerDto">
+        SELECT * FROM customer WHERE id = #{id}
     </select>
 </mapper>

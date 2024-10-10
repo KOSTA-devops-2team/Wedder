@@ -48,12 +48,12 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 260px;
+    width: 340px;
 }
 .search-btn {
     background-color: #000;
     color : white;
-    margin-left: 10px;  
+    margin-left: 10px;
     padding: 10px;
     border: 1px solid #000;
     border-radius: 5px;
@@ -169,7 +169,7 @@
 }
 .select-title {
     padding-left: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     font-size: 20px;
     font-weight: 700;
     border-bottom: 2px solid #333;
@@ -181,15 +181,22 @@
     padding: 10px;
     flex-grow: 1; /* 목록이 공간을 채우게 함 */
 }
-.selected-item {
-    padding: 10px; /* 선택된 아이템에 약간의 패딩을 줘서 구분 가능하게 */
-    background-color: #f9f9f9; /* 약간의 배경색을 주면 구분하기 쉽습니다 */
-    border: 1px solid #ddd; /* 경계선 */
-    border-radius: 5px; /* 부드러운 모서리 */
+.selected-company-link {
+    display: flex;
+    justify-content: space-between; /* 두 요소를 양 끝으로 배치 */
+    align-items: center; /* 세로 정렬 중앙 맞춤 */
 }
+.selected-item {
+    padding: 10px;
+}
+.company-info,
+.company-price {
+    font-weight: 700;
+}
+
+/* 가격 표시 */
 .price {
     padding: 10px;
-    background-color: #fff;
 }
 .price-total {
     display: flex;
@@ -201,17 +208,17 @@
     border-bottom: 1px solid #757575;
     padding-bottom: 5px;
 }
+.material-symbols-outlined {
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 200,
+            'GRAD' 0,
+            'opsz' 14
+}
 .reselection {
     font-size: 13px;
     text-align: right;
     margin-top: 10px;
-}
-.material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 200,
-    'GRAD' 0,
-    'opsz' 14
 }
 .note {
     border: 1px solid #ccc;

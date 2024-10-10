@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/user/signUp.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/customer/signUp.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
@@ -19,7 +19,7 @@
     <div class="hd__inner400">
         
         <!-- 타이틀 -->
-        <form method="POST" action="${pageContext.request.contextPath}/user/registerProceed" class="sign-up" id="register">
+        <form method="POST" action="${pageContext.request.contextPath}/customer/registerProceed" class="sign-up" id="register">
             <div class="sign-title">
                 <h1>회원가입</h1>
                 <div class="required-block">
@@ -103,6 +103,6 @@
 
     <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
     <script>const contextPath = '${pageContext.request.contextPath}';</script>
-    <script src="${pageContext.request.contextPath}/resources/js/user/signUp.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/customer/signUp.js"></script>
 </body>
 </html>
