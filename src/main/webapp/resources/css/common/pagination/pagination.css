@@ -1,13 +1,14 @@
-.container,
+.pagination-container,
+.pagination,
 .button,
-.links,
-.link {
+.page-btns,
+.page-btn {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container {
+.pagination-container {
     padding: 20px;
     border-radius: 8px;
     column-gap: 12px;
@@ -22,13 +23,15 @@
     pointer-events: none;
 }
 
-.button:disabled {
+.button:disabled,
+.page-btn:disabled {
     color: #b3b3b3;
     pointer-events: none;
+    cursor: not-allowed;
 }
 
 .button,
-.link {
+.page-btn {
     height: 45px;
     width: 45px;
     font-size: 20px;
@@ -38,22 +41,22 @@
     cursor: pointer;
 }
 
-.links {
+.page-btns {
     column-gap: 12px;
 }
 
-.link {
+.page-btn {
     font-weight: 500;
     text-decoration: none;
 }
 
 .button:hover,
-.link:hover {
+.page-btn:hover {
     color: #fff;
     background-color: #ca1a5a;
 }
 
-.link.active {
+.page-btn .active {
     color: #fff;
     background: #ca1a5a;
 }

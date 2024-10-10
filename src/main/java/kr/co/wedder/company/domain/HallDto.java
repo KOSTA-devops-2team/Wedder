@@ -6,13 +6,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HallDto {
-    private Integer hallId;
-    private Integer companyId;
+    private int hallId;
+    private int companyId;
     private String hallType;
     private int minPeople;
     private int parking;
     private int mealPrice;
-
-//    private CompanyDto company;
-
 }

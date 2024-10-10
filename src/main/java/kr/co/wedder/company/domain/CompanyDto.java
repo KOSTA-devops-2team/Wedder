@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CompanyDto {
-    private Integer companyId;
+    private int companyId;
     private String companyName;
     private String companyAddress;
     private String introduce;
@@ -27,7 +27,7 @@ public class CompanyDto {
     private DressDto dressDto;
     private MakeupDto makeupDto;
 
-    private Integer imgId;
-    private Integer imgSeq;
+    private int imgId;
+    private int imgSeq;
     private String imgUrl;
 }

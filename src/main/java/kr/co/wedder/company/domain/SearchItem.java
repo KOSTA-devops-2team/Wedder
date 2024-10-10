@@ -53,5 +53,4 @@ public class SearchItem {
         if(result < 0) result = 0;
         return result;
     }
-
 }

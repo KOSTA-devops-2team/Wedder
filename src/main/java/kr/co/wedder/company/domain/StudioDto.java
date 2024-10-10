@@ -18,5 +18,4 @@ public class StudioDto {
     private String product;
     private Boolean hairChangeAvailability;
     private Boolean equipmentIncluded;
-
 }
