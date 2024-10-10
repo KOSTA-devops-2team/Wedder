@@ -1,21 +1,10 @@
 package kr.co.wedder.customer.dao;
 
-import kr.co.wedder.customer.domain.CustomerDTO;
+import kr.co.wedder.customer.domain.CustomerDto;
 
 public interface CustomerDao {
 
-    int deleteCustomer(String id);
+    CustomerDto customerJoin(CustomerDto customerDTO);
 
-    CustomerDTO selectCustomer(String id);
-
-    int insertCustomer(CustomerDTO customerDTO);
-
-    int updateCustomer(CustomerDTO customerDTO);
-
-    void deleteAll() throws Exception;
-
-    CustomerDTO customerJoin(CustomerDTO customerDTO);
-
-    CustomerDTO findById(String id);
+    CustomerDto findById(String id);
 }
-

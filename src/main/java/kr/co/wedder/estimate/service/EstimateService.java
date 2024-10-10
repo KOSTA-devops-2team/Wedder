@@ -8,4 +8,10 @@ public interface EstimateService {
     List<EstimateDto> getStudioList();
     List<EstimateDto> getDressList();
     List<EstimateDto> getMakeupList();
+    EstimateDto getStudioById(int companyId);
+    EstimateDto getDressById(int companyId);
+    EstimateDto getMakeupById(int companyId);
+    List<EstimateDto> getStudioOptionsByCompanyId(int companyId);
+    List<EstimateDto> getDressOptionsByCompanyId(int companyId);
+    List<EstimateDto> getMakeupOptionsByCompanyId(int companyId);
 }

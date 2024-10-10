@@ -12,164 +12,208 @@
     <!-- 링크 -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estimate/estimateOption.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- 스크립트 -->
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/estimate/estimateOption.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-    <div class="container">
-        <div class="hd__inner1100">
-            <div class="container-title">
-                <p>Estimate</p>
-                <p class="description">원하는 조건의 스튜디오, 드레스 메이크업 업체를 조합해 가격을 알아봐요</p>
-            </div>
-            <!-- 스드메 상단 탭 -->
-            <div class="tabs">
-                <div class="tab">스튜디오</div>
-                <div class="tab">드레스</div>
-                <div class="tab">헤어메이크업</div>
-            </div>
-            <div class="main-grid">
-                <div class="left-panel">
-                    <div class="main">
-                        <img src="../../assets/images/estimate-detail1.png" alt="Studio Image">
-                        <div class="selected">
-                            <div class="content-main">
-                                <p class="bold">S 스튜디오</p>
-                                <p class="address">서울특별시 서초구 신반포로 4길 7</p>
-                            </div>
-                            <div class="basic-option">
-                                <div class="basic-detail">
-                                    <p><strong>기본 옵션</strong></p>
-                                    <p>원본 데이터</p>
-                                    <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+<div class="container">
+    <div class="hd__inner1100">
+        <div class="container-title">
+            <p>Estimate</p>
+            <p class="description">원하는 조건의 스튜디오, 드레스 메이크업 업체를 조합해 가격을 알아봐요</p>
+        </div>
+        <!-- 스드메 상단 탭 -->
+        <div class="tabs">
+            <div class="tab">스튜디오</div>
+            <div class="tab">드레스</div>
+            <div class="tab">헤어메이크업</div>
+        </div>
+        <div class="divide">
+
+            <section class="body">
+                <div class="body-grid">
+                    <div class="main" data-img-url="${studioData.imgUrl}">
+                        <c:if test="${not empty studioData}">
+                            <img src="${studioData.imgUrl}" alt="${studioData.companyName}">
+                            <div class="selected">
+                                <div class="content-main">
+                                    <p class="bold">${studioData.companyName}</p>
+                                    <p class="address">${studioData.companyAddress}</p>
                                 </div>
-                                <div class="main-price">
-                                    <p>330,000원</p>
+                                <div class="basic-option">
+                                    <div class="basic-detail">
+                                        <p><strong>기본 옵션</strong></p>
+                                        <p>원본 데이터</p>
+                                        <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
+                                    </div>
+                                    <div class="main-price">
+                                        <p>${studioData.basicPrice}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- 세부 옵션 -->
-                    <div class="option">
-                        <div class="option-item">
-                            <span class="title">추가 비용 옵션</span>
-                            <span>업체에 직접 결제하는 추가 비용이 있을 수 있어요.</span>
-                            <span>실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.</span>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="option-item">
-                            <span class="title">수정본 데이터</span>
-                            <span>촬영 수정본 데이터 구매 시 발생하는 비용</span>
-                        </div>
-                        <div class="option-price">
-                            <span>165,000원</span>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="option-item">
-                            <span class="title">페이퍼 추가</span>
-                            <span>앨범 페이지 추가 시 발생하는 비용</span>
-                        </div>
-                        <div class="option-price">
-                            <span>33,000원</span>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="option-item">
-                            <span class="title">들러리 촬영 비용</span>
-                            <span>들러리 촬영 시 발생하는 비용 (1건 기준)</span>
-                        </div>
-                        <div class="option-price">
-                            <span>150,000원</span>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="option-item">
-                            <span class="title">야간씬 촬영</span>
-                            <span>야간씬 촬영 시 발생하는 비용</span>
-                        </div>
-                        <div class="option-price">
-                            <span>110,000원</span>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="option-item">
-                            <span class="title">의상 추가</span>
-                            <span>촬영 의상 추가 시 발생하는 비용 (1벌당)</span>
-                        </div>
-                        <div class="option-price">
-                            <span>110,000원</span>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="option-item">
-                            <span class="title">작가 지정</span>
-                            <span>촬영 작가 지정 시 발생하는 비용</span>
-                        </div>
-                        <div class="option-price">
-                            <span>220,000원</span>
-                        </div>
+                        </c:if>
+                        <!-- 스튜디오 옵션 출력 -->
+                        <c:if test="${not empty companyOptions.studio}">
+                            <div class="option">
+                                <c:forEach var="option" items="${companyOptions.studio}">
+                                    <div class="option-item studio-option">
+                                        <div class="option-display">
+                                            <span class="option-name">${option.optionName}</span>
+                                            <span class="option-description">${option.optionDescription}</span>
+                                        </div>
+                                        <span class="option-price">${option.optionPrice}원</span>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
+            </section>
 
-                <!-- 선택하신 목록 -->
-                <div class="selected-list">
-                    <h2>선택하신 목록</h2>
-                    <div class="list">
-                        <div class="item-title">
-                            <span>S 스튜디오</span>
-                            <span>330,000원</span>
-                        </div>
-                        <div class="items">
-                            <div class="item">
-                                <p><img src="../../assets/images/icon-minus.png" alt="">수정 데이터</p>
-                                <p>165,000원</p>
+            <section class="body">
+                <div class="body-grid">
+                    <div class="main" data-img-url="${dressData.imgUrl}">
+                        <c:if test="${not empty dressData}">
+                            <img src="${dressData.imgUrl}" alt="${dressData.companyName}">
+                            <div class="selected">
+                                <div class="content-main">
+                                    <p class="bold">${dressData.companyName}</p>
+                                    <p class="address">${dressData.companyAddress}</p>
+                                </div>
+                                <div class="basic-option">
+                                    <div class="basic-detail">
+                                        <p><strong>기본 옵션</strong></p>
+                                        <p>본식 드레스</p>
+                                        <p>무료 피팅서비스</p>
+                                    </div>
+                                    <div class="main-price">
+                                        <p>${dressData.basicPrice}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="item">
-                                <p><img src="../../assets/images/icon-minus.png" alt="">플라리 촬영</p>
-                                <p>155,000원</p>
+                        </c:if>
+                        <!-- 드레스 옵션 출력 -->
+                        <c:if test="${not empty companyOptions.dress}">
+                            <div class="option">
+                                <c:forEach var="option" items="${companyOptions.dress}">
+                                    <div class="option-item dress-option">
+                                        <div class="option-display">
+                                            <span class="option-name">${option.optionName}</span>
+                                            <span class="option-description">${option.optionDescription}</span>
+                                        </div>
+                                        <span class="option-price">${option.optionPrice}원</span>
+                                    </div>
+                                </c:forEach>
                             </div>
-                            <div class="item">
-                                <p><img src="../../assets/images/icon-minus.png" alt="">야간 촬영</p>
-                                <p>110,000원</p>
+                        </c:if>
+                    </div>
+                </div>
+            </section>
+
+            <section class="body">
+                <div class="body-grid">
+                    <div class="main" data-img-url="${makeupData.imgUrl}">
+                        <c:if test="${not empty makeupData}">
+                            <img src="${makeupData.imgUrl}" alt="${makeupData.companyName}">
+                            <div class="selected">
+                                <div class="content-main">
+                                    <p class="bold">${makeupData.companyName}</p>
+                                    <p class="address">${makeupData.companyAddress}</p>
+                                </div>
+                                <div class="basic-option">
+                                    <div class="basic-detail">
+                                        <p><strong>기본 옵션</strong></p>
+                                        <p>신부 헤어메이크업</p>
+                                        <p>부원장 or 원장 맞춤 스타일링</p>
+                                    </div>
+                                    <div class="main-price">
+                                        <p>${makeupData.basicPrice}</p>
+                                    </div>
+                                </div>
                             </div>
+                        </c:if>
+                        <!-- 메이크업 옵션 출력 -->
+                        <c:if test="${not empty companyOptions.makeup}">
+                            <div class="option">
+                                <c:forEach var="option" items="${companyOptions.makeup}">
+                                    <div class="option-item makeup-option">
+                                        <div class="option-display">
+                                            <span class="option-name">${option.optionName}</span>
+                                            <span class="option-description">${option.optionDescription}</span>
+                                        </div>
+                                        <span class="option-price">${option.optionPrice}원</span>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </c:if>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 선택하신 목록 -->
+            <div class="select-container">
+                <div class="select-list">
+                    <div class="top">
+                        <div class="select-title">선택하신 목록</div>
+                        <div class="select-item">
+                            <!-- 선택한 스튜디오 정보 -->
+                            <div class="selected-studio" id="selected-studio">
+                                <span class="company-info" >${studioData.companyName}</span>
+                                <span class="company-price" data-price="${studioData.basicPrice}">${studioData.basicPrice}원</span>
+                            </div>
+                            <!-- 스튜디오 옵션 -->
+                            <div id="selected-studio-options"></div>
+
+                            <!-- 선택한 드레스 정보 -->
+                            <div class="selected-dress" id="selected-dress">
+                                <span class="company-info">${dressData.companyName}</span>
+                                <span class="company-price" data-price="${dressData.basicPrice}">${dressData.basicPrice}원</span>
+                            </div>
+                            <!-- 드레스 옵션 -->
+                            <div id="selected-dress-options"></div>
+
+                            <!-- 선택한 메이크업 정보 -->
+                            <div class="selected-makeup" id="selected-makeup">
+                                <span class="company-info">${makeupData.companyName}</span>
+                                <span class="company-price" data-price="${makeupData.basicPrice}">${makeupData.basicPrice}원</span>
+                            </div>
+                            <!-- 메이크업 옵션 -->
+                            <div id="selected-makeup-options"></div>
                         </div>
                     </div>
                     <!-- 가격 표시-->
                     <div class="price">
-                        <div class="price-regular">
-                            <span>정상가</span><span>330,000원</span>
-                        </div>
-                        <div class="price-discount">
-                            <span>쿠폰/포인트 할인가</span><span class="color">-0원</span>
-                        </div>
                         <div class="price-total">
-                            <span>최종 금액</span><span>330,000원</span>
+                            <span>최종 금액</span><span id="price-total">0원</span>
                         </div>
                         <div class="reselection">
-                            <a href=""><span class="material-symbols-outlined">
-                                    replay
-                                    </span>업체 다시 선택</a>
+                            <a href="javascript:void(0);" id="reset-button">
+                                <span class="material-symbols-outlined">replay</span>옵션 다시 선택
+                            </a>
                         </div>
                     </div>
                 </div>
+
                 <div class="note">
-                    <p>꼭 확인해주세요!</p>
+                    <p class="note-bold">꼭 확인하세요!</p>
                     <p>이 견적서는 기본 가격 정보들을 담은 견적금 참고용 견적서입니다.</p>
                     <p>본 견적상 담의 금액이 실제 결제 금액은 아닙니다.</p>
                     <p>실제 결제할 금액을 확인할 수 있으며, Wedder에서는 이에 대해 책임을 지지 않습니다.</p>
                 </div>
             </div>
-            <!-- 이전, 다음 버튼 -->
-            <div class="btn">
-                <button onclick="location.href='estimate-calculator.html'" class="back">이전</button>
-                <button onclick="location.href='estimate-final.html'" class="next">다음으로</button>
-            </div>
+        </div>
+        <!-- 이전, 다음 버튼 -->
+        <div class="btn">
+            <button onclick="history.back()" class="back">이전</button>
+            <button class="next">다음으로</button>
         </div>
     </div>
+</div>
 </body>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </html>
