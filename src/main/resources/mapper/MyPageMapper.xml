@@ -225,6 +225,18 @@
    		and 						company.company_category 		= #{category}
    		and 						reservation.visit_reservation 	= #{visitReservation}
 	</select>
+	<select id="getVHResv" parameterType="map" resultType="map">
+		select *
+		From reservation
+		JOIN company 			ON 	company.company_id 			= reservation.company_id
+		JOIN customer 			ON 	reservation.customer_id 	= customer.customer_id
+		JOIN hallInfo 			ON 	reservation.company_id 		= hallInfo.company_id
+		JOIN companyImage 		ON 	companyImage.company_id 	= reservation.company_id
+
+		Where 						reservation.customer_id 		= #{customerId}
+		and 						company.company_category 		= #{category}
+		and 						reservation.visit_reservation 	= #{visitReservation}
+	</select>
 	<select id="coReservationList" parameterType="map" resultMap="joinVisitCriteria">
 		select *
 		From reservation

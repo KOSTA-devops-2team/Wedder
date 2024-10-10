@@ -164,5 +164,16 @@ public class MyPageDaoImpl implements MyPageDao {
 		parameterTypeMap.put("customer_id",customer_id);
 		return session.selectList(namespace+"getCalendarEvents",parameterTypeMap);
 	}
+	
+	// 웨딩 홀 방문예약
+	@Override
+	public List<Map<String, Object>> getVHResv(Integer customer_id, String category, Integer visitReservation) {
+		Map<String,Object> parameterTypeMap = new HashMap<>();
+		parameterTypeMap.put("customer_id",customer_id);
+		parameterTypeMap.put("category",category);
+		parameterTypeMap.put("visitReservation",visitReservation);
+
+		return session.selectList(namespace+"getVHResv",parameterTypeMap);
+	}
 
 }

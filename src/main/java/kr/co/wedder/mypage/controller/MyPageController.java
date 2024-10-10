@@ -295,6 +295,8 @@ public class MyPageController {
 			m.addAttribute("companyImage",	companyImage);
 			
 			//방문 예약 내역
+
+
 			VisitCriteria hallCriteria = new VisitCriteria(companyDto, myPageDto, reservationDto, hallInfoDto, companyImage);
 			hallCriteria.getMyPageDTO().setCustomerId(customerId);
 			m.addAttribute("hallCriteria",hallCriteria);
@@ -306,7 +308,14 @@ public class MyPageController {
 			hallVisitReListMap.put("visit_reservation", 1);
 			List<VisitCriteria> hallVisitReservatioinList=myPageService.hallVisitReservatioinList(hallVisitReListMap);
 			m.addAttribute("hallVisitReservatioinList",hallVisitReservatioinList);
-			
+
+			//방문 예약 remaster
+			String category ="웨딩홀";	//카데고리
+			Integer visitResevation =1; //
+
+			List<Map<String,Object>> getVHResv=myPageService.getVHResv(customerId,category,visitResevation);
+			m.addAttribute("getVHResv",getVHResv);
+
 			//웨딩홀 예약
 			hallVisitReListMap.put("visit_reservation", 1);
 			List<VisitCriteria> hallReList = myPageService.hallVisitReservatioinList(hallVisitReListMap);

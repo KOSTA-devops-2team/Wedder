@@ -46,4 +46,6 @@ public interface MyPageService {
 	List<Map<String,Object>> searchMyPayment(Integer customer_id,String order_name)throws Exception;
 	// post Calendar plan 일정조회
 	List<Map<String,Object>> getCalendarEvents(Integer customer_id);
+	//방문 예약 remaster
+	List<Map<String,Object>> getVHResv(Integer customer_id,String category,Integer visitReservation );
 }

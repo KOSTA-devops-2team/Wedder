@@ -56,7 +56,6 @@
         </section>
 		  <section id="reservationCalendar">
 			  <%@ include file="/WEB-INF/views/common/calendarList.jsp" %>
-
 		  </section>
         <div class="reservationList">
           <h3 class="reservation-h3-1">예약 내역</h3>
@@ -64,6 +63,39 @@
             <h4>웨딩홀 방문 예약 내역</h4>
           </div>
           <section class="reservationList-visithall-middle" id="reservation-section1">
+			  <%--<c:forEach var="map" items="${getVHResv}">
+				  <div class="reservationList-visithall-card">
+
+					  <div>
+						  <img src="${map.img_url}" alt="이미지" />
+						  <h3>${map.company_name}</h3>
+					  </div>
+
+					  <div class="card-content">
+
+						  <div class="content-body">
+							  <div>
+								  <p>예약자명</p>
+								  <p>날짜</p>
+								  <p>시간</p>
+								  <p>인원 수</p>
+							  </div>
+							  <div class="inputs">
+								  <p>${map.name}</p>
+								  <p><fmt:formatDate value="${map.reservation_date }" pattern="yyyy-MM-dd"/></p>
+								  <p>${map.reservation_time }</p>
+								  <p>${map.minPeople}</p>
+							  </div>
+						  </div>
+
+						  <div class="content-end">
+							  <a href="reservation-detail">예약 상세 보러가기>></a>
+						  </div>
+
+					  </div>
+				  </div>
+			  </c:forEach>--%>
+
 	          <c:forEach var="hallCriteria" items="${hallVisitReservatioinList}">
 	            <div class="reservationList-visithall-card">
 	            
