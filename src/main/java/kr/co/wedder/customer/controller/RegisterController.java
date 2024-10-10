@@ -1,9 +1,8 @@
 package kr.co.wedder.customer.controller;
 
-import kr.co.wedder.customer.domain.CustomerDTO;
+import kr.co.wedder.customer.domain.CustomerDto;
 import kr.co.wedder.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/customer")
 public class RegisterController {
 
     @Autowired
@@ -19,12 +18,12 @@ public class RegisterController {
 
     @GetMapping("/register")
     public String loginForm() {
-        return "/user/registerForm";
+        return "/customer/registerForm";
     }
 
     // 회원가입 처리
     @PostMapping("/registerProceed")
-    public ResponseEntity<String> customerJoin(@RequestBody CustomerDTO customerDTO) {
+    public ResponseEntity<String> customerJoin(@RequestBody CustomerDto customerDTO) {
         try {
             // 회원 가입 처리 로직
             boolean isRegistered = customerService.customerJoin(customerDTO);
@@ -41,7 +40,7 @@ public class RegisterController {
 
     // 아이디 중복 체크
     @PostMapping("/checkId")
-    public ResponseEntity<String> checkId(@RequestBody CustomerDTO customerDTO) {
+    public ResponseEntity<String> checkId(@RequestBody CustomerDto customerDTO) {
         try {
             String id = customerDTO.getId();
             boolean isAvailable = customerService.checkIdAvailability(id);
@@ -56,12 +55,3 @@ public class RegisterController {
         }
     }
 }
-
-
-
-
-
-
-
-
-

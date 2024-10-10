@@ -57,7 +57,6 @@ public class PackageController {
         List<PackageDetailDto> mdPickPackages = packageService.getMDPickPackages();
         model.addAttribute("MDPickPackages", mdPickPackages);
 
-
         return "package/packageRecommend";
     }
 
@@ -77,7 +76,6 @@ public class PackageController {
             return "package/packageRecommend";
         }
 
-
         // 패키지 가격 계산
         int originalPrice = 0;
         for (PackageDetailDto detail : packageDetails) {
@@ -93,9 +91,8 @@ public class PackageController {
         model.addAttribute("finalPrice", finalPrice);
         model.addAttribute("packageDetails", packageDetails);
         model.addAttribute("paymentKeys", paymentKeys);
+        System.out.println("Kakao Pay Key: " + paymentKeys.getKakaoPayKey());
 
-        return "package/packageDetail";  // 패키지 상세 페이지로 이동
+        return "package/packageDetail";
     }
-
-
 }

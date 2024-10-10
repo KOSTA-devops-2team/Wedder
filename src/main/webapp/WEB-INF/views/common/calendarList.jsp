@@ -58,9 +58,7 @@
 					<div class="calendar-dates" id="calendarDates"></div>
 					
 				</div>
-					<div class = "calendar-footer">
-				</div>
-				
+
 				<section id="calendarBoard">
 					<div style="text-align: center;">
 						<div class="schedule-container">
@@ -121,11 +119,12 @@
 						</div> <!--schedule-container 끝  -->
 					</div> <!--test 첫번째 div  -->
 				</section>
-			</section>			
+		</section>
+
 			<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js">
 			</script>
 			<script type="text/javascript" 	src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js" ></script>
-		</body>
+	</body>
 <%--		<script type="text/javascript">--%>
 <%--			/*#currentMonth   */--%>
 <%--			--%>

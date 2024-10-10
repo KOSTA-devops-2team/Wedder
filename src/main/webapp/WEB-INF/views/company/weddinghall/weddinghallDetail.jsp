@@ -10,133 +10,120 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/weddinghall/reviewSearchModal.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/company/weddinghall/weddinghallDetail.js"></script>
+<%--    <script type="text/javascript" defer src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49002230661bfc60fba4b0f1cfab9f60&autoload=false"></script>--%>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
+    <c:forEach var="hall" items="${hallDetail}">
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
             <div class="main-title-container">
-                <h1>[강남] 마리아쥬스퀘어</h1>
+                <h1>[${hall.location}] ${hall.companyName}</h1>
                 <div id="tags-container">
                     <!-- 태그 -->
                 </div>
                 <p>
-                    싱그러움 속 우아하고 세련된 더 프렌치 카든 웨딩 합리적인
-                    가격으로 호텔 웨딩을 오릴 수 있어요. 250~300명 규모의
-                    샴페인 홀, 소규모 스몰웨딩이 가능한 보르도홀 입니다.
+                    ${hall.introduce}
                 </p>
             </div>
             <div class="carousel-container">
                 <div class="carousel-inner">
+                    <c:forEach var="img" items="${imgList}">
                     <div class="company-image-item">
                         <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail1.jpg"
-                                alt="웨딩홀 메인 이미지1"
+                                src="${img.imgUrl}"
+                                alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail2.jpg"
-                                alt="웨딩홀 메인 이미지2"
+                                alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail3.jpg"
-                                alt="웨딩홀 메인 이미지3"
+                                alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail4.jpg"
-                                alt="웨딩홀 메인 이미지4"
+                                alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail5.jpg"
-                                alt="웨딩홀 메인 이미지5"
+                                alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail6.jpg"
-                                alt="웨딩홀 메인 이미지6"
+                                alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
+                    </c:forEach>
                 </div>
             </div>
         </section>
+        </c:forEach>
 
         <!-- 2. 업체 정보 + 지도-->
         <section class="information">
             <div class="title-container">
                 <h2>Information</h2>
-                <a href="reviewModal" id="review-link">후기 보러가기 >>></a>
+<%--                <a href="reviewModal" id="review-link">후기 보러가기 >>></a>--%>
             </div>
             <div id="modal-container"></div>
 
+            <c:forEach var="hall" items="${hallDetail}">
             <div class="info-container">
                 <!-- 왼쪽 정보 -->
                 <table class="info-table">
                     <tr>
-                        <th>지역</th>
-                        <td>서울특별시 강남구</td>
+                        <th>주소</th><td>${hall.companyAddress}</td>
                     </tr>
                     <tr>
-                        <th>연락처</th>
-                        <td>02-111-1111</td>
+                        <th>연락처</th><td>${hall.phoneNum}</td>
                     </tr>
                     <tr>
-                        <th>예식 형태</th>
-                        <td>동시예식</td>
+                        <th>운영 시간</th><td>${hall.operationHours}</td>
                     </tr>
                     <tr>
-                        <th>예식 유형</th>
-                        <td>하우스예식</td>
+                        <th>예식 유형</th><td>${hall.hallDto.hallType}</td>
                     </tr>
                     <tr>
-                        <th>식사비</th>
-                        <td>85,000</td>
+                        <th>식사비</th><td>${hall.hallDto.mealPrice}</td>
                     </tr>
                     <tr>
-                        <th>보증인원</th>
-                        <td>180~300</td>
+                        <th>보증인원</th><td>${hall.hallDto.minPeople}</td>
                     </tr>
                     <tr>
-                        <th>주차</th>
-                        <td>600대</td>
-                    </tr>
-                    <tr>
-                        <th>홈페이지</th>
-                        <td>www.villadegd.com</td>
+                        <th>주차</th><td>${hall.hallDto.parking}</td>
                     </tr>
                 </table>
                 <!-- 오른쪽 정보 -->
                 <div>
                     <table class="info-table">
                         <tr>
-                            <th>주소</th>
-                            <td>서울 강남구 역삼로 607 </td>
-                        </tr>
-                        <tr>
-                            <th>대중교통 </th>
-                            <td>하철 2호선 삼성역 </td>
+                            <th>지도</th>
                         </tr>
                     </table>
                     <div class="info-map">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/etc/map.png"
-                        />
+                        <%@ include file="/WEB-INF/views/common/mapApi.jsp" %>
                     </div>
                 </div>
             </div>
             <div class="buttons">
                 <button class="like-btn">찜하기</button>
-                <button class="list-btn">목록</button>
+                <button class="list-btn"><a href="${pageContext.request.contextPath}/weddinghall"></a>목록</button>
             </div>
         </section>
+        </c:forEach>
 
         <!-- 3. 예식일정 현황-->
         <section class="schedule">
@@ -147,7 +134,7 @@
             <div class="schedule-container">
                 <div class="calendar">
                     <h4>
-                        ✔️ 예식을 의망하는 날짜에 예약이 가능한지 확인해
+                        ✔️ 예식을 희망하는 날짜에 예약이 가능한지 확인해
                         보세요
                     </h4>
                     <div id="calendar"></div>
@@ -598,6 +585,5 @@
         </section>
     </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
-    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/reviewSearchModal.js"></script>
 </body>
 </html>

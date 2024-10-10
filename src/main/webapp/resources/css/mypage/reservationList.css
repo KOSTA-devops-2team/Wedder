@@ -8,7 +8,9 @@
 }
 .hd__inner880 {
   width: 880px;
-  margin: 0px auto;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 .summary {
   display: flex;

@@ -1,7 +1,6 @@
 package kr.co.wedder.mypage.domain;
 
 import kr.co.wedder.company.domain.CompanyDto;
-import kr.co.wedder.payment.domain.PaymentDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +24,6 @@ public class VisitCriteria {
 	private OptionDto 	optionDto;
 	private PackageCategoryDto packageCategoryDto;
 	//paymentDto 사용처
-	private PaymentDto paymentDto;
 
 
 

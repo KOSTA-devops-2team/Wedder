@@ -32,11 +32,12 @@ const carouselItems = document.querySelectorAll(".company-image-item");
 let index = 0;
 
 function showNextImage() {
+
     index = (index + 1) % carouselItems.length;
     carouselInner.style.transform = `translateX(-${index * 100}%)`;
 }
-
-setInterval(showNextImage, 3000); // 5초마다 이미지 전환
+// 3초마다 이미지 전환
+setInterval(showNextImage, 3000);
 
 // Section5. 슬라이드 하단 페이지
 let currentIndex = 0;
@@ -113,3 +114,4 @@ function updateRecommendCarousel() {
     carousel.style.transform = `translateX(${offset}%)`;
     currentPageElement.textContent = currentIndex2 + 1;
 }
+

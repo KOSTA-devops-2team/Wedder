@@ -68,12 +68,15 @@
     <sql id="selectFromCompany">
         SELECT * FROM company
     </sql>
+
     <sql id="selectFromHallInfo">
         SELECT * FROM hallInfo
     </sql>
 
     <sql id="searchCondition">
-        c.company_name LIKE concat('%', #{companyName}, '%')
+        <if test="companyName != null and companyName != ''">
+            c.company_name LIKE concat('%', #{companyName}, '%')
+        </if>
         <if test="category != null and category != ''">
             AND c.company_category = #{category}
         </if>
@@ -84,36 +87,23 @@
         WHERE company_id = #{companyId}
     </select>
 
-    <select id="selectCompanyByCategory" resultMap="companyDtoMap">
-        SELECT c.company_id, c.company_name, c.company_address, c.phone_num, c.operation_hours, c.instagram_url, c.company_category, h.min_people, h.meal_price, i.img_id, i.img_seq, i.img_url
+    <select id="selectCompanyByCategory" parameterType="map" resultMap="companyDtoMap">
+        SELECT *
         FROM company c
         LEFT JOIN hallInfo h ON c.company_id = h.company_id
+        LEFT JOIN studioInfo s ON c.company_id = s.company_id
+        LEFT JOIN dressInfo d ON c.company_id = d.company_id
+        LEFT JOIN makeupInfo m ON c.company_id = m.company_id
         LEFT JOIN companyImage i ON c.company_id = i.company_id
-        WHERE c.company_category = '웨딩홀'
+        WHERE c.company_category = #{category}
+        ORDER BY c.company_id desc
+        LIMIT #{pagination.pageSize} OFFSET #{pagination.startList}
     </select>
 
-    <select id="count" resultType="int">
+    <select id="selectCompanyListCnt" parameterType="String" resultType="int">
         SELECT count(*) FROM company
+        WHERE company_category = #{category}
     </select>
-
-<!--    <select id="searchResultCnt" parameterType="SearchItem" resultMap="companyDtoMap">-->
-<!--        SELECT count(*) FROM company-->
-<!--        WHERE true-->
-<!--        <include refid="searchCondition" />-->
-<!--    </select>-->
-
-<!--    <select id="selectPage" parameterType="map" resultMap="companyDtoMap">-->
-<!--        <include refid="selectFromCompany" />-->
-<!--        limit #{pageSize} offset #{offset}-->
-<!--    </select>-->
-
-<!--    <select id="searchSelectPage" parameterType="SearchItem" resultMap="companyDtoMap">-->
-<!--        SELECT company_id, company_name, company_address, company_introduce, company_category, phone_num, operation_hours, instagram_url, basic_price, mood, location-->
-<!--        FROM company-->
-<!--        where true-->
-<!--        <include refid="searchCondition" />-->
-<!--        limit #{pageSize} offset #{offset}-->
-<!--    </select>-->
 
     <select id="searchCompany" resultMap="companyDtoMap">
         SELECT c.company_id, c.company_name, c.company_address, c.phone_num, c.operation_hours, c.instagram_url, c.company_category, h.min_people, h.meal_price, i.img_id, i.img_seq, i.img_url
@@ -125,4 +115,22 @@
         </where>
     </select>
 
+    <select id="searchResultCnt" parameterType="SearchItem" resultMap="companyDtoMap">
+        SELECT count(*) FROM company
+        WHERE true
+        <include refid="searchCondition" />
+    </select>
+
+    <select id="selectHallDetail" parameterType="int" resultMap="companyDtoMap">
+        SELECT * FROM company c
+        LEFT JOIN hallInfo h ON c.company_id = h.company_id
+        LEFT JOIN companyImage i ON c.company_id = i.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+    <select id="selectCompanyImages" parameterType="int" resultMap="companyDtoMap">
+        SELECT *
+        FROM companyImage
+        WHERE company_id = #{companyId}
+    </select>
 </mapper>

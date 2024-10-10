@@ -1,0 +1,124 @@
+/* 타이틀 */
+.sign-up {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.sign-title {
+    margin-bottom: 20px;
+}
+
+.sign-title h1 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.required-info {
+    text-align: right;
+    font-size: 12px;
+    color: rgb(102, 102, 102);
+    border-bottom: 2px solid #000;
+    padding-bottom: 7px;
+}
+
+.required-info::before {
+    content: '*';
+    color: #ff0000;
+}
+
+/* 프로필 */
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+}
+
+
+/* 아이디 & 비번 */
+.input-block {
+    display: flex;
+    border: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.inputs {
+    width: 100%;
+    padding: 10px 16px;
+    border: none;
+}
+
+input::placeholder {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.password-invisible {
+    width: 19px;
+    height: 18px;
+    margin-top: 8px;
+    margin-right: 13px;
+}
+
+/* 개인정보 입력 */
+.info-block {
+    margin: 12px 0;
+}
+
+.label-block {
+    padding-bottom: 8px;
+}
+
+.required-input {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.required-input::after {
+    content: '*';
+    color: #ff0000;
+}
+
+.gender-label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.gender-label input {
+    font-size: 13px;
+}
+
+
+.btn-block {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 40px 0 80px 0;
+}
+
+.sign-btn {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 0;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sign-btn:hover {
+    background-color: #fff;
+    color: #000;
+}

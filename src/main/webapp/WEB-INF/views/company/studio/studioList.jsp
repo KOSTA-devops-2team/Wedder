@@ -81,7 +81,7 @@
         <!-- 업체 리스트 부분  -->
         <section class="list-all">
             <div class="card" data-id="1">
-                <a href="studioDetail">
+                <a href="studio/detail">
                     <img
                             src="resources/images/studio-1.jpg"
                             alt="스튜디오 이미지1"

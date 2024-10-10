@@ -54,58 +54,25 @@
             </div>
           </div>
         </section>
-		  <section id="reservationCalendar">
-			  <%@ include file="/WEB-INF/views/common/calendarList.jsp" %>
-		  </section>
+	  	<section id="reservationCalendar">
+		  <%@ include file="/WEB-INF/views/common/calendarList.jsp" %>
+	  	</section>
         <div class="reservationList">
           <h3 class="reservation-h3-1">예약 내역</h3>
           <div class="reservationList-visithall-top">
             <h4>웨딩홀 방문 예약 내역</h4>
           </div>
           <section class="reservationList-visithall-middle" id="reservation-section1">
-			  <%--<c:forEach var="map" items="${getVHResv}">
-				  <div class="reservationList-visithall-card">
-
-					  <div>
-						  <img src="${map.img_url}" alt="이미지" />
-						  <h3>${map.company_name}</h3>
-					  </div>
-
-					  <div class="card-content">
-
-						  <div class="content-body">
-							  <div>
-								  <p>예약자명</p>
-								  <p>날짜</p>
-								  <p>시간</p>
-								  <p>인원 수</p>
-							  </div>
-							  <div class="inputs">
-								  <p>${map.name}</p>
-								  <p><fmt:formatDate value="${map.reservation_date }" pattern="yyyy-MM-dd"/></p>
-								  <p>${map.reservation_time }</p>
-								  <p>${map.minPeople}</p>
-							  </div>
-						  </div>
-
-						  <div class="content-end">
-							  <a href="reservation-detail">예약 상세 보러가기>></a>
-						  </div>
-
-					  </div>
-				  </div>
-			  </c:forEach>--%>
-
 	          <c:forEach var="hallCriteria" items="${hallVisitReservatioinList}">
 	            <div class="reservationList-visithall-card">
-	            
+
 	              <div>
 	                <img src="${hallCriteria.companyImage.imgUrl}" alt="이미지" />
 	                <h3>${hallCriteria.companyDto.companyName}</h3>
 	              </div>
-	              
+
 	              <div class="card-content">
-	              
+
 	                <div class="content-body">
 	                  <div>
 	                    <p>예약자명</p>
@@ -120,11 +87,11 @@
 	                    <p>${hallCriteria.hallInfoDto.minPeople}</p>
 	                  </div>
 	                </div>
-	                
+
 	                <div class="content-end">
 	                  <a href="reservation-detail">예약 상세 보러가기>></a>
 	                </div>
-	                
+
 	              </div>
 	            </div>
 	          </c:forEach>
@@ -132,20 +99,17 @@
           <div class="reservationList-top">
             <h4>웨딩홀 예약 내역</h4>
           </div>
-          <section
-            class="reservationList-hall-middle"
-            id="reservation-section2"
-          >
+          <section class="reservationList-hall-middle" id="reservation-section2" >
             <c:forEach var="hallCriteria" items="${hallReList}">
 	            <div class="reservationList-visithall-card">
-	            
+
 	              <div>
 	                <img src="${hallCriteria.companyImage.imgUrl}" alt="이미지" />
 	                <h3>${hallCriteria.companyDto.companyName}</h3>
 	              </div>
-	              
+
 	              <div class="card-content">
-	              
+
 	                <div class="content-body">
 	                  <div>
 	                    <p>예약자명</p>
@@ -160,15 +124,15 @@
 	                    <p>${hallCriteria.hallInfoDto.minPeople}</p>
 	                  </div>
 	                </div>
-	                
+
 	                <div class="content-end">
 	                  <a href="reservation-detail">예약 상세 보러가기>></a>
 	                </div>
-	                
+
 	              </div>
 	            </div>
 	          </c:forEach>
-            
+
           </section>
           <div class="sudume-list">
             <a class="company studio">스튜디오</a>
@@ -176,22 +140,18 @@
             <a class="company dress">드레스</a>
             <div>&nbsp/&nbsp</div>
             <a class="company makeUp">메이크업</a>
-            
           </div>
-          <section
-            class="reservationList-sudume-middle"
-            id="reservation-section3-1"
-          >
+          <section class="reservationList-sudume-middle" id="reservation-section3-1" >
              <c:forEach var="coCriteria" items="${coReStudioList}">
 	            <div class="reservationList-visithall-card">
-	            
+
 	              <div>
 	                <img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
 	                <h3>${coCriteria.companyDto.companyName}</h3>
 	              </div>
-	              
+
 	              <div class="card-content">
-	              
+
 	                <div class="content-body">
 	                  <div>
 	                    <p>예약자명</p>
@@ -204,54 +164,50 @@
 	                    <p>${coCriteria.reservationDto.reservationTime }</p>
 	                  </div>
 	                </div>
-	                
+
 	                <div class="content-end">
 						<a href="/mypage/reservation-detail?category=${coCriteria.companyDto.category}&companyId=${coCriteria.companyDto.companyId}&${coCriteria.reservationDto.reservationDate}">예약 상세 보러가기>></a>
 	                </div>
-	                
+
 	              </div>
 	            </div>
-	          </c:forEach>
+			 </c:forEach>
           </section>
-          <section
-            class="reservationList-sudume-middle"
-            id="reservation-section4"
-          >
-            <c:forEach var="coCriteria" items="${coReDressList}">
-	            <div class="reservationList-visithall-card">
-	            
-	              <div>
-	                <img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
-	                <h3>${coCriteria.companyDto.companyName}</h3>
-	              </div>
-	              
-	              <div class="card-content">
-	              
-	                <div class="content-body">
-	                  <div>
-	                    <p>예약자명</p>
-	                    <p>날짜</p>
-	                    <p>시간</p>
-	                  </div>
-	                  <div class="inputs">
-	                    <p>${coCriteria.myPageDTO.name}</p>
-	                    <p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate }" pattern="yyyy-MM-dd"/></p>
-	                    <p>${coCriteria.reservationDto.reservationTime }</p>
-	                  </div>
-	                </div>
-	                
-	                <div class="content-end">
+		  <section class="reservationList-sudume-middle" id="reservation-section4"		  >
+			<c:forEach var="coCriteria" items="${coReDressList}">
+				<div class="reservationList-visithall-card">
+
+				  <div>
+					<img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
+					<h3>${coCriteria.companyDto.companyName}</h3>
+				  </div>
+
+				  <div class="card-content">
+
+					<div class="content-body">
+					  <div>
+						<p>예약자명</p>
+						<p>날짜</p>
+						<p>시간</p>
+					  </div>
+					  <div class="inputs">
+						<p>${coCriteria.myPageDTO.name}</p>
+						<p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate }" pattern="yyyy-MM-dd"/></p>
+						<p>${coCriteria.reservationDto.reservationTime }</p>
+					  </div>
+					</div>
+
+					<div class="content-end">
 						<a href="/mypage/reservation-detail?category=${coCriteria.companyDto.category}&companyId=${coCriteria.companyDto.companyId}&${coCriteria.reservationDto.reservationDate}">예약 상세 보러가기>></a>
-	                </div>
-	                
-	              </div>
-	            </div>
-	          </c:forEach>
-            
-          </section>
-          <section class="reservationList-sudume-middle" id="reservation-section3">
-            <c:forEach var="coCriteria" items="${coReMakeUpList}">
-	            <div class="reservationList-visithall-card">
+					</div>
+
+				  </div>
+				</div>
+			</c:forEach>
+		  </section>
+		  <section class="reservationList-sudume-middle" id="reservation-section3">
+			<c:forEach var="coCriteria" items="${coReMakeUpList}">
+				<div class="reservationList-visithall-card">
 					  <div>
 						<img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
 						<h3>${coCriteria.companyDto.companyName}</h3>
@@ -277,13 +233,12 @@
 
 					  </div>
 
-	            </div>
-	          </c:forEach>
-          </section>
+				</div>
+			  </c:forEach>
+		  </section>
         </div>
-      </div>
-    </div>
-
+	  </div>
+	</div>
   </body>
   <div> <%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </html>
