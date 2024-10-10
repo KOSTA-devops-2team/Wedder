@@ -58,8 +58,7 @@
 					<div class="calendar-dates" id="calendarDates"></div>
 					
 				</div>
-				</div>
-				
+
 				<section id="calendarBoard">
 					<div style="text-align: center;">
 						<div class="schedule-container">
@@ -120,83 +119,84 @@
 						</div> <!--schedule-container 끝  -->
 					</div> <!--test 첫번째 div  -->
 				</section>
-			</section>			
+		</section>
+
 			<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js">
 			</script>
 			<script type="text/javascript" 	src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js" ></script>
-		</body>
-		<script type="text/javascript">
-			/*#currentMonth   */
-			
-                	 $(document).ready(function(){
-                         $(".date").on("click", function(){
-                             // 클릭된 요소
-                             let date = $(this);
-                             
-                             let month =$("#currentMonth").text();
-                             let year =$("#currentYear").text();
-                             let value=date.text();
-                             let hour =$("#currentHour").text();
-                             let minute =$("#currentMinute").text();
-                             let second =$("#currentSecond").text();
-                             
-                             $(".date").removeClass("highlight");
-                             $(this).addClass("highlight");
-                              
-                             let formattedDate=year+"-"+month+"-"+value;
-                             let formattedTime =hour+":"+minute;
-                             
-                             let test={
-                            		 schedule_id: 3,
-                            		 company_id: 3,
-                            		 company_name: "확인용",
-                            		 date:formattedDate,
-                            		 time:formattedTime
-                            		 }
-                             let test2={}
-                             
-                             $.ajax({
-                             	type: 'post', // 요청메서드 
-                             	url: "/calendar/send2", //요청 URI
-                             	headers:{"Content-Type":"application/json"}, //요청 헤더
-                             	data: JSON.stringify(test),
-                             	dataType: "json", //전송 받을 데이터의 타입더
-                             	success: function(result){ // 서버로부터 응답이 도착하면 호출될 함수 
-                             		test2 =JSON.parse(result) //result는 서버가 전송한 데이터 
-                             		alert("received: "+result)
-                             		console.log(test2)
-                             		console.log(test2.date)
-                             		//-> 컨트롤러에서 받은 값을 출력한다.
-                             		$("#data1").html(
-                             				"schedule_id ="+test2.schedule_id
-                             				)
-                             		$("#data2").html(
-                             				"company_id ="+test2.company_id
-                             				)
-                             		$("#data3").html(
-                             				"company_name ="+test2.company_name
-                             				)
-                             		$("#data4").html(
-                             				"date ="+test2.date
-                             				)
-                             		$("#data5").html(
-                             				"time ="+test2.time
-                             				)
-                             		$("#data6").html(
-                             				"time ="+test.time
-                             				)
-                          				// test 는 내가 달력에서 클릭했을 때 나오는 데이터 값
-                          				// test2 는 컨트롤러에서 화면단으로 보내는 데이터 값
-                           				
-                             	},
-                             	error: function(){
-                             		alert("error")
-                             		console.log(test)
-                             		console.log(test2)
-                             	}	// 에러가 발생했을 때 
-                             })
-                             	alert("the request is sent")
-                         });
-                     });	
-		</script> 
+	</body>
+<%--		<script type="text/javascript">--%>
+<%--			/*#currentMonth   */--%>
+<%--			--%>
+<%--                	 $(document).ready(function(){--%>
+<%--                         $(".date").on("click", function(){--%>
+<%--                             // 클릭된 요소--%>
+<%--                             let date = $(this);--%>
+<%--                             --%>
+<%--                             let month =$("#currentMonth").text();--%>
+<%--                             let year =$("#currentYear").text();--%>
+<%--                             let value=date.text();--%>
+<%--                             let hour =$("#currentHour").text();--%>
+<%--                             let minute =$("#currentMinute").text();--%>
+<%--                             let second =$("#currentSecond").text();--%>
+<%--                             --%>
+<%--                             $(".date").removeClass("highlight");--%>
+<%--                             $(this).addClass("highlight");--%>
+<%--                              --%>
+<%--                             let formattedDate=year+"-"+month+"-"+value;--%>
+<%--                             let formattedTime =hour+":"+minute;--%>
+<%--                             --%>
+<%--                             let test={--%>
+<%--                            		 schedule_id: 3,--%>
+<%--                            		 company_id: 3,--%>
+<%--                            		 company_name: "확인용",--%>
+<%--                            		 date:formattedDate,--%>
+<%--                            		 time:formattedTime--%>
+<%--                            		 }--%>
+<%--                             let test2={}--%>
+<%--                             --%>
+<%--                             $.ajax({--%>
+<%--                             	type: 'post', // 요청메서드--%>
+<%--                             	url: "/calendar/send2", //요청 URI--%>
+<%--                             	headers:{"Content-Type":"application/json"}, //요청 헤더--%>
+<%--                             	data: JSON.stringify(test),--%>
+<%--                             	dataType: "json", //전송 받을 데이터의 타입더--%>
+<%--                             	success: function(result){ // 서버로부터 응답이 도착하면 호출될 함수--%>
+<%--                             		test2 =JSON.parse(result) //result는 서버가 전송한 데이터--%>
+<%--                             		alert("received: "+result)--%>
+<%--                             		console.log(test2)--%>
+<%--                             		console.log(test2.date)--%>
+<%--                             		//-> 컨트롤러에서 받은 값을 출력한다.--%>
+<%--                             		$("#data1").html(--%>
+<%--                             				"schedule_id ="+test2.schedule_id--%>
+<%--                             				)--%>
+<%--                             		$("#data2").html(--%>
+<%--                             				"company_id ="+test2.company_id--%>
+<%--                             				)--%>
+<%--                             		$("#data3").html(--%>
+<%--                             				"company_name ="+test2.company_name--%>
+<%--                             				)--%>
+<%--                             		$("#data4").html(--%>
+<%--                             				"date ="+test2.date--%>
+<%--                             				)--%>
+<%--                             		$("#data5").html(--%>
+<%--                             				"time ="+test2.time--%>
+<%--                             				)--%>
+<%--                             		$("#data6").html(--%>
+<%--                             				"time ="+test.time--%>
+<%--                             				)--%>
+<%--                          				// test 는 내가 달력에서 클릭했을 때 나오는 데이터 값--%>
+<%--                          				// test2 는 컨트롤러에서 화면단으로 보내는 데이터 값--%>
+
+<%--                             	},--%>
+<%--                             	error: function(){--%>
+<%--                             		alert("error")--%>
+<%--                             		console.log(test)--%>
+<%--                             		console.log(test2)--%>
+<%--                             	}	// 에러가 발생했을 때--%>
+<%--                             })--%>
+<%--                             	alert("the request is sent")--%>
+<%--                         });--%>
+<%--                     });	--%>
+<%--		</script> --%>
 </html>

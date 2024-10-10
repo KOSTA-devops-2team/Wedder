@@ -8,7 +8,9 @@
 }
 .hd__inner880 {
   width: 880px;
-  margin: 0px auto;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 .summary {
   display: flex;
@@ -32,7 +34,6 @@
 .summary-item {
   display: flex;
   flex-direction: column;
-  align-items: left;
   margin-right: 30px;
   border-left: 1px solid white;
   padding-left: 13px;
@@ -224,4 +225,33 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin: 15px 0px 200px 0px;
+}
+
+
+/*calendar css*/
+#calendarBoard{
+  display: none;
+}
+#regBtn{
+  display: none;
+}
+/*reservationCalendar display*/
+#reservationCalendar{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 10px ;
+  margin-bottom: 100px;
+}
+#scheduleBoard{
+  width: 440px;
+  border: 2px solid rgb(133,133,133);
+  border-radius: 10px;
+}
+#scheduleBoard h3{
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgb(133,133,133);
+  padding: 10px;
+  margin: 0px;
 }

@@ -15,8 +15,8 @@
         rel="stylesheet"
         href="${pageContext.request.contextPath}/resources/css/common/sidebar/sidebarMypage.css"
       />
-      <script defer src="<c:url value='resources/js/main/main.js'/>"></script>
-      <script defer src="<c:url value='resources/js/mypage/myPageMain.js'/>"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
   </head>
   <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
   <body>
@@ -43,7 +43,7 @@
                 <div>
                   <img
                   	
-                    src="resources/assets/images/bestPackage2.png"
+                    src="${pageContext.request.contextPath}/resources/images/bestPackage2.png"
                     alt="결제한 상품"
                   />
                 </div>
@@ -69,7 +69,7 @@
               <div class="content-main">
                 <div>
                   <img
-                    src="resources/assets/images/bestPackage2.png"
+                    src="${pageContext.request.contextPath}/resources/images/bestPackage2.png"
                     alt="결제한 상품"
                   />
                 </div>
@@ -96,10 +96,10 @@
             <div class="card">
               <div class="content2-top">
                 <h2>총계</h2>
-                <span class="content2-price">
+                <div class="content2-price">
                   <del class="lined">\99,000</del>
                   <div class="price">\69,300</div>
-                </span>
+                </div>
               </div>
               <table class="content2-table">
                 <tbody>

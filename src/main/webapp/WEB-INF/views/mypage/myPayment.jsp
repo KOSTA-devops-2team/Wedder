@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,11 +17,12 @@
         href="${pageContext.request.contextPath}/resources/css/common/sidebar/sidebarMypage.css"
       />
       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/mypageNaviba.css" />
-      
-      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPayment.js"></script>
-      <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
-      <script defer src="${pageContext.request.contextPath}/resources/js/mypage/navibar.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script  src="${pageContext.request.contextPath}/resources/js/mypage/myPayment.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/mypage/navibar.js"></script>
   </head>
 	<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
 
@@ -33,7 +36,7 @@
       </section>
       <div class="hd__inner880">
         <section class="summary">
-          <h1>안녕하세요. 마리아쥬스퀘어 손님</h1>
+          <h1>안녕하세요. ${myPageDTO.name} 손님</h1>
           <div class="summary-lists">
             <div class="summary-item">
               <div class="summary-title">신규 방문 예약</div>
@@ -45,7 +48,7 @@
             <div class="summary-item">
               <div class="summary-title">오늘 방문 일정</div>
               <div class="summary-count">
-                <span class="number">3</span>
+                <span class="number">${visitCriteriaCount}</span>
                 <span class="unit">건</span>
               </div>
             </div>
@@ -59,99 +62,51 @@
         <div> <%@ include file="/WEB-INF/views/common/navibar.jsp" %></div> 
 
         <!-- 4.결제 내역  -->
-        <section id="myPayment-section4">
+        <section id="myPayment-section4" class="list-all">
           <ul class="payment-total">
-            <li>
-              <div class="payment-body-top">
-                <dl>
-                  <dt awria-label="주문 날짜">결제 날짜</dt>
-                  <dd><span class=""> 2024.08.01</span></dd>
-                </dl>
-                <a href="payment-detail" class="body-top-link">
-                  <span>결제 상세</span>
-                  <span> > </span>
-                </a>
-              </div>
-              <div class="payment-body-content">
-                <div class="payment-content1">
-                  <div class="payment-content1-1">
-                    <div class="payment-status">
-                      <span class="status-text">결제 완료</span>
+            <c:forEach var="payment" items="${myPayment}">
+              <li>
+                <div class="payment-body-top">
+                  <dl>
+                    <div aria-label="주문 날짜">결제 날짜 : ${payment.payment_time} </div>
+                  </dl>
+                  <a href="${pageContext.request.contextPath}/mypage/payment-detail?merchantId=${payment.merchant_uid}" class="body-top-link">
+                    <span>결제 상세</span>
+                    <span> > </span>
+                  </a>
+                </div>
+                <div class="payment-body-content">
+                  <div class="payment-content1">
+                    <div class="payment-content1-1">
+                      <div class="payment-status">
+                        <span class="status-text">결제 완료</span>
+                      </div>
+                      <div class="payment-num">
+                        <span>결제 번호</span>
+                        <span class="payment-number">${fn:substringAfter(payment.merchant_uid,'_')}</span>
+                      </div>
                     </div>
-                    <div class="payment-num">
-                      <span>결제 번호</span>
-                      <span class="payment-number">2818101</span>
+                    <div class="content1-brand">
+                      <span>${payment.order_name} </span>
                     </div>
                   </div>
-                  <div class="content1-brand">
-                    <span>로이 스튜디오 </span>
-                  </div>
-                </div>
-                <div class="payment-content2">
-                  <div class="content2-price">
-                    <span>금액</span>
-                    <span>\99,000</span>
-                  </div>
-                  <div class="content2-minus">-\29,700</div>
-                  <div class="content2-total">
-                    <span>합계</span>
-                    <div>\69,300</div>
-                  </div>
-                </div>
-                <div class="payment-content3">
-                  <div>
-                    <a>영수증</a>
-                  </div>
-                  <div>
-                    <a>거래명세서</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="payment-body-top">
-                <dl>
-                  <dt awria-label="주문 날짜">결제 날짜</dt>
-                  <dd><span class=""> 2024.07.31</span></dd>
-                </dl>
+                  <div class="payment-content2">
+                    <div class="content2-price">
+                      <span>금액: <fmt:formatNumber value="${payment.paid_amount}" type="number"/>원</span>
+                    </div>
 
-                <a href="payment-detail" class="body-top-link">
-                  <span>결제 상세</span>
-                  <span> > </span>
-                </a>
-              </div>
-              <div class="payment-body-content">
-                <div class="payment-content1">
-                  <div class="payment-content1-1">
-                    <div class="payment-status-cancle">
-                      <span class="status-text">결제 취소</span>
+                  </div>
+                  <div class="payment-content3">
+                    <div>
+                      <a>영수증</a>
                     </div>
-                    <div class="payment-num">
-                      <span>결제 번호</span>
-                      <span class="payment-number">2818101</span>
+                    <div>
+                      <a>거래명세서</a>
                     </div>
                   </div>
-                  <div class="content1-brand">
-                    <span>로사 스튜디오 </span>
-                  </div>
                 </div>
-                <div class="payment-content2">
-                  <div class="content2-price">
-                    <span>금액</span>
-                    <span>\99,000</span>
-                  </div>
-                  <div class="content2-minus">-\29,700</div>
-                  <div class="content2-total">
-                    <span>합계</span>
-                    <div>\69,300</div>
-                  </div>
-                </div>
-                <div class="payment-content3">
-                  <a>영수증</a>
-                  <a>거래명세서</a>
-                </div>
-              </div>
-            </li>
+              </li>
+            </c:forEach>
           </ul>
         </section>
       </div>

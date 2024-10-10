@@ -1,5 +1,6 @@
 package kr.co.wedder.mypage.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -138,6 +139,30 @@ public class MyPageDaoImpl implements MyPageDao {
 	@Override
 	public MyPageDTO customerId(String id) throws Exception {
 		return session.selectOne(namespace+"customerId",id);
+	}
+
+	@Override
+	public List<Map<String, Object>> getMyPayment(Integer customer_id) throws Exception {
+		Map<String, Object> parameterTypeMap =new  HashMap<>();
+		parameterTypeMap.put("customer_id",customer_id);
+
+		return session.selectList(namespace+"paymentTest",customer_id);
+	}
+
+	@Override
+	public List<Map<String, Object>> searchOrderName(Integer customer_id, String order_name) throws Exception {
+		Map<String,Object> parameterTypeMap = new HashMap<>();
+		parameterTypeMap.put("customer_id",customer_id);
+		parameterTypeMap.put("order_name",order_name);
+
+		return session.selectList(namespace+"searchOrderName",parameterTypeMap);
+	}
+
+	@Override
+	public List<Map<String, Object>> getCalendarEvents(Integer customer_id) {
+		Map<String,Object> parameterTypeMap = new HashMap<>();
+		parameterTypeMap.put("customer_id",customer_id);
+		return session.selectList(namespace+"getCalendarEvents",parameterTypeMap);
 	}
 
 }

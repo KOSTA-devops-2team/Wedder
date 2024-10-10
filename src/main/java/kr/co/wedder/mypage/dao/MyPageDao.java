@@ -66,5 +66,10 @@ public interface MyPageDao {
 	List<VisitCriteria> toCustomerOptionInfo4(Map<String,Object> map) throws  Exception;
 	// customer Id 를 컨트롤러에 넣기 위해 만든 mapper
 	MyPageDTO customerId(String id) throws Exception;
-
+	//payment 불러오기-> test 통과  
+	List<Map<String,Object>> getMyPayment(Integer customer_id)throws Exception;
+	//payment Searching -> test(ajax 로 보내는 값)
+	List<Map<String,Object>> searchOrderName(Integer customer_id,String order_name)throws Exception;
+	//post Calendar ajax로 일정 추가
+	List<Map<String,Object>> getCalendarEvents(Integer customer_id);
 }

@@ -118,8 +118,23 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
 	@Override
-	public MyPageDTO cutomerId(String id) throws Exception {
+	public MyPageDTO customerId(String id) throws Exception {
 		return myPageDao.customerId(id);
+	}
+
+	@Override
+	public List<Map<String, Object>> paymentHistory(Integer customer_id) throws Exception {
+		return myPageDao.getMyPayment(customer_id);
+	}
+
+	@Override
+	public List<Map<String, Object>> searchMyPayment(Integer customer_id, String order_name) throws Exception {
+		return myPageDao.searchOrderName(customer_id,order_name);
+	}
+
+	@Override
+	public List<Map<String, Object>> getCalendarEvents(Integer customer_id) {
+		return myPageDao.getCalendarEvents(customer_id);
 	}
 
 }

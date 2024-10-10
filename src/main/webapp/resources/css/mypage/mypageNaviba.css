@@ -1,25 +1,13 @@
-.company-kind .List-search-bar input {
-  height: 20px;
-  border-radius: 5px;
-  padding: 0px;
-}
-.company-kind .List-search-bar button {
-  background-color: #eeeeee;
-  cursor: pointer;
-  height: 20px;
-  border: 1px solid #eeeeee;
-  border-radius: 5px;
-}
-.company-kind .List-search-bar button:hover {
-  cursor: pointer;
-  height: 25px;
-  color: white;
-  border: 1px solid #ca1a5a;
-  background-color: #ca1a5a;
-  border-radius: 5px;
-}
-.company-kind {
+.List-search-bar{
   display: flex;
+}
+.company-kind .List-search-bar input {
+  height: 35px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.company-kind {
   flex-direction: row;
   justify-content: space-between;
 
@@ -48,4 +36,22 @@
 .company-kind .brand:hover {
   border-bottom: 3px solid #ca1a5a;
   font-size: 16px;
+}
+.search-btn {
+  border: none;
+  all: unset;
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  cursor: pointer;
+}
+
+
+#search-icon {
+  width: 20px;
+  height: 20px;
+}
+.search-bar {
+  width: 250px;
+  padding: 8px;
 }

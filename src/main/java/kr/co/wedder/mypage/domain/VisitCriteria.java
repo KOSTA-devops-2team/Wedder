@@ -23,6 +23,9 @@ public class VisitCriteria {
 	private StudioInfo 	studioInfo;
 	private OptionDto 	optionDto;
 	private PackageCategoryDto packageCategoryDto;
+	//paymentDto 사용처
+
+
 
 
 	public VisitCriteria(CompanyDto companyDto, MyPageDTO myPageDTO, ReservationDto reservationDto,

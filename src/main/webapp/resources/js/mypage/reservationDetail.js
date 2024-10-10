@@ -52,3 +52,24 @@ document.addEventListener("DOMContentLoaded",function (){
         })
     })
 })
+
+$(document).ready(function(){
+
+    const getInfoYear =parseInt(document.getElementById("getYear").textContent.trim());
+    const getInfoMonth =parseInt(document.getElementById("getMonth").textContent.trim());
+    const getInfoDay = parseInt(document.getElementById("getDay").textContent.trim());
+    const currentInfoYear =document.getElementById("currentYear").textContent.trim();
+    const currentInfoMonth =document.getElementById("currentMonth").textContent.trim();
+
+    if(getInfoYear!==null &&getInfoMonth!==null ){
+        currentYear=getInfoYear
+        currentMonth=getInfoMonth
+    }
+
+
+    if (
+        currentInfoYear===getInfoYear &&
+        currentInfoMonth===getInfoMonth
+    ){console.log("날짜 비교가 되는 거 같아요")
+    }
+})

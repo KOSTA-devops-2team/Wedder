@@ -1,9 +1,6 @@
 package kr.co.wedder.mypage.controller;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.mypage.domain.*;
@@ -17,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import kr.co.wedder.mypage.service.MyPageService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/mypage")
@@ -30,7 +26,7 @@ public class MyPageController {
 	public String mypage(@SessionAttribute("id") String id, Integer customerId, Model m) {
 		try {
 			System.out.println("id : "+ id);
-			MyPageDTO sessionId=myPageService.cutomerId(id);
+			MyPageDTO sessionId=myPageService.customerId(id);
 
 			// id에서 받아오는  customer_id
 			customerId=sessionId.getCustomerId();
@@ -100,26 +96,64 @@ public class MyPageController {
 	public String likeList() {
 		return "mypage/likeList";
 	}
-	@RequestMapping(value="/mypayment")
-	public String myPayment() {
-		return "mypage/myPayment";
+
+
+	@GetMapping("/mypayment")
+	public String getMyPayment(@SessionAttribute("id") String id,Integer customerId,Model model){
+		try {
+			/* mypayment 값 가져옴*/
+			System.out.println("id= "+id);
+			MyPageDTO sessionId=myPageService.customerId(id);
+			customerId=sessionId.getCustomerId();
+			List<Map<String, Object>> myPayment = myPageService.paymentHistory(customerId);
+			model.addAttribute("myPayment",myPayment);
+			model.addAttribute("customerId",customerId);
+			System.out.println(myPayment.get(1).get("payment_time"));
+
+			/*마이페이지의 헤더*/
+			MyPageDTO myPageDTO = myPageService.customerRead(customerId);
+			model.addAttribute("myPageDTO",myPageDTO);
+
+			/*금일 방문 일정 카운트*/
+			/*Map parameter type*/
+			Map<String,Object> vistCriteriaMap = new HashMap<>();
+
+			vistCriteriaMap.put("customerId",customerId);
+
+			Integer visitCriteriaCount = myPageService.todayVisitCount(vistCriteriaMap);
+			model.addAttribute("visitCriteriaCount",visitCriteriaCount);
+			
+			
+			return "mypage/myPayment";
+		}catch (Exception e){
+			e.printStackTrace();
+			return "redirect:/main";
+		}
 	}
-	@RequestMapping(value="/payment-detail")
-	public String paymentDetail() {
+
+	@GetMapping("/payment-detail")
+	public String getPaymentDetail(){
 		return "mypage/paymentDetail";
 	}
-	
-	/*
-	 * @RequestMapping(value="/reservation-detail") public String
-	 * reservationDetail() { return "mypage/reservationDetail"; }
-	 */
+	@PostMapping("/payment-detail")
+	public String postPaymentDetail(){
+		return "mypage/paymentDetail";
+	}
+
 	@GetMapping("/reservation-detail")
 	public String reservationDetail(@SessionAttribute("id") String id, HttpServletRequest request, Model m) {
 		//카테고리 및 회사 인덱스 getmapping으로 얻어오는 값 추가
 		String category = request.getParameter("category");
 		Integer companyId = Integer.parseInt(request.getParameter("companyId"));
 		String date=request.getParameter("date");
-		m.addAttribute("date", date);
+		String OnlyYear=OnlyDate(date,"year");
+		String OnlyMonth=OnlyDate(date,"month");
+		String OnlyDay=OnlyDate(date, "day");
+
+		m.addAttribute("OnlyYear",OnlyYear);
+		m.addAttribute("OnlyMonth",OnlyMonth);
+		m.addAttribute("OnlyDay",OnlyDay);
+
 		//map 추가
 		Map<String,Object> toCustomerMakeupMap= new HashMap<>();
 		Map<String,Object> toCustomerOptionInfoMap= new HashMap<>();
@@ -131,7 +165,7 @@ public class MyPageController {
 		try {
 			// request로 입력받은 id 추가하여 customerId를 받아옴
 			System.out.println("id : "+ id);
-			MyPageDTO sessionId=myPageService.cutomerId(id);
+			MyPageDTO sessionId=myPageService.customerId(id);
 
 			// id에서 받아오는  customer_id
 			int customerId=sessionId.getCustomerId();
@@ -235,7 +269,7 @@ public class MyPageController {
 		try {
 			// sessionId 받아오는 중~
 				System.out.println("id : "+ id);
-				MyPageDTO sessionId=myPageService.cutomerId(id);
+				MyPageDTO sessionId=myPageService.customerId(id);
 
 				// id에서 받아오는  customer_id
 				int customerId=sessionId.getCustomerId();
@@ -309,7 +343,9 @@ public class MyPageController {
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
 			m.addAttribute("visitCriteriaCount",visitCriteriaCount);
 
-
+			/*예약 일정 달력에 추가*/
+			List<Map<String, Object>> getCalendarEvents = myPageService.getCalendarEvents(customerId);
+			m.addAttribute("getCalendarEvents",getCalendarEvents);
 
 			return "/mypage/reservationList";
 		} catch (Exception e) {
@@ -327,4 +363,28 @@ public class MyPageController {
 	public String calendarTest() {
 		return "common/calendar";
 	}
+	
+	public String OnlyDate(String date,String datetype){
+		if(date != null && !date.isEmpty()){
+			String[] parts = date.split("-");
+
+			if(parts.length==3){
+				String year= parts[0];
+				String month = parts[1];
+				String day = parts[2];
+				String onlyDate = year+"-"+month+"-"+day;
+				if (datetype.equals("year")){
+					onlyDate=year;
+				} else if (datetype.equals("month")) {
+					onlyDate=month;
+				} else if (datetype.equals("day")) {
+					onlyDate=day;
+				}
+				System.out.println(onlyDate);
+				return onlyDate;
+			}
+		}
+		return null;
+	}
 }
+

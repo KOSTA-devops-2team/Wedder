@@ -17,6 +17,7 @@
       	<script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
         <script src ="${pageContext.request.contextPath}/resources/js/mypage/reservationDetail.js"></script>
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
     <title>reservationDetail</title>
   </head>
 	<div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
@@ -33,43 +34,26 @@
       </div>
 
       <div class="hd__inner900">
-        <!-- 1. body header-->
-        <section class="body-header" id="reservation-detail-section1">
-            <h3>${companyDto.companyName} 예약 내역</h3>
-        </section>
-        <!-- 2. brand-filter -->
-
-
-        <script type="text/javascript">
-            $(document).ready(function(){
-
-            })
-
-        </script>
-        
         <!-- 3.calandar -->
-        <section class="calandars" id="payment-detail-section3">
-            <div class="calandars-payment-list">
+        <section class="calendar" id="payment-detail-section3">
+            <div class="calendar-payment-list">
                 <%@ include file="/WEB-INF/views/common/calendarList.jsp" %>
 
-                <%-- get 정보로 예약된 날짜를 가져오는 중--%>
-                <div style="display: none" id="getDate">
-                    ${date}
-                </div>
+               <%-- &lt;%&ndash;get 정보로 예약된 날짜를 가져오는 중&ndash;%&gt;
+                    <div id="getYear" style="display: none"> ${OnlyYear} </div>
+                    <div id="getMonth"  style="display: none" > ${OnlyMonth} </div>
+                    <div id="getDay"  style="display: none" > ${OnlyDay} </div>--%>
 
-                <div class="calandar-Content">
-                  <div class="calandar-top">상세 예약 내역</div>
-<%--                  <c:if test="${category} eq '메이크업'">--%>
-
-                  <%--<div>카테고리: ${category}</div>
-                  <div>받는대상: ${makeupInfo1.target}</div>--%>
-                  <div class="calandar-middle">
+                <div class="calendar-Content">
+                  <div class="calendarTopMiddle ">
+                      <div class="calendar-top">상세 예약 내역</div>
+                      <div class="calendar-middle">
                     <c:if test="${category eq'메이크업'}">
                         <c:forEach var="makeupCri" items="${ToCustomerMakeupInfo}" >
                           <div class="calendar-option-list">
 
-                            <div class="calandar-option"> ${makeupCri.optionDto.optionName}</div>
-                            <div class="calandar-option price"> ${makeupCri.optionDto.optionPrice}원</div>
+                            <div class="calendar-option"> ${makeupCri.optionDto.optionName}</div>
+                            <div class="calendar-option price"> ${makeupCri.optionDto.optionPrice}원</div>
                           </div>
                         </c:forEach>
                     </c:if>
@@ -77,8 +61,8 @@
                         <c:forEach var="studioCri" items="${ToCustomerStudioInfo}" >
                           <div class="calendar-option-list">
 
-                            <div class="calandar-option"> ${studioCri.optionDto.optionName}</div>
-                            <div class="calandar-option price"> ${studioCri.optionDto.optionPrice}원</div>
+                            <div class="calendar-option"> ${studioCri.optionDto.optionName}</div>
+                            <div class="calendar-option price"> ${studioCri.optionDto.optionPrice}원</div>
                           </div>
                         </c:forEach>
                     </c:if>
@@ -86,8 +70,8 @@
                       <c:forEach var="dressCri" items="${ToCustomerDressInfo}" >
                           <div class="calendar-option-list">
 
-                              <div class="calandar-option"> ${dressCri.optionDto.optionName}</div>
-                              <div class="calandar-option price"> ${dressCri.optionDto.optionPrice}원</div>
+                              <div class="calendar-option"> ${dressCri.optionDto.optionName}</div>
+                              <div class="calendar-option price"> ${dressCri.optionDto.optionPrice}원</div>
                           </div>
                       </c:forEach>
                     </c:if>
@@ -95,13 +79,14 @@
                           <c:forEach var="hallCri" items="${ToCustomerHallInfo}" >
                               <div class="calendar-option-list">
 
-                                  <div class="calandar-option"> ${hallCri.optionDto.optionName}</div>
-                                  <div class="calandar-option price"> ${hallCri.optionDto.optionPrice}원</div>
+                                  <div class="calendar-option"> ${hallCri.optionDto.optionName}</div>
+                                  <div class="calendar-option price"> ${hallCri.optionDto.optionPrice}원</div>
                               </div>
                           </c:forEach>
                       </c:if>
 
                     <div class="calendar-total-price"></div>
+                  </div>
                   </div>
                   <div class="calendar-bottom">
                     <div class="calendar-total-price">
@@ -117,7 +102,6 @@
                       <span id="lastPrice"></span>
                     </div>
                   </div>
-<%--                  </c:if>--%>
                 </div>
             </div>
         </section>

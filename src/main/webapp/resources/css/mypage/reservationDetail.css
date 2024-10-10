@@ -35,8 +35,8 @@
 
 
 .calendar {
-  width: 550px;
-  height: 500px;
+  width: 1100px;
+  height: 800px;
   padding: 20px;
 }
 .calendar .calendar-payment-list {
@@ -44,27 +44,27 @@
   flex-direction: row;
   justify-content: flex-start;
 }
-.calandar-Content {
+.calendar-Content {
   border: 1px solid #858585;
   border-radius: 10px;
-  padding: 0px 20px 0px 20px;
-  width: 380px;
+  padding: 0 20px;
+  width: 330px;
   margin-top: 40px;
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   text-align: center;
 
-  position: relative;
 }
-.calandar-Content .calandar-top {
+.calendar-Content .calendar-top {
   padding: 10px;
   border-bottom: 1px solid black;
 
   font-size: 20px;
   font-weight: bold;
 }
-.calandar-middle {
+.calendar-middle {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
@@ -76,11 +76,12 @@
 
   background-color: #eeeeee;
 }
-.calandar-middle .calandar-option {
+.calendar-middle .calendar-option {
   padding: 10px;
 }
+
 .calendar-bottom {
-  position: absolute;
+  position: relative;
   bottom: 10px;
   right: 20px;
 

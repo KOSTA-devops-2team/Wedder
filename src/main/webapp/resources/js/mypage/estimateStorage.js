@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modal = document.querySelector(".modal");
     const closeBtn = document.querySelector(".modal-close-btn");
 
-    document.querySelectorAll("#icon").forEach((icon) => {
+    document.querySelectorAll(".icon").forEach((icon) => {
         icon.addEventListener("click", () => {
             modal.classList.add("show");
         })

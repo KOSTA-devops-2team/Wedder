@@ -299,9 +299,27 @@
 	<!-- session 으로 얻어온 id 로 customerId를 찾는 mapper-->
 	<select id="customerId" parameterType="String" resultType="MypageDTO">
 		select * from customer
-		where id="${id}";
+		where id=#{id};
 	</select>
 
-
-
+	<!--payment test-->
+	<select id="paymentTest" parameterType="map" resultType="map">
+		select p.*
+		from payment p
+		JOIN customer cu ON p.customer_name = cu.name and p.customer_tel=cu.phone
+		where p.customer_id=#{customer_id};
+	</select>
+	<select id="searchOrderName" parameterType="map" resultType="map">
+		select p.*
+		from payment p
+		JOIN customer cu ON p.customer_name = cu.name and p.customer_tel=cu.phone
+		where p.customer_id=#{customer_id} and order_name LIKE concat('%',#{order_name},'%');
+	</select>
+	<!--reservation-list -->
+	<select id="getCalendarEvents" parameterType="map" resultType="map">
+		select r.reservation_id,c.customer_id,com.company_id, r.reservation_date,com.company_name,c.name,r.reservation_time from reservation r
+		join customer c on r.customer_id = c.customer_id
+		join company com on r.company_id = com.company_id
+		where c.customer_id=${customer_id};
+	</select>
 </mapper>

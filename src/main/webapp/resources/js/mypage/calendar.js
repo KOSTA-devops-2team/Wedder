@@ -6,12 +6,15 @@ const nextBtn = document.getElementById("nextBtn");
 const currentHourElement=document.getElementById("currentHour");
 const currentMinuteElement=document.getElementById("currentMinute");
 const currentSecondElement=document.getElementById("currentSecond");
+/*reservation-detail에서 사용*/
+
 
 const today=new Date();
 // 현재 날짜를 나타내는 Date 객체를 저장한다.
 let currentMonth = today.getMonth();
 /* 현재 월을 나타내는 값을 저장한다. getMonth() 메서드는 0부터 시작하는 월을 반환하므로
 1월이면 0, 2월이면 1을 반환한다. */
+
 let currentYear = today.getFullYear();
 // 변수에 현재 연도를 나타내는 값을 저장한다.
 let currentHour=today.getHours();
@@ -121,33 +124,33 @@ nextBtn.addEventListener("click", () => {
 
 
 /*test */
-// var testData2=new Object();
-// testData2.name="jiwon";
-// testData2.age=20;
-// 	testData2.test="success";
-// 	testData2.year= "currentYear";
-// 	testData2.month= "currentMonth+1";
-// const jsonData=JSON.stringify(testData2);
-// $(document).ready(function() {
-// 	$.ajax({
-// 		type: 'POST', // POST 요청
-// 		url: 'calendar/test', // URL 경로
-// 		contentType: 'application/json', // JSON 형식으로 데이터를 전송
-// 		data: jsonData, // 객체를 JSON 문자열로 변환
-// 		dataType: 'json', // 응답 형식
-// 		success: function(result) {
-// 			console.log(result); // 서버에서 받은 응답 출력
-// 		},
-// 		error: function() {
-// 			console.log("Error occurred"); // 에러 처리
-// 		}
-// 	});
-//
-//
-// 	let date=document.getElementById("getDate");
-//
-//
-// });
+var testData2=new Object();
+	testData2.name="jiwon";
+	testData2.age=20;
+	testData2.test="success";
+	testData2.year= "currentYear";
+	testData2.month= "currentMonth+1";
+const jsonData=JSON.stringify(testData2);
+$(document).ready(function() {
+	$.ajax({
+		type: 'POST', // POST 요청
+		url: 'calendar/test', // URL 경로
+		contentType: 'application/json', // JSON 형식으로 데이터를 전송
+		data: jsonData, // 객체를 JSON 문자열로 변환
+		dataType: 'json', // 응답 형식
+		success: function(result) {
+			console.log(result); // 서버에서 받은 응답 출력
+		},
+		error: function() {
+			console.log("Error occurred"); // 에러 처리
+		}
+	});
+
+
+	let date=document.getElementById("getDate");
+	
+
+});
 
 // 공휴일을 추가하는 방법
 //객체를 배열로 추가한다.
