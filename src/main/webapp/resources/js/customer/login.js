@@ -15,14 +15,14 @@ togglePasswordIcon.addEventListener("click", () => {
     }
 });
 
-    /* 서버가 먼저 해석함. ${msg}이 부분을 EL로 해석함. 그 결과를 브라우저에 보내줌
-    ES6는 템플릿 리터럴이라는 새로문 문자열 표기법으로 해석함.
-    */
-    function setMessage(msg, element
-    ) {
+/* 서버가 먼저 해석함. ${msg}이 부분을 EL로 해석함. 그 결과를 브라우저에 보내줌
+ES6는 템플릿 리터럴이라는 새로문 문자열 표기법으로 해석함.
+*/
+function setMessage(msg, element
+) {
     document.getElementById("msg").innerHTML = `<i class="fa fa-exclamation-circle" >${msg}</i> `;
     if (element) {
-    element.select();			// 값을 잘못 입력되었을 때 그 요소를 선택되게하는 것임
+        element.select();			// 값을 잘못 입력되었을 때 그 요소를 선택되게하는 것임
     }
 }
 

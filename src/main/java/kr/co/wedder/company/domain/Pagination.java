@@ -8,46 +8,63 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pagination {
-//    private int page;
-//    private int pageSize;
-    private SearchItem sc;
+    public static final int DEFAULT_PAGE_SIZE = 9;
+    public static final int DEFAULT_BUTTON_SIZE = 5;
+
+    private int page = 1;         // 현재 페이지
+    private int pageSize = DEFAULT_PAGE_SIZE;         // 페이지 당 보여줄 게시물 수
     private int totalListCnt;     // 게시물 총 건수
-    public final int NAV_SIZE = 10;  // page navigation size
+    public final int NAV_SIZE = DEFAULT_BUTTON_SIZE;  // 버튼 갯수
     private int totalPageCnt;       // 전체 페이지 갯수
 
-    private int beginPage;          // 화면에 보여줄 첫 페이지
+    private int startPage;          // 화면에 보여줄 첫 페이지
     private int endPage;            // 화면에 보여줄 마지막 페이지
-    private int limitStart;         // LIMIT 시작 위치
-    private boolean showNext = false;   // 이후 보여줄지 여부
-    private boolean showPrev = false;   // 이전 보여줄지 여부
+    private int startList;         // 시작 위치 (게시판 시작 번호 sql에서필요)
+    private boolean showPrev;   // 이전 보여줄지 여부
+    private boolean showNext;   // 이후 보여줄지 여부
 
-    public Pagination(SearchItem sc, int totalListCnt) {
+    public Pagination(int page, int pageSize, int totalListCnt) {
+        System.out.println("Constructor - page before doPaging: " + page);
+        System.out.println("Pagination 생성자 - pageSize: " + pageSize);
         if (totalListCnt > 0) {
-            this.sc = sc;
+            this.page = page;
+            this.pageSize = pageSize;
             this.totalListCnt = totalListCnt;
-            doPaging(totalListCnt, sc);
+            doPaging(page, pageSize, totalListCnt);
         }
+        System.out.println("Constructor - page after doPaging: " + this.page);
     }
-    private void doPaging(int totalRecordCnt, SearchItem sc) {
+
+    public void doPaging(int page, int pageSize, int totalListCnt) {
         // 전체 페이지 수
-        this.totalPageCnt = totalRecordCnt / sc.getPageSize() + (totalRecordCnt % sc.getPageSize() == 0 ? 0 : 1);			//전체 페이지 갯수
-        //
-        this.sc.setPage(Math.min(sc.getPage(), totalPageCnt));				// page가 tatalPage보다 크지 않음
-        this.beginPage = (this.sc.getPage()-1) / NAV_SIZE * NAV_SIZE + 1;							//첫 페이지 숫자
-        this.endPage = Math.min(this.beginPage + this.NAV_SIZE - 1, totalPageCnt);	//마지막 페이지 숫자
-        this.limitStart = (sc.getPage() - 1) * sc.getRecordPerPage();
-        this.showPrev = beginPage != 1;
-        this.showNext = endPage != totalPageCnt;
-
-        // 현재 페이지 번호가 전체 페이지 수보다 큰 경우, 현재 페이지 번호에 전체 페이지 수 저장
-        if (sc.getPage() > totalPageCnt) {
-            sc.setPage(totalPageCnt);
+        this.totalPageCnt = (int) Math.ceil((double) totalListCnt / pageSize);
+        System.out.println("totalPageCnt: " + totalPageCnt);
+        // 현재 페이지가 1보다 작을 경우 1로 설정
+        if (page < 1) {
+            page = 1;
         }
+        // 현재 페이지가 전체 페이지 수보다 크면 전체 페이지 수로 설정
+        if (page > totalPageCnt) {
+            page = totalPageCnt;
+        }
+        // page가 tatalPage보다 크지 않음
+        //this.page(Math.min(page, totalPageCnt));
+        // 현재 페이지에 보여줄 시작 페이지 숫자
+        this.startPage = (int) (Math.ceil((double) page / NAV_SIZE) - 1) * NAV_SIZE + 1;
+        System.out.println("startPage: " + startPage);
+        // 현재 페이지에 보여줄 마지막 페이지 숫자
+        this.endPage = startPage + NAV_SIZE - 1;
+        System.out.println("endPage: " + endPage);
+        System.out.println("dto before - startList :" + startList);
+        System.out.println("dto before - page :" + page);
+        // 마지막 페이지가 전체 페이지 수를 초과하지 않도록 설정
+        if (endPage > totalPageCnt) {
+            endPage = totalPageCnt;
+        }
+        this.startList = (page - 1) * pageSize;
+        System.out.println("dto after - startList: " + startList);
+        System.out.println("dto after - page :" + page);
+        this.showPrev = startList > 1;
+        this.showNext = endPage < totalPageCnt;
     }
-
-
-
-
-
-
 }

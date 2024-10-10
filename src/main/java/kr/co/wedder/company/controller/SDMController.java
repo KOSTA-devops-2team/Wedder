@@ -1,5 +1,7 @@
 package kr.co.wedder.company.controller;
 
+import kr.co.wedder.company.service.CompanyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,21 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class SDMController {
 
-    @GetMapping("studioList")
+    @Autowired
+    CompanyService companyService;
+
+    @GetMapping(value = "studio")
     public String studioList() { return "company/studio/studioList"; }
 
-    @GetMapping("studioDetail")
+    @GetMapping(value = "studio/detail")
     public String studioDetail() { return "company/studio/studioDetail"; }
 
-    @GetMapping ("dressList")
+    @GetMapping (value = "dress")
     public String dressList() { return "company/dress/dressList"; }
 
-    @GetMapping("dressDetail")
+    @GetMapping(value = "dress/{companyId}/detail")
     public String dressDetail() { return "company/dress/dressDetail"; }
 
-    @GetMapping("makeupList")
+    @GetMapping(value = "makeup")
     public String makeupList() { return "company/makeup/makeupList"; }
 
-    @GetMapping("makeupDetail")
+    @GetMapping(value = "makeup/{companyId}/detail")
     public String makeupDetail() { return "company/makeup/makeupDetail"; }
 }

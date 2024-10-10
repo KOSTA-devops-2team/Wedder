@@ -8,17 +8,19 @@ $(document).ready(function () {
         console.log("중간 확인" + keyword)
         $.ajax({
             type: 'POST',
-            url: '/weddinghallList',
+            url: '/weddinghall',
+            data: {companyName: keyword, category: category},
             dataType: 'json',
-            data: {companyName: keyword},
             success: function (data, status, xhr) {
-                console.log("상태:", status);  // 요청의 상태
+                console.log("상태:", status);  // 요청 상태
                 console.log("응답 데이터:", data);  // 서버에서 반환된 데이터
                 console.log("응답 헤더:", xhr.getAllResponseHeaders());
                 searchCompanyList(data);
             },
-            error: function () {
-                console.log("검색 실패")
+            error: function (xhr, status, error) {
+                console.log("Error function reached");
+                console.log("검색 실패" + status + error)
+                console.log("xhr :" +xhr )
                 alert("검색 중 오류가 발생했습니다.")
             }
         })
@@ -31,7 +33,7 @@ $(document).ready(function () {
             companyList.forEach(function (company) {
                 companyHtml += `
                     <div class="card">
-                    <a href="weddinghallDetail">
+                    <a href="/weddinghall/detail/${company.companyId}">
                     <img src ="${company.imgUrl}"/></a>
                     <div class="card-info">
                         <div class="weddinghall-name">

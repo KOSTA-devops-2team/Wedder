@@ -8,15 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mysql.cj.BindValue;
 import kr.co.wedder.customer.dao.CustomerDao;
-import kr.co.wedder.customer.domain.CustomerDTO;
+import kr.co.wedder.customer.domain.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/log")
@@ -26,16 +24,12 @@ public class LoginController {
 
 	@GetMapping("/login")
 	public String loginForm() {
-		return "/user/loginForm";
+		return "/customer/loginForm";
 	}
 
 	@PostMapping("/login")
-	public String login(String id, String password, @RequestParam(value = "toURL", required = false)  String toURL, boolean rememberId,
+	public String login(String id, String password, String toURL, boolean rememberId,
 						HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
-
-
-		// 로그로 toURL 확인
-		System.out.println("로그인 요청에 전달된 toURL: " + toURL);
 
 		//1. id와 pw를 확인
 		//2-1. 일치않으면
@@ -52,9 +46,7 @@ public class LoginController {
 
 		if(!loginCheck(id, password)) {
 			String msg = URLEncoder.encode("id 또는 password가 일치하지 않습니다.", "utf-8");
-//			return "redirect:/log/login?msg="+msg;
 			return "redirect:/log/login?msg=" + msg + "&id=" + URLEncoder.encode(id, "utf-8");
-
 		}
 
 		//2-2. 일치하면 로그인 후 화면(홈화면)으로 이동
@@ -78,25 +70,18 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		// 세션 객체에 id를 저장
 		session.setAttribute("id", id);
-		CustomerDTO customerDTO = customerDao.selectCustomer(id);
-		session.setAttribute("customerId", customerDTO.getCustomerId());
-		System.out.println("LoginController.login" +  customerDTO.getCustomerId());
-		session.setAttribute("customerName", customerDTO.getName());
-		session.setAttribute("customerEmail", customerDTO.getEmail());
-		session.setAttribute("customerTel", customerDTO.getPhone());
+
 		//4. 뷰이동
 		toURL = toURL==null || toURL.equals("") ? "/" : toURL;
-		System.out.println("리다이렉트할 URL: " + toURL);  // 리다이렉트할 URL 확인
-
-
 		return "redirect:" + toURL;
 	}
 
 	private boolean loginCheck(String id, String password) {
 
-		CustomerDTO customerDTO = customerDao.selectCustomer(id);
+		CustomerDto customerDTO = customerDao.findById(id);
+		System.out.println("33333" + customerDTO);
 		if(customerDTO ==null) return false;
-
+		System.out.println(customerDTO.getPassword());
 		return customerDTO.getPassword().equals(password);
 	}
 
@@ -108,19 +93,3 @@ public class LoginController {
 		return "redirect:/";
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,6 +2,7 @@ package kr.co.wedder.company.service;
 
 import kr.co.wedder.company.dao.CompanyDao;
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.Pagination;
 import kr.co.wedder.company.domain.SearchItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,13 +18,16 @@ public class CompanyServiceImpl implements CompanyService {
     CompanyDao companyDao;
 
     @Override
-    public List<CompanyDto> getPage(Map map) throws Exception {
-        return companyDao.selectPage(map);
+    public CompanyDto companyRead(Integer companyId) throws Exception {
+        return companyDao.selectCompanyById(companyId);
     }
 
     @Override
-    public int getCount() throws Exception {
-        return companyDao.count();
+    public List<CompanyDto> getHallList(Pagination pagination, String category) throws Exception {
+        List<CompanyDto> companyList = companyDao.selectCompanyByCategory(pagination, category);
+        System.out.println("Service - pageSize: " + pagination.getPageSize());
+        System.out.println("Service - startList: " + pagination.getStartList());
+        return companyList;
     }
 
     @Override
@@ -32,20 +36,18 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public int getSearchResultCount(SearchItem sc) throws Exception {
-        return companyDao.searchResultCnt(sc);
+    public int getCompanyListCnt(String category) throws Exception {
+        return companyDao.selectCompanyListCnt(category);
     }
 
     @Override
-    public CompanyDto companyRead(Integer companyId) throws Exception {
-        return companyDao.selectCompanyById(companyId);
+    public List<CompanyDto> getHallDetail(Integer companyId) throws Exception {
+        System.out.println("service : getHallDetail");
+        return companyDao.selectHallDetail(companyId);
     }
 
     @Override
-    public List<CompanyDto> getHallList() throws Exception {
-        List<CompanyDto> companyList = companyDao.selectCompanyByCategory();
-        System.out.println("Service : getHallList");
-        return companyList;
+    public List<CompanyDto> getCompanyImages(Integer companyId) throws Exception {
+        return companyDao.selectCompanyImages(companyId);
     }
-
 }

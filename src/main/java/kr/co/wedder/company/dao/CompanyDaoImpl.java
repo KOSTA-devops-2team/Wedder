@@ -1,6 +1,7 @@
 package kr.co.wedder.company.dao;
 
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.Pagination;
 import kr.co.wedder.company.domain.SearchItem;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,11 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public List<CompanyDto> selectCompanyByCategory() throws Exception {
-        System.out.println("Dao : getHallList");
-        return session.selectList(namespace + "selectCompanyByCategory");
+    public List<CompanyDto> selectCompanyByCategory(Pagination pagination, String category) throws Exception {
+        Map<String, Object> map = new HashMap<>();
+        map.put("pagination", pagination);
+        map.put("category", category);
+        return session.selectList(namespace + "selectCompanyByCategory", map);
     }
 
     @Override
@@ -37,22 +40,18 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public List<CompanyDto> selectPage(Map map) throws Exception {
-        return session.selectList(namespace + "selectPage", map);
+    public int selectCompanyListCnt(String category) throws Exception {
+        return session.selectOne(namespace + "selectCompanyListCnt", category);
     }
 
     @Override
-    public List<CompanyDto> searchSelectPage(SearchItem sc) throws Exception {
-        return session.selectList(namespace + "searchSelectPage", sc);
+    public List<CompanyDto> selectHallDetail(Integer companyId) throws Exception {
+        System.out.println("dao selectHallDetail");
+        return session.selectList(namespace + "selectHallDetail", companyId);
     }
 
     @Override
-    public int count() throws Exception {
-        return session.selectOne(namespace + "count");
-    }
-
-    @Override
-    public int searchResultCnt(SearchItem sc) throws Exception {
-        return session.selectOne(namespace + "searchResultCnt", sc);
+    public List<CompanyDto> selectCompanyImages(Integer companyId) throws Exception {
+        return session.selectList(namespace + "selectCompanyImages", companyId);
     }
 }
