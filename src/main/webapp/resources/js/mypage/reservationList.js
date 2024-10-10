@@ -105,32 +105,6 @@ document.addEventListener("DOMContentLoaded",function(){
 
     prevBtn.addEventListener("click", () => {
         eventsAjax();
-        currentMonth--;
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear--;
-        }
-
-
-        var calendarData = new Object();
-        calendarData.year=currentYear;
-        calendarData.month=currentMonth;
-
-        const jsonData=JSON.stringify(calendarData);
-        $.ajax({
-            url: '/calendar/list', // URL 경로
-            type: 'POST', // POST 요청
-            contentType: 'application/json', // JSON 형식으로 데이터를 전송
-            data: jsonData, // 객체를 JSON 문자열로 변환
-            dataType: 'json', // 응답 형식
-            success: function(result) {
-                console.log(result); // 서버에서 받은 응답 출력
-                renderCalendar(currentYear,currentMonth);
-            },
-            error: function() {
-                console.log("Error occurred"); // 에러 처리
-            }
-        });
     });
     /*
     1. 이전 버튼(prevBtn)을 클릭하면 현재 월을 이전 월로 변경하고, 연도가 바뀌어야 한다면 연도를 변경한다.
@@ -139,32 +113,6 @@ document.addEventListener("DOMContentLoaded",function(){
 
     nextBtn.addEventListener("click", () => {
         eventsAjax();
-        currentMonth++;
-        if (currentMonth > 11) {
-            currentMonth = 0;
-            currentYear++;
-        }
-
-        var calendarData2 = new Object();
-        calendarData2.year=currentYear;
-        calendarData2.month=currentMonth;
-
-        const jsonData=JSON.stringify(calendarData2);
-        $.ajax({
-            url: '/calendar/list', // URL 경로
-            type: 'POST', // POST 요청
-            contentType: 'application/json', // JSON 형식으로 데이터를 전송
-            data: jsonData, // 객체를 JSON 문자열로 변환
-            dataType: 'json', // 응답 형식
-            success: function(result) {
-                console.log(result); // 서버에서 받은 응답 출력
-                renderCalendar(currentYear,currentMonth);
-            },
-            error: function() {
-                console.log("Error occurred"); // 에러 처리
-            }
-        });
-
     });
 })
 
