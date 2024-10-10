@@ -62,7 +62,10 @@
                                 <div class="option">
                                     <c:forEach var="option" items="${companyOptions.studio}">
                                         <div class="option-item studio-option">
-                                            <span class="option-name">${option.optionName}</span>
+                                            <div class="option-display">
+                                                <span class="option-name">${option.optionName}</span>
+                                                <span class="option-description">${option.optionDescription}</span>
+                                            </div>
                                             <span class="option-price">${option.optionPrice}원</span>
                                         </div>
                                     </c:forEach>
@@ -99,7 +102,10 @@
                                 <div class="option">
                                     <c:forEach var="option" items="${companyOptions.dress}">
                                         <div class="option-item dress-option">
-                                            <span class="option-name">${option.optionName}</span>
+                                            <div class="option-display">
+                                                <span class="option-name">${option.optionName}</span>
+                                                <span class="option-description">${option.optionDescription}</span>
+                                            </div>
                                             <span class="option-price">${option.optionPrice}원</span>
                                         </div>
                                     </c:forEach>
@@ -136,7 +142,10 @@
                                 <div class="option">
                                     <c:forEach var="option" items="${companyOptions.makeup}">
                                         <div class="option-item makeup-option">
-                                            <span class="option-name">${option.optionName}</span>
+                                            <div class="option-display">
+                                                <span class="option-name">${option.optionName}</span>
+                                                <span class="option-description">${option.optionDescription}</span>
+                                            </div>
                                             <span class="option-price">${option.optionPrice}원</span>
                                         </div>
                                     </c:forEach>

@@ -37,6 +37,7 @@ public class EstimateDto {
     private String optionName;
     private Integer optionPrice;
     private String category;
+    private String optionDescription;
 
     // 스튜디오 정보
     private String shootType;

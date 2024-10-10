@@ -119,6 +119,7 @@ public class EstimateController {
 
         String category = (String) requestData.get("category");
         String optionName = (String) requestData.get("optionName");
+        String optionDescription = (String) requestData.get("optionDescription");
 
         // Null check for category and optionName
         if (category == null || optionName == null) {
@@ -151,6 +152,7 @@ public class EstimateController {
             Map<String, Object> newOption = new HashMap<>();
             newOption.put("name", optionName);
             newOption.put("price", optionPrice);
+            newOption.put("optionDescription", optionDescription);
             options.add(newOption);
         }
 

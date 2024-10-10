@@ -84,7 +84,8 @@
         SELECT
         o.option_id AS optionId,
         o.option_name AS optionName,
-        o.option_price AS optionPrice
+        o.option_price AS optionPrice,
+        o.option_description AS optionDescription
         FROM `option` o
         JOIN studioInfo s ON o.studio_id = s.studio_id
         WHERE s.company_id = #{companyId}
@@ -95,7 +96,8 @@
         SELECT
         o.option_id AS optionId,
         o.option_name AS optionName,
-        o.option_price AS optionPrice
+        o.option_price AS optionPrice,
+        o.option_description AS optionDescription
         FROM `option` o
         JOIN dressInfo d ON o.dress_id = d.dress_id
         WHERE d.company_id = #{companyId}
@@ -106,7 +108,8 @@
         SELECT
         o.option_id AS optionId,
         o.option_name AS optionName,
-        o.option_price AS optionPrice
+        o.option_price AS optionPrice,
+        o.option_description AS optionDescription
         FROM `option` o
         JOIN makeupInfo m ON o.makeup_id = m.makeup_id
         WHERE m.company_id = #{companyId}

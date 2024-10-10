@@ -37,8 +37,9 @@ $('.studio-option, .dress-option, .makeup-option').on('click', function () {
         $(this).hasClass('dress-option') ? 'dress' : 'makeup';
     const optionName = $(this).find('.option-name').text();
     const optionPrice = parseInt($(this).find('.option-price').text().replace('원', '').replace(',', ''));
+    const optionDescription = $(this).find('.option-description').text();
 
-    toggleOption(category, optionName, optionPrice);
+    toggleOption(category, optionName, optionPrice, optionDescription);
 });
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -75,7 +76,7 @@ function updateTotalPrice() {
 }
 
 // 옵션 추가/삭제 처리 함수 (여러 개 선택 가능하게 수정)
-function toggleOption(category, optionName, optionPrice) {
+function toggleOption(category, optionName, optionPrice, optionDescription) {
     // 선택된 옵션 목록 가져오기
     const options = selectedOptions[category];
 
@@ -99,7 +100,8 @@ function toggleOption(category, optionName, optionPrice) {
         data: JSON.stringify({
             category: category,
             optionName: optionName,
-            optionPrice: optionPrice
+            optionPrice: optionPrice,
+            optionDescription: optionDescription
         }),
         success: function(response) {
             console.log("AJAX 응답 데이터:", response);
@@ -134,7 +136,8 @@ function updateSelectedOptions(category, options) {
         $selectedContainer.find('.option-item, .option-item-added').on('click', function() {
             const optionName = $(this).data('name');
             const optionPrice = $(this).data('price');
-            toggleOption(category, optionName, optionPrice); // 옵션 제거를 위한 요청
+            const optionDescription = $(this).data('optionDescription');
+            toggleOption(category, optionName, optionPrice, optionDescription); // 옵션 제거를 위한 요청
         });
     }
     updateTotalPrice(); // 전체 가격 업데이트
@@ -193,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function() {
             options.forEach(option => {
                 const optionData = {
                     name: option.querySelector('.option-info').innerText,
-                    price: option.querySelector('.option-price').innerText.replace('원', '').replace(',', '')
+                    price: option.querySelector('.option-price').innerText.replace('원', '').replace(',', ''),
                 };
                 selectedOptions[category].push(optionData);
             });
