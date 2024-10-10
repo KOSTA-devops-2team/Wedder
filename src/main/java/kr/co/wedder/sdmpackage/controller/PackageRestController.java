@@ -1,14 +1,20 @@
 package kr.co.wedder.sdmpackage.controller;
 
+import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.sdmpackage.domain.PackageDetailDto;
 import kr.co.wedder.sdmpackage.service.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/package")
@@ -51,5 +57,34 @@ public class PackageRestController {
         List<PackageDetailDto> filteredPackages = packageService.filterPackagesByPrice(minPrice, maxPrice);
         return ResponseEntity.ok(filteredPackages);
     }
+
+    // 가능한 날짜 데이터 불러오기
+    @GetMapping("/getAvailableDate")
+    public ResponseEntity<List<CompanyScheduleDto>> getAvailableDates(@RequestParam String companyName) {
+
+        System.out.println("companyName = " + companyName);
+        List<CompanyScheduleDto> availableDates = packageService.getAvailableDateList(companyName);
+        System.out.println("getAvailableDates = " + availableDates);
+
+        // 데이터가 없을 경우에도 빈 배열과 OK 상태 코드 반환
+        return new ResponseEntity<>(availableDates != null ? availableDates : new ArrayList<>(), HttpStatus.OK);
+    }
+
+    // 가능한 시간 데이터 불러오기
+    @GetMapping("/getAvailableTimeList")
+    public ResponseEntity<List<CompanyScheduleDto>> getAvailableTimes(
+            @RequestParam String companyName,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+
+        System.out.println("companyName = " + companyName + "  date " +date);
+        List<CompanyScheduleDto> availableTimes = packageService.getAvailableTimeList(companyName, date);
+        System.out.println("getAvailableTimes = " + availableTimes);
+        if (availableTimes.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+
+        return new ResponseEntity<>(availableTimes, HttpStatus.OK);
+    }
+
 }
 

@@ -34,7 +34,8 @@
                         src="${pageContext.request.contextPath}/resources/images/password-invisible.png"
                 />
             </div>
-            <input type="hidden" name="toURL" value="${param.toURL }" />
+<%--            <input type="hidden" name="toURL" value="${param.toURL }" />--%>
+            <input type="hidden" name="toURL" value="${param.redirect != null ? param.redirect : ''}" />
             <div id="msg">
                 <c:if test="${not empty param.msg }">
                     <i fa fa-exclamation-circle>${URLDecoder.decode(param.msg) }</i>

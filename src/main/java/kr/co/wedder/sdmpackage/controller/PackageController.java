@@ -76,7 +76,6 @@ public class PackageController {
             return "package/packageRecommend";
         }
 
-
         // 패키지 가격 계산
         int originalPrice = 0;
         for (PackageDetailDto detail : packageDetails) {
@@ -92,6 +91,7 @@ public class PackageController {
         model.addAttribute("finalPrice", finalPrice);
         model.addAttribute("packageDetails", packageDetails);
         model.addAttribute("paymentKeys", paymentKeys);
+        System.out.println("Kakao Pay Key: " + paymentKeys.getKakaoPayKey());
 
         return "package/packageDetail";
     }

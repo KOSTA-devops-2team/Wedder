@@ -30,7 +30,7 @@ function createPaymentData() {
     return data;
 }
 
-$('.pay').on('click', function (e) {
+$('.kakao-pay').on('click', function (e) {
     e.preventDefault();
     IMP.init(kakaoPayKey);
 
@@ -78,7 +78,7 @@ $('.pay').on('click', function (e) {
                         orderName: data.orderName
                     }),
                     success: function (response) {
-                        location.href = "/main";
+                        location.href = "/mypage/mypage";
                     },
                     error: function (error) {
                         console.error("서버로 결제 데이터 전송 중 오류 발생:", error);

@@ -6,6 +6,7 @@ import kr.co.wedder.payment.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/payment")
 public class PaymentRestController {
-
-    @Autowired
-    private PaymentKeysDto paymentKeys;
 
     @Autowired
     PaymentService paymentService;
@@ -34,6 +32,4 @@ public class PaymentRestController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("결제 실패");
         }
     }
-
-
 }
