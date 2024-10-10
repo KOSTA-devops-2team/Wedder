@@ -8,9 +8,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mypage</title>
+    <title>estimateTotal</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estimate/estimateTotal.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/estimate/estimateTotal.js"></script>
 </head>
@@ -27,13 +28,11 @@
                 <p>클릭 시 업체 선택창으로 돌아가요.</p>
                 <div class="back-content">
                     <div class="back-btn">
-                        <a href="#">스튜디오 업체명     /</a>
-                        <a href="#">드레스 업체명     /   </a>
-                        <a href="#">헤어메이크업 업체명</a>
+                        <a href="#">${studioName}/</a>
+                        <a href="#">${dressName}/</a>
+                        <a href="#">${makeupName}</a>
                     </div>
-                    <a href=""><span class="material-symbols-outlined">
-                                replay
-                                </span>업체 다시 선택</a>
+                    <a href="${pageContext.request.contextPath}/estimate/"><span class="material-symbols-outlined">replay</span>업체 다시 선택</a>
                 </div>
             </div>
         </div>
@@ -62,13 +61,11 @@
                                     <div class="options">
                                         <p class="option-detail">세부옵션</p>
                                         <c:if test="${not empty selectedOptions.studio}">
-
-                                                <c:forEach var="option" items="${selectedOptions.studio}">
-                                                    <div class="option">
-                                                        <p>${option.name}</p><p>${option.price}원</p>
-                                                    </div>
-                                                </c:forEach>
-
+                                            <c:forEach var="option" items="${selectedOptions.studio}">
+                                                <div class="option">
+                                                    <p>${option.name}</p><p>${option.price}원</p>
+                                                </div>
+                                            </c:forEach>
                                         </c:if>
                                         <c:if test="${not empty companyOptions.studio}">
                                             <div class="option">
@@ -80,7 +77,6 @@
                                                 </c:forEach>
                                             </div>
                                         </c:if>
-
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +147,7 @@
 
                         </div>
                         <div class="btn">
-                            <button onclick="location.href='estimateDetail.html'" class="back">뒤로가기</button>
+                            <button onclick=history.back() class="back">뒤로가기</button>
                             <button class="add">견적함에 담기</button>
                         </div>
                     </div>

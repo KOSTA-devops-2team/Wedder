@@ -159,7 +159,7 @@
         </div>
         <div class="btn">
             <button onclick="history.back()" class="back">이전</button>
-                <button class="next">다음으로</button>
+            <button class="next">다음으로</button>
         </div>
     </div>
 </div>
