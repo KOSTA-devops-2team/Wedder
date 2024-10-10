@@ -17,7 +17,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/estimate")
-public class EstimateController2 {
+public class EstimateController {
 
     @Autowired
     private EstimateService estimateService;
