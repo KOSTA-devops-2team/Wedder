@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    let isLoggedIn = '<%= session.getAttribute("customerId") != null %>' === 'true';
+    console.log("isLoggedIn: ", isLoggedIn);  // 세션 로그인 상태 확인
+
     let selectedCompanyName = "";
     let availableDates = {}; // 예약 가능한 날짜 저장 객체
     let selectedData = {}; // 업체별로 선택된 정보 저장 객체
@@ -25,7 +26,7 @@ $(document).ready(function () {
         if (selectedCompanyName !== newCompanyName) {
             $(".date").removeClass("highlight").removeClass("available").removeClass("unavailable");
             $(".time-slot").removeClass("time-selected");
-            $("#timeListContainer").empty(); // 이전 업체의 시간 슬롯 초기화
+            $("#timeListContainer").empty();
         }
 
         selectedCompanyName = newCompanyName;

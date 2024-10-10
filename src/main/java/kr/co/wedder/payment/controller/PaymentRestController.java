@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaymentRestController {
 
     @Autowired
-    private PaymentKeysDto paymentKeys;
-
-    @Autowired
     PaymentService paymentService;
 
     @PostMapping("/complete")

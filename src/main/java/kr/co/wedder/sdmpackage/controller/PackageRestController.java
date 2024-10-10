@@ -80,10 +80,10 @@ public class PackageRestController {
         List<CompanyScheduleDto> availableTimes = packageService.getAvailableTimeList(companyName, date);
         System.out.println("getAvailableTimes = " + availableTimes);
         if (availableTimes.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);  // 데이터가 없을 경우
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 
-        return new ResponseEntity<>(availableTimes, HttpStatus.OK);  // 성공적으로 데이터 반환
+        return new ResponseEntity<>(availableTimes, HttpStatus.OK);
     }
 
 }

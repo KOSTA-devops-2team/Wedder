@@ -24,6 +24,10 @@
 
 <body>
 <script>
+    // 서버에서 JSP로 전달된 세션 정보를 Boolean 값으로 JavaScript에서 처리
+    let isLoggedIn = <%= (session.getAttribute("id") != null) ? "true" : "false" %>;
+    console.log("isLoggedIn: ", isLoggedIn);  // 로그인 여부 확인
+
     let kakaoPayKey = '${paymentKeys.kakaoPayKey}';
     let customerId = '<%= customerId %>';
     let customerEmail = '<%= customerEmail %>';
@@ -38,14 +42,12 @@
         companyCategory: "${detail.companyCategory}"
     });
     </c:forEach>
-
-    console.log("Kakao Pay Key!!!! : ", kakaoPayKey);
-    console.log("Package Details!!! : ", packageDetails);
 </script>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <div class="hd__inner960">
     <div class="container">
         <div class="header">
+            <%= session.getAttribute("id") %>
             <h1>${packageDetails[0].description}</h1>
             <h2 class="product-name">${packageDetails[0].packageName}</h2>
         </div>
