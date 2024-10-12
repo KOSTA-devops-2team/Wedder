@@ -11,7 +11,7 @@ let observer = new IntersectionObserver((e) => {
 });
 
 document.querySelectorAll(".package-content").forEach((item) => {
-    observer.observe(item); // html 요소가 화면에 등장하는지 감시
+    observer.observe(item);
 });
 
 document.querySelectorAll(".hall-subtitle-item").forEach((hall) => {
