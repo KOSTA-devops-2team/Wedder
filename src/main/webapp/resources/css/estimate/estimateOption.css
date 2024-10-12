@@ -41,6 +41,7 @@
     height:200px;
     float: left;
     margin-right: 20px;
+    object-fit: cover;
 }
 .selected {
     margin: 10px;
