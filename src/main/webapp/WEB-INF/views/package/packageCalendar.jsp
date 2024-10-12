@@ -29,7 +29,7 @@
         </div>
         <div class="calendar-category">
             <c:forEach var="detail" items="${packageDetails}">
-                <button class="company-name" data-companyName="${detail.companyName}">${detail.companyName}</button>
+                <button class="company-name" data-companyName="${detail.companyName}" data-company-id="${detail.companyId}">${detail.companyName}</button>
             </c:forEach>
         </div>
         <div class="calendar-body">

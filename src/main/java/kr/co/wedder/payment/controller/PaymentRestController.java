@@ -1,5 +1,6 @@
 package kr.co.wedder.payment.controller;
 
+import kr.co.wedder.mypage.domain.ReservationDto;
 import kr.co.wedder.payment.domain.PaymentKeysDto;
 import kr.co.wedder.payment.domain.PaymentRequest;
 import kr.co.wedder.payment.service.PaymentService;
@@ -22,13 +23,18 @@ public class PaymentRestController {
     @PostMapping("/complete")
     public ResponseEntity<String> paymentComplete(@RequestBody PaymentRequest paymentRequest) {
 
+        System.out.println("PaymentRestController paymentRequest=" + paymentRequest);
+
         String impUid = paymentRequest.getImpUid();
         boolean validPayment = paymentService.verifyPayment(impUid);
 
         if (validPayment) {
-            paymentService.savePaymentInfo(paymentRequest);
+            System.out.println("payment controller -> service 호출");
+            paymentService.savePaymentAndReservationInfo(paymentRequest);
             return ResponseEntity.ok("결제 성공");
         } else {
+            // 결제 실패 처리
+            System.out.println("payment controller -> service 호출 실패");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("결제 실패");
         }
     }

@@ -47,6 +47,7 @@ public class PackageDetailDto {
     private String makeupImgUrl;
 
     // 회사 정보
+    private int companyId;
     private String companyName;
     private String companyAddress;
     private String companyIntroduce;
