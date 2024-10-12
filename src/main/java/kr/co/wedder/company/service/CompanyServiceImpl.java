@@ -1,5 +1,6 @@
 package kr.co.wedder.company.service;
 
+import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.company.dao.CompanyDao;
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.company.domain.Pagination;
@@ -7,9 +8,7 @@ import kr.co.wedder.company.domain.SearchItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
@@ -49,5 +48,21 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public List<CompanyDto> getCompanyImages(Integer companyId) throws Exception {
         return companyDao.selectCompanyImages(companyId);
+    }
+
+    @Override
+    public List<CompanyScheduleDto> getAvailableHallDate(int companyId) {
+
+        List<CompanyScheduleDto> result = companyDao.selectAvailableHallDate(companyId);
+        
+        return result != null ? result : new ArrayList<>();
+    }
+
+    @Override
+    public List<CompanyScheduleDto> getAvailableHallTime(String companyName, Date date) {
+
+        List<CompanyScheduleDto> result = companyDao.selectAvailableHallTime(companyName, date);
+
+        return result;
     }
 }

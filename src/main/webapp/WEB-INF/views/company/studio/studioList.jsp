@@ -7,12 +7,9 @@
     <title>studioList</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/studio/studioList.css" />
-    <%--<link
-            rel="stylesheet"
-            href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"
-    />--%>
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-    <%--<script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
+    <script defer src="${pageContext.request.contextPath}/resources/js/company/studio/studioList.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>

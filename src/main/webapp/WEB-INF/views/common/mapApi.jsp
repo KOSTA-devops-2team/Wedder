@@ -13,7 +13,7 @@
     <script type="text/javascript" defer src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49002230661bfc60fba4b0f1cfab9f60&autoload=false"></script>
 </head>
 <body>
-    <div class="info-map" id="map">
+    <div class="info-map" id="map" data-company-name="${hall.companyName}">
     </div>
 </body>
 </html>

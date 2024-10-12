@@ -16,18 +16,18 @@ public class SDMController {
     @GetMapping(value = "studio")
     public String studioList() { return "company/studio/studioList"; }
 
-    @GetMapping(value = "studio/detail")
+    @GetMapping(value = "studio/detail/{companyId}")
     public String studioDetail() { return "company/studio/studioDetail"; }
 
     @GetMapping (value = "dress")
     public String dressList() { return "company/dress/dressList"; }
 
-    @GetMapping(value = "dress/{companyId}/detail")
+    @GetMapping(value = "dress/detail/{companyId}")
     public String dressDetail() { return "company/dress/dressDetail"; }
 
     @GetMapping(value = "makeup")
     public String makeupList() { return "company/makeup/makeupList"; }
 
-    @GetMapping(value = "makeup/{companyId}/detail")
+    @GetMapping(value = "makeup/detail/{companyId}")
     public String makeupDetail() { return "company/makeup/makeupDetail"; }
 }
