@@ -30,6 +30,12 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
+    public List<CompanyDto> getHallDetail(Integer companyId) throws Exception {
+        System.out.println("service : getHallDetail");
+        return companyDao.selectHallDetail(companyId);
+    }
+
+    @Override
     public List<CompanyDto> searchCompanies(String companyName, String category) throws Exception {
         return companyDao.searchCompany(companyName, category);
     }
@@ -37,12 +43,6 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public int getCompanyListCnt(String category) throws Exception {
         return companyDao.selectCompanyListCnt(category);
-    }
-
-    @Override
-    public List<CompanyDto> getHallDetail(Integer companyId) throws Exception {
-        System.out.println("service : getHallDetail");
-        return companyDao.selectHallDetail(companyId);
     }
 
     @Override
@@ -65,4 +65,10 @@ public class CompanyServiceImpl implements CompanyService {
 
         return result;
     }
+
+    @Override
+    public List<CompanyDto> getStudioList(Pagination pagination, String category) throws Exception {
+        return companyDao.selectCompanyByCategory(pagination, category);
+    }
+
 }

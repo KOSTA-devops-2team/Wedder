@@ -26,6 +26,7 @@ public class CompanyDto {
     private StudioDto studioDto;
     private DressDto dressDto;
     private MakeupDto makeupDto;
+    private Pagination pagination;
 
     private int imgId;
     private int imgSeq;

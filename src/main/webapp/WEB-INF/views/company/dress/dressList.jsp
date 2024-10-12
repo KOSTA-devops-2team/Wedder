@@ -83,6 +83,7 @@
             <div class="card" data-id="1">
                 <a href="dressDetail">
                     <img
+                            class="card-img"
                             src="resources/images/dress-1.jpg"
                             alt="드레스 이미지1"
                     />

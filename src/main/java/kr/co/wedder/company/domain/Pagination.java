@@ -55,7 +55,6 @@ public class Pagination {
         // 현재 페이지에 보여줄 마지막 페이지 숫자
         this.endPage = startPage + NAV_SIZE - 1;
         System.out.println("endPage: " + endPage);
-        System.out.println("dto before - startList :" + startList);
         System.out.println("dto before - page :" + page);
         // 마지막 페이지가 전체 페이지 수를 초과하지 않도록 설정
         if (endPage > totalPageCnt) {

@@ -38,7 +38,6 @@
             <result property="shootFocus" column="shoot_focus" />
             <result property="rentalClothing" column="rental_clothing" />
             <result property="shootDuration" column="shoot_duration" />
-            <result property="shootLocationType" column="shoot_location_type" />
             <result property="product" column="product" />
             <result property="hairChangeAvailability" column="hair_change_availability" />
             <result property="equipmentIncluded" column="equipment_included" />
@@ -88,7 +87,7 @@
     </select>
 
     <select id="selectCompanyByCategory" parameterType="map" resultMap="companyDtoMap">
-        SELECT c.company_id, c.company_name, c.company_address, c.phone_num, c.operation_hours, c.instagram_url, c.company_category, c.company_introduce, c.basic_price, c.mood, c.location, h.min_people, h.meal_price, i.img_id, i.img_seq, i.img_url
+        SELECT *
         FROM company c
         LEFT JOIN hallInfo h ON c.company_id = h.company_id
         LEFT JOIN studioInfo s ON c.company_id = s.company_id

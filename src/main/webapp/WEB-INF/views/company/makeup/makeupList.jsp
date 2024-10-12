@@ -83,6 +83,7 @@
             <div class="card" data-id="1">
                 <a href="makeupDetail">
                     <img
+                            class="card-img"
                             src="resources/images/makeup-1.jpg"
                             alt="메이크업 이미지1"
                     />

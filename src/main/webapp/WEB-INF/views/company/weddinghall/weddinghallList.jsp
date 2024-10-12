@@ -84,6 +84,7 @@
                 <div class="card">
                     <a href="${pageContext.request.contextPath}/weddinghall/detail/${card.companyId}">
                         <img
+                                class="card-img"
                                 src="${card.imgUrl}"
                                 alt="웨딩홀 이미지"
                         />
@@ -97,7 +98,7 @@
                                     class="instagram"
                             >
                                 <img
-                                        src="resources/images/instagram2.png"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/instagram.png"
                                         alt="인스타 이미지"
                                 />
                             </a>
