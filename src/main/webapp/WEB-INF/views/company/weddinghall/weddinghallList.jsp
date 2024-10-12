@@ -41,13 +41,19 @@
 <%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
 <%--                        /></span>--%>
 <%--                </div>--%>
-<%--                <div>--%>
+                <div>
+                        <select>
+                            <option value="">분위기</option>
+                            <c:forEach var="option" items="${hallList}">
+                                <option value="${option.mood}">${option.mood}</option>
+                            </c:forEach>
+                        </select>
 <%--                        <span--%>
 <%--                        >분위기<img--%>
 <%--                                id="mood-icon"--%>
 <%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
 <%--                        /></span>--%>
-<%--                </div>--%>
+                </div>
                 <div class="search-container">
                     <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색">
                     <button class="search-btn">

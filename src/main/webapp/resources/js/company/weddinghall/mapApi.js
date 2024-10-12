@@ -4,6 +4,11 @@ const mapScript = document.createElement('script');
 mapScript.async = true;
 mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=49002230661bfc60fba4b0f1cfab9f60&autoload=false`;
 
+const infoMap = document.getElementById("map")
+const companyName = infoMap.getAttribute("data-company-name")
+
+console.log("Company name:", companyName);
+
 document.head.appendChild(mapScript);
 
 const onLoadKakaoMap = () => {

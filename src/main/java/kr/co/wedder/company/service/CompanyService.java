@@ -1,9 +1,11 @@
 package kr.co.wedder.company.service;
 
+import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.company.domain.Pagination;
 import kr.co.wedder.company.domain.SearchItem;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,4 +20,7 @@ public interface CompanyService {
 
     List<CompanyDto> getHallDetail(Integer companyId) throws Exception;
     List<CompanyDto> getCompanyImages(Integer companyId) throws Exception;
+
+    List<CompanyScheduleDto> getAvailableHallDate(int companyId);
+    List<CompanyScheduleDto> getAvailableHallTime(String companyName, Date date);
 }

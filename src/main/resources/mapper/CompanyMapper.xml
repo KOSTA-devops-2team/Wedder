@@ -88,7 +88,7 @@
     </select>
 
     <select id="selectCompanyByCategory" parameterType="map" resultMap="companyDtoMap">
-        SELECT *
+        SELECT c.company_id, c.company_name, c.company_address, c.phone_num, c.operation_hours, c.instagram_url, c.company_category, c.company_introduce, c.basic_price, c.mood, c.location, h.min_people, h.meal_price, i.img_id, i.img_seq, i.img_url
         FROM company c
         LEFT JOIN hallInfo h ON c.company_id = h.company_id
         LEFT JOIN studioInfo s ON c.company_id = s.company_id
@@ -106,7 +106,7 @@
     </select>
 
     <select id="searchCompany" resultMap="companyDtoMap">
-        SELECT c.company_id, c.company_name, c.company_address, c.phone_num, c.operation_hours, c.instagram_url, c.company_category, h.min_people, h.meal_price, i.img_id, i.img_seq, i.img_url
+        SELECT *
         FROM company c
         LEFT JOIN hallInfo h ON c.company_id = h.company_id
         LEFT JOIN companyImage i ON c.company_id = i.company_id
@@ -128,9 +128,24 @@
         WHERE c.company_id = #{companyId}
     </select>
 
-    <select id="selectCompanyImages" parameterType="int" resultMap="companyDtoMap">
+    <select id="selectCompanyImages" parameterType="int" resultType="CompanyImage">
         SELECT *
         FROM companyImage
         WHERE company_id = #{companyId}
+    </select>
+
+    <!-- 웨딩홀 일정 -->
+    <select id="selectAvailableHallDate" parameterType="int" resultType="CompanyScheduleDTO">
+        SELECT *
+        FROM companySchedule
+        WHERE company_id = #{companyId}
+    </select>
+
+    <select id="selectAvailableHallTime" parameterType="map" resultType="CompanyScheduleDTO">
+        SELECT *
+        FROM companySchedule
+        WHERE company_name = #{companyName}
+        AND date = #{date}
+        ORDER BY time
     </select>
 </mapper>

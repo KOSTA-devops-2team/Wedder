@@ -1,5 +1,6 @@
 package kr.co.wedder.company.dao;
 
+import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.company.domain.Pagination;
 import kr.co.wedder.company.domain.SearchItem;
@@ -7,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,5 +55,19 @@ public class CompanyDaoImpl implements CompanyDao {
     @Override
     public List<CompanyDto> selectCompanyImages(Integer companyId) throws Exception {
         return session.selectList(namespace + "selectCompanyImages", companyId);
+    }
+
+    @Override
+    public List<CompanyScheduleDto> selectAvailableHallDate(int companyId) {
+        return session.selectList(namespace + "selectAvailableHallDate", companyId);
+    }
+
+    @Override
+    public List<CompanyScheduleDto> selectAvailableHallTime(String companyName, Date date) {
+        Map map = new HashMap<>();
+        map.put("companyName", companyName);
+        map.put("date", date);
+
+        return session.selectList(namespace + "selectAvailableHallTime", map);
     }
 }

@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/weddinghall/reviewSearchModal.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/company/weddinghall/weddinghallDetail.js"></script>
-<%--    <script type="text/javascript" defer src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49002230661bfc60fba4b0f1cfab9f60&autoload=false"></script>--%>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <%--    <script type="text/javascript" defer src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49002230661bfc60fba4b0f1cfab9f60&autoload=false"></script>--%>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -38,31 +39,31 @@
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail2.jpg"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_2.jpg"
                                 alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail3.jpg"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_3.jpg"
                                 alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail4.jpg"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_4.jpg"
                                 alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail5.jpg"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_5.jpg"
                                 alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
                     <div class="company-image-item">
                         <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddingdetail6.jpg"
+                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_6.jpg"
                                 alt="웨딩홀 메인 이미지${img.imgSeq}"
                         />
                     </div>
@@ -137,42 +138,41 @@
                         ✔️ 예식을 희망하는 날짜에 예약이 가능한지 확인해
                         보세요
                     </h4>
-                    <div id="calendar"></div>
-                    <img
-                            src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/calendar.png"
-                    />
-                </div>
-                <div class="schedule-choose">
-                    <div class="schedule-choose-container">
-                        <div>
-                            <span></span>
-                            <h3>가능한 일정만 보기</h3>
-                        </div>
-                        <div class="time-lists">
-                            <div class="time-list">
-                                <span>10:00</span>
-                                <span>[웨딩홀] 마리아쥬스퀘어</span>
-                            </div>
-                            <div class="time-list">
-                                <span>12:00</span>
-                                <span>[웨딩홀] 마리아쥬스퀘어</span>
-                            </div>
-                            <div class="time-list">
-                                <span>14:00</span>
-                                <span>[웨딩홀] 마리아쥬스퀘어</span>
-                            </div>
-                            <div class="time-list">
-                                <span>16:00</span>
-                                <span>[웨딩홀] 마리아쥬스퀘어</span>
-                            </div>
-                        </div>
+                    <div id="calendar">
+                        <%@ include file="/WEB-INF/views/company/weddinghall/weddinghallCalendar.jsp" %>
                     </div>
-                    <a href="visitSt1">
-                        <button class="schedule-button">
-                            방문 상담 신청 하러가기
-                        </button>
-                    </a>
                 </div>
+<%--                <div class="schedule-choose">--%>
+<%--                    <div class="schedule-choose-container">--%>
+<%--                        <div>--%>
+<%--                            <span></span>--%>
+<%--                            <h3>가능한 일정만 보기</h3>--%>
+<%--                        </div>--%>
+<%--                        <div class="time-lists">--%>
+<%--                            <div class="time-list">--%>
+<%--                                <span>10:00</span>--%>
+<%--                                <span>[웨딩홀] 마리아쥬스퀘어</span>--%>
+<%--                            </div>--%>
+<%--                            <div class="time-list">--%>
+<%--                                <span>12:00</span>--%>
+<%--                                <span>[웨딩홀] 마리아쥬스퀘어</span>--%>
+<%--                            </div>--%>
+<%--                            <div class="time-list">--%>
+<%--                                <span>14:00</span>--%>
+<%--                                <span>[웨딩홀] 마리아쥬스퀘어</span>--%>
+<%--                            </div>--%>
+<%--                            <div class="time-list">--%>
+<%--                                <span>16:00</span>--%>
+<%--                                <span>[웨딩홀] 마리아쥬스퀘어</span>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <a href="visitSt1">--%>
+<%--                        <button class="schedule-button">--%>
+<%--                            방문 상담 신청 하러가기--%>
+<%--                        </button>--%>
+<%--                    </a>--%>
+<%--                </div>--%>
             </div>
         </section>
 

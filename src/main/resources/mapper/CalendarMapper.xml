@@ -6,7 +6,7 @@
 	<!-- 참조되는 sql문-->
 	  <sql id="selectFromSchedule">
 		    SELECT schedule_id, company_id, company_name, `date`, time
-		    FROM company_schedule
+		    FROM companySchedule
 	  </sql>
 	  <sql id="searchCondition">
 	  	<choose>
