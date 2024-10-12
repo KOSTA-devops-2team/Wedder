@@ -12,8 +12,9 @@
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/company/weddinghall/weddinghallList.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
-<%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
+<%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/hallPagination.js"></script>--%>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/hallPagination.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -43,19 +44,14 @@
 <%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
 <%--                        /></span>--%>
 <%--                </div>--%>
-                <div>
-                        <select>
-                            <option value="">분위기</option>
-                            <c:forEach var="option" items="${hallList}">
-                                <option value="${option.mood}">${option.mood}</option>
-                            </c:forEach>
-                        </select>
-<%--                        <span--%>
-<%--                        >분위기<img--%>
-<%--                                id="mood-icon"--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
-<%--                        /></span>--%>
-                </div>
+<%--                <div>--%>
+<%--                        <select>--%>
+<%--                            <option value="">분위기</option>--%>
+<%--                            <c:forEach var="option" items="${hallList}">--%>
+<%--                                <option value="${option.mood}">${option.mood}</option>--%>
+<%--                            </c:forEach>--%>
+<%--                        </select>--%>
+<%--                </div>--%>
                 <div class="search-container">
                     <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색">
                     <button class="search-btn">

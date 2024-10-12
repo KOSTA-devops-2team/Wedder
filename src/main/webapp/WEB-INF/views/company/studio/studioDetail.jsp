@@ -15,6 +15,8 @@
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
     <c:forEach var="studio" items="${studioDetail}">
+
+    </c:forEach>
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
             <div class="main-title-container">
@@ -532,6 +534,5 @@
         </section>
     </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
-    <script src="${pageContext.request.contextPath}/resources/js/company/studio/studioDetail.js"></script>
 </body>
 </html>

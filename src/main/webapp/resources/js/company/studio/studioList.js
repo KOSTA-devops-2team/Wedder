@@ -78,3 +78,110 @@ $(document).ready(function () {
         $('.list-all').html(companyHtml);
     }
 })
+
+    function goToPage(page) {
+
+        console.log("goToPage 함수 호출됨, 페이지 번호:", page);
+        const pageSize = 9; // 페이지당 보여줄 업체 수
+        $.ajax({
+            url: '/studio/ajax',
+            type: 'GET',
+            data: {
+                page: page,
+                pageSize: pageSize
+            },
+            success: function (response) {
+                console.log('AJAX 응답 데이터:', response);
+                updateStudioList(response.studioList);
+                updatePagination(response.pagination);
+            },
+            error: function (xhr, status, error) {
+                console.log('AJAX 요청 실패', status, error);
+            }
+        });
+    }
+
+    // 리스트 데이터 함수
+    function updateStudioList(studioList) {
+        if (!studioList || studioList.length === 0) {
+            console.error("studioList가 비어 있습니다.");
+            $('.list-all').html('<p>표시할 항목이 없습니다.</p>');  // 항목이 없는 경우 처리
+            return;
+        }
+        let html = '';
+        studioList.forEach(function (studio) {
+            html += `<div class="card">
+                        <a href="/studio/detail/${studio.companyId}">
+                            <img src="${studio.imgUrl}" alt="스튜디오 이미지"/>
+                        </a>
+                        <div class="card-info">
+                            <div class="studio-name">${studio.companyName}
+                            <a href="${studio.instagramUrl}"
+                               target="_blank"
+                               class="instagram">
+                            <img src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/instagram.png"
+                                 alt="인스타 이미지"/></a>
+                            </div>
+                            <div class="studio-address">주소 : ${studio.companyAddress}</div>
+                            <div class="phone-num">연락처 : ${studio.phoneNum}</div>
+                            <div class="operation-hours">영업시간 : ${studio.operationHours}</div>
+                            <div class="composition">상품 구성 : ${studio.studioDto.product}</div>
+                            <div class="budget">촬영소요시간 : ${studio.studioDto.shootDuration}</div>
+                        </div>
+                    </div>`;
+        });
+        $('.list-all').html(html);  // 새로운 목록으로 교체
+    }
+
+    // 페이지네이션 갱신 함수
+    function updatePagination(pagination) {
+        console.log("현재 페이지 번호:", pagination.page);
+        let paginationHtml = '';
+        if (pagination && pagination.page && pagination.totalPageCnt) {
+            console.log("Total Page Count: ", pagination.totalPageCnt);
+            console.log("Current Page: ", pagination.page);
+
+            // '처음' 버튼
+            if (pagination.showPrev) {
+                paginationHtml += `<li><a href="#" class="page-btn" onclick="goToPage(1)"}>&laquo;&laquo;</a></li>`;
+            } else {
+                paginationHtml += `<li><a href="#" class="page-btn disabled">&laquo;&laquo;</a></li>`;
+            }
+            // '이전' 버튼
+            if (pagination.showPrev) {
+                paginationHtml += `<li><a href="#" class="page-btn" onclick="goToPage(${pagination.page - 1})">&laquo;</a></li>`;
+            } else {
+                paginationHtml += `<li><a href="#" class="page-btn disabled">&laquo;</a></li>`;
+            }
+
+            // 페이지 번호
+            for (let p = pagination.startPage; p <= pagination.endPage; p++) {
+                paginationHtml += `<div class="page-btns" id="paginationLinks">
+                                    <li>
+                                        <a href="#" class="page-btn ${pagination.page === p ? 'active' : ''}" 
+                                           onclick="goToPage(${p})">${p}
+                                        </a>
+                                    </li>
+                                    </div>`;
+            }
+
+            // '다음' 버튼
+            if (pagination.showNext) {
+                paginationHtml += `<li>
+                    <a href="#" class="page-btn" onclick="goToPage(${pagination.page + 1})">&raquo;</a></li>`;
+            } else {
+                paginationHtml += `<li><a href="#" class="page-btn disabled">&raquo;</a></li>`;
+            }
+
+            // '끝' 버튼
+            if (pagination.page != pagination.totalPageCnt) {
+                paginationHtml += `<li><a href="#" class="page-btn" onclick="goToPage(${pagination.totalPageCnt})"}>&raquo;&raquo;</a></li>`;
+            } else {
+                paginationHtml += `<li><a href="#" class="page-btn disabled">&raquo;&raquo;</a></li>`;
+            }
+
+        } else {
+            console.error("Pagination 객체가 없습니다.");
+        }
+        $('#pagination').html(paginationHtml);
+    }
