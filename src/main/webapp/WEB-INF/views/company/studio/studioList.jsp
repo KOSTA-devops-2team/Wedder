@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -7,9 +8,11 @@
     <title>studioList</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/studio/studioList.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/company/studio/studioList.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -65,7 +68,7 @@
             </div>
             <div class="search-btns">
                 <button class="list-search-btn dark-pink">
-                    <a href="studio">
+                    <a href="${pageContext.request.contextPath}/studio">
                         목록으로 보기
                     </a>
                 </button>
@@ -90,7 +93,7 @@
                     </a>
                     <div class="card-info">
                         <div class="studio-name">
-                            ${card.companyName}
+                                ${card.companyName}
                             <a
                                     href="${card.instagramUrl}"
                                     target="_blank"
@@ -105,8 +108,7 @@
                         <div class="studio-address">주소 : ${card.companyAddress}</div>
                         <div class="phone-num">연락처 : ${card.phoneNum}</div>
                         <div class="operation-hours">영업시간 : ${card.operationHours}</div>
-                            상품 구성 : ${card.studioDto.product}
-                        </div>
+                        <div class="composition">상품 구성 : ${card.studioDto.product}</div>
                         <div class="budget">촬영소요시간 : ${card.studioDto.shootDuration}</div>
                     </div>
                 </div>

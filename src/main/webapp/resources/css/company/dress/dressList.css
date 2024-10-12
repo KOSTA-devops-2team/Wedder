@@ -86,7 +86,7 @@
     overflow: inherit;
 }
 
-.card-img {
+.card img {
     width: 100%;
     height: 75%;
     object-fit: cover;

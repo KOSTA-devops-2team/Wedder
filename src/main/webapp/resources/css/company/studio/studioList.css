@@ -110,11 +110,17 @@
     overflow: inherit;
 }
 
-.card-img {
+.card img {
     width: 100%;
     height: 70%;
     object-fit: cover;
 }
+
+/*.card-img {*/
+/*    width: 345px;*/
+/*    height: 260px;*/
+/*    object-fit: cover;*/
+/*}*/
 
 .card-info {
     display: flex;

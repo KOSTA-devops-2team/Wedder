@@ -3,8 +3,8 @@ package kr.co.wedder.company.service;
 import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.company.dao.CompanyDao;
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.CompanyImageDto;
 import kr.co.wedder.company.domain.Pagination;
-import kr.co.wedder.company.domain.SearchItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +46,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<CompanyDto> getCompanyImages(Integer companyId) throws Exception {
+    public List<CompanyImageDto> getCompanyImages(int companyId) throws Exception {
         return companyDao.selectCompanyImages(companyId);
     }
 

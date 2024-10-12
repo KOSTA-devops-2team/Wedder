@@ -2,8 +2,8 @@ package kr.co.wedder.company.dao;
 
 import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.CompanyImageDto;
 import kr.co.wedder.company.domain.Pagination;
-import kr.co.wedder.company.domain.SearchItem;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -53,7 +53,7 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public List<CompanyDto> selectCompanyImages(Integer companyId) throws Exception {
+    public List<CompanyImageDto> selectCompanyImages(int companyId) throws Exception {
         return session.selectList(namespace + "selectCompanyImages", companyId);
     }
 

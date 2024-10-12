@@ -31,42 +31,42 @@
             <div class="carousel-container">
                 <div class="carousel-inner">
                     <c:forEach var="img" items="${imgList}">
-                    <div class="company-image-item">
-                        <img
-                                src="${img.imgUrl}"
-                                alt="웨딩홀 메인 이미지${img.imgSeq}"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_2.jpg"
-                                alt="웨딩홀 메인 이미지${img.imgSeq}"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_3.jpg"
-                                alt="웨딩홀 메인 이미지${img.imgSeq}"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_4.jpg"
-                                alt="웨딩홀 메인 이미지${img.imgSeq}"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_5.jpg"
-                                alt="웨딩홀 메인 이미지${img.imgSeq}"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_6.jpg"
-                                alt="웨딩홀 메인 이미지${img.imgSeq}"
-                        />
-                    </div>
+                        <div class="company-image-item">
+                            <img
+                                    src="${img.imgUrl}"
+                                    alt="웨딩홀 메인 이미지${img.imgSeq}"
+                            />
+                        </div>
+<%--                    <div class="company-image-item">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_2.jpg"--%>
+<%--                                alt="웨딩홀 메인 이미지${img.imgSeq}"--%>
+<%--                        />--%>
+<%--                    </div>--%>
+<%--                    <div class="company-image-item">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_3.jpg"--%>
+<%--                                alt="웨딩홀 메인 이미지${img.imgSeq}"--%>
+<%--                        />--%>
+<%--                    </div>--%>
+<%--                    <div class="company-image-item">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_4.jpg"--%>
+<%--                                alt="웨딩홀 메인 이미지${img.imgSeq}"--%>
+<%--                        />--%>
+<%--                    </div>--%>
+<%--                    <div class="company-image-item">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_5.jpg"--%>
+<%--                                alt="웨딩홀 메인 이미지${img.imgSeq}"--%>
+<%--                        />--%>
+<%--                    </div>--%>
+<%--                    <div class="company-image-item">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_6.jpg"--%>
+<%--                                alt="웨딩홀 메인 이미지${img.imgSeq}"--%>
+<%--                        />--%>
+<%--                    </div>--%>
                     </c:forEach>
                 </div>
             </div>
@@ -121,7 +121,7 @@
             </div>
             <div class="buttons">
                 <button class="like-btn">찜하기</button>
-                <button class="list-btn"><a href="${pageContext.request.contextPath}/weddinghall"></a>목록</button>
+                <a href="${pageContext.request.contextPath}/weddinghall"><button class="list-btn">목록</button></a>
             </div>
         </section>
         </c:forEach>

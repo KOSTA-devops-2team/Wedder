@@ -62,6 +62,12 @@
             <result property="position" column="position" />
         </association>
 
+        <association property="companyImage" javaType="kr.co.wedder.company.domain.CompanyImageDto">
+            <id property="imgId" column="img_id" />
+            <result property="companyId" column="company_id" />
+            <result property="imgSeq" column="img_seq" />
+            <result property="imgUrl" column="img_url"/>
+        </association>
     </resultMap>
 
     <sql id="selectFromCompany">
@@ -108,6 +114,9 @@
         SELECT *
         FROM company c
         LEFT JOIN hallInfo h ON c.company_id = h.company_id
+        LEFT JOIN studioInfo s ON c.company_id = s.company_id
+        LEFT JOIN dressInfo d ON c.company_id = d.company_id
+        LEFT JOIN makeupInfo m ON c.company_id = m.company_id
         LEFT JOIN companyImage i ON c.company_id = i.company_id
         <where>
             <include refid="searchCondition" />
@@ -128,9 +137,10 @@
     </select>
 
     <select id="selectCompanyImages" parameterType="int" resultType="CompanyImage">
-        SELECT *
+        SELECT img_id, img_seq, img_url
         FROM companyImage
         WHERE company_id = #{companyId}
+        ORDER BY img_seq
     </select>
 
     <!-- 웨딩홀 일정 -->

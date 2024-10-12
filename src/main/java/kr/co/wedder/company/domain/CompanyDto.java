@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,6 +25,7 @@ public class CompanyDto {
     private DressDto dressDto;
     private MakeupDto makeupDto;
     private Pagination pagination;
+    private CompanyImageDto companyImage;
 
     private int imgId;
     private int imgSeq;
