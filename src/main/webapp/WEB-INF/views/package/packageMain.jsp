@@ -19,22 +19,21 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-
-<!-- 커뮤니티 배너 부분 -->
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <!-- 첫 번째 배너 -->
         <div class="swiper-slide">
             <div class="package-top-banner-1">
                 <div class="package-main-content hd__inner1100">
-                    <div class="second-title">웨딩 박람회보다 <br> 더 합리적으로 결혼준비를 할 수 있어요.</div>
+                    <div class="second-title">웨딩 박람회보다 더 합리적인 결혼준비</div>
                     <div class="first-title">'스드메 상품'은 어디서 계약하시더라도 동일한 구성입니다.<br>
                         단지 '플래너 수수료'를 얼마나 책정하느냐에 따라 소비자 가격이 달라질 뿐이죠.</div>
-                    <div class="third-title">wedder는 기존 '웨딩플래너 역할'은 그대로 제공해드리면서 투명한 정찰제로 업계 최저가격을 선보입니다.</div>
-                    <a class="package-show-button" href="${pageContext.request.contextPath}/package/recommend">스드메 패키지 구경하기</a>
+                    <div class="third-title">
+                        wedder는 투명한 정찰제를 통해 업계 최저가격을 제공합니다.<a class="package-show-button" href="${pageContext.request.contextPath}/package/recommend">스드메 패키지 구경하기</a>
+                    </div>
                 </div>
-                <img class="banner-coin" src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/main/package/package_banner_coin.png" alt="커뮤니티 배너 1" />
-                <img class="banner-gift" src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/main/package/package_banner_gift.png" alt="커뮤니티 배너 1" />
+<%--                <img class="banner-coin" src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/main/package/package_banner_coin.png" alt="커뮤니티 배너 1" />--%>
+<%--                <img class="banner-gift" src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/main/package/package_banner_gift.png" alt="커뮤니티 배너 1" />--%>
             </div>
         </div>
 
@@ -44,8 +43,7 @@
                 <div class="package-main-content hd__inner1100">
                     <div class="second-title">🔎 내 마음대로 견적서 생성 🔎</div>
                     <div class="first-title">직접 '스/드'메'를 조합하여 최저가 견적을 낼 수 있어요.<br>계약 이후에는 Wedder에서 웨딩 플래너 역할을 대신해 모든 일을 처리해드려요.</div>
-                    <div class="third-title-2">기본부터 업체별 옵션까지, 상세한 견적서를 확인해보세요.</div>
-                    <a class="package-show-button estimate">견적 확인하러 가기</a>
+                    <div class="third-title-2">기본부터 업체별 옵션까지, 상세한 견적서를 확인해보세요.<a class="package-show-button estimate">견적 확인하러 가기</a></div>
                 </div>
             </div>
         </div>

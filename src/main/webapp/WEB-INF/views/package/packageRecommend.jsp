@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/package/packageRecommend.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/header/header.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"/>
+<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/weddinghall/weddinghallList.css"/>--%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -24,6 +24,7 @@
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <div class="hd__inner1100">
+
     <!--BestPackage-->
     <section class="package-section">
         <div class="pack-title">
@@ -57,7 +58,9 @@
                                     <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.makeupDetail}</p>--%>
                             </div>
                         </div>
-                        <a class="detail" href="${pageContext.request.contextPath}/package/${BestPackage.packageId}/detail">상품 자세히 보기 &#62;</a>
+                        <a class="detail"
+                           href="${pageContext.request.contextPath}/package/${BestPackage.packageId}/detail">상품 자세히 보기
+                            &#62;</a>
                     </div>
                 </div>
             </c:forEach>
@@ -97,7 +100,8 @@
                                     <%--                                    <p class="down">[촬영+본식] ${MDPickPackage.makeupDetail}</p>--%>
                             </div>
                         </div>
-                        <a class="detail" href="${pageContext.request.contextPath}/package/${MDPickPackage.packageId}/detail">상품
+                        <a class="detail"
+                           href="${pageContext.request.contextPath}/package/${MDPickPackage.packageId}/detail">상품
                             자세히 보기 &#62;</a>
                     </div>
                 </div>
@@ -108,49 +112,40 @@
     <!-- 패키지 검색 -->
     <section class="bot package-section">
         <div class="pack-title">
-            <p>스드메 패키지</p>
+            <p>내 예산에 맞는 패키지 구경해보세요</p>
         </div>
-        <div class="range">
-            <div class="price-title">금액대</div>
-            <!-- 검색 영역 -->
-            <div class="header-search-form">
-<%--                <form class="search-box" action="" method="get">--%>
-<%--                    <input class="search-txt" type="text" name="" placeholder="검색어를 입력하세요.">--%>
-<%--                    <button class="search-btn" type="submit">--%>
-<%--                        <i class="fa-solid fa-magnifying-glass"></i>--%>
-<%--                    </button>--%>
-<%--                </form>--%>
-                <form class="form-container">
-                    <div></div>
-                    <div class="form-text">
-                        <input type="text" id="autoComplete"/>
-                    </div>
-                    <button type="submit" class="btn_search">
-                        <img src="https://image.hago.kr/dev/main/pc/pc_search.svg" alt="search"/>
-                    </button>
-                </form>
-            </div>
+        <div class="range search">
             <div class="price-range">
+<%--                <div class="price-title">금액대</div>--%>
                 <button class="btn-price" data-min="0" data-max="3000000">300만원↓</button>
                 <button class="btn-price" data-min="3000000" data-max="5000000">300만원~500만원</button>
                 <button class="btn-price" data-min="5000000" data-max="7000000">500만원~700만원</button>
                 <button class="btn-price" data-min="7000000" data-max="9000000">700만원~900만원</button>
                 <button class="btn-price" data-min="9000000" data-max="999999999">900만원↑</button>
             </div>
-
-        </div>
-    <!-- 패키지 검색 결과 -->
-    <div class="package-search-container">
-        <c:forEach var="AllPackage" items="${AllPackages}">
-        <div class="grid-content">
-            <div class="grid-pic">
-                <img src="${AllPackage.packageImg}" alt="패키지 이미지">
+            <div class="search-condition">
+                <form class="search-container">
+                    <div>
+                        <input type="text" id="autoComplete" class="search-bar" placeholder="업체명으로 검색">
+                    </div>
+                    <button type="submit" class="search-btn">
+                        <img id="search-icon" src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/search-icon.png" alt="search"/>
+                    </button>
+                </form>
             </div>
-            <p class="name">${AllPackage.studioName} + ${AllPackage.dressName} + ${AllPackage.makeupName}</p>
-            <p class="cost"><fmt:formatNumber value="${finalPrice}" type="number" pattern="#,###"/></p>
         </div>
-        </c:forEach>
-    </div>
+        <!-- 패키지 검색 결과 -->
+        <div class="package-search-container">
+            <c:forEach var="AllPackage" items="${AllPackages}">
+                <div class="grid-content">
+                    <div class="grid-pic">
+                        <img src="${AllPackage.packageImg}" alt="패키지 이미지">
+                    </div>
+                    <p class="name">${AllPackage.studioName} + ${AllPackage.dressName} + ${AllPackage.makeupName}</p>
+<%--                    <p class="cost"><fmt:formatNumber value="${finalPrice}" type="number" pattern="#,###"/></p>--%>
+                </div>
+            </c:forEach>
+        </div>
     </section>
 </div>
 <%--<div id="pagination-placeholder"></div>--%>
