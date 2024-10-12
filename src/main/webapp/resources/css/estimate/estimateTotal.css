@@ -87,6 +87,7 @@
     height: 250px;
     float: left;
     margin-right: 30px;
+    object-fit: cover;
 }
 .company-detail {
     display: flex;

@@ -1,39 +1,25 @@
-/* 담기 확인 모달창 */
-document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.querySelector(".modal");
-    const modalBtn = document.querySelector(".add");
-    const closeBtn = document.querySelector(".cancel-btn");
-
-    modalBtn.addEventListener("click", function() {
-        modal.classList.add("show");
-        modal2.classList.remove("show2");
-    });
-
-    closeBtn.addEventListener("click", function() {
-        modal.classList.remove("show");
-    });
-
-    /* 담기 완료 모달창 */
-    const modalNxt = document.querySelector(".check-btn");
-    const modal2 = document.querySelector(".modal2");
-    const closeBtn2 = document.querySelector(".cancel-btn");
-
-    modalNxt.addEventListener("click", function() {
-        modal.classList.remove("show");
-        modal2.classList.add("show2");
-    })
-
-    closeBtn2.addEventListener("click", function() {
-        modal.classList.remove("show");
-    });
-
-    /* 외부 클릭 시 모달창 닫기 */
-    window.addEventListener("click", function(event) {
-        if (event.target === modal) {
-            modal.classList.remove("show");
-        }
-        /* if (event.target === modal2) {
-            modal2.classList.remove("show2");
-        } */
-    });
+// 버튼을 선택하여 이벤트 리스너 추가
+document.getElementById('add').addEventListener('click', function() {
+    // Swal.fire 함수로 경고창 표시
+    Swal.fire({
+        title: '알림',
+        text: '이 작업을 진행하시겠습니까?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: '견적함에 담기',
+        cancelButtonText: '아니요, 취소합니다'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: '진행 완료!',
+                text: '작업이 성공적으로 완료되었습니다.',
+                icon: 'success',
+                confirmButtonText: '확인'
+            }).then(() => {
+                // 마이페이지로 이동
+                window.location.href = '/mypage/mypage';
+            });
+        } else if (result.isDismissed) {
+            Swal.fire('취소됨', '작업이 취소되었습니다.', 'info');
+        }  });
 });
