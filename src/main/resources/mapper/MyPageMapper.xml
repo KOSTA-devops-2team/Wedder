@@ -328,6 +328,6 @@
 		join company co on co.company_id = r.company_id
 		join customer cu on cu.customer_id = r.customer_id
 		join companyImage cI on cI.company_id =co.company_id
-	where cu.customer_id=${customer_id} and co.company_category=${company_category}  ;
+	where cu.customer_id=${customer_id} and co.company_category=${company_category};
 	</select>
 </mapper>

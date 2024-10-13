@@ -308,7 +308,7 @@ public class MyPageController {
 			m.addAttribute("hallVisitReservatioinList",hallVisitReservatioinList);
 			
 			//웨딩홀 예약
-			hallVisitReListMap.put("visit_reservation", 1);
+			hallVisitReListMap.put("visit_reservation", 0);
 			List<VisitCriteria> hallReList = myPageService.hallVisitReservatioinList(hallVisitReListMap);
 			m.addAttribute("hallReList",hallReList);
 			
@@ -346,12 +346,12 @@ public class MyPageController {
 			/*예약 일정 달력에 추가*/
 			List<Map<String, Object>> getCalendarEvents = myPageService.getCalendarEvents(customerId);
 			m.addAttribute("getCalendarEvents",getCalendarEvents);
-//
-//			/*웨딩홀 예약 내역 리메이크 버전*/
+
+			/*웨딩홀 예약 내역 리메이크 버전*/
 //			String category = "웨딩홀";
 //			List<Map<String,Object>> getWeddingReservations = myPageService.getWeddingReservations(customerId,category);
 //			m.addAttribute("getWeddingReservations",getWeddingReservations);
-//
+
 			return "/mypage/reservationList";
 		} catch (Exception e) {
 			e.printStackTrace();
