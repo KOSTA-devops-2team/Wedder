@@ -50,4 +50,23 @@ public class SDMRestController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    @GetMapping(value = "studio/detail/{companyId}/getCoordinates")
+    public ResponseEntity<Map<String, Object>> getCoordinates(@PathVariable("companyId") int companyId) {
+
+        try {
+            CompanyDto company = companyService.getCoordinate(companyId);
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("company", company);
+            response.put("latitude", company.getLatitude());  // 위도
+            response.put("longitude", company.getLongitude());  // 경도
+            response.put("companyName", company.getCompanyName());
+
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+                e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // 업체가 없는 경우
+        }
+    }
 }

@@ -54,6 +54,9 @@ public class HallRestController {
             
             return ResponseEntity.ok(companyList);
         } catch (Exception e) {
+            // 예외 발생 시 로그 남기기
+            System.err.println("에러 발생: " + e.getMessage());  // 콘솔에 에러 메시지 출력
+            e.printStackTrace();  // 예외 전체 스택 트레이스 출력
             // 오류 발생 시 500 Internal Server Error 반환
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

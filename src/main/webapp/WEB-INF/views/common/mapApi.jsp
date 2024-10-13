@@ -9,11 +9,12 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/common/mapApi.css"
     />
-    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/mapApi.js"></script>
+<%--    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/mapApi.js"></script>--%>
     <script type="text/javascript" defer src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49002230661bfc60fba4b0f1cfab9f60&autoload=false"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/mapTest.js"></script>
 </head>
 <body>
-    <div class="info-map" id="map" data-company-name="${hall.companyName}">
+    <div class="info-map" id="map" data-company-id="${companyId}" data-latitude="${latitude}" data-longitude="${longitude}" data-company-name="${companyName}">
     </div>
 </body>
 </html>

@@ -37,36 +37,6 @@
                                     alt="웨딩홀 메인 이미지${img.imgSeq}"
                             />
                         </div>
-<%--                    <div class="company-image-item">--%>
-<%--                        <img--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_2.jpg"--%>
-<%--                                alt="웨딩홀 메인 이미지${img.imgSeq}"--%>
-<%--                        />--%>
-<%--                    </div>--%>
-<%--                    <div class="company-image-item">--%>
-<%--                        <img--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_3.jpg"--%>
-<%--                                alt="웨딩홀 메인 이미지${img.imgSeq}"--%>
-<%--                        />--%>
-<%--                    </div>--%>
-<%--                    <div class="company-image-item">--%>
-<%--                        <img--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_4.jpg"--%>
-<%--                                alt="웨딩홀 메인 이미지${img.imgSeq}"--%>
-<%--                        />--%>
-<%--                    </div>--%>
-<%--                    <div class="company-image-item">--%>
-<%--                        <img--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_5.jpg"--%>
-<%--                                alt="웨딩홀 메인 이미지${img.imgSeq}"--%>
-<%--                        />--%>
-<%--                    </div>--%>
-<%--                    <div class="company-image-item">--%>
-<%--                        <img--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall1_6.jpg"--%>
-<%--                                alt="웨딩홀 메인 이미지${img.imgSeq}"--%>
-<%--                        />--%>
-<%--                    </div>--%>
                     </c:forEach>
                 </div>
             </div>
@@ -79,7 +49,7 @@
                 <h2>Information</h2>
 <%--                <a href="reviewModal" id="review-link">후기 보러가기 >>></a>--%>
             </div>
-            <div id="modal-container"></div>
+<%--            <div id="modal-container"></div>--%>
 
             <c:forEach var="hall" items="${hallDetail}">
             <div class="info-container">

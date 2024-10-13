@@ -4,6 +4,12 @@
     padding: 8px;
 }
 
+.info-map {
+    width: 500px;
+    height: 350px;
+    margin-left: 4px;
+}
+
 .title {
     color: #000;
     font-weight: normal;

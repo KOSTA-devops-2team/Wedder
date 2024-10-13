@@ -1,12 +1,15 @@
 package kr.co.wedder.company.controller;
 
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.CompanyImageDto;
 import kr.co.wedder.company.domain.Pagination;
 import kr.co.wedder.company.service.CompanyService;
+import kr.co.wedder.mypage.domain.OptionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,8 +45,25 @@ public class SDMController {
     }
 
     @GetMapping(value = "studio/detail/{companyId}")
-    public String studioDetail() {
+    public String studioDetail(@PathVariable("companyId") int companyId, Model m) {
+        String category = "스튜디오";
 
+        try {
+            List<CompanyDto> studioDetail = companyService.getStudioDetail(companyId);
+            m.addAttribute("studioDetail", studioDetail);
+
+            List<CompanyImageDto> imgList = companyService.getCompanyImages(companyId);
+            m.addAttribute("imgList", imgList);
+            System.out.println("controller - studioDetail: " + studioDetail);
+
+            List<OptionDto> optionList = companyService.getOption(category);
+            m.addAttribute("optionList", optionList);
+            System.out.println("controller - optionList: " + optionList);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return "company/studio/studioList";
+        }
         return "company/studio/studioDetail";
     }
 

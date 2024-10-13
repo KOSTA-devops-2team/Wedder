@@ -19,6 +19,8 @@ public class CompanyDto {
     private int basicPrice;
     private String mood;
     private String location;
+    private double latitude;
+    private double longitude;
 
     private HallDto hallDto;
     private StudioDto studioDto;

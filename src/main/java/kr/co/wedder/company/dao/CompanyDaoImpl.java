@@ -4,6 +4,7 @@ import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.company.domain.CompanyImageDto;
 import kr.co.wedder.company.domain.Pagination;
+import kr.co.wedder.mypage.domain.OptionDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -47,14 +48,28 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public List<CompanyDto> selectHallDetail(Integer companyId) throws Exception {
-        System.out.println("dao selectHallDetail");
+    public List<CompanyImageDto> selectCompanyImages(int companyId) throws Exception {
+        return session.selectList(namespace + "selectCompanyImages", companyId);
+    }
+
+    @Override
+    public CompanyDto selectCoordinateById(int companyId) throws Exception {
+        return session.selectOne(namespace + "selectCoordinateById", companyId);
+    }
+
+    @Override
+    public List<OptionDto> selectOptByCategory(String category) throws Exception {
+        return session.selectList(namespace + "selectOptByCategory", category);
+    }
+
+    @Override
+    public List<CompanyDto> selectHallDetail(int companyId) throws Exception {
         return session.selectList(namespace + "selectHallDetail", companyId);
     }
 
     @Override
-    public List<CompanyImageDto> selectCompanyImages(int companyId) throws Exception {
-        return session.selectList(namespace + "selectCompanyImages", companyId);
+    public List<CompanyDto> selectStudioDetail(int companyId) throws Exception {
+        return session.selectList(namespace + "selectStudioDetail", companyId);
     }
 
     @Override

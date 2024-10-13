@@ -21,7 +21,6 @@
         <typeAlias  alias="EstimateDto" type="kr.co.wedder.estimate.domain.EstimateDto" />
         <typeAlias  alias="PaymentRequest" type="kr.co.wedder.payment.domain.PaymentRequest" />
 
-
         <!-- company alias -->
         <typeAlias alias="CompanyDto" type="kr.co.wedder.company.domain.CompanyDto" />
         <typeAlias alias="HallDto" type="kr.co.wedder.company.domain.HallDto" />

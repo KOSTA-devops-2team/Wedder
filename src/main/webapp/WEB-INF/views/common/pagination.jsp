@@ -20,7 +20,7 @@
             <%-- 첫 페이지 --%>
             <c:choose>
                 <c:when test="${pagination.showPrev}">
-                    <li><a href="#" class="page-btn" onclick="goToPage(1)"}>&laquo;&laquo;</a></li>
+                    <li><a href="#" class="page-btn" onclick="goToPage(1)">&laquo;&laquo;</a></li>
                 </c:when>
                 <c:otherwise>
                     <li><a href="#" class="page-btn disabled">&laquo;&laquo;</a></li>
@@ -65,7 +65,7 @@
             <%-- 끝 버튼 --%>
             <c:choose>
                 <c:when test="${pagination.page != pagination.totalPageCnt}">
-                    <li><a href="#" class="page-btn" onclick="goToPage(${pagination.totalPageCnt})"}>&raquo;&raquo;</a></li>
+                    <li><a href="#" class="page-btn" onclick="goToPage(${pagination.totalPageCnt})">&raquo;&raquo;</a></li>
                 </c:when>
                 <c:otherwise>
                     <li><a href="#" class="page-btn disabled">&raquo;&raquo;</a></li>

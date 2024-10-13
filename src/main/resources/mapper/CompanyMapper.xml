@@ -16,6 +16,8 @@
         <result property="basicPrice" column="basic_price" />
         <result property="mood" column="mood" />
         <result property="location" column="location" />
+        <result property="latitude" column="latitude" />
+        <result property="longitude" column="longitude" />
         <result property="imgId" column="img_id"/>
         <result property="imgSeq" column="img_seq" />
         <result property="imgUrl" column="img_url"/>
@@ -123,15 +125,16 @@
         </where>
     </select>
 
-    <select id="searchResultCnt" parameterType="SearchItem" resultMap="companyDtoMap">
-        SELECT count(*) FROM company
-        WHERE true
-        <include refid="searchCondition" />
-    </select>
-
     <select id="selectHallDetail" parameterType="int" resultMap="companyDtoMap">
         SELECT * FROM company c
         LEFT JOIN hallInfo h ON c.company_id = h.company_id
+        LEFT JOIN companyImage i ON c.company_id = i.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+    <select id="selectStudioDetail" parameterType="int" resultMap="companyDtoMap">
+        SELECT * FROM company c
+        LEFT JOIN studioInfo s ON c.company_id = s.company_id
         LEFT JOIN companyImage i ON c.company_id = i.company_id
         WHERE c.company_id = #{companyId}
     </select>
@@ -141,6 +144,25 @@
         FROM companyImage
         WHERE company_id = #{companyId}
         ORDER BY img_seq
+    </select>
+
+    <select id="selectCoordinateById" parameterType="int" resultType="CompanyDto">
+        SELECT company_id, company_name, latitude, longitude
+        FROM company
+        WHERE company_id = #{companyId}
+    </select>
+
+    <select id="selectOptByCategory" parameterType="String" resultType="OptionDto">
+        SELECT
+        o.option_id AS optionId,
+        o.option_name AS optionName,
+        o.option_price AS optionPrice,
+        o.option_description AS optionDescription
+        FROM `option` o
+        JOIN studioInfo s ON o.studio_id = s.studio_id
+        JOIN dressInfo d ON o.dress_id = d.dress_id
+        JOIN makeupInfo m ON o.makeup_id = m.makeup_id
+        WHERE o.category = #{category}
     </select>
 
     <!-- 웨딩홀 일정 -->
@@ -157,4 +179,5 @@
         AND date = #{date}
         ORDER BY time
     </select>
+
 </mapper>

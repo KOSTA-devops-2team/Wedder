@@ -16,6 +16,8 @@ function goToPage(page) {
         },
         error: function (xhr, status, error) {
             console.log('AJAX 요청 실패', status, error);
+            console.log("Response: " + xhr);
+            console.log('서버 응답:', xhr.responseText);
         }
     });
 }
@@ -62,7 +64,7 @@ function updatePagination(pagination) {
 
         // '처음' 버튼
         if (pagination.showPrev) {
-            paginationHtml += `<li><a href="#" class="page-btn" onclick="goToPage(1)"}>&laquo;&laquo;</a></li>`;
+            paginationHtml += `<li><a href="#" class="page-btn" onclick="goToPage(1)">&laquo;&laquo;</a></li>`;
         } else {
             paginationHtml += `<li><a href="#" class="page-btn disabled">&laquo;&laquo;</a></li>`;
         }
@@ -94,7 +96,7 @@ function updatePagination(pagination) {
 
         // '끝' 버튼
         if (pagination.page != pagination.totalPageCnt) {
-            paginationHtml += `<li><a href="#" class="page-btn" onclick="goToPage(${pagination.totalPageCnt})"}>&raquo;&raquo;</a></li>`;
+            paginationHtml += `<li><a href="#" class="page-btn" onclick="goToPage(${pagination.totalPageCnt})">&raquo;&raquo;</a></li>`;
         } else {
             paginationHtml += `<li><a href="#" class="page-btn disabled">&raquo;&raquo;</a></li>`;
         }
