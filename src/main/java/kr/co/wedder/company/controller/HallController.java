@@ -1,6 +1,7 @@
 package kr.co.wedder.company.controller;
 
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.CompanyImageDto;
 import kr.co.wedder.company.domain.Pagination;
 import kr.co.wedder.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +51,8 @@ public class HallController {
             List<CompanyDto> hallDetail = companyService.getHallDetail(companyId);
             m.addAttribute("hallDetail", hallDetail);
 
-//            List<CompanyDto> imgList = companyService.getCompanyImages(companyId);
-            m.addAttribute("imgList", hallDetail);
+            List<CompanyImageDto> imgList = companyService.getCompanyImages(companyId);
+            m.addAttribute("imgList", imgList);
             System.out.println("controller - weddinghallDetail: " + companyId);
             System.out.println("controller - hallDetail: " + hallDetail);
         }

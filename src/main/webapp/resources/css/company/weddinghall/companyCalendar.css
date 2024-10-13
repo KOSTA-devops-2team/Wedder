@@ -1,0 +1,190 @@
+@charset "UTF-8";
+.calendar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.calendar-container{
+    width: 48%;
+    height: auto;
+    text-align: center;
+}
+
+.calendar-header{
+    display: flex;
+    justify-content: center;
+}
+
+.calendar-days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day{
+    font-size: 18px;
+    margin: 20px 0px 13px 0;
+}
+
+.sunday{
+    color: #FF0000;
+}
+
+.saturday{
+    color: #0038FF;
+}
+
+.calendar-dates{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 18px;
+    color: #CCCCCC;
+}
+
+.calendar-dates > div {
+    padding: 17px 5px;
+    text-align: center;
+}
+
+.date {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.holiday{
+    background-color: red;
+    font-weight: bold;
+}
+
+.highlight{
+    border-radius: 7px;
+    background-color: #CA1A5A !important;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#yearMonth{
+    display: flex;
+}
+
+#yearMonth h2 {
+    margin: 0;
+    font-weight: 500;
+}
+
+#currentHour , #currentMinute, #currentSecond{
+    display: none;
+}
+
+#nextBtn, #prevBtn {
+    border-radius: 5px;
+    border: 1px solid #D0D5DD;
+    padding: 0px 9px;
+    margin: 0px 25px;
+}
+
+.calendar-category {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.calendar-category button {
+    background-color: #F7F8F9;
+    border : 1px solid #eeeeee;
+    color: black;
+    width: 30%;
+    height: 28px;
+    border-radius: 4px;
+}
+
+.calendar-category button.select {
+    background-color: black;
+    color: white;
+
+}
+
+
+/*일정 리스트*/
+.calendar-list {
+    width: 45%;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.time-slot {
+    padding: 10px;
+    background-color: #EEEEEE;
+    border: 1px solid #000000;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    /*box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);*/
+}
+
+.time-slot.time-selected {
+    background-color: rgba(255, 203, 222, 0.31);
+    color: #CA1A5A;
+    border: 1px solid #CA1A5A;
+}
+
+
+
+.available {
+    color: #000000; /* 예약 가능한 날짜: 검정색 */
+}
+
+
+.unavailable {
+    color: #CCCCCC; /* 예약 불가능한 날짜: 연회색 */
+    pointer-events: none; /* 클릭 불가 */
+}
+
+.time-list-container {
+    margin-top: 100px;
+}
+
+.time-lists {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 10px;
+}
+
+/*선태한 일정 보여주는 부분*/
+#selectedInfo .card {
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#selectedInfo .company-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.schedule-info {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#selectedInfo .schedule-info span {
+    font-size: 15px;
+    color: #939396;
+    margin-right: 7px;
+}
+
+#selectedInfo .schedule-info p {
+    font-size: 15px;
+    color: #222225;
+}
+
+#infoList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+}

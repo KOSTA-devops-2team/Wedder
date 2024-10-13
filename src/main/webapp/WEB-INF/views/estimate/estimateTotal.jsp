@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/estimate/estimateTotal.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
@@ -148,34 +150,11 @@
                     </div>
                     <div class="btn">
                         <button onclick=history.back() class="back">뒤로가기</button>
-                        <button class="add">견적함에 담기</button>
+                        <button id="add" class="add">견적함에 담기</button>
                     </div>
                 </div>
             </div>
         </div>
-        </section>
-        <!-- 담기 확인 모달창 -->
-        <section id="modal" class="modal">
-            <div class="modal-content">
-                <h2 class="modal-q">견적함에 담으시겠습니까?</h2>
-                <div class="modal-btn">
-                    <a href="#"><button class="check-btn">확인</button></a>
-                    <a href="#"><button class="cancel-btn">취소</button></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 담기 완료 모달창 -->
-        <section id="modal2" class="modal2">
-            <div class="modal-content">
-                <h2 class="modal-complete">My견적함에 담기 완료!</h2>
-                <p>견적함으로 이동하시겠습니까?</p>
-                <div class="modal-btn">
-                    <a href="../../html/mypage/estimateStorage.html"><button class="check-btn">확인</button></a>
-                    <a href="#"><button class="cancel-btn">취소</button></a>
-                </div>
-            </div>
-        </section>
     </div>
 </div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

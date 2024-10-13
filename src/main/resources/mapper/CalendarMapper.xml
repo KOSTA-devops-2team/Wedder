@@ -6,7 +6,7 @@
 	<!-- 참조되는 sql문-->
 	  <sql id="selectFromSchedule">
 		    SELECT schedule_id, company_id, company_name, `date`, time
-		    FROM company_schedule
+		    FROM companySchedule
 	  </sql>
 	  <sql id="searchCondition">
 	  	<choose>
@@ -51,7 +51,7 @@
 	</select>
 	<!-- searchResultCnt -->
 	<select id="searchResultCnt" parameterType="SearchItem" resultType="int">
- 		select count(*) from company_schedule
+ 		select count(*) from companySchedule
  		where true
  		<include refid="searchCondition" />
  	</select>

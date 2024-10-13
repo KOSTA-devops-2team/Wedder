@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -7,12 +8,11 @@
     <title>makeupList</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/makeup/makeupList.css" />
-    <%--<link
-            rel="stylesheet"
-            href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"
-    />--%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-    <%--<script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
+    <script defer src="${pageContext.request.contextPath}/resources/js/company/makeup/makeupList.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -83,6 +83,7 @@
             <div class="card" data-id="1">
                 <a href="makeupDetail">
                     <img
+                            class="card-img"
                             src="resources/images/makeup-1.jpg"
                             alt="메이크업 이미지1"
                     />

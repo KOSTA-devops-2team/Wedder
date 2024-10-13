@@ -34,11 +34,15 @@
             <div class="tab">헤어메이크업</div>
         </div>
 
-        <!-- 필터 -->
-        <div class="filter">
-            <div class="search-box">
-                <input type="text" placeholder="업체명으로 검색">
-                <button class="search-btn">검색하기</button>
+        <div class="search-condition">
+            <div class="search-container">
+                <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색">
+                <button class="search-btn">
+                    <img
+                            id="search-icon"
+                            src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/search-icon.png"
+                    />
+                </button>
             </div>
         </div>
 

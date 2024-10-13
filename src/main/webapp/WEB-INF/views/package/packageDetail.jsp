@@ -38,16 +38,17 @@
 
     <c:forEach var="detail" items="${packageDetails}">
     packageDetails.push({
+        companyId: "${detail.companyId}",
         companyName: "${detail.companyName}",
         companyCategory: "${detail.companyCategory}"
     });
     </c:forEach>
+
 </script>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <div class="hd__inner960">
     <div class="container">
         <div class="header">
-            <%= session.getAttribute("id") %>
             <h1>${packageDetails[0].description}</h1>
             <h2 class="product-name">${packageDetails[0].packageName}</h2>
         </div>

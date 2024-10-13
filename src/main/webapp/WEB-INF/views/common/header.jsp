@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:set var="loginId" value="${sessionScope.id }" />
-<c:set var="loginout" value="${sessionScope.id==null ? 'Login' : 'Logout' }" />
+<c:set var="loginout" value="${sessionScope.id==null ? '로그인' : '로그아웃' }" />
 <c:set var="loginoutlink" value="${sessionScope.id==null ? '/log/login' : '/log/logout' }" />
 <c:set var="mypagelink" value="${sessionScope.id == null ? '/log/login' : '/mypage/mypage' }" />
 <c:set var="likelink" value="${sessionScope.id == null ? '/log/login' : '/mypage/mypage' }" />  <!-- temporary -->
@@ -74,7 +74,7 @@
                                         src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
                                         alt="Like"
                                 /></a>
-                                <div>Like</div>
+                                <div>좋아요</div>
                             </li>
                         </ul>
                     </div>
@@ -84,44 +84,44 @@
                     <ul>
                         <div id="horizontal-underline"></div>
                         <li class="black">
-                            <a href="${pageContext.request.contextPath}/main">Home</a>
+                            <a href="${pageContext.request.contextPath}/main">홈</a>
                         </li>
                         <li class="black">
                             <a
                                 href="${pageContext.request.contextPath}/weddinghall"
-                                >Wedding Hall</a
+                                >웨딩홀</a
                             >
                         </li>
                         <li class="black">
                             <a href="${pageContext.request.contextPath}/studio"
-                                >Studio</a
+                                >스튜디오</a
                             >
                         </li>
                         <li class="black">
-                            <a href="${pageContext.request.contextPath}/dress">Dress</a>
+                            <a href="${pageContext.request.contextPath}/dress">드레스</a>
                         </li>
                         <li class="black">
                             <a href="${pageContext.request.contextPath}/makeup"
-                                >Make Up</a
+                                >메이크업</a
                             >
                         </li>
                         <li class="black">
-                            <a href="${pageContext.request.contextPath}/package">Package</a>
+                            <a href="${pageContext.request.contextPath}/package">패키지</a>
                         </li>
                         <li class="black">
                             <a href="${pageContext.request.contextPath}/estimate"
-                                >Estimate</a
+                                >견적서</a
                             >
                         </li>
                         <li class="black">
                             <a
                                 href="${pageContext.request.contextPath}/reservation"
-                                >Reservation</a
+                                >예약</a
                             >
                         </li>
                         <li>|</li>
-                        <li class="grey">Review</li>
-                        <li class="grey">Event</li>
+                        <li class="grey">후기</li>
+                        <li class="grey">이벤트</li>
                     </ul>
                 </nav>
             </div>

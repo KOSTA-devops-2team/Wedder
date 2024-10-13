@@ -11,38 +11,67 @@
             rel="stylesheet"
             href="${pageContext.request.contextPath}/resources/css/common/pagination/pagination.css"
         />
-        <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>
+<%--        <script defer src="${pageContext.request.contextPath}/resources/css/common/pagination/hallPagination.js"></script>--%>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     </head>
     <body>
+    <nav class="pagination-container">
+        <ul class="pagination" id="pagination">
+            <%-- 첫 페이지 --%>
+            <c:choose>
+                <c:when test="${pagination.showPrev}">
+                    <li><a href="#" class="page-btn" onclick="goToPage(1)">&laquo;&laquo;</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="#" class="page-btn disabled">&laquo;&laquo;</a></li>
+                </c:otherwise>
+            </c:choose>
 
-        <nav class="pagination-container">
-            <ul class="pagination">
-                <%-- 첫 페이지 --%>
-                <li><a href="#" class="page-btn" data-page="1" ${pagination.page > 1 ? '' : 'disabled'}>&laquo;&laquo;</a></li>
-    <%--            <button class="button ${pagination.startPage != 1 ? '': 'disabled'}" id="startBtn" data-page="1">&laquo;&laquo;</button>--%>
+            <%--이전 페이지 버튼--%>
+            <c:choose>
+                <c:when test="${pagination.showPrev}">
+                    <li>
+                        <a href="#" class="page-btn" onclick="goToPage(${pagination.page - 1})">&laquo;</a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="#" class="page-btn disabled">&laquo;</a></li>
+                </c:otherwise>
+            </c:choose>
 
-                <%--이전 페이지 버튼--%>
-                <li>
-                    <a href="#" class="page-btn" data-page="${pagination.page > 1 ? pagination.page - 1 : 1}" ${pagination.page > 1 ? '' : 'disabled'}>&laquo;</a>
-                </li>
+            <c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="p">
+                <div class="page-btns" id="paginationLinks">
+                    <li>
+                        <a href="#" class="page-btn" onclick="goToPage(${p})"
+                           <c:if test="${pagination.page == p}">class="page-btn active"</c:if>>
+                                ${p}
+                        </a>
+                    </li>
+                </div>
+            </c:forEach>
 
-                <c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="p">
-                    <div class="page-btns" id="paginationLinks">
-                        <li>
-                            <a href="#" class="page-btn ${pagination.page == p ? 'active' : ''}" data-page="${p}">${p}</a>
-                        </li>
-                    </div>
-                </c:forEach>
+            <%--다음 페이지 버튼--%>
+            <c:choose>
+                <c:when test="${pagination.showNext}">
+                    <li>
+                        <a href="#" class="page-btn" onclick="goToPage(${pagination.page + 1})">&raquo;</a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="#" class="page-btn disabled">&raquo;</a></li>
+                </c:otherwise>
+            </c:choose>
 
-                <%--다음 페이지 버튼--%>
-                <li>
-                    <a href="#" class="page-btn" data-page="${pagination.page + 1}" ${pagination.page < pagination.totalPageCnt ? '' : 'disabled'}>&raquo;</a>
-                </li>
-                <%-- 끝 버튼 --%>
-                <li>
-                    <a href="#" class="page-btn" id="endBtn" data-page="${pagination.totalPageCnt}">&raquo;&raquo;</a>
-                </li>
-            </ul>
-        </nav>
+            <%-- 끝 버튼 --%>
+            <c:choose>
+                <c:when test="${pagination.page != pagination.totalPageCnt}">
+                    <li><a href="#" class="page-btn" onclick="goToPage(${pagination.totalPageCnt})">&raquo;&raquo;</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="#" class="page-btn disabled">&raquo;&raquo;</a></li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
+    </nav>
     </body>
 </html>

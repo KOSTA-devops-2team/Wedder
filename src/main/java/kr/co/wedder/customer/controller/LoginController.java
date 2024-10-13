@@ -70,6 +70,15 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		// 세션 객체에 id를 저장
 		session.setAttribute("id", id);
+		CustomerDto customerDTO = customerDao.findById(id);
+		if (customerDTO != null) {
+			session.setAttribute("customerId", customerDTO.getCustomerId());
+			session.setAttribute("customerEmail", customerDTO.getEmail());
+			session.setAttribute("customerName", customerDTO.getName());
+			session.setAttribute("customerTel", customerDTO.getPhone());
+		}
+		System.out.println("Session Customer ID: " + session.getAttribute("customer_id")); // 확인 로그
+
 
 		//4. 뷰이동
 		toURL = toURL==null || toURL.equals("") ? "/" : toURL;
@@ -79,9 +88,7 @@ public class LoginController {
 	private boolean loginCheck(String id, String password) {
 
 		CustomerDto customerDTO = customerDao.findById(id);
-		System.out.println("33333" + customerDTO);
 		if(customerDTO ==null) return false;
-		System.out.println(customerDTO.getPassword());
 		return customerDTO.getPassword().equals(password);
 	}
 

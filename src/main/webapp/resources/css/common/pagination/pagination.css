@@ -24,7 +24,7 @@
 }
 
 .button:disabled,
-.page-btn:disabled {
+.page-btn.disabled {
     color: #b3b3b3;
     pointer-events: none;
     cursor: not-allowed;
@@ -56,7 +56,7 @@
     background-color: #ca1a5a;
 }
 
-.page-btn .active {
+.page-btn.active {
     color: #fff;
     background: #ca1a5a;
 }
