@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="summary-item">
-                    <div class="summary-title">오늘 방문 일정</div>
+                    <div class="summary-title"> 방문 일정</div>
                     <div class="summary-count">
                         <span class="number">${visitCriteriaCount}</span>
                         <span class="unit">건</span>
@@ -141,7 +141,7 @@
 
 	                    <div class="table">
 	                        <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-1.png"
+                                    src="${companyDto.imgUrl}"
                                     alt="프로필 이미지"
                             />
 	                        <div>
@@ -167,7 +167,7 @@
 	                        <c:forEach var="companyDto" items="${companyListStudio}" >
 			                    <div class="table">
 			                        <img
-		                                  src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-2.png"
+                                            src="${companyDto.imgUrl}"
 		                                  alt="프로필 이미지"
 		                         	/>
 
@@ -186,7 +186,7 @@
 	                        <c:forEach var="companyDto" items="${companyListDress}" >
 			                    <div class="table">
 			                        <img
-		                                  src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-2.png"
+                                            src="${companyDto.imgUrl}"
 		                                  alt="프로필 이미지"
 		                         	/>
 
@@ -205,7 +205,7 @@
 	                        <c:forEach var="companyDto" items="${companyListMake}" >
 			                    <div class="table">
 			                        <img
-		                                  src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-2.png"
+                                            src="${companyDto.imgUrl}"
 		                                  alt="프로필 이미지"
 		                         	/>
 

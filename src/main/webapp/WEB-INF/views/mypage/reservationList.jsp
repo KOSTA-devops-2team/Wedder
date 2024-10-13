@@ -46,7 +46,7 @@
               </div>
             </div>
             <div class="summary-item">
-              <div class="summary-title">오늘 방문 일정</div>
+              <div class="summary-title"> 방문 일정</div>
               <div class="summary-count">
                 <span class="number">${visitCriteriaCount}</span>
                 <span class="unit">건</span>

@@ -4,7 +4,7 @@
 <c:set var="loginId" value="${sessionScope.id }" />
 <c:set var="loginout" value="${sessionScope.id==null ? '로그인' : '로그아웃' }" />
 <c:set var="loginoutlink" value="${sessionScope.id==null ? '/log/login' : '/log/logout' }" />
-<c:set var="mypagelink" value="${sessionScope.id == null ? '/log/login' : '/mypage/mypage' }" />
+<c:set var="mypagelink" value="${sessionScope.id == null ? '/log/login' : '/mypage/reservation-list' }" />
 <c:set var="likelink" value="${sessionScope.id == null ? '/log/login' : '/mypage/mypage' }" />  <!-- temporary -->
 <!DOCTYPE html>
 <html lang="ko">

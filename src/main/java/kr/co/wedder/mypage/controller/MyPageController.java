@@ -54,7 +54,7 @@ public class MyPageController {
 			// 
 			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDTO, reservationDto, historyDto);
 			visitCriteriaMap.put("companyId", (Integer) visitCriteria.getCompanyDto().getCompanyId());
-			visitCriteriaMap.put("customerId", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
+			visitCriteriaMap.put("customerId", customerId);
 			m.addAttribute("visitCriteria",visitCriteria);
 			
 			List<VisitCriteria> visitCriteriaList=myPageService.todayVisitHistory(visitCriteriaMap);
@@ -62,7 +62,8 @@ public class MyPageController {
 			
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
 			m.addAttribute("visitCriteriaCount",visitCriteriaCount);
-			
+			companyDtoMap.put("customerId", customerId);
+
 			companyDtoMap.put("category", "웨딩홀");
 			List<CompanyDto> companyListHall=myPageService.todayReservationHistory(companyDtoMap);
 			m.addAttribute("companyListHall",companyListHall);
@@ -317,8 +318,7 @@ public class MyPageController {
 					new VisitCriteria(
 							companyDto,myPageDto,reservationDto,companyImage,studioInfo,dressInfo,makeupInfo,hallInfoDto,optionDto);
 			m.addAttribute("coCriteria",coCriteria);
-			coReListMap.put("customerId", (Integer) coCriteria.getMyPageDTO().getCustomerId());
-			
+			coReListMap.put("customerId", customerId);
 			//업체별 예약 - 스튜디오
 			coReListMap.put("category","스튜디오" );
 			List<VisitCriteria> coReStudioList= myPageService.coReservationList(coReListMap);
