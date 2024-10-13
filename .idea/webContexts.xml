@@ -3,10 +3,10 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/header.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/pagination.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customer/loginForm.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customer" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/estimate/estimateCompany.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/estimate" />
-
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/package/packageDetail.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/package" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/loginForm.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user" />

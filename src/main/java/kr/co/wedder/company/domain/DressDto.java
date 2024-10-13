@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DressDto {
     private Integer dressId;
-    private Integer companyId;
+    private int companyId;
     private String dressType;
     private String repairService;
     private int consultationTime;

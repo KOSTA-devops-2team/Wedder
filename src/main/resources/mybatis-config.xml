@@ -21,7 +21,6 @@
         <typeAlias  alias="EstimateDto" type="kr.co.wedder.estimate.domain.EstimateDto" />
         <typeAlias  alias="PaymentRequest" type="kr.co.wedder.payment.domain.PaymentRequest" />
 
-
         <!-- company alias -->
         <typeAlias alias="CompanyDto" type="kr.co.wedder.company.domain.CompanyDto" />
         <typeAlias alias="HallDto" type="kr.co.wedder.company.domain.HallDto" />
@@ -29,6 +28,7 @@
         <typeAlias alias="DressDto" type="kr.co.wedder.company.domain.DressDto" />
         <typeAlias alias="MakeupDto" type="kr.co.wedder.company.domain.MakeupDto" />
         <typeAlias alias="Pagination" type="kr.co.wedder.company.domain.Pagination" />
+        <typeAlias alias="CompanyImageDto" type="kr.co.wedder.company.domain.CompanyImageDto" />
 
         <!--calendar alias  -->
         <typeAlias alias="CompanyScheduleDto" type="kr.co.wedder.calendar.domain.CompanyScheduleDto"/>

@@ -1,12 +1,15 @@
 package kr.co.wedder.company.dao;
 
+import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.CompanyImageDto;
 import kr.co.wedder.company.domain.Pagination;
-import kr.co.wedder.company.domain.SearchItem;
+import kr.co.wedder.mypage.domain.OptionDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,13 +48,41 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public List<CompanyDto> selectHallDetail(Integer companyId) throws Exception {
-        System.out.println("dao selectHallDetail");
+    public List<CompanyImageDto> selectCompanyImages(int companyId) throws Exception {
+        return session.selectList(namespace + "selectCompanyImages", companyId);
+    }
+
+    @Override
+    public CompanyDto selectCoordinateById(int companyId) throws Exception {
+        return session.selectOne(namespace + "selectCoordinateById", companyId);
+    }
+
+    @Override
+    public List<OptionDto> selectOptByCategory(String category) throws Exception {
+        return session.selectList(namespace + "selectOptByCategory", category);
+    }
+
+    @Override
+    public List<CompanyDto> selectHallDetail(int companyId) throws Exception {
         return session.selectList(namespace + "selectHallDetail", companyId);
     }
 
     @Override
-    public List<CompanyDto> selectCompanyImages(Integer companyId) throws Exception {
-        return session.selectList(namespace + "selectCompanyImages", companyId);
+    public List<CompanyDto> selectStudioDetail(int companyId) throws Exception {
+        return session.selectList(namespace + "selectStudioDetail", companyId);
+    }
+
+    @Override
+    public List<CompanyScheduleDto> selectAvailableHallDate(int companyId) {
+        return session.selectList(namespace + "selectAvailableHallDate", companyId);
+    }
+
+    @Override
+    public List<CompanyScheduleDto> selectAvailableHallTime(String companyName, Date date) {
+        Map map = new HashMap<>();
+        map.put("companyName", companyName);
+        map.put("date", date);
+
+        return session.selectList(namespace + "selectAvailableHallTime", map);
     }
 }

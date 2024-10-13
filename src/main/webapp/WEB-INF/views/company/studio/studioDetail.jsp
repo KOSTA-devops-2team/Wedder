@@ -8,62 +8,40 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/studio/studioDetail.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/company/studio/studioDetail.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css/common/mapApi.css"
+    />
+    <%--    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/mapApi.js"></script>--%>
+    <script type="text/javascript" defer src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49002230661bfc60fba4b0f1cfab9f60&autoload=false"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/mapTest.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
+    <c:forEach var="studio" items="${studioDetail}">
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
             <div class="main-title-container">
-                <h1>[강남] 비마이스튜디오</h1>
+                <h1>[${studio.location}] ${studio.companyName}</h1>
                 <div id="tags-container">
                     <!-- 태그 -->
                 </div>
                 <p>
-                    꾸미지 않은 이 순간의 자연스러움. 자연광 스튜디오로 층별
-                    분리된 서로 다른 컨셉의 공간으로 야외씬, 테라스씬,
-                    가든씬 등 다양한 배경으로 깨끗하고 자연스러운 인물+배경
-                    중심의 촬영을 하는 스튜디오입니다.
+                    ${studio.introduce}
                 </p>
             </div>
             <div class="carousel-container">
                 <div class="carousel-inner">
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/studio-8.jpg"
-                                alt="스튜디오 메인 이미지1"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/studio-3.jpg"
-                                alt="스튜디오 메인 이미지2"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/studio-4.jpg"
-                                alt="스튜디오 메인 이미지3"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/studio-12.jpg"
-                                alt="스튜디오 메인 이미지4"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/studio-9.jpg"
-                                alt="스튜디오 메인 이미지5"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/studio-11.jpg"
-                                alt="스튜디오 메인 이미지6"
-                        />
-                    </div>
+                    <c:forEach var="img" items="${imgList}">
+                        <div class="company-image-item">
+                            <img
+                                    src="${img.imgUrl}"
+                                    alt="스튜디오 메인 이미지${img.imgSeq}"
+                            />
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </section>
@@ -72,80 +50,66 @@
         <section class="information">
             <div class="title-container">
                 <h2>Information</h2>
-                <a href="#" id="review-link">후기 보러가기 >>></a>
             </div>
-            <!-- <div id="modal-container"></div> -->
 
             <div class="info-container">
                 <!-- 왼쪽 정보 -->
                 <table class="info-table">
                     <tr>
-                        <th>지역</th>
-                        <td>서울특별시 강남구</td>
+                        <th>주소</th><td>${studio.companyAddress}</td>
                     </tr>
                     <tr>
-                        <th>연락처</th>
-                        <td>02-111-1111</td>
+                        <th>연락처</th><td>${studio.phoneNum}</td>
                     </tr>
                     <tr>
-                        <th>휴무일</th>
-                        <td>월요일 휴무</td>
+                        <th>운영 시간</th><td>${studio.operationHours}</td>
                     </tr>
                     <tr>
-                        <th>영업 시간</th>
-                        <td>10:00 ~ 19:00</td>
+                        <th>촬영 유형</th>
+                        <td>${studio.studioDto.shootType}</td>
                     </tr>
                     <tr>
-                        <th>기본 상품 구성</th>
-                        <td>앨범 1권(20P) + 기본 액자 1개</td>
+                        <th>상품 구성</th>
+                        <td>${studio.studioDto.product}</td>
                     </tr>
                     <tr>
                         <th>촬영 소요 시간</th>
-                        <td>4시간</td>
+                        <td>${studio.studioDto.shootDuration}</td>
                     </tr>
                     <tr>
                         <th>보유 소품</th>
-                        <td>조화부케, 웨딩슈즈</td>
+                        <td>${studio.studioDto.props}</td>
                     </tr>
                     <tr>
                         <th>촬영 의상</th>
-                        <td>총 4벌 (드레스 3벌, 캐주얼 1벌)</td>
+                        <td>${studio.studioDto.rentalClothing}</td>
                     </tr>
                     <tr>
                         <th>헤어 변형 출장 업체</th>
-                        <td>가능</td>
-                    </tr>
-                    <tr>
-                        <th>홈페이지</th>
-                        <td>www.bemystudio.co.kr</td>
+                        <td>${studio.studioDto.hairChangeAvailability}</td>
                     </tr>
                 </table>
                 <!-- 오른쪽 정보 -->
                 <div>
                     <table class="info-table">
                         <tr>
-                            <th>주소</th>
-                            <td>서울 강남구 역삼로38길 6 </td>
-                        </tr>
-                        <tr>
-                            <th>대중교통 </th>
-                            <td>지하철 2호선 역삼역 </td>
+                            <th>지도</th>
                         </tr>
                     </table>
-                    <div class="info-map">
-                        <img
-                                src="resources/images/studio-map.png"
-                        />
+<%--                    <div class="info-map">--%>
+<%--                        <%@ include file="/WEB-INF/views/common/mapApi.jsp" %>--%>
+<%--                    </div>--%>
+                    <div class="info-map" id="map" data-company-id="${studio.companyId}" data-latitude="${studio.latitude}" data-longitude="${studio.longitude}">
                     </div>
                 </div>
             </div>
             <div class="buttons">
                 <button class="like-btn">찜하기</button>
-                <button class="list-btn">목록</button>
+                <a href="${pageContext.request.contextPath}/studio"><button class="list-btn">목록</button></a>
                 <button class="estimate-btn">견적함에 담기</button>
             </div>
         </section>
-
+    </c:forEach>
         <!-- 3. 일정 현황-->
         <section class="schedule">
             <div class="title-container">
@@ -208,6 +172,14 @@
                             <th>상세 설명</th>
                             <th>금액</th>
                         </tr>
+                        <c:forEach var="option" items="${optionList}">
+                            <tr>
+                                <td>${option.optioName}</td>
+                                <td>${option.optionDescription}</td>
+                                <td>${option.optionPrice}</td>
+                            </tr>
+                        </c:forEach>
+
                         <tr>
                             <td>야간 촬영</td>
                             <td>17시 이후부터 촬영 가능</td>
@@ -269,8 +241,6 @@
                         ✔️ 실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.
                     </p>
                 </div>
-
-
             </div>
         </section>
 
@@ -285,7 +255,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-13.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-13.jpg"
                                         alt="스튜디오 이미지 1"
                                 />
                             </div>
@@ -297,7 +267,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-14.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-14.jpg"
                                         alt="스튜디오 이미지 2"
                                 />
                             </div>
@@ -309,7 +279,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-2.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-2.jpg"
                                         alt="스튜디오 이미지 3"
                                 />
                             </div>
@@ -321,7 +291,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-5.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-5.jpg"
                                         alt="스튜디오 이미지 4"
                                 />
                             </div>
@@ -333,7 +303,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-13.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-13.jpg"
                                         alt="스튜디오 이미지 1"
                                 />
                             </div>
@@ -345,7 +315,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-14.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-14.jpg"
                                         alt="스튜디오 이미지 2"
                                 />
                             </div>
@@ -357,7 +327,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-2.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-2.jpg"
                                         alt="스튜디오 이미지 3"
                                 />
                             </div>
@@ -369,7 +339,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/studio-5.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-5.jpg"
                                         alt="스튜디오 이미지 4"
                                 />
                             </div>
@@ -415,7 +385,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-13.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-13.jpg"
                                         alt="스튜디오 이미지 1"
                                 />
                             </div>
@@ -427,7 +397,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-14.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-14.jpg"
                                         alt="스튜디오 이미지 2"
                                 />
                             </div>
@@ -439,7 +409,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-2.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-2.jpg"
                                         alt="스튜디오 이미지 3"
                                 />
                             </div>
@@ -451,7 +421,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-5.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-5.jpg"
                                         alt="스튜디오 이미지 4"
                                 />
                             </div>
@@ -463,7 +433,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-13.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-13.jpg"
                                         alt="스튜디오 이미지 1"
                                 />
                             </div>
@@ -475,7 +445,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-14.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-14.jpg"
                                         alt="스튜디오 이미지 2"
                                 />
                             </div>
@@ -487,7 +457,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-2.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-2.jpg"
                                         alt="스튜디오 이미지 3"
                                 />
                             </div>
@@ -499,7 +469,7 @@
                         <div class="recommend-item">
                             <div class="recommend-item-img">
                                 <img
-                                        src="resources/images/studio-5.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/studio-5.jpg"
                                         alt="스튜디오 이미지 4"
                                 />
                             </div>
@@ -529,6 +499,5 @@
         </section>
     </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
-    <script src="${pageContext.request.contextPath}/resources/js/company/studio/studioDetail.js"></script>
 </body>
 </html>

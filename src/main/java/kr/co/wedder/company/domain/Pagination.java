@@ -11,7 +11,7 @@ public class Pagination {
     public static final int DEFAULT_PAGE_SIZE = 9;
     public static final int DEFAULT_BUTTON_SIZE = 5;
 
-    private int page = 1;         // 현재 페이지
+    private int page;         // 현재 페이지
     private int pageSize = DEFAULT_PAGE_SIZE;         // 페이지 당 보여줄 게시물 수
     private int totalListCnt;     // 게시물 총 건수
     public final int NAV_SIZE = DEFAULT_BUTTON_SIZE;  // 버튼 갯수
@@ -38,15 +38,21 @@ public class Pagination {
     public void doPaging(int page, int pageSize, int totalListCnt) {
         // 전체 페이지 수
         this.totalPageCnt = (int) Math.ceil((double) totalListCnt / pageSize);
-        System.out.println("totalPageCnt: " + totalPageCnt);
+
         // 현재 페이지가 1보다 작을 경우 1로 설정
         if (page < 1) {
             page = 1;
         }
-        // 현재 페이지가 전체 페이지 수보다 크면 전체 페이지 수로 설정
-        if (page > totalPageCnt) {
-            page = totalPageCnt;
+        if (this.totalPageCnt == 0) {
+            this.totalPageCnt = 1; // 최소 페이지 수를 1로 설정
         }
+        System.out.println("totalPageCnt: " + totalPageCnt);
+        // 현재 페이지가 전체 페이지 수보다 크면 전체 페이지 수로 설정
+//        if (page > totalPageCnt) {
+//            page = totalPageCnt;
+//        }
+        // this.page에 유효한 page 값 저장
+        this.page = page;
         // page가 tatalPage보다 크지 않음
         //this.page(Math.min(page, totalPageCnt));
         // 현재 페이지에 보여줄 시작 페이지 숫자
@@ -55,7 +61,6 @@ public class Pagination {
         // 현재 페이지에 보여줄 마지막 페이지 숫자
         this.endPage = startPage + NAV_SIZE - 1;
         System.out.println("endPage: " + endPage);
-        System.out.println("dto before - startList :" + startList);
         System.out.println("dto before - page :" + page);
         // 마지막 페이지가 전체 페이지 수를 초과하지 않도록 설정
         if (endPage > totalPageCnt) {
@@ -63,8 +68,9 @@ public class Pagination {
         }
         this.startList = (page - 1) * pageSize;
         System.out.println("dto after - startList: " + startList);
-        System.out.println("dto after - page :" + page);
         this.showPrev = startList > 1;
-        this.showNext = endPage < totalPageCnt;
+        this.showNext = page < totalPageCnt;
+
+        System.out.println("dto after - page: " + this.page);
     }
 }

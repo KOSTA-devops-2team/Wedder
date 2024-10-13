@@ -19,4 +19,5 @@ public class OptionDto {
 	private String optionName;
 	private Integer optionPrice;
 	private String category;
+	private String optionDescription;
 }
