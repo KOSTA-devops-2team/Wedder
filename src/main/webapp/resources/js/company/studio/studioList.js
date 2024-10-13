@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // goToPage(1)
     $(".search-btn").on("click", function (e) {
         e.preventDefault()
         performSearch()

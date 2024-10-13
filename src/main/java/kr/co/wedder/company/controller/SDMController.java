@@ -32,7 +32,7 @@ public class SDMController {
             System.out.println("Controller - totalListCnt : " + totalListCnt);
 
             Pagination pagination = new Pagination();
-            pagination.doPaging(totalListCnt, page, pageSize);
+            pagination.doPaging(page, pageSize, totalListCnt);
             m.addAttribute("pagination", pagination);
 
             List<CompanyDto> studioList = companyService.getStudioList(pagination, category);
