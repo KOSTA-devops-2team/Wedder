@@ -137,4 +137,9 @@ public class MyPageServiceImpl implements MyPageService {
 		return myPageDao.getCalendarEvents(customer_id);
 	}
 
+	@Override
+	public List<Map<String, Object>> getWeddingReservations(Integer customer_id, String company_category) {
+		return myPageDao.getWeddingReservations(customer_id,company_category);
+	}
+
 }

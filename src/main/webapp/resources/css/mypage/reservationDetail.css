@@ -167,3 +167,6 @@ td {
 .active{
   display: flex;
 }
+img{
+  object-fit: cover;
+}

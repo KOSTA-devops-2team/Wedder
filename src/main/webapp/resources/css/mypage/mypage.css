@@ -42,7 +42,6 @@
 .summary-item {
   display: flex;
   flex-direction: column;
-  align-items: left;
   margin-right: 30px;
   border-left: 1px solid white;
   padding-left: 13px;
@@ -279,37 +278,41 @@ td {
   cursor: pointer;
   margin-bottom: 3px;
 }
-
 .content {
   margin-top: 20px;
 }
-.content {
+
+.tab-content{
   display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 10px;
 }
-.content div .is_on {
-  display: grid;
+#tab1 image{
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
 }
 
+
 /* 콘텐트 내용 */
+
 .studio,
 .makeUp,
 .dress {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+
 }
 
 .active {
-  display: grid;
-  grid-template-rows: 1fr;
+display: grid;
+  grid-template-rows: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 #mail {
   width: 25px;
   height: 25px;
-  margin: -2px 4px 6px 0px;
-  background-image: url(../../assets/images/mail.png);
+  margin: -2px 4px 6px 0;
   background-size: cover;
   border: none;
   cursor: pointer;
@@ -318,7 +321,6 @@ td {
   width: 20px;
   height: 20px;
   margin-bottom: 10px;
-  background-image: url("../../assets/images/empty-heart.png");
   background-size: cover;
   border: none;
   cursor: pointer;
@@ -327,7 +329,6 @@ td {
   width: 20px;
   height: 20px;
   margin-bottom: 10px;
-  background-image: url("../../assets/images/full-heart.png");
   background-size: cover;
   border: none;
   cursor: pointer;
@@ -343,4 +344,13 @@ td {
 }
 .hidden{
 	display: none;
+}
+img{
+  object-fit: cover;
+  /*width: 200px;*/
+  /*height: 200px;*/
+}
+
+#Mypage-section3{
+  margin-top: 15px;
 }

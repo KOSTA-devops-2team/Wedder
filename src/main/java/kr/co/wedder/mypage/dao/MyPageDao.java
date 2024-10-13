@@ -72,4 +72,6 @@ public interface MyPageDao {
 	List<Map<String,Object>> searchOrderName(Integer customer_id,String order_name)throws Exception;
 	//post Calendar ajax로 일정 추가
 	List<Map<String,Object>> getCalendarEvents(Integer customer_id);
+	/*Wedding Resv */
+	List<Map<String,Object>> getWeddingReservations(Integer customer_id,String company_category);
 }

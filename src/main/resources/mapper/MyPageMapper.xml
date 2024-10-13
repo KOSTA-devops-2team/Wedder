@@ -322,4 +322,12 @@
 		join company com on r.company_id = com.company_id
 		where c.customer_id=${customer_id};
 	</select>
+	<!--웨딩홀 예약 일정 불러오기 -->
+	<select id="getWeddingReservations" parameterType="map" resultType="map">
+	select r.* ,co.company_id from reservation r
+		join company co on co.company_id = r.company_id
+		join customer cu on cu.customer_id = r.customer_id
+		join companyImage cI on cI.company_id =co.company_id
+	where cu.customer_id=${customer_id} and co.company_category=${company_category};
+	</select>
 </mapper>

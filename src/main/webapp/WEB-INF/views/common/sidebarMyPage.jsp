@@ -14,11 +14,11 @@
     <nav class="mypage-menu">
       <ul>
         <li class="myProfile menu-section">
-          <span class="title"> <b>My Profile</b></span>
+          <span class="title"> <b>마이 페이지</b></span>
           <br />
           <ul class="list">
             <li class="item">
-              <a href="mypage">MyProfile</a>
+              <a href="mypage">마이 프로필</a>
             </li>
 
             <li class="item" id="myPage_Visit">
@@ -29,9 +29,6 @@
               <a href="reservation-list"> 예약 현황</a>
             </li>
             <br />
-            <li class="item">
-              <a href="likelist">My Like</a>
-            </li>
 
             <li class="item">
               <a href="mypayment">결제 내역</a>
@@ -39,6 +36,10 @@
 
             <li class="item">
               <a href="estimate-storage">견적함</a>
+            </li>
+
+            <li class="item">
+              <a href="likelist">좋아요</a>
             </li>
           </ul>
         </li>
