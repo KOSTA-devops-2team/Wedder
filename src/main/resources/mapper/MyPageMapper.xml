@@ -195,7 +195,7 @@
 			 JOIN company 			ON reservation.company_id 		= company.company_id
 			 JOIN customer 			ON reservation.customer_id 		= customer.customer_id
 			 JOIN history 			ON history.customer_id 			= customer.customer_id
-	 	Where customer.customer_id =#{customerId}
+	 	Where customer.customer_id =#{customerId} and company_category='웨딩홀'
 	</select>
 
 	<select id="todayVisitCount" parameterType="map" resultType="int" >
@@ -204,7 +204,7 @@
 			 JOIN company 			ON reservation.company_id 		= company.company_id
 			 JOIN customer 			ON reservation.customer_id 		= customer.customer_id
 			 JOIN history 			ON history.customer_id 			= customer.customer_id
-	 	Where customer.customer_id =#{customerId}
+	 	Where customer.customer_id =#{customerId} and company_category='웨딩홀'
 	</select>
 	
 	<select id="todayReservationHistory" parameterType="map" resultType="CompanyDto">
