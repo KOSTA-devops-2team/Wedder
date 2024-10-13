@@ -8,4 +8,11 @@
         INSERT INTO reservation (company_id, customer_id, reservation_date, reservation_time, visit_reservation, hope_date)
         VALUES (#{companyId}, #{customerId}, #{reservationDate}, #{reservationTime}, #{visitReservation}, #{hopeDate})
     </insert>
+
+    <delete id="deleteReservedSchedule" parameterType="kr.co.wedder.reservation.sdm.domain.ScheduleDto">
+        delete from companySchedule
+        WHERE company_id = #{companyId}
+        AND date = #{reservationDate, jdbcType=DATE}
+        AND time = #{reservationTime}
+    </delete>
 </mapper>
