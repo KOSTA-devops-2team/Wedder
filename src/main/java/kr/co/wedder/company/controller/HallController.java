@@ -1,6 +1,5 @@
 package kr.co.wedder.company.controller;
 
-import kr.co.wedder.calendar.domain.PageResolver;
 import kr.co.wedder.company.domain.CompanyDto;
 import kr.co.wedder.company.domain.Pagination;
 import kr.co.wedder.company.service.CompanyService;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller

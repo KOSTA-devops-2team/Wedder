@@ -63,6 +63,7 @@
             <h4>웨딩홀 방문 예약 내역</h4>
           </div>
           <section class="reservationList-visithall-middle" id="reservation-section1">
+			  <div class="visitBox"> 현재 방문 예약 건이 없습니다.</div>
 	          <c:forEach var="hallCriteria" items="${hallVisitReservatioinList}">
 	            <div class="reservationList-visithall-card">
 
@@ -100,6 +101,7 @@
             <h4>웨딩홀 예약 내역</h4>
           </div>
           <section class="reservationList-hall-middle" id="reservation-section2" >
+			  <div class="visitBox"> 현재  예약 건이 없습니다.</div>
             <c:forEach var="hallCriteria" items="${hallReList}">
 	            <div class="reservationList-visithall-card">
 

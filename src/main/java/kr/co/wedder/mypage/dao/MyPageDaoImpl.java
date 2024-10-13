@@ -164,5 +164,13 @@ public class MyPageDaoImpl implements MyPageDao {
 		parameterTypeMap.put("customer_id",customer_id);
 		return session.selectList(namespace+"getCalendarEvents",parameterTypeMap);
 	}
+	/*Wedding hall Reservation Select */
+	@Override
+	public List<Map<String, Object>> getWeddingReservations(Integer customer_id, String company_category)  {
+		Map<String,Object> parameterTypeMap = new HashMap<>();
+		parameterTypeMap.put("customer_id",customer_id);
+		parameterTypeMap.put("company_category",company_category);
+		return session.selectList(namespace+"getWeddingReservations",parameterTypeMap);
+	}
 
 }

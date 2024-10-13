@@ -29,9 +29,6 @@
               <a href="reservation-list"> 예약 현황</a>
             </li>
             <br />
-            <li class="item">
-              <a href="likelist">라이크리스트</a>
-            </li>
 
             <li class="item">
               <a href="mypayment">결제 내역</a>
@@ -39,6 +36,10 @@
 
             <li class="item">
               <a href="estimate-storage">견적함</a>
+            </li>
+
+            <li class="item">
+              <a href="likelist">좋아요</a>
             </li>
           </ul>
         </li>

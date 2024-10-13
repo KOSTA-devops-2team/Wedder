@@ -62,7 +62,7 @@
         <main>
             <!-- 2.프로필 정보 -->
             <section class="profile" id="Mypage-section2">
-                <div class="profile-main">
+                <div class="profile-main" style="display: none;">
                     <div class="profile-main-image">
                         <img
                                 src="${myPageDTO.profileUrl}"
@@ -93,7 +93,7 @@
             <!-- 3.금일 방문 일정 -->
             <section class="visit-plan" id="Mypage-section3">
                 <div class="sub-title-header">
-                    <div class="sub-title">금일 방문 일정</div>
+                    <div class="sub-title"> 방문 일정</div>
                     <div class="Reservation-mange-go">
                         <a href="#">방문 일정 상세보기>>></a>
                     </div>
