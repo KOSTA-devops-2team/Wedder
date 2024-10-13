@@ -126,7 +126,7 @@ $('.kakao-pay').on('click', function (e) {
                         reservations: data.reservations  // 예약 정보 전송
                     }),
                     success: function (response) {
-                        location.href = "/mypage/mypage";
+                        location.href = "/package/recommend";
                     },
                     error: function (error) {
                         console.error("서버로 결제 데이터 전송 중 오류 발생:", error);

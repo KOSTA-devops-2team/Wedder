@@ -5,11 +5,14 @@ import kr.co.wedder.payment.dao.PaymentDao;
 import kr.co.wedder.payment.domain.PaymentDto;
 import kr.co.wedder.payment.domain.PaymentRequest;
 import kr.co.wedder.reservation.sdm.dao.ReservationDao;
+import kr.co.wedder.reservation.sdm.domain.ScheduleDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.text.SimpleDateFormat;
 
 
 @Service
@@ -49,6 +52,18 @@ public class PaymentServiceImpl implements PaymentService {
                 System.out.println("예약 정보 리스트 reservation = " + reservation);
                 reservationDao.insertReservationInfo(reservation);
             }
+
+            // 3. 업체 스케줄 테이블에서 일정 삭제
+            for (ReservationDto reservation : paymentRequest.getReservations()) {
+                System.out.println("예약 날짜: " + reservation.getReservationDate());
+                System.out.println("예약 시간: " + reservation.getReservationTime());
+                ScheduleDto schedule = new ScheduleDto(reservation.getCompanyId(), reservation.getReservationDate(), reservation.getReservationTime());
+                System.out.println("삭제 될 업체 일정 schedule = " + schedule);
+
+                reservationDao.deleteReservedSchedule(schedule);
+            }
+
+
         } catch (Exception e) {
             System.out.println("예외 발생: " + e.getMessage());
             e.printStackTrace();
