@@ -28,7 +28,7 @@
                 <input type="text" name="id" placeholder="아이디" value="${param.id != null ? param.id : cookie.id.value}" />
             </div>
             <div class="password">
-                <input type="password" name="password" placeholder="비밀번호" />
+                <input type="password" name="password" placeholder="비밀번호" value="pass123#"/>
                 <img
                         class="password-invisible"
                         src="${pageContext.request.contextPath}/resources/images/password-invisible.png"

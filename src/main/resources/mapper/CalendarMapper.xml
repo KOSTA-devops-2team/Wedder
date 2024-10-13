@@ -6,7 +6,7 @@
 	<!-- 참조되는 sql문-->
 	  <sql id="selectFromSchedule">
 		    SELECT schedule_id, company_id, company_name, `date`, time
-		    FROM company_schedule
+		    FROM companySchedule
 	  </sql>
 	  <sql id="searchCondition">
 	  	<choose>
@@ -30,16 +30,16 @@
 	  
 	<!--deleteAll  -->
 	<delete id ="deleteAll">
-		DELETE FROM wedder.company_schedule
+		DELETE FROM wedder.companySchedule
 	</delete>
 	<!--dlete-->
 	<delete id ="delete" parameterType="int">
-		DELETE FROM wedder.company_schedule
+		DELETE FROM wedder.companySchedule
 		WHERE schedule_id=#{scheduleId}
 	</delete>
 	<!-- insert -->
 	<insert id="insert" parameterType="CompanyScheduleDto">
-		INSERT INTO wedder.company_schedule
+		INSERT INTO wedder.companySchedule
 		( company_id, company_name, `date`, time)
 		VALUES(#{companyId}, #{companyName}, #{date}, #{time})
 	</insert>
@@ -51,7 +51,7 @@
 	</select>
 	<!-- searchResultCnt -->
 	<select id="searchResultCnt" parameterType="SearchItem" resultType="int">
- 		select count(*) from company_schedule
+ 		select count(*) from companySchedule
  		where true
  		<include refid="searchCondition" />
  	</select>

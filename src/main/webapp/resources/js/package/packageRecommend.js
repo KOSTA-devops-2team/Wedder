@@ -1,3 +1,24 @@
+$(document).ready(function () {
+
+    const swiper = new Swiper('.swiper-container', {
+        // Navigation arrows 설정
+        navigation: {
+            nextEl: '.swiper-next',   // 다음 버튼
+            prevEl: '.swiper-prev',   // 이전 버튼
+        },
+
+        // Optional parameters
+        loop: true,  // 무한 반복
+
+        // If we need pagination (페이지네이션)
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,  // 페이지네이션을 클릭해서 슬라이드 이동 가능
+        }
+    });
+});
+
+
 // 1. autoComplete을 이용한 업체명 자동완성 기능
 $('#autoComplete').autocomplete({
     source: function (request, response) { //source: 입력시 보일 목록

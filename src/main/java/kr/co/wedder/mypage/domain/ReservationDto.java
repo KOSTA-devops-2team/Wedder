@@ -1,7 +1,6 @@
 package kr.co.wedder.mypage.domain;
 
 import java.util.Date;
-import java.util.Objects;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +25,4 @@ public class ReservationDto {
 	private String 	reservationTime;
 	private boolean visitReservation;
 	private Date 	hopeDate;
-
-	
 }
