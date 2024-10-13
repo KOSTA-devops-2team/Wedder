@@ -1,22 +1,22 @@
-$(document).ready(function () {
-
-    const swiper = new Swiper('.swiper-container', {
-        // Navigation arrows 설정
-        navigation: {
-            nextEl: '.swiper-next',   // 다음 버튼
-            prevEl: '.swiper-prev',   // 이전 버튼
-        },
-
-        // Optional parameters
-        loop: true,  // 무한 반복
-
-        // If we need pagination (페이지네이션)
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,  // 페이지네이션을 클릭해서 슬라이드 이동 가능
-        }
-    });
-});
+// $(document).ready(function () {
+//
+//     const swiper = new Swiper('.swiper-container', {
+//         // Navigation arrows 설정
+//         navigation: {
+//             nextEl: '.swiper-next',   // 다음 버튼
+//             prevEl: '.swiper-prev',   // 이전 버튼
+//         },
+//
+//         // Optional parameters
+//         loop: true,  // 무한 반복
+//
+//         // If we need pagination (페이지네이션)
+//         pagination: {
+//             el: '.swiper-pagination',
+//             clickable: true,  // 페이지네이션을 클릭해서 슬라이드 이동 가능
+//         }
+//     });
+// });
 
 
 // 아래 -> 위 애니메이션 (패키지 설명 및 이용방법)

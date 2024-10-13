@@ -1,39 +1,173 @@
+/* 슬라이드 상단 공백 해결 */
+body {
+    margin-top: 143px !important;
+}
+
+/*패키지 배너*/
+.swiper-slide {
+    overflow: hidden;
+}
+
+.swiper-container {
+    overflow: hidden;
+}
+
+.first-title {
+    color: #5D493E;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.first-title-2 {
+    color: #004C8C;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.second-title {
+    margin-top: 24px;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 23px;
+    color: #222222;
+}
+
+.third-title {
+    font-size: 20px;
+    color: #ca1a5a;
+}
+
+.third-title-2 {
+    font-size: 20px;
+    color: #DAA520;
+}
+
+.package-top-banner-1 {
+    width: 100%;
+    height: 310px;
+    position: relative;
+    background-color: #f4f4f5;
+}
+
+.package-top-banner-2 {
+    width: 100%;
+    height: 310px;
+    position: relative;
+    background-color: #f4f4f5;
+}
+
+.package-main-content {
+    max-width: 960px;
+    position: absolute;
+    top: 128px;
+    left: 725px;
+    transform: translate(-50%, -50%);
+
+}
+
+.package-show-button {
+    display: inline-block;
+    right: 0px;
+    position: absolute;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #e91e63;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.package-show-button:hover {
+    background-color: #d81b60;
+}
+
+
+.estimate {
+    background-color: #004C8C;
+    color: #ffffff;
+}
+
+.banner-coin {
+    position: absolute;
+    top: 247px;
+    right: 330px;
+    height: 100px;
+}
+
+.banner-gift {
+    position: absolute;
+    top: 47px;
+    right: 309px;
+    height: 190px;
+}
+
+
+/*배너 화살표 css*/
+.swiper-button-prev, .swiper-button-next {
+    color: #eeeeee;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: black;
+}
+
+.swiper-prev {
+    position: absolute;
+    left: 10px;
+    top: 290px;
+}
+
+.swiper-next {
+    position: absolute;
+    right: 10px;
+    top: 290px;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    top: 420px;
+    left: 0;
+    width: 100%;
+}
+
 /* 슬라이드 */
 .slider-box {
     height: 75vh;
 }
 .slider-box .swiper {
-    height:100%;
+    height: 100%;
 }
-.swiper > .swiper-wrapper > .swiper-slide:nth-child(odd) {
-    background-color: rgba(206, 26, 90, 0.15);
-}
-.swiper > .swiper-wrapper > .swiper-slide:nth-child(even) {
-    background-color: rgba(206, 26, 90, 0.15);
-}
+
 .banner-content {
     text-align: left;
     margin: 170px 500px;
 }
-.title-bold {
+.banner-content2 {
+    text-align: center;
+    margin: 170px 500px;
+}
+
+/* 슬라이드 내용 */
+.banner-bold {
     font-size: 50px;
     font-weight: bold;
 }
-.title-one {
+.banner-text1 {
     margin: 20px 0px 20px;
     color: #666;
 }
-.title-two {
-    margin: 20px 0px 20px;
-    color: #666;
+.banner-text2 {
+    font-size: 50px;
+    color: #000;
+    font-weight: 700    ;
 }
-.color {
-    color : red;
-    text-align: text-bottom;
-}
-.title-three {
-    margin: 20px 0px 20px;
-    color: #666;
+.banner-text3 {
+    font-size: 35px;
+    color: #000;
+    font-weight: 700    ;
 }
 .gift {
     position: fixed;
@@ -49,6 +183,15 @@ span.color {
     color: red;
     vertical-align: text-bottom;
 }
+.button-list {
+    text-align: center;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 /* 상단 그리드 */
 .pack-title {
     display: flex;
@@ -56,7 +199,7 @@ span.color {
     align-items: center;
     padding-bottom: 20px;
     border-bottom: 2px solid #000;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 700;
     margin-bottom: 10px;
 }
@@ -124,10 +267,13 @@ span.color {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+.price-range {
+    align-content:center;
+}
 .range {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 0 20px;
 }
 .price-title {
@@ -169,7 +315,7 @@ margin: auto;
 }
 
 .package-section {
-    margin: 30px 0 70px 0;
+    margin: 70px 0;
 }
 
 
