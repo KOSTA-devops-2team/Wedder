@@ -93,7 +93,7 @@
     </select>
 
     <select id="selectCompanyByCategory" parameterType="map" resultMap="companyDtoMap">
-        SELECT *
+        SELECT c.*, h.*, s.*, d.*, m.*, i.*
         FROM company c
         LEFT JOIN hallInfo h ON c.company_id = h.company_id
         LEFT JOIN studioInfo s ON c.company_id = s.company_id
@@ -101,9 +101,23 @@
         LEFT JOIN makeupInfo m ON c.company_id = m.company_id
         LEFT JOIN companyImage i ON c.company_id = i.company_id
         WHERE c.company_category = #{category}
-        ORDER BY c.company_id desc
+        GROUP BY c.company_id
+        ORDER BY c.company_id DESC
         LIMIT #{pagination.pageSize} OFFSET #{pagination.startList}
     </select>
+
+    <!--    <select id="selectCompanyByCategory" parameterType="map" resultMap="companyDtoMap">-->
+<!--        SELECT *-->
+<!--        FROM company c-->
+<!--        LEFT JOIN hallInfo h ON c.company_id = h.company_id-->
+<!--        LEFT JOIN studioInfo s ON c.company_id = s.company_id-->
+<!--        LEFT JOIN dressInfo d ON c.company_id = d.company_id-->
+<!--        LEFT JOIN makeupInfo m ON c.company_id = m.company_id-->
+<!--        LEFT JOIN companyImage i ON c.company_id = i.company_id-->
+<!--        WHERE c.company_category = #{category}-->
+<!--        ORDER BY c.company_id desc-->
+<!--        LIMIT #{pagination.pageSize} OFFSET #{pagination.startList}-->
+<!--    </select>-->
 
     <select id="selectCompanyListCnt" parameterType="String" resultType="int">
         SELECT count(*) FROM company

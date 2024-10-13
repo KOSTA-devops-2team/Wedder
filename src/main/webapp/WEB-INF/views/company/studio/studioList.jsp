@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/studio/studioList.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
-    <script defer src="${pageContext.request.contextPath}/resources/js/company/studio/studioList.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 </head>
@@ -83,7 +83,7 @@
         <!-- 업체 리스트 부분  -->
         <section class="list-all">
             <c:forEach var="card" items="${studioList}">
-                <div class="card" data-id="1">
+                <div class="card">
                     <a href="${pageContext.request.contextPath}/studio/detail/${card.companyId}">
                         <img
                                 class="card-img"
@@ -121,5 +121,6 @@
         <%@ include file="/WEB-INF/views/common/pagination.jsp" %>
     </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
+    <script defer src="${pageContext.request.contextPath}/resources/js/company/studio/studioList.js"></script>
 </body>
 </html>
