@@ -36,7 +36,7 @@
       </div>
       <div class="hd__inner880">
         <section class="summary">
-          <h1>안녕하세요. ${myPageDTO.name}  고객님</h1>
+          <h1>안녕하세요. ${myPageDTO.name} 님</h1>
           <div class="summary-lists">
             <div class="summary-item">
               <div class="summary-title">신규 방문 예약</div>

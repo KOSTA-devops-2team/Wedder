@@ -35,7 +35,7 @@
       </div>
       <div>
         <section class="summary">
-          <h1>안녕하세요. 마리아쥬스퀘어 고객님</h1>
+          <h1>안녕하세요. 마리아쥬스퀘어님</h1>
           <div class="summary-lists">
             <div class="summary-item">
               <div class="summary-title">신규 방문 예약</div>

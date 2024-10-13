@@ -14,6 +14,7 @@
             href="${pageContext.request.contextPath}/resources/css/common/sidebar/sidebarMypage.css"
     />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/mypage/estimateStorage.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/mypage/myPageMain.js"></script>
   </head>
   <body>

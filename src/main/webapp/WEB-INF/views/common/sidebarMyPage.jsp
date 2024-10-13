@@ -14,11 +14,11 @@
     <nav class="mypage-menu">
       <ul>
         <li class="myProfile menu-section">
-          <span class="title"> <b>My Profile</b></span>
+          <span class="title"> <b>마이 페이지</b></span>
           <br />
           <ul class="list">
             <li class="item">
-              <a href="mypage">MyProfile</a>
+              <a href="mypage">마이 프로필</a>
             </li>
 
             <li class="item" id="myPage_Visit">
@@ -30,7 +30,7 @@
             </li>
             <br />
             <li class="item">
-              <a href="likelist">My Like</a>
+              <a href="likelist">라이크리스트</a>
             </li>
 
             <li class="item">

@@ -255,3 +255,9 @@
   padding: 10px;
   margin: 0px;
 }
+.date{
+  height: 90px;
+}
+img{
+  object-fit: cover;
+}

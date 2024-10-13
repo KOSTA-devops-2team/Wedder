@@ -42,7 +42,6 @@
 .summary-item {
   display: flex;
   flex-direction: column;
-  align-items: left;
   margin-right: 30px;
   border-left: 1px solid white;
   padding-left: 13px;
@@ -309,7 +308,6 @@ td {
   width: 25px;
   height: 25px;
   margin: -2px 4px 6px 0px;
-  background-image: url(../../assets/images/mail.png);
   background-size: cover;
   border: none;
   cursor: pointer;
@@ -318,7 +316,6 @@ td {
   width: 20px;
   height: 20px;
   margin-bottom: 10px;
-  background-image: url("../../assets/images/empty-heart.png");
   background-size: cover;
   border: none;
   cursor: pointer;
@@ -327,7 +324,6 @@ td {
   width: 20px;
   height: 20px;
   margin-bottom: 10px;
-  background-image: url("../../assets/images/full-heart.png");
   background-size: cover;
   border: none;
   cursor: pointer;
@@ -343,4 +339,7 @@ td {
 }
 .hidden{
 	display: none;
+}
+img{
+  object-fit: cover;
 }
