@@ -28,12 +28,14 @@
         <!-- 검색 조건 및 버튼 -->
         <section class="search">
             <div class="search-condition">
-                <div>
-                        <span
-                        >업체명으로 검색<img
-                                id="company-icon"
+                <div class="search-container">
+                    <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색">
+                    <button class="search-btn">
+                        <img
+                                id="search-icon"
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/search-icon.png"
-                        /></span>
+                        />
+                    </button>
                 </div>
             </div>
 <%--            <div class="search-btn">--%>
