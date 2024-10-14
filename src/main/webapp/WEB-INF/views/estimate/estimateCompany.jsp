@@ -159,12 +159,12 @@
                     <p>- 선택한 날짜에 따라 업체의 예약 가능 여부가 달라질 수 있습니다.</p>
                     <p>- 최종 금액은 실제 결제 시 변동될 수 있습니다.</p>
                 </div>
+                <div class="btn">
+                    <button class="next">다음으로</button>
+                </div>
             </div>
         </div>
-        <div class="btn">
-            <button onclick="history.back()" class="back">이전</button>
-            <button class="next">다음으로</button>
-        </div>
+
     </div>
 </div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

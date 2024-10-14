@@ -172,7 +172,7 @@
 .select-list {
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: 721px;
     justify-content: space-between;
     border: 1px solid #ccc;
     padding: 20px;
@@ -247,10 +247,10 @@
 .btn {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 12px;
 }
 .btn .next {
-    width: 270px;
+    width: 100%;
     padding: 10px 20px;
     font-size: 14px;
     color: #fff;
@@ -259,17 +259,6 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.btn .back {
-    width: 270px;
-    height: auto;
-    font-size: 14px;
-    color: #000;
-    background-color: #ffffff;
-    border: 1px solid #000;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 /* js 설정 */
 .tab-selected {
     color: #ca1a5a;
