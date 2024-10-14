@@ -41,7 +41,7 @@
     <div class="myPage-content hd__inner880">
         <section class="summary">
 
-            <h1>안녕하세요. ${myPageDTO.name} 고객님 </h1>
+            <h1>안녕하세요. ${myPageDTO.name} 님 </h1>
             <div class="summary-lists">
                 <div class="summary-item">
                     <div class="summary-title">신규 방문 예약</div>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="summary-item">
-                    <div class="summary-title">오늘 방문 일정</div>
+                    <div class="summary-title"> 방문 일정</div>
                     <div class="summary-count">
                         <span class="number">${visitCriteriaCount}</span>
                         <span class="unit">건</span>
@@ -62,7 +62,7 @@
         <main>
             <!-- 2.프로필 정보 -->
             <section class="profile" id="Mypage-section2">
-                <div class="profile-main">
+                <div class="profile-main" style="display: none;">
                     <div class="profile-main-image">
                         <img
                                 src="${myPageDTO.profileUrl}"
@@ -85,7 +85,7 @@
                         <div class="profile-body">
                             <img src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/mail.png" alt="메일 로고" />
                             <input type="text" name="mail" readonly="readonly" style="font-size: 18px; border: none"
-                            value="${myPageDTO.email}" >
+                            value="${myPageDTO.email}"  >
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
             <!-- 3.금일 방문 일정 -->
             <section class="visit-plan" id="Mypage-section3">
                 <div class="sub-title-header">
-                    <div class="sub-title">금일 방문 일정</div>
+                    <div class="sub-title"> 방문 일정</div>
                     <div class="Reservation-mange-go">
                         <a href="#">방문 일정 상세보기>>></a>
                     </div>
@@ -141,13 +141,13 @@
 
 	                    <div class="table">
 	                        <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-1.png"
+                                    src="${companyDto.imgUrl}"
                                     alt="프로필 이미지"
                             />
 	                        <div>
 	                            <div>${companyDto.companyName}</div>
 	                            <div>${companyDto.companyAddress}</div>
-	                            <div class="button-list">
+	                            <div class="button-list" style="display: none;">
 	                                <button  class="mail" href="#"></button>
 	                                <button  class="heart liked"></button>
 	                            </div>
@@ -167,14 +167,14 @@
 	                        <c:forEach var="companyDto" items="${companyListStudio}" >
 			                    <div class="table">
 			                        <img
-		                                  src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-2.png"
+                                            src="${companyDto.imgUrl}"
 		                                  alt="프로필 이미지"
 		                         	/>
 
 			                        <div>
 			                            <div>${companyDto.companyName}</div>
 			                            <div>${companyDto.companyAddress}</div>
-			                            <div class="button-list">
+			                            <div class="button-list" style="display:none;">
 			                                <button  class="mail" href="#"></button>
 			                                <button  class="heart liked"></button>
 			                            </div>
@@ -186,14 +186,14 @@
 	                        <c:forEach var="companyDto" items="${companyListDress}" >
 			                    <div class="table">
 			                        <img
-		                                  src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-2.png"
+                                            src="${companyDto.imgUrl}"
 		                                  alt="프로필 이미지"
 		                         	/>
 
 			                        <div>
 			                            <div>${companyDto.companyName}</div>
 			                            <div>${companyDto.companyAddress}</div>
-			                            <div class="button-list">
+			                            <div class="button-list" style="display: none">
 			                                <button  class="mail" href="#"></button>
 			                                <button  class="heart liked"></button>
 			                            </div>
@@ -205,14 +205,14 @@
 	                        <c:forEach var="companyDto" items="${companyListMake}" >
 			                    <div class="table">
 			                        <img
-		                                  src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/studio-2.png"
+                                            src="${companyDto.imgUrl}"
 		                                  alt="프로필 이미지"
 		                         	/>
 
 			                        <div>
 			                            <div>${companyDto.companyName}</div>
 			                            <div>${companyDto.companyAddress}</div>
-			                            <div class="button-list">
+			                            <div class="button-list" style="display: none">
 			                                <button  class="mail" href="#"></button>
 			                                <button  class="heart liked"></button>
 			                            </div>

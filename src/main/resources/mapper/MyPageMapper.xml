@@ -195,7 +195,7 @@
 			 JOIN company 			ON reservation.company_id 		= company.company_id
 			 JOIN customer 			ON reservation.customer_id 		= customer.customer_id
 			 JOIN history 			ON history.customer_id 			= customer.customer_id
-	 	Where customer.customer_id =#{customerId}
+	 	Where customer.customer_id =#{customerId} and company_category='웨딩홀'
 	</select>
 
 	<select id="todayVisitCount" parameterType="map" resultType="int" >
@@ -204,13 +204,16 @@
 			 JOIN company 			ON reservation.company_id 		= company.company_id
 			 JOIN customer 			ON reservation.customer_id 		= customer.customer_id
 			 JOIN history 			ON history.customer_id 			= customer.customer_id
-	 	Where customer.customer_id =#{customerId}
+	 	Where customer.customer_id =#{customerId} and company_category='웨딩홀'
 	</select>
 	
 	<select id="todayReservationHistory" parameterType="map" resultType="CompanyDto">
-		<include refid="selectFromCompany"/>
-		where company_category =#{category}
-		order by company_id desc,company_name desc
+		select *
+		from reservation r
+		join company c on r.company_id=c.company_id
+		join customer cu on r.customer_id = cu.customer_id
+		join companyImage cI on c.company_id=cI.company_id
+		where c.company_category = #{category} and r.customer_id=#{customerId};
 	</select>
 	
 	<select id="hallVisitReservatioinList" parameterType="map" resultMap="joinVisitCriteria">
@@ -234,6 +237,7 @@
 
 		where   					customer.customer_id 			= #{customerId}
 	  	and   		    			company.company_category 		= #{category}
+		and 						companyImage.img_seq 			= 1
 	</select>
 
 	<select id="coReservationDetail" parameterType="map" resultMap="joinVisitCriteria">
@@ -320,6 +324,14 @@
 		select r.reservation_id,c.customer_id,com.company_id, r.reservation_date,com.company_name,c.name,r.reservation_time from reservation r
 		join customer c on r.customer_id = c.customer_id
 		join company com on r.company_id = com.company_id
-		where c.customer_id=${customer_id};
+		where c.customer_id=#{customer_id};
+	</select>
+	<!--웨딩홀 예약 일정 불러오기 -->
+	<select id="getWeddingReservations" parameterType="map" resultType="map">
+	select r.* ,co.company_id from reservation r
+		join company co on co.company_id = r.company_id
+		join customer cu on cu.customer_id = r.customer_id
+		join companyImage cI on cI.company_id =co.company_id
+	where cu.customer_id=#{customer_id} and co.company_category=#{company_category};
 	</select>
 </mapper>

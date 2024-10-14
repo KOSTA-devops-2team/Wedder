@@ -1,15 +1,15 @@
 package kr.co.wedder.company.service;
 
+import kr.co.wedder.calendar.domain.CompanyScheduleDto;
 import kr.co.wedder.company.dao.CompanyDao;
 import kr.co.wedder.company.domain.CompanyDto;
+import kr.co.wedder.company.domain.CompanyImageDto;
 import kr.co.wedder.company.domain.Pagination;
-import kr.co.wedder.company.domain.SearchItem;
+import kr.co.wedder.mypage.domain.OptionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
@@ -24,10 +24,12 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public List<CompanyDto> getHallList(Pagination pagination, String category) throws Exception {
-        List<CompanyDto> companyList = companyDao.selectCompanyByCategory(pagination, category);
-        System.out.println("Service - pageSize: " + pagination.getPageSize());
-        System.out.println("Service - startList: " + pagination.getStartList());
-        return companyList;
+        return companyDao.selectCompanyByCategory(pagination, category);
+    }
+
+    @Override
+    public List<CompanyDto> getHallDetail(int companyId) throws Exception {
+        return companyDao.selectHallDetail(companyId);
     }
 
     @Override
@@ -41,13 +43,44 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<CompanyDto> getHallDetail(Integer companyId) throws Exception {
-        System.out.println("service : getHallDetail");
-        return companyDao.selectHallDetail(companyId);
+    public List<CompanyImageDto> getCompanyImages(int companyId) throws Exception {
+        return companyDao.selectCompanyImages(companyId);
     }
 
     @Override
-    public List<CompanyDto> getCompanyImages(Integer companyId) throws Exception {
-        return companyDao.selectCompanyImages(companyId);
+    public CompanyDto getCoordinate(int companyId) throws Exception {
+        return companyDao.selectCoordinateById(companyId);
     }
+
+    @Override
+    public List<OptionDto> getOption(String category) throws Exception {
+        return companyDao.selectOptByCategory(category);
+    }
+
+    @Override
+    public List<CompanyScheduleDto> getAvailableHallDate(int companyId) {
+
+        List<CompanyScheduleDto> result = companyDao.selectAvailableHallDate(companyId);
+        
+        return result != null ? result : new ArrayList<>();
+    }
+
+    @Override
+    public List<CompanyScheduleDto> getAvailableHallTime(String companyName, Date date) {
+
+        List<CompanyScheduleDto> result = companyDao.selectAvailableHallTime(companyName, date);
+
+        return result;
+    }
+
+    @Override
+    public List<CompanyDto> getStudioList(Pagination pagination, String category) throws Exception {
+        return companyDao.selectCompanyByCategory(pagination, category);
+    }
+
+    @Override
+    public List<CompanyDto> getStudioDetail(int companyId) throws Exception {
+        return companyDao.selectStudioDetail(companyId);
+    }
+
 }

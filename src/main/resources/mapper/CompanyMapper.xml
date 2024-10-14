@@ -16,6 +16,8 @@
         <result property="basicPrice" column="basic_price" />
         <result property="mood" column="mood" />
         <result property="location" column="location" />
+        <result property="latitude" column="latitude" />
+        <result property="longitude" column="longitude" />
         <result property="imgId" column="img_id"/>
         <result property="imgSeq" column="img_seq" />
         <result property="imgUrl" column="img_url"/>
@@ -38,7 +40,6 @@
             <result property="shootFocus" column="shoot_focus" />
             <result property="rentalClothing" column="rental_clothing" />
             <result property="shootDuration" column="shoot_duration" />
-            <result property="shootLocationType" column="shoot_location_type" />
             <result property="product" column="product" />
             <result property="hairChangeAvailability" column="hair_change_availability" />
             <result property="equipmentIncluded" column="equipment_included" />
@@ -63,6 +64,12 @@
             <result property="position" column="position" />
         </association>
 
+        <association property="companyImage" javaType="kr.co.wedder.company.domain.CompanyImageDto">
+            <id property="imgId" column="img_id" />
+            <result property="companyId" column="company_id" />
+            <result property="imgSeq" column="img_seq" />
+            <result property="imgUrl" column="img_url"/>
+        </association>
     </resultMap>
 
     <sql id="selectFromCompany">
@@ -88,7 +95,7 @@
     </select>
 
     <select id="selectCompanyByCategory" parameterType="map" resultMap="companyDtoMap">
-        SELECT *
+        SELECT c.*, h.*, s.*, d.*, m.*, i.*
         FROM company c
         LEFT JOIN hallInfo h ON c.company_id = h.company_id
         LEFT JOIN studioInfo s ON c.company_id = s.company_id
@@ -96,9 +103,23 @@
         LEFT JOIN makeupInfo m ON c.company_id = m.company_id
         LEFT JOIN companyImage i ON c.company_id = i.company_id
         WHERE c.company_category = #{category}
-        ORDER BY c.company_id desc
+        GROUP BY c.company_id
+        ORDER BY c.company_id DESC
         LIMIT #{pagination.pageSize} OFFSET #{pagination.startList}
     </select>
+
+    <!--    <select id="selectCompanyByCategory" parameterType="map" resultMap="companyDtoMap">-->
+<!--        SELECT *-->
+<!--        FROM company c-->
+<!--        LEFT JOIN hallInfo h ON c.company_id = h.company_id-->
+<!--        LEFT JOIN studioInfo s ON c.company_id = s.company_id-->
+<!--        LEFT JOIN dressInfo d ON c.company_id = d.company_id-->
+<!--        LEFT JOIN makeupInfo m ON c.company_id = m.company_id-->
+<!--        LEFT JOIN companyImage i ON c.company_id = i.company_id-->
+<!--        WHERE c.company_category = #{category}-->
+<!--        ORDER BY c.company_id desc-->
+<!--        LIMIT #{pagination.pageSize} OFFSET #{pagination.startList}-->
+<!--    </select>-->
 
     <select id="selectCompanyListCnt" parameterType="String" resultType="int">
         SELECT count(*) FROM company
@@ -106,19 +127,16 @@
     </select>
 
     <select id="searchCompany" resultMap="companyDtoMap">
-        SELECT c.company_id, c.company_name, c.company_address, c.phone_num, c.operation_hours, c.instagram_url, c.company_category, h.min_people, h.meal_price, i.img_id, i.img_seq, i.img_url
+        SELECT *
         FROM company c
         LEFT JOIN hallInfo h ON c.company_id = h.company_id
+        LEFT JOIN studioInfo s ON c.company_id = s.company_id
+        LEFT JOIN dressInfo d ON c.company_id = d.company_id
+        LEFT JOIN makeupInfo m ON c.company_id = m.company_id
         LEFT JOIN companyImage i ON c.company_id = i.company_id
         <where>
             <include refid="searchCondition" />
         </where>
-    </select>
-
-    <select id="searchResultCnt" parameterType="SearchItem" resultMap="companyDtoMap">
-        SELECT count(*) FROM company
-        WHERE true
-        <include refid="searchCondition" />
     </select>
 
     <select id="selectHallDetail" parameterType="int" resultMap="companyDtoMap">
@@ -128,9 +146,52 @@
         WHERE c.company_id = #{companyId}
     </select>
 
-    <select id="selectCompanyImages" parameterType="int" resultMap="companyDtoMap">
-        SELECT *
+    <select id="selectStudioDetail" parameterType="int" resultMap="companyDtoMap">
+        SELECT * FROM company c
+        LEFT JOIN studioInfo s ON c.company_id = s.company_id
+        LEFT JOIN companyImage i ON c.company_id = i.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+    <select id="selectCompanyImages" parameterType="int" resultType="CompanyImage">
+        SELECT img_id, img_seq, img_url
         FROM companyImage
         WHERE company_id = #{companyId}
+        ORDER BY img_seq
     </select>
+
+    <select id="selectCoordinateById" parameterType="int" resultType="CompanyDto">
+        SELECT company_id, company_name, latitude, longitude
+        FROM company
+        WHERE company_id = #{companyId}
+    </select>
+
+    <select id="selectOptByCategory" parameterType="String" resultType="OptionDto">
+        SELECT
+        o.option_id AS optionId,
+        o.option_name AS optionName,
+        o.option_price AS optionPrice,
+        o.option_description AS optionDescription
+        FROM `option` o
+        JOIN studioInfo s ON o.studio_id = s.studio_id
+        JOIN dressInfo d ON o.dress_id = d.dress_id
+        JOIN makeupInfo m ON o.makeup_id = m.makeup_id
+        WHERE o.category = #{category}
+    </select>
+
+    <!-- 웨딩홀 일정 -->
+    <select id="selectAvailableHallDate" parameterType="int" resultType="CompanyScheduleDTO">
+        SELECT *
+        FROM companySchedule
+        WHERE company_id = #{companyId}
+    </select>
+
+    <select id="selectAvailableHallTime" parameterType="map" resultType="CompanyScheduleDTO">
+        SELECT *
+        FROM companySchedule
+        WHERE company_name = #{companyName}
+        AND date = #{date}
+        ORDER BY time
+    </select>
+
 </mapper>

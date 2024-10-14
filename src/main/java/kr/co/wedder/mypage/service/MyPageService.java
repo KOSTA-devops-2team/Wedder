@@ -46,4 +46,6 @@ public interface MyPageService {
 	List<Map<String,Object>> searchMyPayment(Integer customer_id,String order_name)throws Exception;
 	// post Calendar plan 일정조회
 	List<Map<String,Object>> getCalendarEvents(Integer customer_id);
+	//Wedding hall reservation remake
+	List<Map<String,Object>> getWeddingReservations(Integer customer_id,String company_category);
 }

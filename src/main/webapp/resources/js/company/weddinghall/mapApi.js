@@ -6,6 +6,11 @@ mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=49002230661bfc60fba4b0f1
 
 document.head.appendChild(mapScript);
 
+const infoMap = document.getElementById("map")
+const companyId = infoMap.getAttribute("data-company-id")
+
+console.log("Company ID:", companyId);
+
 const onLoadKakaoMap = () => {
     window.kakao.maps.load(() => {
         const mapContainer = document.getElementById('map');
@@ -31,7 +36,7 @@ const onLoadKakaoMap = () => {
 
         var iwRemoveable = true;
 
-        // 마커 위에 인포창 표시
+        // 마커 위에 인포윈도우 표시
         var infowindow = new kakao.maps.InfoWindow({
             content: iwContent,
             map: map,
@@ -40,10 +45,26 @@ const onLoadKakaoMap = () => {
         });
         infowindow.open(map, marker);
 
-        // 마커 클릭시 커스텀 오버레이 표시
+        // 마커 클릭시 인포윈도우 띄우기
         kakao.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map, marker);
         });
     });
 };
+
+// DB에서 업체의 위도와 경도를 가져오는 AJAX 요청
+$.ajax({
+    url: `/getCoordinates/${companyId}`, // 서버에서 업체 ID에 맞는 위도, 경도를 가져오는 API
+    type: 'GET',
+    success: function(response) {
+        console.log("서버 응답:", response);
+
+        const { latitude, longitude, companyName } = response; // 서버에서 반환한 위도, 경도
+        onLoadKakaoMap(latitude, longitude, companyName); // 동적으로 지도에 마커 표시
+    },
+    error: function(error) {
+        console.error("데이터 가져오기 실패:", error);
+    }
+});
+
 mapScript.addEventListener('load', onLoadKakaoMap);

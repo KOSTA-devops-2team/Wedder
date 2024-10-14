@@ -137,51 +137,47 @@
 .schedule {
     margin-top: 100px;
 }
+
 .schedule-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /*display: grid;*/
+    /*grid-template-columns: repeat(2, 1fr);*/
     margin: 30px 50px;
 }
 
-.calendar img {
-    width: 450px;
-    height: auto;
-}
+/*.schedule-choose {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: space-between;*/
+/*    margin-top: 40px;*/
+/*}*/
 
-.schedule-choose {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 40px;
-}
+/*.time-list {*/
+/*    background-color: #eeeeee;*/
+/*    padding: 18px 35px;*/
+/*    margin: 10px 0;*/
+/*    border-radius: 5px;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*}*/
 
-.time-list {
-    background-color: #eeeeee;
-    padding: 18px 35px;
-    margin: 10px 0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-}
+/*.time-list-selected {*/
+/*    background-color: rgba(255, 203, 222, 0.3);*/
+/*    color: #ca1a5a;*/
+/*    border: 1px solid #ca1a5a;*/
+/*}*/
 
-.time-list-selected {
-    background-color: rgba(255, 203, 222, 0.3);
-    color: #ca1a5a;
-    border: 1px solid #ca1a5a;
-}
+/*.schedule-button {*/
+/*    width: 100%;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    color: white;*/
+/*    background-color: #ca1a5a;*/
+/*    padding: 15px 30px;*/
+/*}*/
 
-.schedule-button {
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #ca1a5a;
-    padding: 15px 30px;
-}
-
-.schedule-button:hover {
-    background-color: #f4699c;
-}
+/*.schedule-button:hover {*/
+/*    background-color: #f4699c;*/
+/*}*/
 
 /* 4. 웨딩홀 견적 계산기 */
 .estimator {

@@ -12,13 +12,13 @@ function createOrderNum() {
     return orderNum;
 }
 
-// 결제 데이터 생성 함수
 function createPaymentData() {
     var amount = $('.final-price').text();
     var orderId = createOrderNum();
     var orderName = $('.product-name').text();
 
-    data = {
+    // Existing data
+    let data = {
         amount: amount.replace(/,/g, ''),
         orderId: orderId,
         orderName: orderName,
@@ -26,8 +26,49 @@ function createPaymentData() {
         customerEmail: customerEmail,
         customerName: customerName,
         customerTel: customerTel
+    };
+
+    // Create reservation data
+    const reservationData = [];
+    for (const companyName in selectedData) {
+        if (selectedData.hasOwnProperty(companyName)) {
+            const reservation = selectedData[companyName];
+            reservationData.push({
+                companyId: reservation.companyId,
+                companyName: companyName,
+                customerId: data.customerId,
+                reservationDate: reservation.date,
+                reservationTime: reservation.time
+            });
+        }
     }
+
+    // Add reservations to data
+    data.reservations = reservationData;
+
     return data;
+
+
+
+// 결제 데이터 생성 함수
+// function createPaymentData() {
+//     var amount = $('.final-price').text();
+//     var orderId = createOrderNum();
+//     var orderName = $('.product-name').text();
+
+
+    // data = {
+    //     amount: amount.replace(/,/g, ''),
+    //     orderId: orderId,
+    //     orderName: orderName,
+    //     customerId: customerId,
+    //     customerEmail: customerEmail,
+    //     customerName: customerName,
+    //     customerTel: customerTel,
+    //     reservationDate: reservationInfo.date,  // 선택한 예약 날짜 추가
+    //     reservationTime: reservationInfo.time   // 선택한 예약 시간 추가
+    // }
+    // return data;
 }
 
 $('.kakao-pay').on('click', function (e) {
@@ -36,6 +77,12 @@ $('.kakao-pay').on('click', function (e) {
 
     // 결제 데이터 생성
     var data = createPaymentData();
+
+    // 예약정보가 없는 경우 결제 중단
+    if (!data) {
+        console.log("예약정보가 없음. 결제 중단")
+        return;
+    }
 
     // 결제 요청
     console.log("결제 요청 시작");
@@ -75,10 +122,11 @@ $('.kakao-pay').on('click', function (e) {
                         customerEmail: data.customerEmail,
                         customerName: data.customerName,
                         customerTel: data.customerTel,
-                        orderName: data.orderName
+                        orderName: data.orderName,
+                        reservations: data.reservations  // 예약 정보 전송
                     }),
                     success: function (response) {
-                        location.href = "/mypage/mypage";
+                        location.href = "/package/recommend";
                     },
                     error: function (error) {
                         console.error("서버로 결제 데이터 전송 중 오류 발생:", error);

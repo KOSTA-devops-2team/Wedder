@@ -8,10 +8,13 @@
     <title>weddinghallList</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/weddinghall/weddinghallList.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/company/weddinghall/weddinghallList.js"></script>
-<%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/pagination.js"></script>--%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+<%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/hallPagination.js"></script>--%>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/hallPagination.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -42,11 +45,12 @@
 <%--                        /></span>--%>
 <%--                </div>--%>
 <%--                <div>--%>
-<%--                        <span--%>
-<%--                        >분위기<img--%>
-<%--                                id="mood-icon"--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
-<%--                        /></span>--%>
+<%--                        <select>--%>
+<%--                            <option value="">분위기</option>--%>
+<%--                            <c:forEach var="option" items="${hallList}">--%>
+<%--                                <option value="${option.mood}">${option.mood}</option>--%>
+<%--                            </c:forEach>--%>
+<%--                        </select>--%>
 <%--                </div>--%>
                 <div class="search-container">
                     <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색">
@@ -60,7 +64,7 @@
             </div>
             <div class="search-btns">
                 <button class="list-search-btn dark-pink">
-                    <a href="weddinghall">
+                    <a href="${pageContext.request.contextPath}/weddinghall">
                         목록으로 보기
                     </a>
                 </button>
@@ -78,6 +82,7 @@
                 <div class="card">
                     <a href="${pageContext.request.contextPath}/weddinghall/detail/${card.companyId}">
                         <img
+                                class="card-img"
                                 src="${card.imgUrl}"
                                 alt="웨딩홀 이미지"
                         />
@@ -91,7 +96,7 @@
                                     class="instagram"
                             >
                                 <img
-                                        src="resources/images/instagram2.png"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/instagram.png"
                                         alt="인스타 이미지"
                                 />
                             </a>

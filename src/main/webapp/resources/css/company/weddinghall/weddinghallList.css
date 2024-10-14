@@ -116,6 +116,12 @@
     object-fit: cover;
 }
 
+/*.card-img {*/
+/*    width: 345px;*/
+/*    height: 260px;*/
+/*    object-fit: cover;*/
+/*}*/
+
 .card-info {
     display: flex;
     flex-direction: column;

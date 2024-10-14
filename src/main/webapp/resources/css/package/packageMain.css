@@ -1,3 +1,18 @@
+/* 초기 상태 - 애니메이션 시작 전 */
+.package-info, .recommendation, .package-title, .step-content {
+    opacity: 0;
+    transform: translateY(50px); /* 아래에서 위로 이동 */
+}
+
+.recommendation img:nth-child(odd) {
+    transform: translateX(50px); /* 우 -> 좌 */
+}
+
+.recommendation img:nth-child(even) {
+    transform: translateX(-50px); /* 좌 -> 우 */
+}
+
+
 /* 슬라이드 상단 공백 해결 */
 body {
     margin-top: 143px !important;
@@ -10,12 +25,7 @@ body {
 .slider-box .swiper {
     height: 100%;
 }
-.swiper > .swiper-wrapper > .swiper-slide:nth-child(odd) {
-    background-color: rgba(206, 26, 90, 0.15);
-}
-.swiper > .swiper-wrapper > .swiper-slide:nth-child(even) {
-    background-color: rgba(206, 26, 90, 0.15);
-}
+
 .banner-content {
     text-align: left;
     margin: 170px 500px;
@@ -69,7 +79,7 @@ span.color {
 
 /* 1. 패키지 설명 */
 .container {
-    padding: 150px 0 200px 0;
+    padding: 80px 0 200px 0;
 }
 
 .package-info h1 {
@@ -139,6 +149,9 @@ span.color {
 .step-content {
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    transform: translate3d(0px, 50px, 0px);
+    transition: all 1.5s;
 }
 
 .steps {
@@ -153,6 +166,10 @@ span.color {
     height: 100px;
     margin-bottom: 10px;
     margin-right: 20px;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .step-detail h3 {
@@ -213,133 +230,11 @@ span.color {
 
 .package-btn button {
     border: none;
-    padding: 12px 30px;
+    padding: 12px 32px;
     background-color: #ca1a5a;
     color: white;
-    border-radius: 5px;
-    text-align: center;
-}
-
-
-/*패키지 배너*/
-.swiper-slide {
-    overflow: hidden;
-}
-
-.swiper-container {
-    overflow: hidden;
-}
-
-.first-title {
-    color: #5D493E;
-    font-size: 24px;
-    margin-bottom: 25px;
-}
-
-.first-title-2 {
-    color: #004C8C;
-    font-size: 24px;
-    margin-bottom: 25px;
-}
-
-.second-title {
-    font-weight: bold;
-    font-size: 38px;
-    margin-bottom: 30px;
-    color: #333333;
-}
-
-.third-title {
-    font-size: 20px;
-    color: #ca1a5a;
-}
-
-.third-title-2 {
-    font-size: 20px;
-    color: #DAA520;
-}
-
-.package-top-banner-1 {
-    width: 100%;
-    height: 550px;
-    position: relative;
-    background-color: #FFFBF0;
-}
-
-.package-top-banner-2 {
-    width: 100%;
-    height: 550px;
-    position: relative;
-    background-color: #f4f5f5;
-}
-
-.package-main-content {
-    position: absolute;
-    top: 43%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.package-show-button {
-    position: absolute;
-    top: 212px;
-    background-color: #ca1a5a;
-    color: #ffffff;
-    padding: 7px 30px;
     border-radius: 10px;
-    text-decoration: none;
+    text-align: center;
     font-size: 17px;
-    margin-top: 35px;
-}
-
-.package-show-button:hover {
-    color: #ffffff;
-}
-
-.estimate {
-    background-color: #004C8C;
-    color: #ffffff;
-    margin-top: 7px;
-}
-
-.banner-coin {
-    position: absolute;
-    top: 247px;
-    right: 330px;
-    height: 149px;
-}
-
-.banner-gift {
-    position: absolute;
-    top: 93px;
-    right: 120px;
-    height: 251px;
-}
-
-
-/*배너 화살표 css*/
-.swiper-button-prev, .swiper-button-next {
-    color: black;
-}
-
-.swiper-prev {
-    position: absolute;
-    left: 10px;
-    top: 45%;
-}
-
-.swiper-next {
-    position: absolute;
-    right: 10px;
-    top: 45%;
-}
-
-.swiper-horizontal>.swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal,
-.swiper-pagination-custom,
-.swiper-pagination-fraction {
-    bottom: 275px;
-    top: auto;
-    left: 0;
-    width: 100%;
+    font-weight: 600;
 }

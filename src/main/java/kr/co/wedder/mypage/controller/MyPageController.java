@@ -54,7 +54,7 @@ public class MyPageController {
 			// 
 			VisitCriteria visitCriteria = new VisitCriteria(companyDto, myPageDTO, reservationDto, historyDto);
 			visitCriteriaMap.put("companyId", (Integer) visitCriteria.getCompanyDto().getCompanyId());
-			visitCriteriaMap.put("customerId", (Integer) visitCriteria.getMyPageDTO().getCustomerId());
+			visitCriteriaMap.put("customerId", customerId);
 			m.addAttribute("visitCriteria",visitCriteria);
 			
 			List<VisitCriteria> visitCriteriaList=myPageService.todayVisitHistory(visitCriteriaMap);
@@ -62,7 +62,8 @@ public class MyPageController {
 			
 			Integer visitCriteriaCount=myPageService.todayVisitCount(visitCriteriaMap);
 			m.addAttribute("visitCriteriaCount",visitCriteriaCount);
-			
+			companyDtoMap.put("customerId", customerId);
+
 			companyDtoMap.put("category", "웨딩홀");
 			List<CompanyDto> companyListHall=myPageService.todayReservationHistory(companyDtoMap);
 			m.addAttribute("companyListHall",companyListHall);
@@ -308,7 +309,7 @@ public class MyPageController {
 			m.addAttribute("hallVisitReservatioinList",hallVisitReservatioinList);
 			
 			//웨딩홀 예약
-			hallVisitReListMap.put("visit_reservation", 1);
+			hallVisitReListMap.put("visit_reservation", 0);
 			List<VisitCriteria> hallReList = myPageService.hallVisitReservatioinList(hallVisitReListMap);
 			m.addAttribute("hallReList",hallReList);
 			
@@ -317,8 +318,7 @@ public class MyPageController {
 					new VisitCriteria(
 							companyDto,myPageDto,reservationDto,companyImage,studioInfo,dressInfo,makeupInfo,hallInfoDto,optionDto);
 			m.addAttribute("coCriteria",coCriteria);
-			coReListMap.put("customerId", (Integer) coCriteria.getMyPageDTO().getCustomerId());
-			
+			coReListMap.put("customerId", customerId);
 			//업체별 예약 - 스튜디오
 			coReListMap.put("category","스튜디오" );
 			List<VisitCriteria> coReStudioList= myPageService.coReservationList(coReListMap);
@@ -346,6 +346,11 @@ public class MyPageController {
 			/*예약 일정 달력에 추가*/
 			List<Map<String, Object>> getCalendarEvents = myPageService.getCalendarEvents(customerId);
 			m.addAttribute("getCalendarEvents",getCalendarEvents);
+
+			/*웨딩홀 예약 내역 리메이크 버전*/
+//			String category = "웨딩홀";
+//			List<Map<String,Object>> getWeddingReservations = myPageService.getWeddingReservations(customerId,category);
+//			m.addAttribute("getWeddingReservations",getWeddingReservations);
 
 			return "/mypage/reservationList";
 		} catch (Exception e) {
