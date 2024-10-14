@@ -22,7 +22,7 @@
             <div class="title-sub">
                 원하는 조건으로 나만의 헤어메이크업 업체를 찾아보세요.
             </div>
-            <div class="title-main">Hair & MakeUp</div>
+            <div class="title-main">메이크업</div>
         </section>
 
         <!-- 검색 조건 및 버튼 -->

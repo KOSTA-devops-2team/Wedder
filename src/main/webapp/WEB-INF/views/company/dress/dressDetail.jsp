@@ -70,8 +70,8 @@
         <!-- 2. 업체 정보 + 지도-->
         <section class="information">
             <div class="title-container">
-                <h2>Information</h2>
-                <a href="#" id="review-link">후기 보러가기 >>></a>
+                <h2>${dress.companyName} 정보</h2>
+<%--                <a href="#" id="review-link">후기 보러가기 >>></a>--%>
             </div>
             <!-- <div id="modal-container"></div> -->
 
@@ -136,7 +136,7 @@
         <!-- 3. 일정 현황-->
         <section class="schedule">
             <div class="title-container">
-                <h2>셀린아뜰리에 상품 정보</h2>
+                <h2>${dress.companyName} 일정 현황</h2>
             </div>
 
             <div class="schedule-container">

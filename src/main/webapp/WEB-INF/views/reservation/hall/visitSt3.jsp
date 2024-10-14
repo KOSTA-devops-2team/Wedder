@@ -75,8 +75,8 @@
 
                 <!-- 버튼 -->
                 <section class="btn">
-                    <a href="visitSt2"><button class="btn-pre">이전</button></a>
-                    <a href="#"><button id="modal-btn" class="btn-nxt">예약 신청</button></a>
+                    <a href="${pageContext.request.contextPath}/visitSt2"><button class="btn-pre">이전</button></a>
+                    <a href="${pageContext.request.contextPath}/admin/main"><button id="modal-btn" class="btn-nxt">예약 신청</button></a>
 
                 </section>
             </div>
@@ -98,7 +98,7 @@
                 <div class="modal-content">
                     <h2 class="modal-complete">예약이 완료되었습니다!</h2>
                     <div class="modal-btn-suc">
-                        <a href="weddinghallDetail"><button class="check-btn-suc">확인</button></a>
+                        <a href="${pageContext.request.contextPath}/weddinghall/detail/${card.companyId}"><button class="check-btn-suc">확인</button></a>
                     </div>
                 </div>
             </section>

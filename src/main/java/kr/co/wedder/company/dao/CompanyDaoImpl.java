@@ -77,16 +77,16 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public List<CompanyScheduleDto> selectAvailableHallDate(int companyId) {
-        return session.selectList(namespace + "selectAvailableHallDate", companyId);
+    public List<CompanyScheduleDto> selectAvailableDateList(int companyId) {
+        return session.selectList(namespace + "selectAvailableDateList", companyId);
     }
 
     @Override
-    public List<CompanyScheduleDto> selectAvailableHallTime(String companyName, Date date) {
+    public List<CompanyScheduleDto> selectAvailableTimeList(int companyId, Date date) {
         Map map = new HashMap<>();
-        map.put("companyName", companyName);
+        map.put("companyId", companyId);
         map.put("date", date);
 
-        return session.selectList(namespace + "selectAvailableHallTime", map);
+        return session.selectList(namespace + "selectAvailableTimeList", map);
     }
 }

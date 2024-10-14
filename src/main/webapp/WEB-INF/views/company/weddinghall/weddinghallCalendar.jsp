@@ -14,7 +14,7 @@
 <body>
 
 <section class="calendar-wrapper">
-    <section class="calendar-container" id="calendar-section1">
+    <section class="calendar-container" id="calendar-section1" data-company-id="${companyId}">
         <div class="calendar-header">
             <button id="prevBtn"> <</button>
             <div id="yearMonth">
@@ -77,6 +77,6 @@
 <script type="text/javascript"
         src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js"></script>
 <script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/js/package/packageCalender.js"></script>
+        src="${pageContext.request.contextPath}/resources/js/company/weddinghall/weddinghallCalendar.js"></script>
 </body>
 </html>

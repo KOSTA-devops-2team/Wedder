@@ -184,12 +184,12 @@
     border: none;
     border-radius: 5px;
     color: white;
-    background-color: #ca1a5a;
+    background-color: #000;
     padding: 15px 30px;
 }
 
 .schedule-button:hover {
-    background-color: #f4699c;
+    opacity: 0.7;
 }
 
 /* 4. 웨딩홀 견적 계산기 */
@@ -340,7 +340,7 @@
     justify-content: center;
 }
 .similar-item-img img {
-    width: 186px;
+    width: 210px;
     height: 186px;
     margin: 10px auto;
     object-fit: cover;
@@ -351,7 +351,7 @@
 }
 
 .similar-item-title h2 {
-    font-size: 13px;
+    font-size: 14px;
     margin-top: 3px;
 }
 
@@ -361,6 +361,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .similar-button {

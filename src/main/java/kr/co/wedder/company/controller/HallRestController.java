@@ -110,9 +110,9 @@ public class HallRestController {
 
     // 예약 가능한 날짜 데이터 불러오기
     @GetMapping("/getAvailableHallDate")
-    public ResponseEntity<List<CompanyScheduleDto>> getAvailableHallDate(@RequestParam int companyId) {
+    public ResponseEntity<List<CompanyScheduleDto>> getAvailableDate(@RequestParam int companyId) {
 
-        List<CompanyScheduleDto> availableHallDate = companyService.getAvailableHallDate(companyId);
+        List<CompanyScheduleDto> availableHallDate = companyService.getAvailableDateList(companyId);
         System.out.println("getAvailableDates = " + availableHallDate);
 
         // 데이터가 없을 경우 빈 배열 반환
@@ -121,13 +121,14 @@ public class HallRestController {
 
     // 예약 가능한 시간 데이터 불러오기
     @GetMapping("/getAvailableHallTime")
-    public ResponseEntity<List<CompanyScheduleDto>> getAvailableHallTime(@RequestParam String companyName, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd")Date date) {
+    public ResponseEntity<List<CompanyScheduleDto>> getAvailableTime(@RequestParam int companyId, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd")Date date) {
 
-        List<CompanyScheduleDto> availableHallTime = companyService.getAvailableHallTime(companyName, date);
-        System.out.println("getAvailableTimes = " + availableHallTime);
-        if (availableHallTime.isEmpty()) {
+        System.out.println("companyId = " + companyId + "  date " +date);
+        List<CompanyScheduleDto> availableTime = companyService.getAvailableTimeList(companyId, date);
+        System.out.println("getAvailableTime = " + availableTime);
+        if (availableTime.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(availableHallTime, HttpStatus.OK);
+        return new ResponseEntity<>(availableTime, HttpStatus.OK);
     }
 }

@@ -40,17 +40,15 @@
                 </div>
             </div>
         </section>
-        </c:forEach>
 
         <!-- 2. 업체 정보 + 지도-->
         <section class="information">
             <div class="title-container">
-                <h2>Information</h2>
+                <h2>${hall.companyName} 정보</h2>
 <%--                <a href="reviewModal" id="review-link">후기 보러가기 >>></a>--%>
             </div>
 <%--            <div id="modal-container"></div>--%>
 
-            <c:forEach var="hall" items="${hallDetail}">
             <div class="info-container">
                 <!-- 왼쪽 정보 -->
                 <table class="info-table">
@@ -93,14 +91,13 @@
                 <a href="${pageContext.request.contextPath}/weddinghall"><button class="list-btn">목록</button></a>
             </div>
         </section>
-        </c:forEach>
+
 
         <!-- 3. 예식일정 현황-->
         <section class="schedule">
             <div class="title-container">
-                <h2>마리아쥬스퀘어 예식 현황</h2>
+                <h2>${hall.companyName} 일정 현황</h2>
             </div>
-
             <div class="schedule-container">
                 <div class="calendar">
                     <h4>
@@ -144,7 +141,7 @@
 <%--                </div>--%>
             </div>
         </section>
-
+    </c:forEach>
         <!-- 4. 웨딩홀 견적 계산기-->
         <section class="estimator">
             <div class="title-container">
@@ -310,97 +307,97 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall15_1.jpg"
                                         alt="웨딩홀 이미지 1"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
+                                <h2>호텔나루서울엠갤러리</h2>
+                                <p>서울시 강남구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall2.jpg"
-                                        alt="웨딩홀 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall17_1.jpg"
+                                        alt="웨딩홀 이미지 2"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
+                                <h2>광명테이크호텔</h2>
+                                <p>경기도 광명시</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"
-                                        alt="웨딩홀 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall18_1.jpg"
+                                        alt="웨딩홀 이미지 3"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
+                                <h2>토브헤세드</h2>
+                                <p>서울시 강남구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall4.jpg"
-                                        alt="웨딩홀 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall11_1.webp"
+                                        alt="웨딩홀 이미지 4"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
+                                <h2>노블발렌티삼성점</h2>
+                                <p>서울시 강남구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"
-                                        alt="웨딩홀 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall4_1.jpg"
+                                        alt="웨딩홀 이미지 5"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
+                                <h2>더채플앳논현</h2>
+                                <p>서울시 강남구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall2.jpg"
-                                        alt="웨딩홀 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall6_1.webp"
+                                        alt="웨딩홀 이미지 6"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
+                                <h2>엘타워</h2>
+                                <p>서울시 서초구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"
-                                        alt="웨딩홀 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall10_1.jpg"
+                                        alt="웨딩홀 이미지 7"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
+                                <h2>세종대왕기념관</h2>
+                                <p>서울시 동대문구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall4.jpg"
-                                        alt="웨딩홀 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/wedding/weddinghall16_1.jpg"
+                                        alt="웨딩홀 이미지 8"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
+                                <h2>보코서울강남호텔</h2>
+                                <p>서울시 강남구</p>
                             </div>
                         </div>
                     </div>
@@ -430,128 +427,128 @@
         </section>
 
         <!-- 6. 다른 고객이 함께 본 상품 -->
-        <section class="recommend">
-            <div class="hd__inner1100">
-                <div class="title-container noline">
-                    <h2>다른 고객이 함께 본 상품</h2>
-                </div>
-                <div class="recommend-container">
-                    <div class="recommend-inner">
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"
-                                        alt="웨딩홀 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall2.jpg"
-                                        alt="웨딩홀 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"
-                                        alt="웨딩홀 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall4.jpg"
-                                        alt="웨딩홀 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"
-                                        alt="웨딩홀 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall2.jpg"
-                                        alt="웨딩홀 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"
-                                        alt="웨딩홀 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall4.jpg"
-                                        alt="웨딩홀 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강동구</p>
-                                <h2>더베네치아</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="recommend-buttons">
-                    <button class="recommend-button left" id="prevButton">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"
-                        />
-                    </button>
-                    <div class="currentPage" id="currentPage"></div>
-                    <div class="slice">/</div>
-                    <div class="totalPages" id="totalPages"></div>
-                    <button class="recommend-button right" id="nextButton">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"
-                        />
-                    </button>
-                </div>
-            </div>
-        </section>
+<%--        <section class="recommend">--%>
+<%--            <div class="hd__inner1100">--%>
+<%--                <div class="title-container noline">--%>
+<%--                    <h2>다른 고객이 함께 본 상품</h2>--%>
+<%--                </div>--%>
+<%--                <div class="recommend-container">--%>
+<%--                    <div class="recommend-inner">--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"--%>
+<%--                                        alt="웨딩홀 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강동구</p>--%>
+<%--                                <h2>더베네치아</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall2.jpg"--%>
+<%--                                        alt="웨딩홀 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강동구</p>--%>
+<%--                                <h2>더베네치아</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"--%>
+<%--                                        alt="웨딩홀 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강동구</p>--%>
+<%--                                <h2>더베네치아</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall4.jpg"--%>
+<%--                                        alt="웨딩홀 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강동구</p>--%>
+<%--                                <h2>더베네치아</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall1.jpg"--%>
+<%--                                        alt="웨딩홀 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강동구</p>--%>
+<%--                                <h2>더베네치아</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall2.jpg"--%>
+<%--                                        alt="웨딩홀 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강동구</p>--%>
+<%--                                <h2>더베네치아</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall3.jpg"--%>
+<%--                                        alt="웨딩홀 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강동구</p>--%>
+<%--                                <h2>더베네치아</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/list/weddinghall4.jpg"--%>
+<%--                                        alt="웨딩홀 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강동구</p>--%>
+<%--                                <h2>더베네치아</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="recommend-buttons">--%>
+<%--                    <button class="recommend-button left" id="prevButton">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"--%>
+<%--                        />--%>
+<%--                    </button>--%>
+<%--                    <div class="currentPage" id="currentPage"></div>--%>
+<%--                    <div class="slice">/</div>--%>
+<%--                    <div class="totalPages" id="totalPages"></div>--%>
+<%--                    <button class="recommend-button right" id="nextButton">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"--%>
+<%--                        />--%>
+<%--                    </button>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </section>--%>
     </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </body>

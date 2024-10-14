@@ -43,7 +43,7 @@
         <!-- 2. 업체 정보 + 지도-->
         <section class="information">
             <div class="title-container">
-                <h2>Information</h2>
+                <h2>${studio.companyName} 정보</h2>
             </div>
 
             <div class="info-container">
@@ -95,17 +95,13 @@
                     </div>
                 </div>
             </div>
-            <div class="buttons">
-                <button class="like-btn">찜하기</button>
-                <a href="${pageContext.request.contextPath}/studio"><button class="list-btn">목록</button></a>
-                <button class="estimate-btn">견적함에 담기</button>
-            </div>
+
         </section>
 
         <!-- 3. 일정 현황-->
         <section class="schedule">
             <div class="title-container">
-                <h2>${studio.companyName} 상품 정보</h2>
+                <h2>${studio.companyName} 일정 현황</h2>
             </div>
 
             <div class="schedule-container">
@@ -158,20 +154,31 @@
             </div>
             <div class="grid-container">
                 <div class="section">
+                    <div class="estimate-info">
+                        <div class="section estimator-warning">
+                            <h2>꼭 확인해주세요!</h2>
+                            <p>
+                                ✔️ 업체에 직접 결제하는 추가 비용이 있을 수 있어요.
+                            </p>
+                            <p>
+                                ✔️ 실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.
+                            </p>
+                        </div>
+                    </div>
+
                     <table class="option-table">
                         <tr>
                             <th>옵션명</th>
                             <th>상세 설명</th>
                             <th>금액</th>
                         </tr>
-                        <c:forEach var="option" items="${optionList}">
-                            <tr>
-                                <td>${option.optioName}</td>
-                                <td>${option.optionDescription}</td>
-                                <td>${option.optionPrice}</td>
-                            </tr>
-                        </c:forEach>
-
+<%--                        <c:forEach var="option" items="${optionList}">--%>
+<%--                            <tr>--%>
+<%--                                <td>${option.optioName}</td>--%>
+<%--                                <td>${option.optionDescription}</td>--%>
+<%--                                <td>${option.optionPrice}</td>--%>
+<%--                            </tr>--%>
+<%--                        </c:forEach>--%>
                         <tr>
                             <td>야간 촬영</td>
                             <td>17시 이후부터 촬영 가능</td>
@@ -224,17 +231,13 @@
                         </tr>
                     </table>
                 </div>
-                <div class="section estimator-warning">
-                    <h2>꼭 확인해주세요!</h2>
-                    <p>
-                        ✔️ 업체에 직접 결제하는 추가 비용이 있을 수 있어요.
-                    </p>
-                    <p>
-                        ✔️ 실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.
-                    </p>
-                </div>
             </div>
         </section>
+        <div class="buttons">
+            <button class="like-btn">찜하기</button>
+            <a href="${pageContext.request.contextPath}/studio"><button class="list-btn">목록</button></a>
+            <a href="${pageContext.request.contextPath}/estimate"><button class="estimate-btn">견적내러가기</button></a>
+        </div>
 
         <!-- 5. 비슷한 가격대 업체 -->
         <section class="similar">
@@ -247,97 +250,97 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-13.jpg"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio8_1.webp"
                                         alt="스튜디오 이미지 1"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로브아 스튜디오</h2>
+                                <h2>이포토에세이</h2>
+                                <p>경기도 광주시</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-14.jpg"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio14_1.jpg"
                                         alt="스튜디오 이미지 2"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로이 스튜디오</h2>
+                                <h2>슈가제이</h2>
+                                <p>서울시 강남구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-2.jpg"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio10_1.webp"
                                         alt="스튜디오 이미지 3"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>리저브 스튜디오</h2>
+                                <h2>어바웃제인</h2>
+                                <p>서울시 서초구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-5.jpg"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio16_1.webp"
                                         alt="스튜디오 이미지 4"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>스튜디오 사이</h2>
+                                <h2>아테소스튜디오</h2>
+                                <p>서울시 강남구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-13.jpg"
-                                        alt="스튜디오 이미지 1"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio20_1.webp"
+                                        alt="스튜디오 이미지 5"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로브아 스튜디오</h2>
+                                <h2>준유스튜디오</h2>
+                                <p>서울시 강남구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-14.jpg"
-                                        alt="스튜디오 이미지 2"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio15_1.webp"
+                                        alt="스튜디오 이미지 6"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로이 스튜디오</h2>
+                                <h2>느와르블랑 하우스</h2>
+                                <p>서울시 강남구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-2.jpg"
-                                        alt="스튜디오 이미지 3"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio6_2.jpg"
+                                        alt="스튜디오 이미지 7"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>리저브 스튜디오</h2>
+                                <h2>포에버마인스튜디오</h2>
+                                <p>서울시 강남구</p>
                             </div>
                         </div>
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-5.jpg"
-                                        alt="스튜디오 이미지 4"
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio4_1.jpg"
+                                        alt="스튜디오 이미지 8"
                                 />
                             </div>
                             <div class="similar-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>스튜디오 사이</h2>
+                                <h2>가을스튜디오</h2>
+                                <p>서울시 송파구</p>
                             </div>
                         </div>
                     </div>
@@ -367,128 +370,128 @@
         </section>
 
         <!-- 6. 다른 고객이 함께 본 상품 -->
-        <section class="recommend">
-            <div class="hd__inner1100">
-                <div class="title-container noline">
-                    <h2>다른 고객이 함께 본 상품</h2>
-                </div>
-                <div class="recommend-container">
-                    <div class="recommend-inner">
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-13.jpg"
-                                        alt="스튜디오 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로브아 스튜디오</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-14.jpg"
-                                        alt="스튜디오 이미지 2"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로이 스튜디오</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-2.jpg"
-                                        alt="스튜디오 이미지 3"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>리저브 스튜디오</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-5.jpg"
-                                        alt="스튜디오 이미지 4"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>스튜디오 사이</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-13.jpg"
-                                        alt="스튜디오 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로브아 스튜디오</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-14.jpg"
-                                        alt="스튜디오 이미지 2"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로이 스튜디오</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-2.jpg"
-                                        alt="스튜디오 이미지 3"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>리저브 스튜디오</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="${pageContext.request.contextPath}/resources/images/studio-5.jpg"
-                                        alt="스튜디오 이미지 4"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>스튜디오 사이</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="recommend-buttons">
-                    <button class="recommend-button left" id="prevButton">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"
-                        />
-                    </button>
-                    <div class="currentPage" id="currentPage"></div>
-                    <div class="slice">/</div>
-                    <div class="totalPages" id="totalPages"></div>
-                    <button class="recommend-button right" id="nextButton">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"
-                        />
-                    </button>
-                </div>
-            </div>
-        </section>
+<%--        <section class="recommend">--%>
+<%--            <div class="hd__inner1100">--%>
+<%--                <div class="title-container noline">--%>
+<%--                    <h2>다른 고객이 함께 본 상품</h2>--%>
+<%--                </div>--%>
+<%--                <div class="recommend-container">--%>
+<%--                    <div class="recommend-inner">--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="${pageContext.request.contextPath}/resources/images/studio-13.jpg"--%>
+<%--                                        alt="스튜디오 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>로브아 스튜디오</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="${pageContext.request.contextPath}/resources/images/studio-14.jpg"--%>
+<%--                                        alt="스튜디오 이미지 2"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>로이 스튜디오</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="${pageContext.request.contextPath}/resources/images/studio-2.jpg"--%>
+<%--                                        alt="스튜디오 이미지 3"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>리저브 스튜디오</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="${pageContext.request.contextPath}/resources/images/studio-5.jpg"--%>
+<%--                                        alt="스튜디오 이미지 4"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>스튜디오 사이</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="${pageContext.request.contextPath}/resources/images/studio-13.jpg"--%>
+<%--                                        alt="스튜디오 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>로브아 스튜디오</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="${pageContext.request.contextPath}/resources/images/studio-14.jpg"--%>
+<%--                                        alt="스튜디오 이미지 2"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>로이 스튜디오</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="${pageContext.request.contextPath}/resources/images/studio-2.jpg"--%>
+<%--                                        alt="스튜디오 이미지 3"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>리저브 스튜디오</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="${pageContext.request.contextPath}/resources/images/studio-5.jpg"--%>
+<%--                                        alt="스튜디오 이미지 4"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>스튜디오 사이</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="recommend-buttons">--%>
+<%--                    <button class="recommend-button left" id="prevButton">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"--%>
+<%--                        />--%>
+<%--                    </button>--%>
+<%--                    <div class="currentPage" id="currentPage"></div>--%>
+<%--                    <div class="slice">/</div>--%>
+<%--                    <div class="totalPages" id="totalPages"></div>--%>
+<%--                    <button class="recommend-button right" id="nextButton">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"--%>
+<%--                        />--%>
+<%--                    </button>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </section>--%>
     </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </body>

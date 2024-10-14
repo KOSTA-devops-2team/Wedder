@@ -193,16 +193,16 @@
     </select>
 
     <!-- 웨딩홀 일정 -->
-    <select id="selectAvailableHallDate" parameterType="int" resultType="CompanyScheduleDTO">
+    <select id="selectAvailableDateList" parameterType="int" resultType="CompanyScheduleDTO">
         SELECT *
         FROM companySchedule
         WHERE company_id = #{companyId}
     </select>
 
-    <select id="selectAvailableHallTime" parameterType="map" resultType="CompanyScheduleDTO">
+    <select id="selectAvailableTimeList" parameterType="map" resultType="CompanyScheduleDTO">
         SELECT *
         FROM companySchedule
-        WHERE company_name = #{companyName}
+        WHERE company_id = #{companyId}
         AND date = #{date}
         ORDER BY time
     </select>

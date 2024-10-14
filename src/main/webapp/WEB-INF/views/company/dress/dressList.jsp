@@ -22,7 +22,7 @@
             <div class="title-sub">
                 원하는 조건으로 나만의 드레스 업체를 찾아보세요.
             </div>
-            <div class="title-main">Dress</div>
+            <div class="title-main">드레스</div>
         </section>
 
         <!-- 검색 조건 및 버튼 -->
