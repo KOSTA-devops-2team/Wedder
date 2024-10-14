@@ -103,10 +103,6 @@ body {
   width: 960px;
   min-height: 1000px;
 }
-/* 2.헤더 설명 */
-.myPayment-header h3 {
-  color: #ca1a5a;
-}
 /* 3. 서치 바 */
 .myPayment-search {
   display: flex;

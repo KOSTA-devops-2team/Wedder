@@ -28,7 +28,7 @@
       <div class="mypage-content hd__inner880">
         <!-- 1.마이페이지 배너 -->
         <section class="summary">
-          <h1>안녕하세요. 마리아쥬스퀘어 손님</h1>
+          <h1>안녕하세요. ${myPageDTO.name} 님 </h1>
           <div class="summary-lists">
             <div class="summary-item">
               <div class="summary-title">신규 방문 예약</div>
@@ -38,9 +38,9 @@
               </div>
             </div>
             <div class="summary-item">
-              <div class="summary-title">오늘 방문 일정</div>
+              <div class="summary-title"> 방문 일정</div>
               <div class="summary-count">
-                <span class="number">3</span>
+                <span class="number">${visitCriteriaCount}</span>
                 <span class="unit">건</span>
               </div>
             </div>
@@ -60,9 +60,8 @@
           <div class="estimate-storage">
             <div class="storage">
               <div class="title-box">
-                <h4 class="storage-title">견적함 명</h4>
-                <h5 class="storage-total-price">합계 금액 3,000,000원</h5>
-                <p class="total-product">담긴 상품 3개</p>
+                <h4 class="storage-title">2024-10-15</h4>
+                <h5 class="storage-total-price">합계 금액 7,684,000원</h5>
               </div>
               <div>
                 <a href="#"
@@ -112,9 +111,8 @@
             </div>
             <div class="storage">
               <div class="title-box">
-                <h4 class="storage-title">견적함 명</h4>
+                <h4 class="storage-title">2024-10-15</h4>
                 <h5 class="storage-total-price">합계 금액 2,000,000원</h5>
-                <p class="total-product">담긴 상품 2개</p>
               </div>
               <div>
                 <a href="#"
@@ -154,9 +152,8 @@
             </div>
             <div class="storage">
               <div class="title-box">
-                <h4 class="storage-title">견적함 명</h4>
+                <h4 class="storage-title">2024-10-15</h4>
                 <h5 class="storage-total-price">합계 금액 3,000,000원</h5>
-                <p class="total-product">담긴 상품 3개</p>
               </div>
               <div>
                 <a href="#"
@@ -206,9 +203,8 @@
             </div>
             <div class="storage">
               <div class="title-box">
-                <h4 class="storage-title">견적함 명</h4>
+                <h4 class="storage-title">2024-10-15</h4>
                 <h5 class="storage-total-price">합계 금액 3,000,000원</h5>
-                <p class="total-product">담긴 상품 3개</p>
               </div>
               <div>
                 <a href="#"
@@ -257,9 +253,8 @@
             </div>
             <div class="storage">
               <div class="title-box">
-                <h4 class="storage-title">견적함 명</h4>
+                <h4 class="storage-title">2024-10-15</h4>
                 <h5 class="storage-total-price">합계 금액 2,000,000원</h5>
-                <p class="total-product">담긴 상품 2개</p>
               </div>
               <div>
                 <a href="#"
@@ -300,9 +295,8 @@
             </div>
             <div class="storage">
               <div class="title-box">
-                <h4 class="storage-title">견적함 명</h4>
+                <h4 class="storage-title">2024-10-15</h4>
                 <h5 class="storage-total-price">합계 금액 1,000,000원</h5>
-                <p class="total-product">담긴 상품 1개</p>
               </div>
               <div>
                 <a href="#"
@@ -349,7 +343,7 @@
                 <div class="company-content">
                   <div class="company-info">
                     <div class="company-title">
-                      <p class="company-name">S 스튜디오</p>
+                      <p class="company-name">에밀라 스튜디오</p>
                       <p class="del-list">삭제</p>
                     </div>
 
@@ -357,22 +351,22 @@
                       <p class="basic-option">
                         [웨딩촬영]앨범 20p + 기본 액자 (20R)
                       </p>
-                      <h4 class="price-basic">330,000원</h4>
+                      <h4 class="price-basic">1,750,000원</h4>
                     </div>
                   </div>
                   <div class="company-options">
                     <p class="detail-option">세부옵션</p>
                     <div class="options">
                       <div class="option">
-                        <p>· 수정본데이터</p>
-                        <p>165000원</p>
+                        <p>· 야간 촬영</p>
+                        <p>110,000원</p>
                       </div>
                       <div class="option">
-                        <p>· 들러리 촬영</p>
-                        <p>150,000원</p>
+                        <p>· 옥상씬 촬영</p>
+                        <p>110,000원</p>
                       </div>
                       <div class="option">
-                        <p>· 야간씬 촬영</p>
+                        <p>· 애견동반 촬영</p>
                         <p>110,000원</p>
                       </div>
                     </div>
@@ -389,29 +383,29 @@
                 <div class="company-content">
                   <div class="company-info">
                     <div class="company-title">
-                      <p class="company-name">안나스포사</p>
+                      <p class="company-name">모네뜨아르드레스</p>
                       <p class="del-list">삭제</p>
                     </div>
 
                     <div class="company-detail">
                       <p class="basic-option">[촬영] 드레스 3벌</p>
-                      <h4 class="price-basic">1,120,000원</h4>
+                      <h4 class="price-basic">6,700,000원</h4>
                     </div>
                   </div>
                   <div class="company-options">
                     <p class="detail-option">세부옵션</p>
                     <div class="options">
                       <div class="option">
-                        <p>· 피팅비</p>
-                        <p>55,000원</p>
-                      </div>
-                      <div class="option">
                         <p>· 헬퍼비</p>
                         <p>250,000원</p>
                       </div>
                       <div class="option">
-                        <p>· 드레스 추가</p>
+                        <p>· 블랙라벨 업그레이드</p>
                         <p>330,000원</p>
+                      </div>
+                      <div class="option">
+                        <p>· 2부 드레스 추가</p>
+                        <p>200,000원</p>
                       </div>
                     </div>
                   </div>
@@ -427,20 +421,28 @@
                 <div class="company-content">
                   <div class="company-info">
                     <div class="company-title">
-                      <p class="company-name">제니하우스 청담힐</p>
+                      <p class="company-name">비기닝 메이크업</p>
                       <p class="del-list">삭제</p>
                     </div>
                     <div class="company-detail">
                       <p class="basic-option">[촬영+본식] 신부신랑 메이크업</p>
-                      <h4 class="price-basic">330,000원</h4>
+                      <h4 class="price-basic">440,000원</h4>
                     </div>
                   </div>
                   <div class="company-options">
                     <p class="detail-option">세부옵션</p>
                     <div class="options">
                       <div class="option">
-                        <p>· 직급 지정 (원장)</p>
-                        <p>55,000원</p>
+                        <p>· 새벽 시술</p>
+                        <p>100,000원</p>
+                      </div>
+                      <div class="option">
+                        <p>· 저녁 시술</p>
+                        <p>70,000원</p>
+                      </div>
+                      <div class="option">
+                        <p>· 헤어 피스</p>
+                        <p>100,000원</p>
                       </div>
                     </div>
                   </div>
@@ -450,15 +452,15 @@
               <div class="price-container">
                 <div class="price-regular">
                   <p>정상가</p>
-                  <p>3,260,000원</p>
+                  <p>8,890,000원</p>
                 </div>
                 <div class="discount">
                   <p>쿠폰/옵션 할인가</p>
-                  <p>-206,000원</p>
+                  <p>-1,206,000원</p>
                 </div>
                 <div class="price-final">
                   <p>최종 금액</p>
-                  <p>3,000,000원</p>
+                  <p>7,684,000원</p>
                 </div>
               </div>
 

@@ -76,7 +76,6 @@
 .sub-title-header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid #000000;
 }
 .body-header {
   width: 100%;
@@ -268,7 +267,6 @@ td {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  border-bottom: 2px solid black;
   padding-top: 100px;
 }
 .tab {
