@@ -10,12 +10,6 @@
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/company/studio/studioDetail.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/common/mapApi.css"
-    />
-    <%--    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/mapApi.js"></script>--%>
-    <script type="text/javascript" defer src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49002230661bfc60fba4b0f1cfab9f60&autoload=false"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/mapTest.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -96,10 +90,8 @@
                             <th>지도</th>
                         </tr>
                     </table>
-<%--                    <div class="info-map">--%>
-<%--                        <%@ include file="/WEB-INF/views/common/mapApi.jsp" %>--%>
-<%--                    </div>--%>
-                    <div class="info-map" id="map" data-company-id="${studio.companyId}" data-latitude="${studio.latitude}" data-longitude="${studio.longitude}">
+                    <div class="info-map">
+                        <%@ include file="/WEB-INF/views/common/mapApi.jsp" %>
                     </div>
                 </div>
             </div>
@@ -109,11 +101,11 @@
                 <button class="estimate-btn">견적함에 담기</button>
             </div>
         </section>
-    </c:forEach>
+
         <!-- 3. 일정 현황-->
         <section class="schedule">
             <div class="title-container">
-                <h2>비마이스튜디오 상품 정보</h2>
+                <h2>${studio.companyName} 상품 정보</h2>
             </div>
 
             <div class="schedule-container">
@@ -136,29 +128,29 @@
                         <div class="time-lists">
                             <div class="time-list">
                                 <span>10:00</span>
-                                <span>[스튜디오] 비마이스튜디오</span>
+                                <span>[${studio.category}] ${studio.companyName}</span>
                             </div>
                             <div class="time-list">
                                 <span>12:00</span>
-                                <span>[스튜디오] 비마이스튜디오</span>
+                                <span>[${studio.category}] ${studio.companyName}</span>
                             </div>
                             <div class="time-list">
                                 <span>14:00</span>
-                                <span>[스튜디오] 비마이스튜디오</span>
+                                <span>[${studio.category}] ${studio.companyName}</span>
                             </div>
                             <div class="time-list">
                                 <span>16:00</span>
-                                <span>[스튜디오] 비마이스튜디오</span>
+                                <span>[${studio.category}] ${studio.companyName}</span>
                             </div>
                         </div>
                     </div>
-                    <a href="reservationOption">
-                        <button class="schedule-button">예약하기</button>
-                    </a>
+                <%--<a href="reservationOption">--%>
+                    <button class="schedule-button">예약하기</button>
+                    <%--</a>--%>
                 </div>
             </div>
         </section>
-
+    </c:forEach>
         <!-- 4. 세부 옵션 -->
         <section class="estimator">
             <div class="title-container">

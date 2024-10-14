@@ -85,7 +85,10 @@
             c.company_name LIKE concat('%', #{companyName}, '%')
         </if>
         <if test="category != null and category != ''">
-            AND c.company_category = #{category}
+            <if test="companyName != null and companyName != ''">
+                AND
+            </if>
+            c.company_category = #{category}
         </if>
     </sql>
 
@@ -102,9 +105,14 @@
         LEFT JOIN dressInfo d ON c.company_id = d.company_id
         LEFT JOIN makeupInfo m ON c.company_id = m.company_id
         LEFT JOIN companyImage i ON c.company_id = i.company_id
-        WHERE c.company_category = #{category}
+        <where>
+            c.company_category = #{category}
+            <if test="companyName != null and companyName != ''">
+                AND c.company_name LIKE concat('%', #{companyName}, '%')
+            </if>
+        </where>
         GROUP BY c.company_id
-        ORDER BY c.company_id DESC
+        ORDER BY c.company_id
         LIMIT #{pagination.pageSize} OFFSET #{pagination.startList}
     </select>
 
@@ -121,9 +129,14 @@
 <!--        LIMIT #{pagination.pageSize} OFFSET #{pagination.startList}-->
 <!--    </select>-->
 
-    <select id="selectCompanyListCnt" parameterType="String" resultType="int">
-        SELECT count(*) FROM company
-        WHERE company_category = #{category}
+    <select id="selectCompanyListCnt" parameterType="map" resultType="int">
+        SELECT COUNT(DISTINCT c.company_id) FROM company c
+        <where>
+            c.company_category = #{category}
+            <if test="companyName != null and companyName != ''">
+                AND c.company_name LIKE concat('%', #{companyName}, '%')
+            </if>
+        </where>
     </select>
 
     <select id="searchCompany" resultMap="companyDtoMap">
@@ -141,8 +154,8 @@
 
     <select id="selectHallDetail" parameterType="int" resultMap="companyDtoMap">
         SELECT * FROM company c
-        LEFT JOIN hallInfo h ON c.company_id = h.company_id
-        LEFT JOIN companyImage i ON c.company_id = i.company_id
+        JOIN hallInfo h ON c.company_id = h.company_id
+        JOIN companyImage i ON c.company_id = i.company_id
         WHERE c.company_id = #{companyId}
     </select>
 
@@ -161,7 +174,7 @@
     </select>
 
     <select id="selectCoordinateById" parameterType="int" resultType="CompanyDto">
-        SELECT company_id, company_name, latitude, longitude
+        SELECT company_id, company_name, company_category, latitude, longitude
         FROM company
         WHERE company_id = #{companyId}
     </select>
