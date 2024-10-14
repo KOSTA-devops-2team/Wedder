@@ -15,7 +15,11 @@ $(document).ready(function () {
                 title:'로그인 필요',
                 text: '패키지 예약은 회원만 가능합니다. 로그인 페이지로 이동합니다.',
                 icon: 'warning',
-                confirmButtonText: '확인'
+                confirmButtonText: '확인',
+                confirmButtonColor : '#ca1a5a',
+                cancelButtonText: "취소",
+                showCancelButton: true,
+                cancelButtonColor : 'black'
             }).then(() => {
                 let currentUrl = window.location.href;
                 console.log("현재 URL: ", currentUrl); // 현재 URL 확인
