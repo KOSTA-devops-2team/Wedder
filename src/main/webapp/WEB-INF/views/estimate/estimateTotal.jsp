@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page session="true" %>
 <!DOCTYPE html>
 
@@ -58,14 +59,14 @@
                                         <p class="name">${studioName}</p>
                                         <p>[웨딩촬영]앨범 20p + 기본 액자 (20R)</p>
                                     </div>
-                                    <div> ${studioPrice}원</div>
+                                    <div><fmt:formatNumber value="${studioPrice}" pattern="#,##0"/>원</div>
                                 </div>
                                 <div class="options">
                                     <p class="option-detail">세부옵션</p>
                                     <c:if test="${not empty selectedOptions.studio}">
                                         <c:forEach var="option" items="${selectedOptions.studio}">
                                             <div class="option">
-                                                <p>${option.name}</p><p>${option.price}원</p>
+                                                <p>${option.name}</p><p><fmt:formatNumber value="${option.price}" pattern="#,##0"/>원</p>
                                             </div>
                                         </c:forEach>
                                     </c:if>
@@ -74,7 +75,7 @@
                                             <c:forEach var="option" items="${companyOptions.studio}">
                                                 <div class="option-item studio-option">
                                                     <span class="option-name">${option.optionName}</span>
-                                                    <span class="option-price">${option.optionPrice}원</span>
+                                                    <span class="option-price"><fmt:formatNumber value="${option.price}" pattern="#,##0"/>원</span>
                                                 </div>
                                             </c:forEach>
                                         </div>
@@ -90,7 +91,7 @@
                                         <p class="name">${dressName}</p>
                                         <p>[촬영] 드레스 3벌</p>
                                     </div>
-                                    <p>${dressPrice}원</p>
+                                    <p><fmt:formatNumber value="${dressPrice}" pattern="#,##0"/>원</p>
                                 </div>
                                 <div>
                                     <div class="options">
@@ -98,7 +99,7 @@
                                         <c:if test="${not empty selectedOptions.dress}">
                                             <c:forEach var="option" items="${selectedOptions.dress}">
                                                 <div class="option">
-                                                    <p>${option.name}</p><p>${option.price}원</p>
+                                                    <p>${option.name}</p><p><fmt:formatNumber value="${option.price}" pattern="#,##0"/>원</p>
                                                 </div>
                                             </c:forEach>
                                         </c:if>
@@ -114,7 +115,7 @@
                                         <p class="name">${makeupName}</p>
                                         <p>[촬영+본식] 신부신랑 메이크업</p>
                                     </div>
-                                    <p>${makeupPrice}원</p>
+                                    <p><fmt:formatNumber value="${makeupPrice}" pattern="#,##0"/>원</p>
                                 </div>
                             </div>
                             <div class="options">
@@ -122,7 +123,7 @@
                                 <c:if test="${not empty selectedOptions.makeup}">
                                     <c:forEach var="option" items="${selectedOptions.makeup}">
                                         <div class="option">
-                                            <p>${option.name}</p><p>${option.price}원</p>
+                                            <p>${option.name}</p><p><fmt:formatNumber value="${option.price}" pattern="#,##0"/>원</p>
                                         </div>
                                     </c:forEach>
                                 </c:if>
@@ -142,7 +143,7 @@
                                 </c:forEach>
                                 <div class="final">
                                     <p>최종 금액</p>
-                                    <p>${totalPrice}원</p>
+                                    <p><fmt:formatNumber value="${totalPrice}" pattern="#,##0"/>원</p>
                                 </div>
                             </div>
                         </div>

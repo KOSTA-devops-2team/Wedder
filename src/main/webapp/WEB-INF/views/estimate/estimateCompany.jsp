@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page session="true" %>
 <!DOCTYPE html>
 
@@ -67,7 +68,7 @@
                                             ${studio.companyName}
                                     </a>
                                     <div class="address">${studio.companyAddress}</div>
-                                    <div class="price-info">${studio.basicPrice}</div>
+                                    <div class="price-info"><fmt:formatNumber value="${studio.basicPrice}" pattern="#,##0"/>원</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
@@ -95,7 +96,7 @@
                                             ${dress.companyName}
                                     </a>
                                     <div class="address">${dress.companyAddress}</div>
-                                    <div class="price-info">${dress.basicPrice}</div>
+                                    <div class="price-info"><fmt:formatNumber value="${dress.basicPrice}" pattern="#,##0"/>원</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
@@ -123,7 +124,7 @@
                                             ${makeup.companyName}
                                     </a>
                                     <div class="address">${makeup.companyAddress}</div>
-                                    <div class="price-info">${makeup.basicPrice}</div>
+                                    <div class="price-info"><fmt:formatNumber value="${makeup.basicPrice}" pattern="#,##0"/>원</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
@@ -159,11 +160,10 @@
                     <p>- 선택한 날짜에 따라 업체의 예약 가능 여부가 달라질 수 있습니다.</p>
                     <p>- 최종 금액은 실제 결제 시 변동될 수 있습니다.</p>
                 </div>
+                <div class="btn">
+                    <button class="next">다음으로</button>
+                </div>
             </div>
-        </div>
-        <div class="btn">
-            <button onclick="history.back()" class="back">이전</button>
-            <button class="next">다음으로</button>
         </div>
     </div>
 </div>

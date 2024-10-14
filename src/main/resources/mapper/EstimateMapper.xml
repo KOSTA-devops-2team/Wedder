@@ -14,7 +14,8 @@
         ci.img_url AS imgUrl
         FROM company c
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
-        WHERE c.company_category = '스튜디오';
+        WHERE c.company_category = '스튜디오'
+            AND ci.img_seq = 1;
     </select>
 
     <select id="getDressList" resultType="EstimateDto">
@@ -26,7 +27,8 @@
         ci.img_url AS imgUrl
         FROM company c
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
-        WHERE c.company_category = '드레스';
+        WHERE c.company_category = '드레스'
+            AND ci.img_seq = 1;
     </select>
 
     <select id="getMakeupList" resultType="EstimateDto">
@@ -38,7 +40,8 @@
         ci.img_url AS imgUrl
         FROM company c
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
-        WHERE c.company_category = '메이크업';
+        WHERE c.company_category = '메이크업'
+            AND ci.img_seq = 1;
     </select>
 
     <!-- 특정 스튜디오 조회 -->
@@ -51,6 +54,7 @@
         FROM company c
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
         WHERE c.company_id = #{companyId}
+            AND ci.img_seq = 1;
     </select>
 
 
@@ -64,6 +68,7 @@
         FROM company c
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
         WHERE c.company_id = #{companyId}
+            AND ci.img_seq = 1;
     </select>
 
 
@@ -77,6 +82,7 @@
         FROM company c
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
         WHERE c.company_id = #{companyId}
+            AND ci.img_seq = 1;
     </select>
 
     <!-- 스튜디오 옵션 조회 -->
