@@ -99,13 +99,19 @@ function updatePackageList(packages) {
 
     packages.forEach(function (packageItem) {
         packageHtml += `
-        <div class="grid-content">
-            <div class="grid-pic">
-                <img src="${packageItem.packageImg}" alt="패키지 이미지">
-            </div>
-            <p class="name">${packageItem.studioName} + ${packageItem.dressName} + ${packageItem.makeupName}</p>
-            <p class="cost">${packageItem.finalPrice ? packageItem.finalPrice.toLocaleString() : 0}원</p>  
-        </div>`;
+       <div class="grid-content">
+                    <div class="grid-pic">
+                        <a href="${pageContext.request.contextPath}/package/${AllPackage.packageId}/detail">
+                            <img src="${AllPackage.packageImg}" alt="패키지 이미지"/>
+                        </a>
+                    </div>
+                    <div class="package-info">
+                        <div class="name">${AllPackage.studioName} + ${AllPackage.dressName} + ${AllPackage.makeupName}</div>
+                        <div class="prev-price"><fmt:formatNumber value="${AllPackage.originalPrice}" type="number" pattern="#,###"/> 원</div>
+                        <span class="sale-per">${AllPackage.discountRate}%</span>
+                        <span class="current-price"><fmt:formatNumber value="${AllPackage.finalPrice}" type="number" pattern="#,###"/>원</span>
+                    </div>
+                </div>`;
     });
 
     $('.package-search-container').html(packageHtml);

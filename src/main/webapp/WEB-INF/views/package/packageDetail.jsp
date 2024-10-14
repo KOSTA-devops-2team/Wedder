@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
-    Integer customerId =  (Integer) session.getAttribute("customerId");
+    Integer customerId = (Integer) session.getAttribute("customerId");
     String customerEmail = (String) session.getAttribute("customerEmail");
     String customerName = (String) session.getAttribute("customerName");
     String customerTel = (String) session.getAttribute("customerTel");
@@ -50,11 +50,13 @@
     <div class="container">
         <div class="header">
             <h1>${packageDetails[0].description}</h1>
-            <h2 class="product-name">${packageDetails[0].packageName}</h2>
+            <h2 class="product-name">${packageDetails[0].packageName}👑</h2>
         </div>
         <c:forEach var="detail" items="${packageDetails}">
             <div class="service">
-                <img src="${detail.imgUrl}" alt="${detail.packageName}">
+                <a href="${pageContext.request.contextPath}/studio/detail/${detail.companyId}">
+                    <img src="${detail.imgUrl}" alt="${detail.packageName}">
+                </a>
                 <div class="description">
                     <h3>${detail.companyCategory}</h3>
                     <p>${detail.companyName}</p>
@@ -89,32 +91,36 @@
         <div class="total-title">결제할 금액</div>
         <div class="total">
             <section>
-            <div class="total-cost">
-                <div class="tag">정상가</div>
-                <div class="price"><fmt:formatNumber value="${packagePrice}" type="number" pattern="#,###"/>원</div>
-            </div>
-            <div class="total-discount">
-                <div class="tag">패키지 추가 할인</div>
-                <div class="price"><fmt:formatNumber value="${discountPrice}" type="number" pattern="#,###"/>원</div>
-            </div>
-            <div class="total-final">
-                <div class="tag">최종 혜택가</div>
-                <div class="final-price"><fmt:formatNumber value="${finalPrice}" type="number" pattern="#,###"/>원</div>
-            </div>
+                <div class="total-cost">
+                    <div class="tag">정상가</div>
+                    <div class="price"><fmt:formatNumber value="${packagePrice}" type="number" pattern="#,###"/>원</div>
+                </div>
+                <div class="total-discount">
+                    <div class="tag">패키지 추가 할인</div>
+                    <div class="price"><fmt:formatNumber value="${discountPrice}" type="number" pattern="#,###"/>원</div>
+                </div>
+                <div class="total-final">
+                    <div class="tag">최종 혜택가</div>
+                    <div class="final-price"><fmt:formatNumber value="${finalPrice}" type="number" pattern="#,###"/>원
+                    </div>
+                </div>
             </section>
 
             <section>
-            <div class="choice">
-                <div class="choice-box">
-                    <div class="saving-price">패키지 구매 시<br>총<fmt:formatNumber value="${discountPrice}" type="number" pattern="#,###"/>원 절약</div>
-                    <div class="notice">선택 옵션 변경 시 패키지 혜택이 달라질 수 있습니다.</div>
+                <div class="choice">
+                    <div class="choice-box">
+                        <div class="saving-price">패키지 구매 시<br>총<fmt:formatNumber value="${discountPrice}" type="number"
+                                                                                 pattern="#,###"/>원 절약
+                        </div>
+                        <div class="notice">선택 옵션 변경 시 패키지 혜택이 달라질 수 있습니다.</div>
+                    </div>
                 </div>
-            </div>
             </section>
         </div>
 
         <div class="btn">
-           <button class="back"><a class="main-button" href="${pageContext.request.contextPath}/package/recommend">뒤로 가기</a></button>
+            <button class="back"><a class="main-button" href="${pageContext.request.contextPath}/package/recommend">뒤로
+                가기</a></button>
             <button class="kakao-pay">패키지 결제하기</button>
         </div>
     </div>

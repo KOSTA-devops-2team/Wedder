@@ -12,6 +12,7 @@
         p.package_img AS packageImg,
         p.description AS description,
         p.discount_rate AS discountRate,
+        c.*,
         MAX(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studioName,
         MAX(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dressName,
         MAX(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName
@@ -59,7 +60,6 @@
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id AND ci.img_seq = 1
         WHERE p.category_type = 'MDPICK'
         GROUP BY p.package_id;
-
     </select>
 
     <!--패키지 상세페이지-->
@@ -70,6 +70,7 @@
         JOIN package p ON pc.package_id = p.package_id
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
         WHERE pc.package_id = #{packageId}
+        AND ci.img_seq = 1
     </select>
 
     <!--업체명 자동완성 기능-->
