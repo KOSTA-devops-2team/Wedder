@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page session="false" %>
 <!DOCTYPE html>
 
@@ -67,7 +68,7 @@
                                             ${studio.companyName}
                                     </a>
                                     <div class="address">${studio.companyAddress}</div>
-                                    <div class="price-info">${studio.basicPrice}</div>
+                                    <div class="price-info"><fmt:formatNumber value="${studio.basicPrice}" pattern="#,##0"/>원</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
@@ -95,7 +96,7 @@
                                             ${dress.companyName}
                                     </a>
                                     <div class="address">${dress.companyAddress}</div>
-                                    <div class="price-info">${dress.basicPrice}</div>
+                                    <div class="price-info"><fmt:formatNumber value="${dress.basicPrice}" pattern="#,##0"/>원</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
@@ -123,7 +124,7 @@
                                             ${makeup.companyName}
                                     </a>
                                     <div class="address">${makeup.companyAddress}</div>
-                                    <div class="price-info">${makeup.basicPrice}</div>
+                                    <div class="price-info"><fmt:formatNumber value="${makeup.basicPrice}" pattern="#,##0"/>원</div>
                                     <a href="#" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
@@ -164,7 +165,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

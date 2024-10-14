@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page session="false" %>
 <!DOCTYPE html>
 
@@ -52,7 +53,8 @@
                                         <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
                                     </div>
                                     <div class="main-price">
-                                        <p>${studioData.basicPrice}</p>
+<%--                                        <p>${studioData.basicPrice}</p>--%>
+                                        <fmt:formatNumber value="${studioData.basicPrice}" pattern="#,##0"/>원
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +68,9 @@
                                             <span class="option-name">${option.optionName}</span>
                                             <span class="option-description">${option.optionDescription}</span>
                                         </div>
-                                        <span class="option-price">${option.optionPrice}원</span>
+                                        <span class="option-price">
+                                            <fmt:formatNumber value="${option.optionPrice}" pattern="#,##0"/>원
+                                        </span>
                                     </div>
                                 </c:forEach>
                             </div>
@@ -92,7 +96,7 @@
                                         <p>무료 피팅서비스</p>
                                     </div>
                                     <div class="main-price">
-                                        <p>${dressData.basicPrice}</p>
+                                        <fmt:formatNumber value="${makeupData.basicPrice}" pattern="#,##0"/>원
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +110,9 @@
                                             <span class="option-name">${option.optionName}</span>
                                             <span class="option-description">${option.optionDescription}</span>
                                         </div>
-                                        <span class="option-price">${option.optionPrice}원</span>
+                                        <span class="option-price">
+                                            <fmt:formatNumber value="${option.optionPrice}" pattern="#,##0"/>원
+                                        </span>
                                     </div>
                                 </c:forEach>
                             </div>
@@ -132,7 +138,7 @@
                                         <p>부원장 or 원장 맞춤 스타일링</p>
                                     </div>
                                     <div class="main-price">
-                                        <p>${makeupData.basicPrice}</p>
+                                        <fmt:formatNumber value="${makeupData.basicPrice}" pattern="#,##0"/>원
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +152,9 @@
                                             <span class="option-name">${option.optionName}</span>
                                             <span class="option-description">${option.optionDescription}</span>
                                         </div>
-                                        <span class="option-price">${option.optionPrice}원</span>
+                                        <span class="option-price">
+                                            <fmt:formatNumber value="${option.optionPrice}" pattern="#,##0"/>원
+                                        </span>
                                     </div>
                                 </c:forEach>
                             </div>
@@ -164,7 +172,9 @@
                             <!-- 선택한 스튜디오 정보 -->
                             <div class="selected-studio" id="selected-studio">
                                 <span class="company-info" >${studioData.companyName}</span>
-                                <span class="company-price" data-price="${studioData.basicPrice}">${studioData.basicPrice}원</span>
+                                <span class="company-price" data-price="${studioData.basicPrice}">
+                                    <fmt:formatNumber value="${studioData.basicPrice}" pattern="#,##0"/>원
+                                </span>
                             </div>
                             <!-- 스튜디오 옵션 -->
                             <div id="selected-studio-options"></div>
@@ -172,7 +182,9 @@
                             <!-- 선택한 드레스 정보 -->
                             <div class="selected-dress" id="selected-dress">
                                 <span class="company-info">${dressData.companyName}</span>
-                                <span class="company-price" data-price="${dressData.basicPrice}">${dressData.basicPrice}원</span>
+                                <span class="company-price" data-price="${dressData.basicPrice}">
+                                    <fmt:formatNumber value="${dressData.basicPrice}" pattern="#,##0"/>원
+                                </span>
                             </div>
                             <!-- 드레스 옵션 -->
                             <div id="selected-dress-options"></div>
@@ -180,7 +192,9 @@
                             <!-- 선택한 메이크업 정보 -->
                             <div class="selected-makeup" id="selected-makeup">
                                 <span class="company-info">${makeupData.companyName}</span>
-                                <span class="company-price" data-price="${makeupData.basicPrice}">${makeupData.basicPrice}원</span>
+                                <span class="company-price" data-price="${makeupData.basicPrice}">
+                                    <fmt:formatNumber value="${makeupData.basicPrice}" pattern="#,##0"/>원
+                                </span>
                             </div>
                             <!-- 메이크업 옵션 -->
                             <div id="selected-makeup-options"></div>
