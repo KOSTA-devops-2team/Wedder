@@ -25,7 +25,7 @@
 <div class="container">
     <div class="hd__inner1100">
         <div class="container-title">
-            <p>Estimate</p>
+            <p>견적서</p>
             <p class="description">원하는 조건의 스튜디오, 드레스 메이크업 업체를 조합해 가격을 알아봐요</p>
         </div>
         <!-- 스드메 상단 탭 -->
@@ -53,7 +53,6 @@
                                         <p>원본 파일(3장) + 기본 인화 1컷(20R)</p>
                                     </div>
                                     <div class="main-price">
-<%--                                        <p>${studioData.basicPrice}</p>--%>
                                         <fmt:formatNumber value="${studioData.basicPrice}" pattern="#,##0"/>원
                                     </div>
                                 </div>

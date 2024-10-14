@@ -24,7 +24,7 @@
 <div class="hd__inner1100">
     <div class="container">
         <div class="container-title">
-            <p>Estimate</p>
+            <p>견적서</p>
             <p class="description">원하는 조건의 스튜디오, 드레스 메이크업 업체를 조합해 가격을 알아봐요</p>
         </div>
 
