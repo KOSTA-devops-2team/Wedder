@@ -96,7 +96,7 @@
                                         <p>무료 피팅서비스</p>
                                     </div>
                                     <div class="main-price">
-                                        <fmt:formatNumber value="${makeupData.basicPrice}" pattern="#,##0"/>원
+                                        <fmt:formatNumber value="${dressData.basicPrice}" pattern="#,##0"/>원
                                     </div>
                                 </div>
                             </div>
