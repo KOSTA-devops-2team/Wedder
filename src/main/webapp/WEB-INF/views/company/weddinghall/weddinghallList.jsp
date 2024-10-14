@@ -14,7 +14,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 <%--    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/hallPagination.js"></script>--%>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script defer src="${pageContext.request.contextPath}/resources/js/pagination/hallPagination.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -30,23 +29,21 @@
         <!-- 검색 조건 및 버튼 -->
         <section class="search">
             <div class="search-condition">
-<%--                <div class="local-search">--%>
-<%--                        <span--%>
-<%--                        >지역<img--%>
-<%--                                id="region-icon"--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
-<%--                        /></span>--%>
-<%--                </div>--%>
 <%--                <div>--%>
-<%--                        <span--%>
-<%--                        >예산<img--%>
-<%--                                id="cost-icon"--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
-<%--                        /></span>--%>
-<%--                </div>--%>
-<%--                <div>--%>
+<%--                    <select class="local-search">--%>
+<%--                        <option value="mood">지역</option>--%>
+<%--                        <c:forEach var="option" items="${hallList}">--%>
+<%--                            <option value="${option.location}">${option.location}</option>--%>
+<%--                        </c:forEach>--%>
+<%--                    </select>--%>
+<%--                    <select>--%>
+<%--                        <option value="mood">예산</option>--%>
+<%--                        <c:forEach var="option" items="${hallList}">--%>
+<%--                            <option value="${option.basicPrice}">${option.basicPrice}</option>--%>
+<%--                        </c:forEach>--%>
+<%--                    </select>--%>
 <%--                        <select>--%>
-<%--                            <option value="">분위기</option>--%>
+<%--                            <option value="mood">분위기</option>--%>
 <%--                            <c:forEach var="option" items="${hallList}">--%>
 <%--                                <option value="${option.mood}">${option.mood}</option>--%>
 <%--                            </c:forEach>--%>
@@ -62,18 +59,18 @@
                     </button>
                 </div>
             </div>
-            <div class="search-btns">
-                <button class="list-search-btn dark-pink">
-                    <a href="${pageContext.request.contextPath}/weddinghall">
-                        목록으로 보기
-                    </a>
-                </button>
-                <button class="map-search-btn">
-                    <a href="weddinghall/mapViewWithFilters">
-                        지도로 보기
-                    </a>
-                </button>
-            </div>
+<%--            <div class="search-btns">--%>
+<%--                <button class="list-search-btn dark-pink">--%>
+<%--                    <a href="${pageContext.request.contextPath}/weddinghall">--%>
+<%--                        목록으로 보기--%>
+<%--                    </a>--%>
+<%--                </button>--%>
+<%--                <button class="map-search-btn">--%>
+<%--                    <a href="#">--%>
+<%--                        지도로 보기--%>
+<%--                    </a>--%>
+<%--                </button>--%>
+<%--            </div>--%>
         </section>
 
         <!-- 업체 리스트 부분  -->
@@ -116,7 +113,6 @@
     <div id="pagination-placeholder">
         <%@ include file="/WEB-INF/views/common/pagination.jsp" %>
     </div>
-
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </body>
 </html>

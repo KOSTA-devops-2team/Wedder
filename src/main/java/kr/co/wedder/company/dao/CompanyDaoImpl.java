@@ -27,9 +27,10 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public List<CompanyDto> selectCompanyByCategory(Pagination pagination, String category) throws Exception {
+    public List<CompanyDto> selectCompanyByCategory(Pagination pagination, String companyName, String category) throws Exception {
         Map<String, Object> map = new HashMap<>();
         map.put("pagination", pagination);
+        map.put("companyName", companyName);
         map.put("category", category);
         return session.selectList(namespace + "selectCompanyByCategory", map);
     }
@@ -43,8 +44,11 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public int selectCompanyListCnt(String category) throws Exception {
-        return session.selectOne(namespace + "selectCompanyListCnt", category);
+    public int selectCompanyListCnt(String companyName, String category) throws Exception {
+        Map<String, Object> params = new HashMap<>();
+        params.put("companyName", companyName);
+        params.put("category", category);
+        return session.selectOne(namespace + "selectCompanyListCnt", params);
     }
 
     @Override

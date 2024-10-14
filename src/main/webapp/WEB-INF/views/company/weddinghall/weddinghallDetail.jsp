@@ -11,7 +11,6 @@
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/company/weddinghall/weddinghallDetail.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <%--    <script type="text/javascript" defer src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49002230661bfc60fba4b0f1cfab9f60&autoload=false"></script>--%>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>

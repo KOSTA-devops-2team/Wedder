@@ -12,9 +12,9 @@ import java.util.List;
 public interface CompanyDao {
 
     CompanyDto selectCompanyById(Integer companyId) throws Exception;
-    List<CompanyDto> selectCompanyByCategory(Pagination pagination, String category) throws Exception;
+    List<CompanyDto> selectCompanyByCategory(Pagination pagination,String companyName, String category) throws Exception;
     List<CompanyDto> searchCompany(String companyName, String category) throws Exception;
-    int selectCompanyListCnt(String category) throws Exception;
+    int selectCompanyListCnt(String companyName, String category) throws Exception;
     List<CompanyImageDto> selectCompanyImages(int companyId) throws Exception;
     CompanyDto selectCoordinateById(int companyId) throws Exception;
     List<OptionDto> selectOptByCategory(String category) throws Exception;
