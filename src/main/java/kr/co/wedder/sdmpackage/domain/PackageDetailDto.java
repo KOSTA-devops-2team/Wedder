@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PackageDetailDto {
 
+    private int finalPrice;
+    private int originalPrice;
+
     // 패키지 기본 정보
     private int packageId;
     private String packageName;
@@ -61,5 +64,7 @@ public class PackageDetailDto {
 
     // 업체 이미지
     private String imgUrl;
+
+
 
 }

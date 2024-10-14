@@ -1,3 +1,8 @@
+a {
+    pointer-events: auto;
+}
+
+
 /* 슬라이드 상단 공백 해결 */
 body {
     margin-top: 143px !important;
@@ -197,11 +202,13 @@ span.color {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
     font-size: 26px;
     font-weight: 700;
-    margin-bottom: 10px;
+    padding-left: 10px
+}
+.pack-title.line {
+    border-bottom: 2px solid #000;
 }
 .grid-top {
     display: flex;
@@ -211,13 +218,15 @@ span.color {
     border-radius: 5px;
     box-shadow: 5px 5px 7px #eeeeee;
     padding: 10px;
+    position: relative;
 }
 .package-picture img {
     width: 250px;
-    height: 280px;
+    height: 250px;
     object-fit: cover;
     padding-bottom: 10px;
 }
+
 .content {
     display: flex;
     margin-bottom: 5px;
@@ -291,31 +300,55 @@ span.color {
     grid-template-columns: repeat(4, 1fr);
 }
 .grid-content {
-margin: auto;
-    padding: 20px;
-
+    margin: auto;
+    padding: 10px;
 }
 
 .grid-pic img {
     border-radius: 5px;
-    width: 230px;
+    width: 250px;
     height: 250px;
     object-fit: cover;
 }
 
-.grid-content .name {
+.package-info {
+    min-height: 83px;
+}
+
+.package-info .name {
+    line-height: 20px;
     font-size: 14px;
     font-weight: 700;
     width: 225px;
-    margin: 10px 0 5px 0;
-}
-.grid-content .cost {
-    color: #ca1a5a;
-    font-size: 14px;
+    margin: 12px 0 5px 0;
 }
 
+.prev-price {
+    font-size: 13px;
+    line-height: 13px;
+    color: rgb(140, 140, 140);
+    text-decoration: line-through;
+    margin-bottom: 6px;
+}
+
+.sale-per {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15px;
+    color: #ca1a5a;
+    margin-right: 5px;
+}
+
+.current-price {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15px;
+}
+
+
+
 .package-section {
-    margin: 70px 0;
+    margin: 70px 0 120px 0
 }
 
 
