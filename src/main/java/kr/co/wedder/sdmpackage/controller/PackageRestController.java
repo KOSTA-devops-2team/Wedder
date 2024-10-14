@@ -42,7 +42,6 @@ public class PackageRestController {
     @PostMapping("/search")
     public ResponseEntity<List<PackageDetailDto>> searchPackages(@RequestParam String companyName){
 
-        System.out.println("PackageRestController.searchPackages");
         List<PackageDetailDto> packages = packageService.searchPackagesByCompany(companyName);
         System.out.println("PackageController: packages" + packages);
 

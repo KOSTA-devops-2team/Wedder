@@ -28,58 +28,64 @@
         <!-- 검색 조건 및 버튼 -->
         <section class="search">
             <div class="search-condition">
-                <div class="local-search">
-                        <span
-                        >지역<img
-                                id="region-icon"
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
-                        /></span>
-                </div>
-                <div>
-                        <span
-                        >날짜<img
-                                id="date-icon"
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
-                        /></span>
-                </div>
-                <div>
-                        <span
-                        >예산<img
-                                id="cost-icon"
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
-                        /></span>
-                </div>
-                <div>
-                        <span
-                        >분위기<img
-                                id="mood-icon"
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
-                        /></span>
-                </div>
-                <div>
-                        <span
-                        >업체명으로 검색<img
-                                id="company-icon"
+                <div class="search-container">
+                    <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색">
+                    <button class="search-btn">
+                        <img
+                                id="search-icon"
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/search-icon.png"
-                        /></span>
+                        />
+                    </button>
                 </div>
             </div>
-            <div class="search-btn">
-                <button class="list-search-btn dark-pink">
-                    <a href="makeupList"
-                    >목록으로 보기</a
-                    >
-                </button>
-                <button class="map-search-btn">
-                    <a href="mapViewWithFilters"
-                    >지도로 보기</a
-                    >
-                </button>
-            </div>
+<%--            <div class="search-btn">--%>
+<%--                <button class="list-search-btn dark-pink">--%>
+<%--                    <a href="makeupList"--%>
+<%--                    >목록으로 보기</a--%>
+<%--                    >--%>
+<%--                </button>--%>
+<%--                <button class="map-search-btn">--%>
+<%--                    <a href="mapViewWithFilters"--%>
+<%--                    >지도로 보기</a--%>
+<%--                    >--%>
+<%--                </button>--%>
+<%--            </div>--%>
         </section>
 
         <!-- 업체 리스트 부분  -->
         <section class="list-all">
+            <c:forEach var="card" items="${makeupList}">
+                <div class="card">
+                    <a href="${pageContext.request.contextPath}/makeup/detail/${card.companyId}">
+                        <img
+                                class="card-img"
+                                src="${card.imgUrl}"
+                                alt="메이크업샵 이미지"
+                        />
+                    </a>
+                    <div class="card-info">
+                        <div class="makeup-name">
+                                ${card.companyName}
+                            <a
+                                    href="${card.instagramUrl}"
+                                    target="_blank"
+                                    class="instagram"
+                            >
+                                <img
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/instagram.png"
+                                        alt="인스타 이미지"
+                                />
+                            </a>
+                        </div>
+                        <div class="makeup-address">주소 : ${card.companyAddress}</div>
+                        <div class="phone-num">연락처 : ${card.phoneNum}</div>
+                        <div class="operation-hours">영업시간 : ${card.operationHours}</div>
+                        <div class="makeup-type">상품 유형 : ${card.makeupDto.makeupType}</div>
+                        <div class="position">시술자 직급 : ${card.makeupDto.position}</div>
+                    </div>
+                </div>
+            </c:forEach>
+
             <div class="card" data-id="1">
                 <a href="makeupDetail">
                     <img
@@ -712,8 +718,9 @@
         </section>
     </div>
     <!-- 페이지네이션  -->
-    <div id="pagination-placeholder"></div>
-
+    <div id="pagination-placeholder">
+        <%@ include file="/WEB-INF/views/common/pagination.jsp" %>
+    </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
 </body>
 </html>

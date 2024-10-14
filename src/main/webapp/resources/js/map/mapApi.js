@@ -10,12 +10,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const infoMap = document.getElementById("map")
     const companyId = infoMap.getAttribute("data-company-id")
-    // const latitude = infoMap.getAttribute("data-latitude")
-    // const longitude = infoMap.getAttribute("data-longitude")
+    const category = infoMap.getAttribute("data-category");
+
+    console.log("카테고리 값:", category);
+
+    const categoryMap = {
+        "웨딩홀": "weddinghall",
+        "스튜디오": "studio",
+        "메이크업": "makeup",
+        "드레스": "dress"
+    };
+    // 한글 카테고리를 영어로 변환
+    const categoryEng = categoryMap[category];
+
+    if (!categoryEng) {
+        console.error("카테고리 매핑 실패:", category);
+        return; // 잘못된 카테고리 값 처리
+    }
+
+    // 동적으로 URL 생성
+    const url = `/${categoryEng}/detail/${companyId}/getCoordinates`;
 
     console.log("Company ID:", companyId);
+    console.log("동적으로 생성된 URL:", url);
 
     const onLoadKakaoMap = (latitude, longitude, companyName) => {
+        console.log("companyName 확인:", companyName);
         window.kakao.maps.load(() => {
             const mapContainer = document.getElementById('map');
             if (!mapContainer) {
@@ -63,13 +83,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // DB에서 업체의 위도와 경도 가져오기
     $.ajax({
-        url: `/studio/detail/${companyId}/getCoordinates`,
+        url: url,
         type: 'GET',
         success: function (response) {
             console.log("서버 응답:", response);
 
-            const {latitude, longitude, companyId, companyName} = response; // 서버에서 반환한 위도, 경도
-            onLoadKakaoMap(latitude, longitude, companyId, companyName);    // 동적으로 지도에 마커 표시
+            const {latitude, longitude, companyName} = response; // 서버에서 반환한 위도, 경도
+            onLoadKakaoMap(latitude, longitude, companyName);    // 동적으로 지도에 마커 표시
         },
         error: function (error) {
             console.error("데이터 가져오기 실패:", error);

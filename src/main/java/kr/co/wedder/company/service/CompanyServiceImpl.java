@@ -23,8 +23,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<CompanyDto> getHallList(Pagination pagination, String category) throws Exception {
-        return companyDao.selectCompanyByCategory(pagination, category);
+    public List<CompanyDto> getCompanyList(Pagination pagination, String companyName, String category) throws Exception {
+        return companyDao.selectCompanyByCategory(pagination, companyName, category);
     }
 
     @Override
@@ -38,8 +38,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public int getCompanyListCnt(String category) throws Exception {
-        return companyDao.selectCompanyListCnt(category);
+    public int getCompanyListCnt(String companyName, String category) throws Exception {
+        return companyDao.selectCompanyListCnt(companyName, category);
     }
 
     @Override
@@ -71,11 +71,6 @@ public class CompanyServiceImpl implements CompanyService {
         List<CompanyScheduleDto> result = companyDao.selectAvailableHallTime(companyName, date);
 
         return result;
-    }
-
-    @Override
-    public List<CompanyDto> getStudioList(Pagination pagination, String category) throws Exception {
-        return companyDao.selectCompanyByCategory(pagination, category);
     }
 
     @Override

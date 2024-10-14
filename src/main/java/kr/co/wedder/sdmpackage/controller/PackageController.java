@@ -41,12 +41,14 @@ public class PackageController {
         int originalPrice = 0;
         for (PackageDetailDto detail : allPackages) {
             originalPrice += detail.getBasicPrice();  // 3개 업체 basic_price의 합
+            detail.setOriginalPrice(originalPrice);
+
+            int discountRate = allPackages.get(0).getDiscountRate();  // 할인율
+            int discountPrice = (originalPrice * discountRate) / 100;  // 할인된 금액 계산
+            int finalPrice = originalPrice - discountPrice;  // 최종 혜택가 계산
+            detail.setFinalPrice(finalPrice);
         }
 
-        int discountRate = allPackages.get(0).getDiscountRate();  // 할인율
-        int discountPrice = (originalPrice * discountRate) / 100;  // 할인된 금액 계산
-        int finalPrice = originalPrice - discountPrice;  // 최종 혜택가 계산
-        model.addAttribute("finalPrice", finalPrice);
         model.addAttribute("AllPackages", allPackages);
 
         // best package 라인

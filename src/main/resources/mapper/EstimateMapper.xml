@@ -53,7 +53,8 @@
         ci.img_url AS imgUrl
         FROM company c
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
-        WHERE c.company_id = #{companyId} and ci.img_seq=1
+        WHERE c.company_id = #{companyId}
+            AND ci.img_seq = 1;
     </select>
 
 
@@ -66,7 +67,8 @@
         ci.img_url AS imgUrl
         FROM company c
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
-        WHERE c.company_id = #{companyId} and ci.img_seq=1
+        WHERE c.company_id = #{companyId}
+            AND ci.img_seq = 1;
     </select>
 
 
@@ -79,7 +81,8 @@
         ci.img_url AS imgUrl
         FROM company c
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id
-        WHERE c.company_id = #{companyId} and ci.img_seq=1
+        WHERE c.company_id = #{companyId}
+            AND ci.img_seq = 1;
     </select>
 
     <!-- 스튜디오 옵션 조회 -->
