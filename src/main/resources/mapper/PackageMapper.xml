@@ -14,8 +14,11 @@
         p.discount_rate AS discountRate,
         c.*,
         MAX(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studioName,
+        MAX(CASE WHEN c.company_category = '스튜디오' THEN c.basic_price END) AS studioBasicPrice,
         MAX(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dressName,
-        MAX(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName
+        MAX(CASE WHEN c.company_category = '드레스' THEN c.basic_price END) AS dressBasicPrice,
+        MAX(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName,
+        MAX(CASE WHEN c.company_category = '메이크업' THEN c.basic_price END) AS makeupBasicPrice
         FROM package p
         JOIN packageCategory pc ON p.package_id = pc.package_id
         JOIN company c ON pc.company_id = c.company_id
@@ -133,17 +136,20 @@
         p.discount_rate,
         GROUP_CONCAT(CASE WHEN c.company_category = '스튜디오' THEN c.company_name END) AS studioName,
         GROUP_CONCAT(CASE WHEN c.company_category = '스튜디오' THEN ci.img_url END) AS studio_img_url,
+        MAX(CASE WHEN c.company_category = '스튜디오' THEN c.basic_price END) AS studioBasicPrice,
         GROUP_CONCAT(CASE WHEN c.company_category = '드레스' THEN c.company_name END) AS dressName,
         GROUP_CONCAT(CASE WHEN c.company_category = '드레스' THEN ci.img_url END) AS dress_img_url,
+        MAX(CASE WHEN c.company_category = '드레스' THEN c.basic_price END) AS dressBasicPrice,
         GROUP_CONCAT(CASE WHEN c.company_category = '메이크업' THEN c.company_name END) AS makeupName,
         GROUP_CONCAT(CASE WHEN c.company_category = '메이크업' THEN ci.img_url END) AS makeup_img_url,
+        MAX(CASE WHEN c.company_category = '메이크업' THEN c.basic_price END) AS makeupBasicPrice,
         SUM(c.basic_price * (1 - p.discount_rate / 100)) AS final_price
         FROM package p
         JOIN packageCategory pc ON p.package_id = pc.package_id
         JOIN company c ON pc.company_id = c.company_id
         LEFT JOIN companyImage ci ON c.company_id = ci.company_id AND ci.img_seq = 1
         GROUP BY p.package_id, p.package_name
-        HAVING final_price BETWEEN #{minPrice} AND #{maxPrice}
+        HAVING SUM(c.basic_price * (1 - p.discount_rate / 100)) BETWEEN #{minPrice} AND #{maxPrice}
         ORDER BY final_price ASC
     </select>
 

@@ -50,7 +50,7 @@
     <div class="container">
         <div class="header">
             <h1>${packageDetails[0].description}</h1>
-            <h2 class="product-name">${packageDetails[0].packageName}👑</h2>
+            <h2 class="product-name">${packageDetails[0].packageName} 👑</h2>
         </div>
         <c:forEach var="detail" items="${packageDetails}">
             <div class="service">

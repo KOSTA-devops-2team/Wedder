@@ -98,18 +98,20 @@ function updatePackageList(packages) {
     let packageHtml = '';
 
     packages.forEach(function (packageItem) {
+
+        console.log("packageItem : " + packageItem)
         packageHtml += `
        <div class="grid-content">
                     <div class="grid-pic">
-                        <a href="${pageContext.request.contextPath}/package/${AllPackage.packageId}/detail">
-                            <img src="${AllPackage.packageImg}" alt="패키지 이미지"/>
+                        <a href="${contextPath}/package/${packageItem.packageId}/detail">
+                            <img src="${packageItem.packageImg}" alt="패키지 이미지"/>
                         </a>
                     </div>
                     <div class="package-info">
-                        <div class="name">${AllPackage.studioName} + ${AllPackage.dressName} + ${AllPackage.makeupName}</div>
-                        <div class="prev-price"><fmt:formatNumber value="${AllPackage.originalPrice}" type="number" pattern="#,###"/> 원</div>
-                        <span class="sale-per">${AllPackage.discountRate}%</span>
-                        <span class="current-price"><fmt:formatNumber value="${AllPackage.finalPrice}" type="number" pattern="#,###"/>원</span>
+                        <div class="name">${packageItem.studioName} + ${packageItem.dressName} + ${packageItem.makeupName}</div>
+                        <div class="prev-price">${packageItem.originalPrice.toLocaleString()}원</div>
+                        <span class="sale-per">${packageItem.discountRate}%</span>
+                        <span class="current-price">${packageItem.finalPrice.toLocaleString()}원</span>
                     </div>
                 </div>`;
     });
@@ -130,7 +132,7 @@ $(".btn-price").click(function (e) {
         dataType: "JSON",
         data: {minPrice: minPrice, maxPrice: maxPrice},
         success: function (data) {
-            if (data.length > 1) {
+            if (data.length > 0) {
                 console.log("금액별 필터링된 패키지 리스트:", data);
                 updatePackageList(data)
             } else {
@@ -139,9 +141,8 @@ $(".btn-price").click(function (e) {
                     icon  : "warning",
                     text: "다른 조건으로 검색하겠습니까?",
                     confirmButtonText: "검색하기",
-                    cancelButtonText: "취소",
-                    showCancelButton: true,
-                    closeOnClickOutside : false // 백그라운드 클릭해도 안꺼짐
+                    confirmButtonColor: '#ca1a5a',
+                    closeOnClickOutside : false
                 });
             }
         },

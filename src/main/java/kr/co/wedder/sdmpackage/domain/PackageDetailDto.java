@@ -12,6 +12,9 @@ public class PackageDetailDto {
 
     private int finalPrice;
     private int originalPrice;
+    private int studioBasicPrice;
+    private int dressBasicPrice;
+    private int makeupBasicPrice;
 
     // 패키지 기본 정보
     private int packageId;
