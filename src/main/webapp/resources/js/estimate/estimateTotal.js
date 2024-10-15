@@ -17,7 +17,7 @@ document.getElementById('add').addEventListener('click', function() {
                 confirmButtonText: '확인'
             }).then(() => {
                 // 마이페이지로 이동
-                window.location.href = '/mypage/mypage';
+                window.location.href = '/mypage/estimate-storage';
             });
         } else if (result.isDismissed) {
             Swal.fire('취소됨', '작업이 취소되었습니다.', 'info');

@@ -12,7 +12,6 @@
     <title>estimateTotal</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estimate/estimateTotal.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/estimate/estimateTotal.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
@@ -24,30 +23,12 @@
 <div class="hd__inner1100">
     <div class="title">
         <div class="head">
-            <p class="bold">Wedder 최종 할인가를 확인하세요</p>
-            <p>스드메 견적을 간편하게 확인할 수 있어요.</p>
-        </div>
-        <div class="back">
-            <p>클릭 시 업체 선택창으로 돌아가요.</p>
-            <div class="back-content">
-                <div class="back-btn">
-                    <a href="#">${studioName}/</a>
-                    <a href="#">${dressName}/</a>
-                    <a href="#">${makeupName}</a>
-                </div>
-                <a href="${pageContext.request.contextPath}/estimate/"><span class="material-symbols-outlined">replay</span>업체 다시 선택</a>
-            </div>
+            <p class="bold">Wedder 최종 견적서를 확인하세요</p>
         </div>
     </div>
     <div class="content">
         <div class="content-main">
             <div class="content-box">
-                <div class="notice">
-                    <div class="notice-title">꼭 확인해주세요!</div>
-                    <p>· 이 견적은 기본 가격 정보를 단순 계산한 참고용 견적입니다.</p>
-                    <p>· 옵션 변경 등에 따라 금액이 변경될 수 있습니다.</p>
-                    <p>· 실제 견적과 상이할 수 있으며, Wedder에서는 이에 대한 귀책 사유가 따르지 않습니다.</p>
-                </div>
                 <div class="select">
                     <div class="select-list">
                         <h1>선택하신 목록</h1>
@@ -147,7 +128,12 @@
                                 </div>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="notice">
+                        <div class="notice-title">꼭 확인해주세요!</div>
+                        <p>· 이 견적은 기본 가격 정보를 단순 계산한 참고용 견적입니다.</p>
+                        <p>· 옵션 변경 등에 따라 금액이 변경될 수 있습니다.</p>
+                        <p>· 실제 견적과 상이할 수 있으며, Wedder에서는 이에 대한 귀책 사유가 따르지 않습니다.</p>
                     </div>
                     <div class="btn">
                         <button onclick=history.back() class="back">뒤로가기</button>

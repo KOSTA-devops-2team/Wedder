@@ -53,11 +53,12 @@
                         <p></p>
                         <ul class="header-user">
                             <li>
-                                <a href="<c:url value="${loginoutlink}" />">${loginout}
+                                <a href="<c:url value="${loginoutlink}" />">
                                     <img
                                         src="https://image.hago.kr/dev/main/pc/login.svg"
-                                        alt="로그인"
-                                /></a>
+                                        alt="로그인"/>
+                                    <div>${loginout}</div>
+                                </a>
                             </li>
                             <li>
                                 <a href="<c:url value='${mypagelink}' />"
