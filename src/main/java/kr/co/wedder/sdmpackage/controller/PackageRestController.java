@@ -54,6 +54,18 @@ public class PackageRestController {
     public ResponseEntity<List<PackageDetailDto>> filterPackagesByPrice(int minPrice, int maxPrice) {
 
         List<PackageDetailDto> filteredPackages = packageService.filterPackagesByPrice(minPrice, maxPrice);
+        System.out.println("filteredPackages = " + filteredPackages);
+
+        for(PackageDetailDto detail : filteredPackages) {
+            int originalPrice = detail.getStudioBasicPrice() + detail.getDressBasicPrice() + detail.getMakeupBasicPrice();
+            detail.setOriginalPrice(originalPrice);
+
+            int discountRate = detail.getDiscountRate();
+            int discountPrice = (originalPrice * discountRate) / 100;
+            int finalPrice = originalPrice - discountPrice;
+            detail.setFinalPrice(finalPrice);
+        }
+
         return ResponseEntity.ok(filteredPackages);
     }
 
