@@ -23,7 +23,7 @@
             <div class="title-sub">
                 원하는 조건으로 나만의 웨딩홀 장소를 찾아보세요.
             </div>
-            <div class="title-main">Wedding Hall</div>
+            <div class="title-main">웨딩홀</div>
         </section>
 
         <!-- 검색 조건 및 버튼 -->

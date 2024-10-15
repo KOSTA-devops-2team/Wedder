@@ -22,40 +22,12 @@
             <div class="title-sub">
                 원하는 조건으로 나만의 스튜디오 장소를 찾아보세요.
             </div>
-            <div class="title-main">Studio</div>
+            <div class="title-main">스튜디오</div>
         </section>
 
         <!-- 검색 조건 및 버튼 -->
         <section class="search">
             <div class="search-condition">
-<%--                <div class="local-search">--%>
-<%--                        <span--%>
-<%--                        >지역<img--%>
-<%--                                id="region-icon"--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
-<%--                        /></span>--%>
-<%--                </div>--%>
-<%--                <div>--%>
-<%--                        <span--%>
-<%--                        >날짜<img--%>
-<%--                                id="date-icon"--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
-<%--                        /></span>--%>
-<%--                </div>--%>
-<%--                <div>--%>
-<%--                        <span--%>
-<%--                        >예산<img--%>
-<%--                                id="cost-icon"--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
-<%--                        /></span>--%>
-<%--                </div>--%>
-<%--                <div>--%>
-<%--                        <span--%>
-<%--                        >분위기<img--%>
-<%--                                id="mood-icon"--%>
-<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"--%>
-<%--                        /></span>--%>
-<%--                </div>--%>
                 <div class="search-container">
                     <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색">
                     <button class="search-btn">

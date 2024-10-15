@@ -22,7 +22,7 @@
             <div class="title-sub">
                 원하는 조건으로 나만의 드레스 업체를 찾아보세요.
             </div>
-            <div class="title-main">Dress</div>
+            <div class="title-main">드레스</div>
         </section>
 
         <!-- 검색 조건 및 버튼 -->
@@ -81,7 +81,7 @@
                         <div class="phone-num">연락처 : ${card.phoneNum}</div>
                         <div class="operation-hours">영업시간 : ${card.operationHours}</div>
                         <div class="dress-type">상품 유형 : ${card.dressDto.dressType}</div>
-                        <div class="position">상품 구성 : ${card.dressDto.composition}</div>
+                        <div class="composition">상품 구성 : ${card.dressDto.composition}</div>
                     </div>
                 </div>
             </c:forEach>

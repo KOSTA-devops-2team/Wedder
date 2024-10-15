@@ -58,17 +58,31 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<CompanyScheduleDto> getAvailableHallDate(int companyId) {
+    public List<CompanyScheduleDto> getAvailableDateList(int companyId) {
 
-        List<CompanyScheduleDto> result = companyDao.selectAvailableHallDate(companyId);
-        
+        List<CompanyScheduleDto> result = companyDao.selectAvailableDateList(companyId);
+
+        // 결과가 없는 경우 빈 리스트 반환
+        if (result.isEmpty()) {
+            // 원하는 처리 방식: 로그 출력 또는 예외 던지기
+            System.out.println("해당 조건에 맞는 스케줄이 없습니다.");
+        }
+        System.out.println("CompanyServiceImpl : result" + result);
         return result != null ? result : new ArrayList<>();
     }
 
     @Override
-    public List<CompanyScheduleDto> getAvailableHallTime(String companyName, Date date) {
+    public List<CompanyScheduleDto> getAvailableTimeList(int companyId, Date date) {
 
-        List<CompanyScheduleDto> result = companyDao.selectAvailableHallTime(companyName, date);
+        List<CompanyScheduleDto> result = companyDao.selectAvailableTimeList(companyId, date);
+
+        // 결과가 없는 경우 빈 리스트 반환
+        if (result.isEmpty()) {
+            // 원하는 처리 방식: 로그 출력 또는 예외 던지기
+            System.out.println("해당 조건에 맞는 스케줄이 없습니다.");
+        }
+
+        System.out.println("CompanyServiceImpl : result" + result);
 
         return result;
     }
@@ -76,6 +90,16 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public List<CompanyDto> getStudioDetail(int companyId) throws Exception {
         return companyDao.selectStudioDetail(companyId);
+    }
+
+    @Override
+    public List<CompanyDto> getDressDetail(int companyId) throws Exception {
+        return companyDao.selectDressDetail(companyId);
+    }
+
+    @Override
+    public List<CompanyDto> getMakeupDetail(int companyId) throws Exception {
+        return companyDao.selectMakeupDetail(companyId);
     }
 
 }

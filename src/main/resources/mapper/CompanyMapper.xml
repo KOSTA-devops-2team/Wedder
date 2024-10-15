@@ -116,19 +116,6 @@
         LIMIT #{pagination.pageSize} OFFSET #{pagination.startList}
     </select>
 
-    <!--    <select id="selectCompanyByCategory" parameterType="map" resultMap="companyDtoMap">-->
-<!--        SELECT *-->
-<!--        FROM company c-->
-<!--        LEFT JOIN hallInfo h ON c.company_id = h.company_id-->
-<!--        LEFT JOIN studioInfo s ON c.company_id = s.company_id-->
-<!--        LEFT JOIN dressInfo d ON c.company_id = d.company_id-->
-<!--        LEFT JOIN makeupInfo m ON c.company_id = m.company_id-->
-<!--        LEFT JOIN companyImage i ON c.company_id = i.company_id-->
-<!--        WHERE c.company_category = #{category}-->
-<!--        ORDER BY c.company_id desc-->
-<!--        LIMIT #{pagination.pageSize} OFFSET #{pagination.startList}-->
-<!--    </select>-->
-
     <select id="selectCompanyListCnt" parameterType="map" resultType="int">
         SELECT COUNT(DISTINCT c.company_id) FROM company c
         <where>
@@ -150,20 +137,6 @@
         <where>
             <include refid="searchCondition" />
         </where>
-    </select>
-
-    <select id="selectHallDetail" parameterType="int" resultMap="companyDtoMap">
-        SELECT * FROM company c
-        JOIN hallInfo h ON c.company_id = h.company_id
-        JOIN companyImage i ON c.company_id = i.company_id
-        WHERE c.company_id = #{companyId}
-    </select>
-
-    <select id="selectStudioDetail" parameterType="int" resultMap="companyDtoMap">
-        SELECT * FROM company c
-        LEFT JOIN studioInfo s ON c.company_id = s.company_id
-        LEFT JOIN companyImage i ON c.company_id = i.company_id
-        WHERE c.company_id = #{companyId}
     </select>
 
     <select id="selectCompanyImages" parameterType="int" resultType="CompanyImage">
@@ -192,17 +165,46 @@
         WHERE o.category = #{category}
     </select>
 
+    <!-- 업체 상세 -->
+    <select id="selectHallDetail" parameterType="int" resultMap="companyDtoMap">
+        SELECT * FROM company c
+        JOIN hallInfo h ON c.company_id = h.company_id
+        JOIN companyImage i ON c.company_id = i.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+    <select id="selectStudioDetail" parameterType="int" resultMap="companyDtoMap">
+        SELECT * FROM company c
+        JOIN studioInfo s ON c.company_id = s.company_id
+        JOIN companyImage i ON c.company_id = i.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+    <select id="selectDressDetail" parameterType="int" resultMap="companyDtoMap">
+        SELECT * FROM company c
+        JOIN dressInfo d ON c.company_id = d.company_id
+        JOIN companyImage i ON c.company_id = i.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
+    <select id="selectMakeupDetail" parameterType="int" resultMap="companyDtoMap">
+        SELECT * FROM company c
+        JOIN makeupInfo m ON c.company_id = m.company_id
+        JOIN companyImage i ON c.company_id = i.company_id
+        WHERE c.company_id = #{companyId}
+    </select>
+
     <!-- 웨딩홀 일정 -->
-    <select id="selectAvailableHallDate" parameterType="int" resultType="CompanyScheduleDTO">
+    <select id="selectAvailableDateList" parameterType="int" resultType="CompanyScheduleDTO">
         SELECT *
         FROM companySchedule
         WHERE company_id = #{companyId}
     </select>
 
-    <select id="selectAvailableHallTime" parameterType="map" resultType="CompanyScheduleDTO">
+    <select id="selectAvailableTimeList" parameterType="map" resultType="CompanyScheduleDTO">
         SELECT *
         FROM companySchedule
-        WHERE company_name = #{companyName}
+        WHERE company_id = #{companyId}
         AND date = #{date}
         ORDER BY time
     </select>

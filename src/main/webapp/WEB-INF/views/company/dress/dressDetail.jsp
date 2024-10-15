@@ -9,60 +9,33 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/dress/dressDetail.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/company/dress/dressDetail.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div> <%@ include file="/WEB-INF/views/common/header.jsp" %></div>
     <div class="hd__inner1100">
+    <c:forEach var="company" items="${dressDetail}">
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
             <div class="main-title-container">
-                <h1>[강남] 셀린아뜰리에</h1>
+                <h1>[${company.location}] ${company.companyName}</h1>
                 <div id="tags-container">
-                    <!-- 태그 -->
+                <!-- 태그 -->
                 </div>
                 <p>
-                    세련된 클래식함이 모토입니다.
-                    그 어느곳에서도 볼수 없는 고급스러운 모티브와 스타일로 다양한 라인의 드레스를 자체제작합니다.
+                    ${company.introduce}
                 </p>
             </div>
             <div class="carousel-container">
                 <div class="carousel-inner">
+                <c:forEach var="img" items="${imgList}">
                     <div class="company-image-item">
                         <img
-                                src="resources/images/dress-1.jpg"
-                                alt="드레스 메인 이미지1"
+                                src="${img.imgUrl}"
+                                alt="드레스 메인 이미지${img.imgSeq}"
                         />
                     </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/dress-8.jpg"
-                                alt="드레스 메인 이미지2"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/dress-9.jpg"
-                                alt="드레스 메인 이미지3"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/dress-10.jpg"
-                                alt="드레스 메인 이미지4"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/dress-11.jpg"
-                                alt="드레스 메인 이미지5"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/images/dress-12.jpg"
-                                alt="드레스 메인 이미지6"
-                        />
-                    </div>
+                </c:forEach>
                 </div>
             </div>
         </section>
@@ -70,73 +43,60 @@
         <!-- 2. 업체 정보 + 지도-->
         <section class="information">
             <div class="title-container">
-                <h2>Information</h2>
-                <a href="#" id="review-link">후기 보러가기 >>></a>
+                <h2>${company.companyName} 정보</h2>
             </div>
-            <!-- <div id="modal-container"></div> -->
 
             <div class="info-container">
                 <!-- 왼쪽 정보 -->
                 <table class="info-table">
                     <tr>
-                        <th>지역</th>
-                        <td>서울특별시 강남구</td>
+                        <th>주소</th><td>${company.companyAddress}</td>
                     </tr>
                     <tr>
-                        <th>연락처</th>
-                        <td>02-111-1111</td>
+                        <th>연락처</th><td>${company.phoneNum}</td>
                     </tr>
                     <tr>
-                        <th>휴무일</th>
-                        <td>월요일 휴무</td>
+                        <th>운영 시간</th><td>${company.operationHours}</td>
                     </tr>
                     <tr>
-                        <th>영업 시간</th>
-                        <td>10:00 ~ 19:00</td>
+                        <th>상품 유형</th>
+                        <td>${company.dressDto.dressType}</td>
                     </tr>
                     <tr>
-                        <th>기본 상품 구성</th>
-                        <td>리허설 3벌 + 본식 1벌</td>
+                        <th>상품 구성</th>
+                        <td>${company.dressDto.composition}</td>
                     </tr>
                     <tr>
-                        <th>기본 피팅비</th>
-                        <td>55,000원</td>
+                        <th>피팅 횟수</th>
+                        <td>${company.dressDto.fittingCnt}</td>
                     </tr>
                     <tr>
-                        <th>홈페이지</th>
-                        <td>www.instagram.com/celineatelier_wedding</td>
+                        <th>상담 시간</th>
+                        <td>${company.dressDto.consultationTime}</td>
+                    </tr>
+                    <tr>
+                        <th>가봉 소요 시간</th>
+                        <td>${company.dressDto.measurementTime}</td>
                     </tr>
                 </table>
                 <!-- 오른쪽 정보 -->
                 <div>
                     <table class="info-table">
                         <tr>
-                            <th>주소</th>
-                            <td>서울 강남구 압구정로80길 30 </td>
-                        </tr>
-                        <tr>
-                            <th>대중교통 </th>
-                            <td>지하철 수인분당선 압구정로데오역 </td>
+                            <th>지도</th>
                         </tr>
                     </table>
                     <div class="info-map">
-                        <img
-                                src="resources/images/dress-map.png"
-                        />
+                        <%@ include file="/WEB-INF/views/common/mapApi.jsp" %>
                     </div>
                 </div>
-            </div>
-            <div class="buttons">
-                <button class="like-btn">찜하기</button>
-                <button class="list-btn">목록</button>
-                <button class="estimate-btn">견적함에 담기</button>
             </div>
         </section>
 
         <!-- 3. 일정 현황-->
         <section class="schedule">
             <div class="title-container">
-                <h2>셀린아뜰리에 상품 정보</h2>
+                <h2>${company.companyName} 일정 현황</h2>
             </div>
 
             <div class="schedule-container">
@@ -145,42 +105,16 @@
                         ✔️ 피팅을 희망하는 날짜에 예약이 가능한지 확인해
                         보세요
                     </h4>
-                    <div id="calendar"></div>
-                    <img
-                            src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/calendar.png"
-                    />
-                </div>
-                <div class="schedule-choose">
-                    <div class="schedule-choose-container">
-                        <div>
-                            <span></span>
-                            <h3>가능한 일정만 보기</h3>
-                        </div>
-                        <div class="time-lists">
-                            <div class="time-list">
-                                <span>10:00</span>
-                                <span>[드레스] 셀린아뜰리에</span>
-                            </div>
-                            <div class="time-list">
-                                <span>12:00</span>
-                                <span>[드레스] 셀린아뜰리에</span>
-                            </div>
-                            <div class="time-list">
-                                <span>14:00</span>
-                                <span>[드레스] 셀린아뜰리에</span>
-                            </div>
-                            <div class="time-list">
-                                <span>16:00</span>
-                                <span>[드레스] 셀린아뜰리에</span>
-                            </div>
-                        </div>
+                    <div id="calendar">
+                        <%@ include file="/WEB-INF/views/company/weddinghall/companyCalendar.jsp" %>
                     </div>
-                    <a href="">
-                        <button class="schedule-button">예약하기</button>
-                    </a>
+<%--                    <a href="">--%>
+<%--                        <button class="schedule-button">예약하기</button>--%>
+<%--                    </a>--%>
                 </div>
             </div>
         </section>
+    </c:forEach>
 
         <!-- 4. 세부 옵션 -->
         <section class="estimator">
@@ -189,6 +123,18 @@
             </div>
             <div class="grid-container">
                 <div class="section">
+                    <div class="estimate-info">
+                        <div class="section estimator-warning">
+                            <h2>꼭 확인해주세요!</h2>
+                            <p>
+                                ✔️ 업체에 직접 결제하는 추가 비용이 있을 수 있어요.
+                            </p>
+                            <p>
+                                ✔️ 실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.
+                            </p>
+                        </div>
+                    </div>
+
                     <table class="option-table">
                         <tr>
                             <th>옵션명</th>
@@ -217,19 +163,13 @@
                         </tr>
                     </table>
                 </div>
-                <div class="section estimator-warning">
-                    <h2>꼭 확인해주세요!</h2>
-                    <p>
-                        ✔️ 업체에 직접 결제하는 추가 비용이 있을 수 있어요.
-                    </p>
-                    <p>
-                        ✔️ 실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.
-                    </p>
-                </div>
-
-
             </div>
         </section>
+        <div class="buttons">
+            <button class="like-btn">찜하기</button>
+            <a href="${pageContext.request.contextPath}/studio"><button class="list-btn">목록</button></a>
+            <a href="${pageContext.request.contextPath}/estimate"><button class="estimate-btn">견적내러가기</button></a>
+        </div>
 
         <!-- 5. 비슷한 가격대 업체 -->
         <section class="similar">
@@ -242,7 +182,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/dress-2.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/dress-2.jpg"
                                         alt="드레스 이미지 1"
                                 />
                             </div>
@@ -254,7 +194,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/dress-3.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/dress-3.jpg"
                                         alt="드레스 이미지 2"
                                 />
                             </div>
@@ -266,7 +206,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/dress-6.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/dress-6.jpg"
                                         alt="드레스 이미지 3"
                                 />
                             </div>
@@ -278,7 +218,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/dress-7.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/dress-7.jpg"
                                         alt="드레스 이미지 4"
                                 />
                             </div>
@@ -290,7 +230,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/dress-2.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/dress-2.jpg"
                                         alt="드레스 이미지 1"
                                 />
                             </div>
@@ -302,7 +242,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/dress-3.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/dress-3.jpg"
                                         alt="드레스 이미지 2"
                                 />
                             </div>
@@ -314,7 +254,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/dress-6.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/dress-6.jpg"
                                         alt="드레스 이미지 3"
                                 />
                             </div>
@@ -326,7 +266,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/images/dress-7.jpg"
+                                        src="${pageContext.request.contextPath}/resources/images/dress-7.jpg"
                                         alt="드레스 이미지 4"
                                 />
                             </div>
@@ -362,130 +302,129 @@
         </section>
 
         <!-- 6. 다른 고객이 함께 본 상품 -->
-        <section class="recommend">
-            <div class="hd__inner1100">
-                <div class="title-container noline">
-                    <h2>다른 고객이 함께 본 상품</h2>
-                </div>
-                <div class="recommend-container">
-                    <div class="recommend-inner">
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/images/dress-2.jpg"
-                                        alt="드레스 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>하우스 오브 에이미</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/images/dress-3.jpg"
-                                        alt="드레스 이미지 2"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로즈로사</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/images/dress-6.jpg"
-                                        alt="드레스 이미지 3"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>시작바이 이명순</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/images/dress-7.jpg"
-                                        alt="드레스 이미지 4"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>더화이트엘리자베스</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/images/dress-2.jpg"
-                                        alt="드레스 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>하우스 오브 에이미</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/images/dress-3.jpg"
-                                        alt="드레스 이미지 2"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>로즈로사</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/images/dress-6.jpg"
-                                        alt="드레스 이미지 3"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>시작바이 이명순</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/images/dress-7.jpg"
-                                        alt="드레스 이미지 4"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>더화이트엘리자베스</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="recommend-buttons">
-                    <button class="recommend-button left" id="prevButton">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"
-                        />
-                    </button>
-                    <div class="currentPage" id="currentPage"></div>
-                    <div class="slice">/</div>
-                    <div class="totalPages" id="totalPages"></div>
-                    <button class="recommend-button right" id="nextButton">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"
-                        />
-                    </button>
-                </div>
-            </div>
-        </section>
+<%--        <section class="recommend">--%>
+<%--            <div class="hd__inner1100">--%>
+<%--                <div class="title-container noline">--%>
+<%--                    <h2>다른 고객이 함께 본 상품</h2>--%>
+<%--                </div>--%>
+<%--                <div class="recommend-container">--%>
+<%--                    <div class="recommend-inner">--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/images/dress-2.jpg"--%>
+<%--                                        alt="드레스 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>하우스 오브 에이미</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/images/dress-3.jpg"--%>
+<%--                                        alt="드레스 이미지 2"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>로즈로사</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/images/dress-6.jpg"--%>
+<%--                                        alt="드레스 이미지 3"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>시작바이 이명순</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/images/dress-7.jpg"--%>
+<%--                                        alt="드레스 이미지 4"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>더화이트엘리자베스</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/images/dress-2.jpg"--%>
+<%--                                        alt="드레스 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>하우스 오브 에이미</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/images/dress-3.jpg"--%>
+<%--                                        alt="드레스 이미지 2"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>로즈로사</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/images/dress-6.jpg"--%>
+<%--                                        alt="드레스 이미지 3"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>시작바이 이명순</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/images/dress-7.jpg"--%>
+<%--                                        alt="드레스 이미지 4"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>더화이트엘리자베스</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="recommend-buttons">--%>
+<%--                    <button class="recommend-button left" id="prevButton">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"--%>
+<%--                        />--%>
+<%--                    </button>--%>
+<%--                    <div class="currentPage" id="currentPage"></div>--%>
+<%--                    <div class="slice">/</div>--%>
+<%--                    <div class="totalPages" id="totalPages"></div>--%>
+<%--                    <button class="recommend-button right" id="nextButton">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"--%>
+<%--                        />--%>
+<%--                    </button>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </section>--%>
     </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
-    <script src="${pageContext.request.contextPath}/resources/js/company/weddinghall/reviewSearchModal.js"></script>
 </body>
 </html>

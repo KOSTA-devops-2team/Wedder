@@ -14,7 +14,7 @@
 <body>
 
 <section class="calendar-wrapper">
-    <section class="calendar-container" id="calendar-section1">
+    <section class="calendar-container" id="calendar-section1" data-company-id="${companyId}" data-category="${category}">
         <div class="calendar-header">
             <button id="prevBtn"> <</button>
             <div id="yearMonth">
@@ -59,24 +59,21 @@
         <section id="selectedInfo">
             <h4>✔️ 아래 내용이 맞는지 확인해 주세요.</h4>
             <ul id="infoList">
-                <c:forEach var="detail" items="${hallDetail}">
-                    <div class="card">
-                        <div class="company-name">${detail.companyName}</div>
-                        <div class="schedule-info">
-                            <span>일정</span>
-                            <p id="selectedDateTime_${detail.companyName}">선택한 날짜 • 선택한 시간</p>
-                        </div>
+                <div class="card">
+                    <div class="company-name">${company.companyName}</div>
+                    <div class="schedule-info">
+                        <span>일정</span>
+                        <p id="selectedDateTime_${company.companyName}">선택한 날짜 • 선택한 시간</p>
                     </div>
-                </c:forEach>
+                </div>
             </ul>
         </section>
     </section>
-
 </section>
 
 <script type="text/javascript"
         src="${pageContext.request.contextPath}/resources/js/mypage/calendar.js"></script>
 <script type="text/javascript"
-        src="${pageContext.request.contextPath}/resources/js/package/packageCalender.js"></script>
+        src="${pageContext.request.contextPath}/resources/js/company/weddinghall/companyCalendar.js"></script>
 </body>
 </html>

@@ -21,9 +21,10 @@ public interface CompanyService {
     CompanyDto getCoordinate(int companyId) throws Exception;
     List<OptionDto> getOption (String category) throws Exception;
 
-    List<CompanyScheduleDto> getAvailableHallDate(int companyId);
-    List<CompanyScheduleDto> getAvailableHallTime(String companyName, Date date);
+    List<CompanyScheduleDto> getAvailableDateList(int companyId);
+    List<CompanyScheduleDto> getAvailableTimeList(int companyId, Date date);
 
     List<CompanyDto> getStudioDetail(int companyId) throws Exception;
-
+    List<CompanyDto> getDressDetail(int companyId) throws Exception;
+    List<CompanyDto> getMakeupDetail(int companyId) throws Exception;
 }

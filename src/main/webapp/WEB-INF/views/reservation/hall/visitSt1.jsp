@@ -51,7 +51,7 @@
                         <caption><strong>롯데호텔월드(잠실)</strong> 방문 예약 정보</caption>
                         <tr>
                             <th>예약자명</th>
-                            <td>박혜원</td>
+                            <td>홍길동</td>
                         </tr>
                         <tr>
                             <th>날짜</th>
@@ -94,8 +94,8 @@
 
                 <!-- 버튼 -->
                 <section class="btn">
-                    <a href="weddinghallDetail"><button class="btn-pre">이전</button></a>
-                    <a href="visitSt2"> <button class="btn-nxt">다음 단계로</button></a>
+                    <a href="${pageContext.request.contextPath}/weddinghall/detail/${card.companyId}"><button class="btn-pre">이전</button></a>
+                    <a href="${pageContext.request.contextPath}/visitSt2"> <button class="btn-nxt">다음 단계로</button></a>
                 </section>
             </div>
         </div>

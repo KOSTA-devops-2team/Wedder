@@ -97,8 +97,8 @@
 
                 <!-- 버튼 -->
                 <section class="btn">
-                    <a href="visitSt1"><button class="btn-pre">이전</button></a>
-                    <a href="visitSt3"><button class="btn-nxt">다음 단계로</button></a>
+                    <a href="${pageContext.request.contextPath}/visitSt1"><button class="btn-pre">이전</button></a>
+                    <a href="${pageContext.request.contextPath}/visitSt3"><button class="btn-nxt">다음 단계로</button></a>
                 </section>
             </div>
         </section>

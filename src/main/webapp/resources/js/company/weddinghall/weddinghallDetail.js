@@ -1,7 +1,7 @@
 // section1. 태그 부분
 document.addEventListener("DOMContentLoaded", function () {
     // 백엔드 구현할 때 AJAX 사용
-    const tags = ["#강남웨딩홀", "#하우스웨딩", "#가든웨딩"];
+    const tags = ["#우아한웨딩홀", "#하우스웨딩", "#가든웨딩"];
 
     const tagsContainer = document.getElementById("tags-container");
 
@@ -81,37 +81,37 @@ function updateSimilarCarousel() {
 
 // Section6. 슬라이드 하단 페이지
 
-let currentIndex2 = 0;
-const carousel = document.querySelector(".recommend-inner");
-const totalItems = document.querySelectorAll(".recommend-item").length;
-
-const currentPageElement = document.getElementById("currentPage");
-const totalPagesElement = document.getElementById("totalPages");
-currentPage.textContent = 1; // 현재 페이지
-const totalPages = Math.ceil(totalItems / itemsPerSlide);
-totalPagesElement.textContent = totalPages; // 총 페이지수
-
-document.getElementById("prevButton").addEventListener("click", () => {
-    if (currentIndex2 > 0) {
-        currentIndex2--;
-    } else {
-        Event.preventDefault();
-    }
-    updateRecommendCarousel();
-});
-
-document.getElementById("nextButton").addEventListener("click", () => {
-    if (currentIndex2 < totalItems / itemsPerSlide - 1) {
-        currentIndex2++;
-    } else {
-        Event.preventDefault();
-    }
-    updateRecommendCarousel();
-});
-
-function updateRecommendCarousel() {
-    const offset = -currentIndex2 * 100; // 한 페이지 100%씩 이동
-    carousel.style.transform = `translateX(${offset}%)`;
-    currentPageElement.textContent = currentIndex2 + 1;
-}
+// let currentIndex2 = 0;
+// const carousel = document.querySelector(".recommend-inner");
+// const totalItems = document.querySelectorAll(".recommend-item").length;
+//
+// const currentPageElement = document.getElementById("currentPage");
+// const totalPagesElement = document.getElementById("totalPages");
+// let currentPage.textContent = 1; // 현재 페이지
+// const totalPages = Math.ceil(totalItems / itemsPerSlide);
+// totalPagesElement.textContent = totalPages; // 총 페이지수
+//
+// document.getElementById("prevButton").addEventListener("click", () => {
+//     if (currentIndex2 > 0) {
+//         currentIndex2--;
+//     } else {
+//         Event.preventDefault();
+//     }
+//     updateRecommendCarousel();
+// });
+//
+// document.getElementById("nextButton").addEventListener("click", () => {
+//     if (currentIndex2 < totalItems / itemsPerSlide - 1) {
+//         currentIndex2++;
+//     } else {
+//         Event.preventDefault();
+//     }
+//     updateRecommendCarousel();
+// });
+//
+// function updateRecommendCarousel() {
+//     const offset = -currentIndex2 * 100; // 한 페이지 100%씩 이동
+//     carousel.style.transform = `translateX(${offset}%)`;
+//     currentPageElement.textContent = currentIndex2 + 1;
+// }
 
