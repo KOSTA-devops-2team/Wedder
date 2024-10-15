@@ -23,7 +23,7 @@
 <div class="hd__inner1100">
     <div class="title">
         <div class="head">
-            <p class="bold">Wedder 최종 할인가를 확인하세요</p>
+            <p class="bold">Wedder 최종 견적서를 확인하세요</p>
         </div>
     </div>
     <div class="content">

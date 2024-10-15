@@ -69,7 +69,7 @@
                                     </a>
                                     <div class="address">${studio.companyAddress}</div>
                                     <div class="price-info"><fmt:formatNumber value="${studio.basicPrice}" pattern="#,##0"/>원</div>
-                                    <a href="#" class="link">업체 보러가기 >></a>
+                                    <a href="studio/detail/${studio.companyId}" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
                         </c:forEach>
@@ -97,7 +97,7 @@
                                     </a>
                                     <div class="address">${dress.companyAddress}</div>
                                     <div class="price-info"><fmt:formatNumber value="${dress.basicPrice}" pattern="#,##0"/>원</div>
-                                    <a href="#" class="link">업체 보러가기 >></a>
+                                    <a href="dress/detail/${dress.companyId}" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
                         </c:forEach>
@@ -125,7 +125,7 @@
                                     </a>
                                     <div class="address">${makeup.companyAddress}</div>
                                     <div class="price-info"><fmt:formatNumber value="${makeup.basicPrice}" pattern="#,##0"/>원</div>
-                                    <a href="#" class="link">업체 보러가기 >></a>
+                                    <a href="makeup/detail/${makeup.companyId}" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
                         </c:forEach>
