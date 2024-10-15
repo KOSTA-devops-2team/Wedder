@@ -80,7 +80,7 @@
                       src="${pageContext.request.contextPath}/resources/images/estimateDetails1.png"
                       alt="studio"
                   /></a>
-                  <p>스튜디오</p>
+                  <p>에밀리스튜디오</p>
                 </div>
                 <div>
                   <a href="dress-detail"
@@ -89,6 +89,7 @@
                       src="${pageContext.request.contextPath}/resources/images/storage-dress.jpg"
                       alt="dress"
                   /></a>
+                  <p>모네뜨아르</p>
                   <p>드레스</p>
                 </div>
                 <div>
@@ -98,7 +99,7 @@
                       src="${pageContext.request.contextPath}/resources/images/storage-makeup.png"
                       alt="makeup"
                   /></a>
-                  <p>메이크업</p>
+                  <p>비기닝메이크업</p>
                 </div>
               </div>
               <div>
@@ -130,7 +131,7 @@
                       src="${pageContext.request.contextPath}/resources/images/storage-studio.jpg"
                       alt="studio"
                   /></a>
-                  <p>스튜디오</p>
+                  <p>더브라이드스튜디오</p>
                 </div>
                 <div>
                   <a href="dress-detail"
@@ -139,7 +140,7 @@
                       src="${pageContext.request.contextPath}/resources/images/dress-1.jpg"
                       alt="dress"
                   /></a>
-                  <p>드레스</p>
+                  <p>안나스포사</p>
                 </div>
               </div>
               <div>
@@ -171,7 +172,7 @@
                       src="${pageContext.request.contextPath}/resources/images/studio-4.jpg"
                       alt="studio"
                   /></a>
-                  <p>스튜디오</p>
+                  <p>무드고유</p>
                 </div>
                 <div>
                   <a href="dress-detail"
@@ -181,7 +182,7 @@
                       src="${pageContext.request.contextPath}/resources/images/dress-4.jpg"
                       alt="dress"
                   /></a>
-                  <p>드레스</p>
+                  <p>루이즈블랑</p>
                 </div>
                 <div>
                   <a href="makeup-detail"
@@ -190,7 +191,7 @@
                       src="${pageContext.request.contextPath}/resources/images/makeup-5.jpg"
                       alt="makeup"
                   /></a>
-                  <p>메이크업</p>
+                  <p>라라피엠</p>
                 </div>
               </div>
               <div>
@@ -222,7 +223,7 @@
                       src="${pageContext.request.contextPath}/resources/images/studio-11.jpg"
                       alt="studio"
                   /></a>
-                  <p>스튜디오</p>
+                  <p>식스플로어</p>
                 </div>
                 <div>
                   <a href="dress-detail"
@@ -231,7 +232,7 @@
                       src="${pageContext.request.contextPath}/resources/images/dress-8.jpg"
                       alt="dress"
                   /></a>
-                  <p>드레스</p>
+                  <p>브라이덜 수지</p>
                 </div>
                 <div>
                   <a href="makeup-detail"
@@ -240,7 +241,7 @@
                       src="${pageContext.request.contextPath}/resources/images/makeup-11.jpg"
                       alt="makeup"
                   /></a>
-                  <p>메이크업</p>
+                  <p>꾸띠원</p>
                 </div>
               </div>
               <div>
@@ -273,6 +274,7 @@
                       src="${pageContext.request.contextPath}/resources/images/studio-8.jpg"
                       alt="studio"
                   /></a>
+                  <p>버드투블룸</p>
                   <p>스튜디오</p>
                 </div>
                 <div>
@@ -282,7 +284,7 @@
                       src="${pageContext.request.contextPath}/resources/images/makeup-3.jpg"
                       alt="makeup"
                   /></a>
-                  <p>메이크업</p>
+                  <p>이엘헤어메이크업</p>
                 </div>
               </div>
               <div>
@@ -314,7 +316,7 @@
                       src="${pageContext.request.contextPath}/resources/images/dress-6.jpg"
                       alt="dress"
                   /></a>
-                  <p>드레스</p>
+                  <p>플로렌스웨딩</p>
                 </div>
               </div>
               <div>
@@ -403,10 +405,6 @@
                         <p>· 블랙라벨 업그레이드</p>
                         <p>330,000원</p>
                       </div>
-                      <div class="option">
-                        <p>· 2부 드레스 추가</p>
-                        <p>200,000원</p>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -432,10 +430,6 @@
                   <div class="company-options">
                     <p class="detail-option">세부옵션</p>
                     <div class="options">
-                      <div class="option">
-                        <p>· 새벽 시술</p>
-                        <p>100,000원</p>
-                      </div>
                       <div class="option">
                         <p>· 저녁 시술</p>
                         <p>70,000원</p>
