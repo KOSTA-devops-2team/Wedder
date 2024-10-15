@@ -77,7 +77,7 @@
                   <a href="studio-detail"
                     ><img
                       class="company-img"
-                      src="${pageContext.request.contextPath}/resources/images/estimateDetails1.png"
+                      src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio22_1.webp"
                       alt="studio"
                   /></a>
                   <p>에밀리스튜디오</p>
@@ -86,7 +86,7 @@
                   <a href="dress-detail"
                     ><img
                       class="company-img"
-                      src="${pageContext.request.contextPath}/resources/images/storage-dress.jpg"
+                      src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/Resevation-CG-Dress.png"
                       alt="dress"
                   /></a>
                   <p>모네뜨아르드레스</p>
@@ -95,7 +95,7 @@
                   <a href="makeup-detail"
                     ><img
                       class="company-img"
-                      src="${pageContext.request.contextPath}/resources/images/storage-makeup.png"
+                      src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/Reservation-CG-Makeup2.jpg"
                       alt="makeup"
                   /></a>
                   <p>비기닝메이크업</p>
@@ -336,7 +336,7 @@
               <div class="estimate-list">
                 <div class="product-img">
                   <img
-                    src="${pageContext.request.contextPath}/resources/images/weddingThumbnail.png"
+                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio22_1.webp"
                     alt="스튜디오"
                   />
                 </div>
@@ -376,7 +376,7 @@
               <div class="estimate-list">
                 <div class="product-img">
                   <img
-                    src="${pageContext.request.contextPath}/resources/images/dressThumbnail.png"
+                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/Resevation-CG-Dress.png"
                     alt="드레스"
                   />
                 </div>
@@ -410,7 +410,8 @@
               <div class="estimate-list">
                 <div class="product-img">
                   <img
-                    src="${pageContext.request.contextPath}/resources/images/makeupThumbnail.png"
+                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/Reservation-CG-Makeup2.jpg
+"
                     alt="메이크업"
                   />
                 </div>
