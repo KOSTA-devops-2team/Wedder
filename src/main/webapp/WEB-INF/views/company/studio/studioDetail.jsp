@@ -76,7 +76,7 @@
                     </tr>
                     <tr>
                         <th>촬영 의상</th>
-                        <td>${company.studioDto.rentalClothing}</td>
+                        <td>${company.studioDto.rentalClothing}벌</td>
                     </tr>
                     <tr>
                         <th>헤어 변형 출장 업체</th>
@@ -85,11 +85,11 @@
                 </table>
                 <!-- 오른쪽 정보 -->
                 <div>
-                    <table class="info-table">
-                        <tr>
-                            <th>지도</th>
-                        </tr>
-                    </table>
+<%--                    <table class="info-table">--%>
+<%--                        <tr>--%>
+<%--                            <th>지도</th>--%>
+<%--                        </tr>--%>
+<%--                    </table>--%>
                     <div class="info-map">
                         <%@ include file="/WEB-INF/views/common/mapApi.jsp" %>
                     </div>

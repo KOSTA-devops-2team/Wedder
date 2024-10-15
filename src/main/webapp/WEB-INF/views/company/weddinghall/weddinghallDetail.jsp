@@ -78,7 +78,7 @@
                 <div>
                     <table class="info-table">
                         <tr>
-                            <th>지도</th>
+                            <th></th>
                         </tr>
                     </table>
                     <div class="info-map">
@@ -92,7 +92,7 @@
         <!-- 3. 예식일정 현황-->
         <section class="schedule">
             <div class="title-container">
-                <h2>${company.companyName} 일정 현황</h2>
+                <h2>${company.companyName} 예식 현황</h2>
             </div>
             <div class="schedule-container">
                 <div class="calendar">

@@ -40,6 +40,7 @@
             <result property="shootFocus" column="shoot_focus" />
             <result property="rentalClothing" column="rental_clothing" />
             <result property="shootDuration" column="shoot_duration" />
+            <result property="props" column="props" />
             <result property="product" column="product" />
             <result property="hairChangeAvailability" column="hair_change_availability" />
             <result property="equipmentIncluded" column="equipment_included" />

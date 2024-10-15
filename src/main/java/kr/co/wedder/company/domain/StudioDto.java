@@ -15,7 +15,7 @@ public class StudioDto {
     private int rentalClothing;
     private String shootDuration;
     private String product;
-    private Boolean hairChangeAvailability;
+    private String hairChangeAvailability;
     private Boolean equipmentIncluded;
     private String props;
 }
