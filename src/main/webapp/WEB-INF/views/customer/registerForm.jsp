@@ -27,11 +27,6 @@
                 </div>
             </div>
 
-            <!-- 프로필 & 아이디 -->
-            <div class="profile">
-                <img class="profile-img" src="${pageContext.request.contextPath}/resources/images/profile.png" alt="프로필 이미지" />
-            </div>
-
             <div id="idChk"></div>
             <div class="input-block">
                 <input type="text" id="id" name="id" class="inputs" placeholder="아이디" required="required" />

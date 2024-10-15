@@ -24,7 +24,7 @@
 <div class="hd__inner1100">
     <div class="container">
         <div class="container-title">
-            <p>Estimate</p>
+            <p>견적서</p>
             <p class="description">원하는 조건의 스튜디오, 드레스 메이크업 업체를 조합해 가격을 알아봐요</p>
         </div>
 
@@ -69,7 +69,7 @@
                                     </a>
                                     <div class="address">${studio.companyAddress}</div>
                                     <div class="price-info"><fmt:formatNumber value="${studio.basicPrice}" pattern="#,##0"/>원</div>
-                                    <a href="#" class="link">업체 보러가기 >></a>
+                                    <a href="studio/detail/${studio.companyId}" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
                         </c:forEach>
@@ -97,7 +97,7 @@
                                     </a>
                                     <div class="address">${dress.companyAddress}</div>
                                     <div class="price-info"><fmt:formatNumber value="${dress.basicPrice}" pattern="#,##0"/>원</div>
-                                    <a href="#" class="link">업체 보러가기 >></a>
+                                    <a href="dress/detail/${dress.companyId}" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
                         </c:forEach>
@@ -125,7 +125,7 @@
                                     </a>
                                     <div class="address">${makeup.companyAddress}</div>
                                     <div class="price-info"><fmt:formatNumber value="${makeup.basicPrice}" pattern="#,##0"/>원</div>
-                                    <a href="#" class="link">업체 보러가기 >></a>
+                                    <a href="makeup/detail/${makeup.companyId}" class="link">업체 보러가기 >></a>
                                 </div>
                             </div>
                         </c:forEach>

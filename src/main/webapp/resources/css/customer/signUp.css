@@ -29,27 +29,10 @@
     color: #ff0000;
 }
 
-/* 프로필 */
-.profile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.profile-img {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-}
-
-
 /* 아이디 & 비번 */
 .input-block {
     display: flex;
     border: 1px solid #ddd;
-    border-top: 1px solid #ddd;
     box-sizing: border-box;
 }
 
