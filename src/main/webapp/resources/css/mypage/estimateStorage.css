@@ -154,6 +154,7 @@
   font-size: 18px;
   font-weight: 600;
   margin: 0;
+  padding-left: 7px;
 }
 
 .storage-total-price {
@@ -199,6 +200,7 @@
   font-size: 11px;
   text-align: center;
   color: #000;
+  margin-top: 5px;
 }
 
 .storage-delete {

@@ -89,8 +89,7 @@
                       src="${pageContext.request.contextPath}/resources/images/storage-dress.jpg"
                       alt="dress"
                   /></a>
-                  <p>모네뜨아르</p>
-                  <p>드레스</p>
+                  <p>모네뜨아르드레스</p>
                 </div>
                 <div>
                   <a href="makeup-detail"
@@ -112,7 +111,7 @@
             </div>
             <div class="storage">
               <div class="title-box">
-                <h4 class="storage-title">2024-10-15</h4>
+                <h4 class="storage-title">2024-10-14</h4>
                 <h5 class="storage-total-price">합계 금액 2,000,000원</h5>
               </div>
               <div>
@@ -153,7 +152,7 @@
             </div>
             <div class="storage">
               <div class="title-box">
-                <h4 class="storage-title">2024-10-15</h4>
+                <h4 class="storage-title">2024-10-12</h4>
                 <h5 class="storage-total-price">합계 금액 3,000,000원</h5>
               </div>
               <div>
@@ -204,7 +203,7 @@
             </div>
             <div class="storage">
               <div class="title-box">
-                <h4 class="storage-title">2024-10-15</h4>
+                <h4 class="storage-title">2024-10-07</h4>
                 <h5 class="storage-total-price">합계 금액 3,000,000원</h5>
               </div>
               <div>
@@ -254,7 +253,7 @@
             </div>
             <div class="storage">
               <div class="title-box">
-                <h4 class="storage-title">2024-10-15</h4>
+                <h4 class="storage-title">2024-10-02</h4>
                 <h5 class="storage-total-price">합계 금액 2,000,000원</h5>
               </div>
               <div>
@@ -274,8 +273,7 @@
                       src="${pageContext.request.contextPath}/resources/images/studio-8.jpg"
                       alt="studio"
                   /></a>
-                  <p>버드투블룸</p>
-                  <p>스튜디오</p>
+                  <p>버드투블룸스튜디오</p>
                 </div>
                 <div>
                   <a href="makeup-detail"
@@ -295,38 +293,38 @@
                 />
               </div>
             </div>
-            <div class="storage">
-              <div class="title-box">
-                <h4 class="storage-title">2024-10-15</h4>
-                <h5 class="storage-total-price">합계 금액 1,000,000원</h5>
-              </div>
-              <div>
-                <a href="#"
-                  ><img
-                    class="arrow icon"
-                    src="${pageContext.request.contextPath}/resources/images/arrow-icon.png"
-                    alt="화살표 아이콘"
-                /></a>
-              </div>
-              <div class="company-list">
-                <div>
-                  <a href="dress-detail"
-                    ><img
-                      class="company-img"
-                      src="${pageContext.request.contextPath}/resources/images/dress-6.jpg"
-                      alt="dress"
-                  /></a>
-                  <p>플로렌스웨딩</p>
-                </div>
-              </div>
-              <div>
-                <img
-                  class="storage-delete"
-                  src="${pageContext.request.contextPath}/resources/images/trashcan.png"
-                  alt="삭제 아이콘"
-                />
-              </div>
-            </div>
+<%--            <div class="storage">--%>
+<%--              <div class="title-box">--%>
+<%--                <h4 class="storage-title">2024-10-02</h4>--%>
+<%--                <h5 class="storage-total-price">합계 금액 1,000,000원</h5>--%>
+<%--              </div>--%>
+<%--              <div>--%>
+<%--                <a href="#"--%>
+<%--                  ><img--%>
+<%--                    class="arrow icon"--%>
+<%--                    src="${pageContext.request.contextPath}/resources/images/arrow-icon.png"--%>
+<%--                    alt="화살표 아이콘"--%>
+<%--                /></a>--%>
+<%--              </div>--%>
+<%--              <div class="company-list">--%>
+<%--                <div>--%>
+<%--                  <a href="dress-detail"--%>
+<%--                    ><img--%>
+<%--                      class="company-img"--%>
+<%--                      src="${pageContext.request.contextPath}/resources/images/dress-6.jpg"--%>
+<%--                      alt="dress"--%>
+<%--                  /></a>--%>
+<%--                  <p>플로렌스웨딩</p>--%>
+<%--                </div>--%>
+<%--              </div>--%>
+<%--              <div>--%>
+<%--                <img--%>
+<%--                  class="storage-delete"--%>
+<%--                  src="${pageContext.request.contextPath}/resources/images/trashcan.png"--%>
+<%--                  alt="삭제 아이콘"--%>
+<%--                />--%>
+<%--              </div>--%>
+<%--            </div>--%>
           </div>
         </section>
 

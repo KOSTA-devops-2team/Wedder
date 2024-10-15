@@ -29,7 +29,7 @@
         <section class="search">
             <div class="search-condition">
                 <div class="search-container">
-                    <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색">
+                    <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색" autocomplete="off" >
                     <button class="search-btn">
                         <img
                                 id="search-icon"
