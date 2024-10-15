@@ -132,23 +132,24 @@
 }
 
 .choice-box {
-    padding: 40px;
-    background-color: #ffffff;
+    padding: 20px 0 30px 0;
+    background-color: #ca1a5a0a;
     color: #ca1a5a;
     border: 1px solid #ca1a5a;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
 }
 
 .saving-price {
+    line-height: 28px;
     padding: 10px 10px;
     font-weight: bold;
     font-size: 20px;
 }
 
 .notice {
-    color: #2c3245;
-    font-size: 15px;
+    color: #858585;
+    font-size: 14px;
 }
 
 .btn {

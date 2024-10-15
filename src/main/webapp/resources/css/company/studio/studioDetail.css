@@ -103,93 +103,13 @@
     margin-left: 4px;
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-}
-
-.buttons button {
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    border: none;
-    margin: 0 10px;
-}
-
-.like-btn {
-    background-color: #ca1a5a;
-    padding: 10px 30px;
-}
-.like-btn:hover {
-    opacity: 80%;
-}
-
-.list-btn {
-    background-color: black;
-    padding: 10px 36px;
-}
-
-.list-btn:hover {
-    opacity: 80%;
-}
-
-.estimate-btn {
-    background-color: #717171;
-    padding: 10px 30px;
-}
-
-.estimate-btn:hover {
-    opacity: 80%;
-}
-
 /* 3. 일정 현황  */
 .schedule {
     margin-top: 100px;
 }
+
 .schedule-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     margin: 30px 50px;
-}
-
-.calendar img {
-    width: 450px;
-    height: auto;
-}
-
-.schedule-choose {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 40px;
-}
-
-.time-list {
-    background-color: #eeeeee;
-    padding: 18px 35px;
-    margin: 10px 0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.time-list-selected {
-    background-color: rgba(255, 203, 222, 0.3);
-    color: #ca1a5a;
-    border: 1px solid #ca1a5a;
-}
-
-.schedule-button {
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #ca1a5a;
-    padding: 15px 30px;
-}
-
-.schedule-button:hover {
-    background-color: #f4699c;
 }
 
 /* 4. 추가 옵션 */
@@ -205,13 +125,33 @@
 } */
 
 .section h2 {
-    margin: 13px 0;
-    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 19px;
     color: #ca1a5a;
 }
 
+.estimate-info {
+    display: flex;
+    margin: 15px auto;
+    justify-content: space-between;
+    width: 93%;
+}
+
+.estimator-warning {
+    width: 65%;
+    border: 1px solid #717171;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+.estimator-warning p {
+    font-size: 14px;
+    line-height: 2;
+    word-break: keep-all;
+}
+
 .option-table {
-    width: 95%;
+    width: 93%;
     margin: 15px auto;
 }
 
@@ -226,20 +166,49 @@
     text-align: center;
 }
 
-
-.estimator-warning {
-    width: 90%;
-    border: 1px solid #ca1a5a;
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin: 0 auto;
-}
-.estimator-warning p {
-    font-size: 14px;
-    line-height: 2;
-    word-break: keep-all;
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
 }
 
+.buttons button {
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    margin: 0 10px;
+    height: 38px;
+}
+
+.like-btn {
+    width: 100px;
+    background-color: #ca1a5a;
+    padding: 10px 30px;
+}
+.like-btn:hover {
+    opacity: 80%;
+}
+
+.list-btn {
+    width: 100px;
+    background-color: black;
+    padding: 10px 30px;
+}
+
+.list-btn:hover {
+    opacity: 80%;
+}
+
+.estimate-btn {
+    width: 140px;
+    background-color: #717171;
+    padding: 10px 30px;
+}
+
+.estimate-btn:hover {
+    opacity: 80%;
+}
 
 /* 5. 비슷한 가격대 업체 */
 .similar {
@@ -264,7 +233,7 @@
 }
 
 .similar-item-title {
-    margin-left: 35px;
+    margin-left: 26px;
     font-size: 13px;
 }
 
@@ -273,7 +242,7 @@
     justify-content: center;
 }
 .similar-item-img img {
-    width: 186px;
+    width: 210px;
     height: 186px;
     margin: 10px auto;
     object-fit: cover;
@@ -284,7 +253,7 @@
 }
 
 .similar-item-title h2 {
-    font-size: 13px;
+    font-size: 14px;
     margin-top: 3px;
 }
 
@@ -294,6 +263,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .similar-button {

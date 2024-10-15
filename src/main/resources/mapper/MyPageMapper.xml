@@ -213,7 +213,8 @@
 		join company c on r.company_id=c.company_id
 		join customer cu on r.customer_id = cu.customer_id
 		join companyImage cI on c.company_id=cI.company_id
-		where c.company_category = #{category} and r.customer_id=#{customerId};
+		where c.company_category = #{category} and r.customer_id=#{customerId}
+		and cI.img_seq=1;
 	</select>
 	
 	<select id="hallVisitReservatioinList" parameterType="map" resultMap="joinVisitCriteria">

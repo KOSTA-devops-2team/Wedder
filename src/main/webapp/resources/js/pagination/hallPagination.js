@@ -2,22 +2,26 @@ function goToPage(page) {
 
     console.log("goToPage 함수 호출됨, 페이지 번호:", page);
     const pageSize = 9; // 페이지당 보여줄 업체 수
+    const keyword = $('#keyword').val(); // 검색어
+    const url = keyword ? '/weddinghall/search' : '/weddinghall/page'; // 검색어가 있으면 POST, 없으면 GET
+
+    console.log("goToPage 호출, page: " + page + ", keyword: " + keyword);
+
     $.ajax({
-        url: '/weddinghall/ajax',
+        url: url,
         type: 'GET',
         data: {
             page: page,
-            pageSize: pageSize
+            pageSize: pageSize,
+            companyName: keyword
         },
         success: function (response) {
             console.log('AJAX 응답 데이터:', response);
             updateHallList(response.hallList);
             updatePagination(response.pagination);
         },
-        error: function (xhr, status, error) {
+        error: function (status, error) {
             console.log('AJAX 요청 실패', status, error);
-            console.log("Response: " + xhr);
-            console.log('서버 응답:', xhr.responseText);
         }
     });
 }

@@ -17,7 +17,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/estimate")
-public class EstimateController {
+public class EstimateController2 {
 
     @Autowired
     private EstimateService estimateService;
@@ -106,7 +106,7 @@ public class EstimateController {
     // 선택한 옵션을 저장하는 맵 (옵션은 각 카테고리별로 관리: 스튜디오, 드레스, 메이크업)
     private Map<String, List<Map<String, Object>>> selectedOptions = new HashMap<>();
 
-    public EstimateController() {
+    public EstimateController2() {
         // 선택된 옵션들을 빈 리스트로 초기화
         selectedOptions.put("studio", new ArrayList<>());
         selectedOptions.put("dress", new ArrayList<>());

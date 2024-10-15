@@ -73,12 +73,13 @@
 
 	              <div>
 	                <img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
-	                <h3>${coCriteria.companyDto.companyName}</h3>
+
 	              </div>
 
 	              <div class="card-content">
 
-	                <div class="content-body">
+					  <h3>${coCriteria.companyDto.companyName}</h3>
+				    <div class="content-body">
 	                  <div>
 	                    <p>예약자명</p>
 	                    <p>날짜</p>
@@ -105,18 +106,20 @@
 
 				  <div>
 					<img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
-					<h3>${coCriteria.companyDto.companyName}</h3>
+
 				  </div>
 
 				  <div class="card-content">
 
 					<div class="content-body">
 					  <div>
+						  <h3>${coCriteria.companyDto.companyName}</h3>
 						<p>예약자명</p>
 						<p>날짜</p>
 						<p>시간</p>
 					  </div>
 					  <div class="inputs">
+						  <h3></h3>
 						<p>${coCriteria.myPageDTO.name}</p>
 						<p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate }" pattern="yyyy-MM-dd"/></p>
 						<p>${coCriteria.reservationDto.reservationTime }</p>
@@ -136,18 +139,19 @@
 				<div class="reservationList-visithall-card">
 					  <div>
 						<img src="${coCriteria.companyImage.imgUrl}" alt="이미지" />
-						<h3>${coCriteria.companyDto.companyName}</h3>
 					  </div>
 
 					  <div class="card-content">
 
 						<div class="content-body">
 						  <div>
+							  <h3>${coCriteria.companyDto.companyName}</h3>
 							<p>예약자명</p>
 							<p>날짜</p>
 							<p>시간</p>
 						  </div>
 						  <div class="inputs">
+							  <h3></h3>
 							<p>${coCriteria.myPageDTO.name}</p>
 							<p><fmt:formatDate value="${coCriteria.reservationDto.reservationDate}" pattern="yyyy-MM-dd" var="formattedDate"/>${formattedDate}</p>
 							<p>${coCriteria.reservationDto.reservationTime }</p>
@@ -163,7 +167,7 @@
 			  </c:forEach>
 		  </section>
 			<div class="reservationList-visithall-top">
-				<h4>웨딩홀 방문 예약 내역</h4>
+				<h3>웨딩홀 방문 예약 내역</h3>
 			</div>
 			<section class="reservationList-visithall-middle" id="reservation-section1">
 				<div class="visitBox"> 현재 방문 예약 건이 없습니다.</div>
@@ -172,13 +176,14 @@
 
 						<div>
 							<img src="${hallCriteria.companyImage.imgUrl}" alt="이미지" />
-							<h3>${hallCriteria.companyDto.companyName}</h3>
+
 						</div>
 
 						<div class="card-content">
 
 							<div class="content-body">
 								<div>
+									<h3>${hallCriteria.companyDto.companyName}</h3>
 									<p>예약자명</p>
 									<p>날짜</p>
 									<p>시간</p>
@@ -201,7 +206,7 @@
 				</c:forEach>
 			</section>
 			<div class="reservationList-top">
-				<h4>웨딩홀 예약 내역</h4>
+				<h3>웨딩홀 예약 내역</h3>
 			</div>
 			<section class="reservationList-hall-middle" id="reservation-section2" >
 				<div class="visitBox"> 현재  예약 건이 없습니다.</div>
@@ -210,19 +215,20 @@
 
 						<div>
 							<img src="${hallCriteria.companyImage.imgUrl}" alt="이미지" />
-							<h3>${hallCriteria.companyDto.companyName}</h3>
 						</div>
 
 						<div class="card-content">
 
 							<div class="content-body">
 								<div>
+									<h3>${hallCriteria.companyDto.companyName}</h3>
 									<p>예약자명</p>
 									<p>날짜</p>
 									<p>시간</p>
 									<p>인원 수</p>
 								</div>
 								<div class="inputs">
+									<h3></h3>
 									<p>${hallCriteria.myPageDTO.name}</p>
 									<p><fmt:formatDate value="${hallCriteria.reservationDto.reservationDate}" pattern="yyyy-MM-dd"/></p>
 									<p>${hallCriteria.reservationDto.reservationTime}</p>

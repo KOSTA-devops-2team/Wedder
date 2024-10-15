@@ -62,11 +62,11 @@ document.addEventListener("DOMContentLoaded",function(){
                         if(formattedDate === queryDate[i].textContent){
                             testNum=queryDate[i]
                             console.log(testNum);
-                            queryDate[i].style.backgroundColor="#ef337f";
-                            queryDate[i].style.color="white";
+                            queryDate[i].style.backgroundColor="white";
+                            queryDate[i].style.color="black";
 
                             queryDate[i].innerHTML+=
-                                `<div style="font-size: 15px;">
+                                `<div style="font-size: 15px; color: #ca1a5a; margin-top: 8px">
                                 ${company_Name}
                                 </div>`;
 

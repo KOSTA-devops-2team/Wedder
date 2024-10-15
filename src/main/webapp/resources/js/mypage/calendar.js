@@ -124,33 +124,33 @@ nextBtn.addEventListener("click", () => {
 
 
 /*test */
-var testData2=new Object();
-	testData2.name="jiwon";
-	testData2.age=20;
-	testData2.test="success";
-	testData2.year= "currentYear";
-	testData2.month= "currentMonth+1";
-const jsonData=JSON.stringify(testData2);
-$(document).ready(function() {
-	$.ajax({
-		type: 'POST', // POST 요청
-		url: 'calendar/test', // URL 경로
-		contentType: 'application/json', // JSON 형식으로 데이터를 전송
-		data: jsonData, // 객체를 JSON 문자열로 변환
-		dataType: 'json', // 응답 형식
-		success: function(result) {
-			console.log(result); // 서버에서 받은 응답 출력
-		},
-		error: function() {
-			console.log("Error occurred"); // 에러 처리
-		}
-	});
+// var testData2=new Object();
+// 	testData2.name="jiwon";
+// 	testData2.age=20;
+// 	testData2.test="success";
+// 	testData2.year= "currentYear";
+// 	testData2.month= "currentMonth+1";
+// const jsonData=JSON.stringify(testData2);
+// $(document).ready(function() {
+// 	$.ajax({
+// 		type: 'POST', // POST 요청
+// 		url: 'calendar/test', // URL 경로
+// 		contentType: 'application/json', // JSON 형식으로 데이터를 전송
+// 		data: jsonData, // 객체를 JSON 문자열로 변환
+// 		dataType: 'json', // 응답 형식
+// 		success: function(result) {
+// 			console.log(result); // 서버에서 받은 응답 출력
+// 		},
+// 		error: function() {
+// 			console.log("Error occurred"); // 에러 처리
+// 		}
+// 	});
+//
+//
+// 	let date=document.getElementById("getDate");
+//
 
-
-	let date=document.getElementById("getDate");
-	
-
-});
+//});
 
 // 공휴일을 추가하는 방법
 //객체를 배열로 추가한다.

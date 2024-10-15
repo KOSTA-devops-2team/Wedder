@@ -230,11 +230,11 @@ span.color {
 
 .package-btn button {
     border: none;
-    padding: 12px 32px;
+    padding: 17px 64px;
     background-color: #ca1a5a;
     color: white;
     border-radius: 10px;
     text-align: center;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 600;
 }

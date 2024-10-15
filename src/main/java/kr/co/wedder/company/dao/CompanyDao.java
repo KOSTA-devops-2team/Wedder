@@ -12,17 +12,19 @@ import java.util.List;
 public interface CompanyDao {
 
     CompanyDto selectCompanyById(Integer companyId) throws Exception;
-    List<CompanyDto> selectCompanyByCategory(Pagination pagination, String category) throws Exception;
+    List<CompanyDto> selectCompanyByCategory(Pagination pagination,String companyName, String category) throws Exception;
     List<CompanyDto> searchCompany(String companyName, String category) throws Exception;
-    int selectCompanyListCnt(String category) throws Exception;
+    int selectCompanyListCnt(String companyName, String category) throws Exception;
     List<CompanyImageDto> selectCompanyImages(int companyId) throws Exception;
     CompanyDto selectCoordinateById(int companyId) throws Exception;
     List<OptionDto> selectOptByCategory(String category) throws Exception;
 
     List<CompanyDto> selectHallDetail(int companyId) throws Exception;
     List<CompanyDto> selectStudioDetail(int companyId) throws Exception;
+    List<CompanyDto> selectDressDetail(int companyId) throws Exception;
+    List<CompanyDto> selectMakeupDetail(int companyId) throws Exception;
 
-    List<CompanyScheduleDto> selectAvailableHallDate(int companyId);
-    List<CompanyScheduleDto> selectAvailableHallTime(String companyName, Date date);
+    List<CompanyScheduleDto> selectAvailableDateList(int companyId);
+    List<CompanyScheduleDto> selectAvailableTimeList(int companyId, Date date);
 
 }

@@ -27,9 +27,10 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public List<CompanyDto> selectCompanyByCategory(Pagination pagination, String category) throws Exception {
+    public List<CompanyDto> selectCompanyByCategory(Pagination pagination, String companyName, String category) throws Exception {
         Map<String, Object> map = new HashMap<>();
         map.put("pagination", pagination);
+        map.put("companyName", companyName);
         map.put("category", category);
         return session.selectList(namespace + "selectCompanyByCategory", map);
     }
@@ -43,8 +44,11 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public int selectCompanyListCnt(String category) throws Exception {
-        return session.selectOne(namespace + "selectCompanyListCnt", category);
+    public int selectCompanyListCnt(String companyName, String category) throws Exception {
+        Map<String, Object> params = new HashMap<>();
+        params.put("companyName", companyName);
+        params.put("category", category);
+        return session.selectOne(namespace + "selectCompanyListCnt", params);
     }
 
     @Override
@@ -73,16 +77,26 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
-    public List<CompanyScheduleDto> selectAvailableHallDate(int companyId) {
-        return session.selectList(namespace + "selectAvailableHallDate", companyId);
+    public List<CompanyDto> selectDressDetail(int companyId) throws Exception {
+        return session.selectList(namespace + "selectDressDetail", companyId);
     }
 
     @Override
-    public List<CompanyScheduleDto> selectAvailableHallTime(String companyName, Date date) {
+    public List<CompanyDto> selectMakeupDetail(int companyId) throws Exception {
+        return session.selectList(namespace + "selectMakeupDetail", companyId);
+    }
+
+    @Override
+    public List<CompanyScheduleDto> selectAvailableDateList(int companyId) {
+        return session.selectList(namespace + "selectAvailableDateList", companyId);
+    }
+
+    @Override
+    public List<CompanyScheduleDto> selectAvailableTimeList(int companyId, Date date) {
         Map map = new HashMap<>();
-        map.put("companyName", companyName);
+        map.put("companyId", companyId);
         map.put("date", date);
 
-        return session.selectList(namespace + "selectAvailableHallTime", map);
+        return session.selectList(namespace + "selectAvailableTimeList", map);
     }
 }

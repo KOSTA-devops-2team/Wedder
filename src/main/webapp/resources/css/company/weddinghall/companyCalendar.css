@@ -1,14 +1,22 @@
 @charset "UTF-8";
+/*.calendar-wrapper {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: flex-start;*/
+/*    gap: 20px;*/
+/*    padding: 20px;*/
+/*}*/
+
 .calendar-wrapper {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: flex-start;
     gap: 20px;
     padding: 20px;
 }
 
 .calendar-container{
-    width: 48%;
+    width: 85%;
     height: auto;
     text-align: center;
 }
@@ -159,6 +167,7 @@
     padding: 16px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
 }
 
 #selectedInfo .company-name {
@@ -183,8 +192,8 @@
     color: #222225;
 }
 
-#infoList {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
-}
+/*#infoList {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(3, 1fr);*/
+/*    column-gap: 20px;*/
+/*}*/

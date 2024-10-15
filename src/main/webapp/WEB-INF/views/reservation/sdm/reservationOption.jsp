@@ -203,7 +203,7 @@
                     </div>
                     <div>
                         <h4 class="select-company-title">비마이 스튜디오</h4>
-                        <p  class="select-purpose">[웨딩촬영]</p>
+<%--                        <p  class="select-purpose">[웨딩촬영]</p>--%>
                     </div>
                 </div>
                 <div class="options">

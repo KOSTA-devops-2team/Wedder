@@ -36,17 +36,24 @@ public class PackageController {
     public String getAllPackages(Model model) {
 
         List<PackageDetailDto> allPackages = packageService.getAllPackages();
+        System.out.println("allPackages = " + allPackages);
 
         // 패키지 가격 계산
-        int originalPrice = 0;
         for (PackageDetailDto detail : allPackages) {
-            originalPrice += detail.getBasicPrice();  // 3개 업체 basic_price의 합
+            System.out.println("detail = " + detail);
+
+            // 각 패키지의 기본 가격을 합산
+            int originalPrice = detail.getStudioBasicPrice() + detail.getDressBasicPrice() + detail.getMakeupBasicPrice();
+            detail.setOriginalPrice(originalPrice);
+
+            int discountRate = allPackages.get(0).getDiscountRate();  // 할인율
+            int discountPrice = (originalPrice * discountRate) / 100;  // 할인된 금액 계산
+            int finalPrice = originalPrice - discountPrice;  // 최종 혜택가 계산
+            detail.setFinalPrice(finalPrice);
+            System.out.println("originalPrice" + originalPrice);
+            System.out.println("finalPrice" + finalPrice);
         }
 
-        int discountRate = allPackages.get(0).getDiscountRate();  // 할인율
-        int discountPrice = (originalPrice * discountRate) / 100;  // 할인된 금액 계산
-        int finalPrice = originalPrice - discountPrice;  // 최종 혜택가 계산
-        model.addAttribute("finalPrice", finalPrice);
         model.addAttribute("AllPackages", allPackages);
 
         // best package 라인

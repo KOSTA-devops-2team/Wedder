@@ -12,7 +12,7 @@
 .calendar-header{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 }
 .calendar-days{
 	
@@ -28,12 +28,7 @@
 	
 	margin: 25px;
 }
-.sunday{
-	color: red;
-}
-.saturday{
-	color: blue;
-}
+
 .calendar-dates{
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
@@ -45,15 +40,11 @@
             font-weight: bold;
 			border-radius: 10px;
         }
-.calendar-dates > div:nth-child(7n+1){
-	color: red;
-}
-.calendar-dates> div:nth-child(7n){
-	color:blue;
-}
+
 .date {
   cursor: pointer;
   padding: 5px;
+	color: #CCCCCC;
 }
 .holiday{
 	background-color: red;
@@ -71,3 +62,19 @@
 	display: none;
 }
 
+#nextBtn{
+	border-radius: 5px;
+	border: 1px solid #D0D5DD;
+	padding: 0 9px;
+	margin: 23px 25px;
+	width: 30px;
+	height: 30px;
+}
+#prevBtn{
+	border-radius: 5px;
+	border: 1px solid #D0D5DD;
+	padding: 0 9px;
+	margin: 23px 25px;
+	width: 30px;
+	height: 30px;
+}

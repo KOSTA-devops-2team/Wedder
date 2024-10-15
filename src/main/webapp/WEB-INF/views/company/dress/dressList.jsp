@@ -22,610 +22,76 @@
             <div class="title-sub">
                 원하는 조건으로 나만의 드레스 업체를 찾아보세요.
             </div>
-            <div class="title-main">Dress</div>
+            <div class="title-main">드레스</div>
         </section>
 
         <!-- 검색 조건 및 버튼 -->
         <section class="search">
             <div class="search-condition">
-                <div class="local-search">
-                        <span
-                        >지역<img
-                                id="region-icon"
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
-                        /></span>
-                </div>
-                <div>
-                        <span
-                        >날짜<img
-                                id="date-icon"
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
-                        /></span>
-                </div>
-                <div>
-                        <span
-                        >예산<img
-                                id="cost-icon"
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
-                        /></span>
-                </div>
-                <div>
-                        <span
-                        >분위기<img
-                                id="mood-icon"
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/down-arrow.png"
-                        /></span>
-                </div>
-                <div>
-                        <span
-                        >업체명으로 검색<img
-                                id="company-icon"
+                <div class="search-container">
+                    <input type="text" id="keyword" class="search-bar" placeholder="업체명으로 검색">
+                    <button class="search-btn">
+                        <img
+                                id="search-icon"
                                 src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/search-icon.png"
-                        /></span>
+                        />
+                    </button>
                 </div>
             </div>
-            <div class="search-btn">
-                <button class="list-search-btn dark-pink">
-                    <a href="dressList"
-                    >목록으로 보기</a
-                    >
-                </button>
-                <button class="map-search-btn">
-                    <a href="mapViewWithFilters"
-                    >지도로 보기</a
-                    >
-                </button>
-            </div>
+<%--            <div class="search-btn">--%>
+<%--                <button class="list-search-btn dark-pink">--%>
+<%--                    <a href="dressList"--%>
+<%--                    >목록으로 보기</a--%>
+<%--                    >--%>
+<%--                </button>--%>
+<%--                <button class="map-search-btn">--%>
+<%--                    <a href="mapViewWithFilters"--%>
+<%--                    >지도로 보기</a--%>
+<%--                    >--%>
+<%--                </button>--%>
+<%--            </div>--%>
         </section>
 
         <!-- 업체 리스트 부분  -->
         <section class="list-all">
-            <div class="card" data-id="1">
-                <a href="dressDetail">
-                    <img
-                            class="card-img"
-                            src="resources/images/dress-1.jpg"
-                            alt="드레스 이미지1"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a
-                                href="https://www.instagram.com/with_mamaa/"
-                                target="_blank"
-                                class="instagram"
-                        >
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
+            <c:forEach var="card" items="${dressList}">
+                <div class="card">
+                    <a href="${pageContext.request.contextPath}/dress/detail/${card.companyId}">
+                        <img
+                                class="card-img"
+                                src="${card.imgUrl}"
+                                alt="드레스샵 이미지"
+                        />
+                    </a>
+                    <div class="card-info">
+                        <div class="dress-name">
+                                ${card.companyName}
+                            <a
+                                    href="${card.instagramUrl}"
+                                    target="_blank"
+                                    class="instagram"
+                            >
+                                <img
+                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/instagram.png"
+                                        alt="인스타 이미지"
+                                />
+                            </a>
+                        </div>
+                        <div class="dress-address">주소 : ${card.companyAddress}</div>
+                        <div class="phone-num">연락처 : ${card.phoneNum}</div>
+                        <div class="operation-hours">영업시간 : ${card.operationHours}</div>
+                        <div class="dress-type">상품 유형 : ${card.dressDto.dressType}</div>
+                        <div class="composition">상품 구성 : ${card.dressDto.composition}</div>
                     </div>
                 </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-2.jpg"
-                            alt="드레스 이미지2"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-3.jpg"
-                            alt="드레스 이미지3"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-4.jpg"
-                            alt="드레스 이미지1"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-5.jpg"
-                            alt="드레스 이미지5"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-6.jpg"
-                            alt="드레스 이미지6"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-7.jpg"
-                            alt="드레스 이미지7"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-1.jpg"
-                            alt="드레스 이미지1"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a
-                                href="https://www.instagram.com/with_mamaa/"
-                                target="_blank"
-                                class="instagram"
-                        >
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-2.jpg"
-                            alt="드레스 이미지1"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-3.jpg"
-                            alt="드레스 이미지1"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-4.jpg"
-                            alt="드레스 이미지1"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-5.jpg"
-                            alt="드레스 이미지1"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-6.jpg"
-                            alt="드레스 이미지1"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-id="1">
-                <a href="#">
-                    <img
-                            src="resources/images/dress-7.jpg"
-                            alt="드레스 이미지1"
-                    />
-                </a>
-                <div class="card-info">
-                    <div class="dress-name">
-                        드레스 이름1
-                        <a href="#" class="instagram">
-                            <img
-                                    src="resources/images/instagram2.png"
-                                    alt="인스타 이미지"
-                            />
-                        </a>
-                    </div>
-                    <div class="dress-address">주소1</div>
-                    <div class="meal-price">드레스3벌(화이트2 + 컬러1)</div>
-                    <div class="minimum-guarantee">가봉 소요시간: 40분</div>
-                    <div class="like-and-score">
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/heart-bold.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>12,000</span>
-                        </a>
-                        <a href="#">
-                            <img
-                                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/star-1.png"
-                                    alt="하트 이미지"
-                            />
-                            <span>460</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </section>
     </div>
 
     <!-- 페이지네이션  -->
-    <div id="pagination-placeholder"></div>
+    <div id="pagination-placeholder">
+        <%@ include file="/WEB-INF/views/common/pagination.jsp" %>
+    </div>
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
