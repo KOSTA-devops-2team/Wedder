@@ -84,9 +84,6 @@
 
   align-self: center;
 }
-.reservation-h3-1 {
-  color: #ca1a5a;
-}
 /* section1 */
 .reservationList-visithall-top {
   border-bottom: 2px solid black;
@@ -200,7 +197,6 @@
   flex-direction: row;
   justify-content: flex-start;
 
-  border-bottom: 2px solid black;
   padding-bottom: 10px;
 }
 .company {

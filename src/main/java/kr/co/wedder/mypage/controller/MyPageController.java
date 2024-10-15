@@ -90,7 +90,17 @@ public class MyPageController {
 	}
 	
 	@RequestMapping(value="/estimate-storage")
-	public String estimateStorage() {
+	public String estimateStorage(@SessionAttribute("id") String id, Integer customerId, Model model) throws Exception {
+		System.out.println("id= "+id);
+		MyPageDTO sessionId=myPageService.customerId(id);
+		customerId=sessionId.getCustomerId();
+		MyPageDTO myPageDTO = myPageService.customerRead(customerId);
+		model.addAttribute("myPageDTO",myPageDTO);
+
+		Map<String,Object> vistCriteriaMap = new HashMap<>();
+		vistCriteriaMap.put("customerId",customerId);
+		Integer visitCriteriaCount = myPageService.todayVisitCount(vistCriteriaMap);
+		model.addAttribute("visitCriteriaCount",visitCriteriaCount);
 		return "mypage/estimateStorage";
 	}
 	@RequestMapping(value = "/likelist")
