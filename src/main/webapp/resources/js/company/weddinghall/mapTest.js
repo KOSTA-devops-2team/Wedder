@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var iwContent = `
                 <div class="info">
                     <div class="title">${companyName}</div>
-                    <a href="https://kko.to/LwMPV-AWmS" class="map-view" target="_blank">지도보기</a>
+                    <a href="https://kko.kakao.com/1jDBYn95CC" class="map-view" target="_blank">지도보기</a>
                     <a href="https://map.kakao.com/link/to/${companyName},${latitude},${longitude}" class="direction" target="_blank">길찾기</a>
                 </div>`;
 
