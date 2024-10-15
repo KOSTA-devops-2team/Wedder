@@ -25,5 +25,6 @@ public interface CompanyService {
     List<CompanyScheduleDto> getAvailableTimeList(int companyId, Date date);
 
     List<CompanyDto> getStudioDetail(int companyId) throws Exception;
-
+    List<CompanyDto> getDressDetail(int companyId) throws Exception;
+    List<CompanyDto> getMakeupDetail(int companyId) throws Exception;
 }

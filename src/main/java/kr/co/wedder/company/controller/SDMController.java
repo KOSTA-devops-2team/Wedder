@@ -108,9 +108,10 @@ public class SDMController {
 
     @GetMapping(value = "dress/detail/{companyId}")
     public String dressDetail(@PathVariable("companyId") int companyId, Model m) {
+        String category = "드레스";
 
         try {
-            List<CompanyDto> dressDetail = companyService.getHallDetail(companyId);
+            List<CompanyDto> dressDetail = companyService.getDressDetail(companyId);
             m.addAttribute("dressDetail", dressDetail);
 
             List<CompanyImageDto> imgList = companyService.getCompanyImages(companyId);
@@ -127,8 +128,53 @@ public class SDMController {
     }
 
     @GetMapping(value = "makeup")
-    public String makeupList() { return "company/makeup/makeupList"; }
+    public String makeupList(@RequestParam(value = "page", defaultValue = "1") int page,
+                             @RequestParam(value = "pageSize", defaultValue = "9") int pageSize,
+                             @RequestParam(value = "companyName", required = false) String companyName, Model m) {
+        String category = "메이크업";
+        try {
+            // 게시글 총 갯수
+            int totalListCnt = companyService.getCompanyListCnt(companyName, category);
+
+            // 페이지네이션
+            Pagination pagination = new Pagination();
+            pagination.doPaging(page, pageSize, totalListCnt);
+            m.addAttribute("pagination", pagination);
+
+            // 검색어 포함 업체 리스트
+            List<CompanyDto> makeupList = companyService.getCompanyList(pagination, companyName, category);
+            m.addAttribute("makeupList", makeupList);
+
+            // 디버깅 로그
+            System.out.println("Controller - startList: " + pagination.getStartList());
+            System.out.println("Controller - pageSize: " + pagination.getPageSize());
+            System.out.println("Controller - page: " + pagination.getPage());
+            System.out.println("Controller - companyName: " + companyName);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "company/makeup/makeupList";
+    }
 
     @GetMapping(value = "makeup/detail/{companyId}")
-    public String makeupDetail() { return "company/makeup/makeupDetail"; }
+    public String makeupDetail(@PathVariable("companyId") int companyId, Model m) {
+        String category = "메이크업";
+
+        try {
+            List<CompanyDto> makeupDetail = companyService.getMakeupDetail(companyId);
+            m.addAttribute("makeupDetail", makeupDetail);
+
+            List<CompanyImageDto> imgList = companyService.getCompanyImages(companyId);
+            m.addAttribute("imgList", imgList);
+
+            System.out.println("controller - makeupId: " + companyId);
+            System.out.println("controller - makeupDetail: " + makeupDetail);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return "company/makeup/makeupList";
+        }
+        return "company/makeup/makeupDetail";
+    }
 }

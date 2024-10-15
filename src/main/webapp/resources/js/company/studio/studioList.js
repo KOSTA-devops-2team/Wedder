@@ -17,7 +17,7 @@ $(document).ready(function () {
         const category = $('#category').val();
         const page = 1; // 검색 시에는 첫 페이지로 고정
         const pageSize = 9; // 한 페이지에 표시할 개수
-        const url = keyword ? '/studio/search' : '/studio/ajax'; // 검색어가 있으면 POST, 없으면 GET
+        const url = keyword ? '/studio/search' : '/studio/page'; // 검색어가 있으면 POST, 없으면 GET
 
         console.log("검색 실행: keyword = " + keyword + ", page = " + page);
 
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
         const pageSize = 9; // 페이지당 보여줄 업체 수
         const keyword = $('#keyword').val(); // 검색어
-        const url = keyword ? '/studio/search' : '/studio/ajax'; // 검색어가 있으면 POST, 없으면 GET
+        const url = keyword ? '/studio/search' : '/studio/page'; // 검색어가 있으면 POST, 없으면 GET
 
         console.log("goToPage 호출, page: " + page + ", keyword: " + keyword);
 
@@ -127,7 +127,7 @@ $(document).ready(function () {
 
             // '처음' 버튼
             if (pagination.showPrev) {
-                paginationHtml += `<li><a href="#" class="page-btn" onclick="goToPage(1)"}>&laquo;&laquo;</a></li>`;
+                paginationHtml += `<li><a href="#" class="page-btn" onclick="goToPage(1)">&laquo;&laquo;</a></li>`;
             } else {
                 paginationHtml += `<li><a href="#" class="page-btn disabled">&laquo;&laquo;</a></li>`;
             }

@@ -15,16 +15,16 @@
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
-    <c:forEach var="hall" items="${hallDetail}">
+    <c:forEach var="company" items="${hallDetail}">
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
             <div class="main-title-container">
-                <h1>[${hall.location}] ${hall.companyName}</h1>
+                <h1>[${company.location}] ${company.companyName}</h1>
                 <div id="tags-container">
                     <!-- 태그 -->
                 </div>
                 <p>
-                    ${hall.introduce}
+                    ${company.introduce}
                 </p>
             </div>
             <div class="carousel-container">
@@ -44,7 +44,7 @@
         <!-- 2. 업체 정보 + 지도-->
         <section class="information">
             <div class="title-container">
-                <h2>${hall.companyName} 정보</h2>
+                <h2>${company.companyName} 정보</h2>
 <%--                <a href="reviewModal" id="review-link">후기 보러가기 >>></a>--%>
             </div>
 <%--            <div id="modal-container"></div>--%>
@@ -53,25 +53,25 @@
                 <!-- 왼쪽 정보 -->
                 <table class="info-table">
                     <tr>
-                        <th>주소</th><td>${hall.companyAddress}</td>
+                        <th>주소</th><td>${company.companyAddress}</td>
                     </tr>
                     <tr>
-                        <th>연락처</th><td>${hall.phoneNum}</td>
+                        <th>연락처</th><td>${company.phoneNum}</td>
                     </tr>
                     <tr>
-                        <th>운영 시간</th><td>${hall.operationHours}</td>
+                        <th>운영 시간</th><td>${company.operationHours}</td>
                     </tr>
                     <tr>
-                        <th>예식 유형</th><td>${hall.hallDto.hallType}</td>
+                        <th>예식 유형</th><td>${company.hallDto.hallType}</td>
                     </tr>
                     <tr>
-                        <th>식사비</th><td>${hall.hallDto.mealPrice}</td>
+                        <th>식사비</th><td>${company.hallDto.mealPrice}</td>
                     </tr>
                     <tr>
-                        <th>보증인원</th><td>${hall.hallDto.minPeople}</td>
+                        <th>보증인원</th><td>${company.hallDto.minPeople}</td>
                     </tr>
                     <tr>
-                        <th>주차</th><td>${hall.hallDto.parking}</td>
+                        <th>주차</th><td>${company.hallDto.parking}</td>
                     </tr>
                 </table>
                 <!-- 오른쪽 정보 -->
@@ -86,17 +86,13 @@
                     </div>
                 </div>
             </div>
-            <div class="buttons">
-                <button class="like-btn">찜하기</button>
-                <a href="${pageContext.request.contextPath}/weddinghall"><button class="list-btn">목록</button></a>
-            </div>
         </section>
 
 
         <!-- 3. 예식일정 현황-->
         <section class="schedule">
             <div class="title-container">
-                <h2>${hall.companyName} 일정 현황</h2>
+                <h2>${company.companyName} 일정 현황</h2>
             </div>
             <div class="schedule-container">
                 <div class="calendar">
@@ -105,7 +101,7 @@
                         보세요
                     </h4>
                     <div id="calendar">
-                        <%@ include file="/WEB-INF/views/company/weddinghall/weddinghallCalendar.jsp" %>
+                        <%@ include file="/WEB-INF/views/company/weddinghall/companyCalendar.jsp" %>
                     </div>
                 </div>
 <%--                <div class="schedule-choose">--%>
@@ -295,6 +291,10 @@
                 </div>
             </div>
         </section>
+        <div class="buttons">
+            <button class="like-btn">찜하기</button>
+            <a href="${pageContext.request.contextPath}/weddinghall"><button class="list-btn">목록</button></a>
+        </div>
 
         <!-- 5. 비슷한 가격대 웨딩홀 -->
         <section class="similar">

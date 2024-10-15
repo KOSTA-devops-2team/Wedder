@@ -29,7 +29,7 @@ public class HallRestController {
 //        return companyService.searchCompanies(companyName, category);
 //    }
 
-    @GetMapping(value = "/ajax")
+    @GetMapping(value = "/page")
     public ResponseEntity<Map<String, Object>> getHallList(@RequestParam(value = "page", defaultValue = "1") int page,
                                                            @RequestParam(value = "pageSize", defaultValue = "9") int pageSize,
                                                            @RequestParam(value = "companyName", required = false) String companyName) {
@@ -109,18 +109,18 @@ public class HallRestController {
     }
 
     // 예약 가능한 날짜 데이터 불러오기
-    @GetMapping("/getAvailableHallDate")
+    @GetMapping("/getAvailableDate")
     public ResponseEntity<List<CompanyScheduleDto>> getAvailableDate(@RequestParam int companyId) {
 
-        List<CompanyScheduleDto> availableHallDate = companyService.getAvailableDateList(companyId);
-        System.out.println("getAvailableDates = " + availableHallDate);
+        List<CompanyScheduleDto> availableDate = companyService.getAvailableDateList(companyId);
+        System.out.println("getAvailableDates = " + availableDate);
 
         // 데이터가 없을 경우 빈 배열 반환
-        return new ResponseEntity<>(availableHallDate != null ? availableHallDate : new ArrayList<>(), HttpStatus.OK);
+        return new ResponseEntity<>(availableDate != null ? availableDate : new ArrayList<>(), HttpStatus.OK);
     }
 
     // 예약 가능한 시간 데이터 불러오기
-    @GetMapping("/getAvailableHallTime")
+    @GetMapping("/getAvailableTime")
     public ResponseEntity<List<CompanyScheduleDto>> getAvailableTime(@RequestParam int companyId, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd")Date date) {
 
         System.out.println("companyId = " + companyId + "  date " +date);

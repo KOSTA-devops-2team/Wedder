@@ -77,6 +77,16 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     @Override
+    public List<CompanyDto> selectDressDetail(int companyId) throws Exception {
+        return session.selectList(namespace + "selectDressDetail", companyId);
+    }
+
+    @Override
+    public List<CompanyDto> selectMakeupDetail(int companyId) throws Exception {
+        return session.selectList(namespace + "selectMakeupDetail", companyId);
+    }
+
+    @Override
     public List<CompanyScheduleDto> selectAvailableDateList(int companyId) {
         return session.selectList(namespace + "selectAvailableDateList", companyId);
     }

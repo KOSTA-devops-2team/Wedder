@@ -1,7 +1,7 @@
 // section1. 태그 부분
 document.addEventListener("DOMContentLoaded", function () {
     // 백엔드 구현할 때 AJAX 사용
-    const tags = ["#강남웨딩홀", "#하우스웨딩", "#가든웨딩"];
+    const tags = ["#우아한웨딩홀", "#하우스웨딩", "#가든웨딩"];
 
     const tagsContainer = document.getElementById("tags-container");
 

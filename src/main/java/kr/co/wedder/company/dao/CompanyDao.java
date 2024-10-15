@@ -21,6 +21,8 @@ public interface CompanyDao {
 
     List<CompanyDto> selectHallDetail(int companyId) throws Exception;
     List<CompanyDto> selectStudioDetail(int companyId) throws Exception;
+    List<CompanyDto> selectDressDetail(int companyId) throws Exception;
+    List<CompanyDto> selectMakeupDetail(int companyId) throws Exception;
 
     List<CompanyScheduleDto> selectAvailableDateList(int companyId);
     List<CompanyScheduleDto> selectAvailableTimeList(int companyId, Date date);

@@ -9,60 +9,33 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/company/makeup/makeupDetail.css" />
     <script defer src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
     <script defer src="${pageContext.request.contextPath}/resources/js/company/makeup/makeupDetail.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
+    <c:forEach var="company" items="${makeupDetail}">
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
             <div class="main-title-container">
-                <h1>[강남] 김활란뮤제네프</h1>
+                <h1>[${company.location}] ${company.companyName}</h1>
                 <div id="tags-container">
                     <!-- 태그 -->
                 </div>
                 <p>
-                    여배우들만이 누렸던 프라이빗 뷰티 케어와 특별한 서비스를 지금 김활란뮤제네프에서 경험해보세요.
-                    차별화된 고품격 서비스를 제공하는 최고급 토탈 뷰티살롱 입니다.
+                    ${company.introduce}
                 </p>
             </div>
             <div class="carousel-container">
                 <div class="carousel-inner">
-                    <div class="company-image-item">
-                        <img
-                                src="resources/assets/images/makeup-1.jpg"
-                                alt="메이크업 메인 이미지1"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/assets/images/makeup-7.jpg"
-                                alt="메이크업 메인 이미지2"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/assets/images/makeup-8.jpg"
-                                alt="메이크업 메인 이미지3"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/assets/images/makeup-9.jpg"
-                                alt="메이크업 메인 이미지4"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/assets/images/makeup-10.jpg"
-                                alt="메이크업 메인 이미지5"
-                        />
-                    </div>
-                    <div class="company-image-item">
-                        <img
-                                src="resources/assets/images/makeup-11.jpg"
-                                alt="메이크업 메인 이미지6"
-                        />
-                    </div>
+                    <c:forEach var="img" items="${imgList}">
+                        <div class="company-image-item">
+                            <img
+                                    src="${img.imgUrl}"
+                                    alt="메이크업 메인 이미지${img.imgSeq}"
+                            />
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </section>
@@ -70,73 +43,52 @@
         <!-- 2. 업체 정보 + 지도-->
         <section class="information">
             <div class="title-container">
-                <h2>${makeup.companyName} 정보</h2>
+                <h2>${company.companyName} 정보</h2>
 <%--                <a href="#" id="review-link">후기 보러가기 >>></a>--%>
             </div>
-            <!-- <div id="modal-container"></div> -->
 
             <div class="info-container">
                 <!-- 왼쪽 정보 -->
                 <table class="info-table">
                     <tr>
-                        <th>지역</th>
-                        <td>서울특별시 강남구</td>
+                        <th>주소</th><td>${company.companyAddress}</td>
                     </tr>
                     <tr>
-                        <th>연락처</th>
-                        <td>02-111-1111</td>
+                        <th>연락처</th><td>${company.phoneNum}</td>
                     </tr>
                     <tr>
-                        <th>휴무일</th>
-                        <td>없음</td>
+                        <th>운영 시간</th><td>${company.operationHours}</td>
                     </tr>
                     <tr>
-                        <th>영업 시간</th>
-                        <td>10:00 ~ 19:00</td>
+                        <th>상품 유형</th><td>${company.makeupDto.makeupType}</td>
                     </tr>
                     <tr>
-                        <th>기본 상품 구성</th>
-                        <td>촬영 1회 + 본식 1회</td>
+                        <th>시술 대상</th>
+                        <td>${company.makeupDto.target}</td>
                     </tr>
                     <tr>
-                        <th>소요시간</th>
-                        <td>신부: 3시간 내외 / 신랑: 1시간 내외</td>
-                    </tr>
-                    <tr>
-                        <th>홈페이지</th>
-                        <td>museeneuf.co.kr</td>
+                        <th>시술자 직급</th>
+                        <td>${company.makeupDto.position}</td>
                     </tr>
                 </table>
                 <!-- 오른쪽 정보 -->
                 <div>
                     <table class="info-table">
                         <tr>
-                            <th>주소</th>
-                            <td>서울 강남구 청담동 81-9 </td>
-                        </tr>
-                        <tr>
-                            <th>대중교통 </th>
-                            <td>지하철 수인분당선 압구정로데오역 </td>
+                            <th>지도</th>
                         </tr>
                     </table>
                     <div class="info-map">
-                        <img
-                                src="resources/assets/images/makeup-map.png"
-                        />
+                        <%@ include file="/WEB-INF/views/common/mapApi.jsp" %>
                     </div>
                 </div>
-            </div>
-            <div class="buttons">
-                <button class="like-btn">찜하기</button>
-                <button class="list-btn">목록</button>
-                <button class="estimate-btn">견적함에 담기</button>
             </div>
         </section>
 
         <!-- 3. 일정 현황-->
         <section class="schedule">
             <div class="title-container">
-                <h2>${makeup.companyName} 일정 현황</h2>
+                <h2>${company.companyName} 일정 현황</h2>
             </div>
 
             <div class="schedule-container">
@@ -145,42 +97,16 @@
                         ✔️ 시술을 희망하는 날짜에 예약이 가능한지 확인해
                         보세요
                     </h4>
-                    <div id="calendar"></div>
-                    <img
-                            src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/calendar.png"
-                    />
-                </div>
-                <div class="schedule-choose">
-                    <div class="schedule-choose-container">
-                        <div>
-                            <span></span>
-                            <h3>가능한 일정만 보기</h3>
-                        </div>
-                        <div class="time-lists">
-                            <div class="time-list">
-                                <span>10:00</span>
-                                <span>[메이크업] 김활란뮤제네프</span>
-                            </div>
-                            <div class="time-list">
-                                <span>12:00</span>
-                                <span>[메이크업] 김활란뮤제네프</span>
-                            </div>
-                            <div class="time-list">
-                                <span>14:00</span>
-                                <span>[메이크업] 김활란뮤제네프</span>
-                            </div>
-                            <div class="time-list">
-                                <span>16:00</span>
-                                <span>[메이크업] 김활란뮤제네프</span>
-                            </div>
-                        </div>
+                    <div id="calendar">
+                        <%@ include file="/WEB-INF/views/company/weddinghall/companyCalendar.jsp" %>
                     </div>
-                    <a href="">
-                        <button class="schedule-button">예약하기</button>
-                    </a>
+<%--                    <a href="">--%>
+<%--                        <button class="schedule-button">예약하기</button>--%>
+<%--                    </a>--%>
                 </div>
             </div>
         </section>
+    </c:forEach>
 
         <!-- 4. 세부 옵션 -->
         <section class="estimator">
@@ -189,6 +115,18 @@
             </div>
             <div class="grid-container">
                 <div class="section">
+                    <div class="estimate-info">
+                        <div class="section estimator-warning">
+                            <h2>꼭 확인해주세요!</h2>
+                            <p>
+                                ✔️ 업체에 직접 결제하는 추가 비용이 있을 수 있어요.
+                            </p>
+                            <p>
+                                ✔️ 실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.
+                            </p>
+                        </div>
+                    </div>
+
                     <table class="option-table">
                         <tr>
                             <th>옵션명</th>
@@ -217,17 +155,14 @@
                         </tr>
                     </table>
                 </div>
-                <div class="section estimator-warning">
-                    <h2>꼭 확인해주세요!</h2>
-                    <p>
-                        ✔️ 업체에 직접 결제하는 추가 비용이 있을 수 있어요.
-                    </p>
-                    <p>
-                        ✔️ 실제 비용과 다를 수 있으니, 상품 이용 전 업체를 통해 꼭 확인하세요.
-                    </p>
-                </div>
             </div>
         </section>
+        <div class="buttons">
+            <button class="like-btn">찜하기</button>
+            <a href="${pageContext.request.contextPath}/studio"><button class="list-btn">목록</button></a>
+            <a href="${pageContext.request.contextPath}/estimate"><button class="estimate-btn">견적내러가기</button></a>
+        </div>
+
 
         <!-- 5. 비슷한 가격대 업체 -->
         <section class="similar">
@@ -240,7 +175,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-2.jpg"
+                                        src="${pageContext.request.contextPath}/resources/assets/images/makeup-2.jpg"
                                         alt="메이크업 이미지 1"
                                 />
                             </div>
@@ -252,7 +187,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-3.jpg"
+                                        src="${pageContext.request.contextPath}/resources/assets/images/makeup-3.jpg"
                                         alt="메이크업 이미지 2"
                                 />
                             </div>
@@ -264,7 +199,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-12.jpg"
+                                        src="${pageContext.request.contextPath}/resources/assets/images/makeup-12.jpg"
                                         alt="메이크업 이미지 3"
                                 />
                             </div>
@@ -276,7 +211,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-5.jpg"
+                                        src="${pageContext.request.contextPath}/resources/assets/images/makeup-5.jpg"
                                         alt="메이크업 이미지 4"
                                 />
                             </div>
@@ -288,7 +223,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-2.jpg"
+                                        src="${pageContext.request.contextPath}/resources/assets/images/makeup-2.jpg"
                                         alt="메이크업 이미지 1"
                                 />
                             </div>
@@ -300,7 +235,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-3.jpg"
+                                        src="${pageContext.request.contextPath}/resources/assets/images/makeup-3.jpg"
                                         alt="메이크업 이미지 2"
                                 />
                             </div>
@@ -312,7 +247,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-12.jpg"
+                                        src="${pageContext.request.contextPath}/resources/assets/images/makeup-12.jpg"
                                         alt="메이크업 이미지 3"
                                 />
                             </div>
@@ -324,7 +259,7 @@
                         <div class="similar-item">
                             <div class="similar-item-img">
                                 <img
-                                        src="resources/assets/images/makeup-5.jpg"
+                                        src="${pageContext.request.contextPath}/resources/assets/images/makeup-5.jpg"
                                         alt="메이크업 이미지 4"
                                 />
                             </div>
@@ -360,130 +295,129 @@
         </section>
 
         <!-- 6. 다른 고객이 함께 본 상품 -->
-        <section class="recommend">
-            <div class="hd__inner1100">
-                <div class="title-container noline">
-                    <h2>다른 고객이 함께 본 상품</h2>
-                </div>
-                <div class="recommend-container">
-                    <div class="recommend-inner">
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/assets/images/makeup-2.jpg"
-                                        alt="메이크업 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>뷰티진동희</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/assets/images/makeup-3.jpg"
-                                        alt="메이크업 이미지 2"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>얄루</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/assets/images/makeup-12.jpg"
-                                        alt="메이크업 이미지 3"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>바이엘린</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/assets/images/makeup-5.jpg"
-                                        alt="메이크업 이미지 4"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>우현증메르시</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/assets/images/makeup-2.jpg"
-                                        alt="메이크업 이미지 1"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>뷰티진동희</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/assets/images/makeup-3.jpg"
-                                        alt="메이크업 이미지 2"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>얄루</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/assets/images/makeup-12.jpg"
-                                        alt="메이크업 이미지 3"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>바이엘린</h2>
-                            </div>
-                        </div>
-                        <div class="recommend-item">
-                            <div class="recommend-item-img">
-                                <img
-                                        src="resources/assets/images/makeup-5.jpg"
-                                        alt="메이크업 이미지 4"
-                                />
-                            </div>
-                            <div class="recommend-item-title">
-                                <p>서울특별시 강남구</p>
-                                <h2>우현증메르시</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="recommend-buttons">
-                    <button class="recommend-button left" id="prevButton">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"
-                        />
-                    </button>
-                    <div class="currentPage" id="currentPage"></div>
-                    <div class="slice">/</div>
-                    <div class="totalPages" id="totalPages"></div>
-                    <button class="recommend-button right" id="nextButton">
-                        <img
-                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"
-                        />
-                    </button>
-                </div>
-            </div>
-        </section>
+<%--        <section class="recommend">--%>
+<%--            <div class="hd__inner1100">--%>
+<%--                <div class="title-container noline">--%>
+<%--                    <h2>다른 고객이 함께 본 상품</h2>--%>
+<%--                </div>--%>
+<%--                <div class="recommend-container">--%>
+<%--                    <div class="recommend-inner">--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/assets/images/makeup-2.jpg"--%>
+<%--                                        alt="메이크업 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>뷰티진동희</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/assets/images/makeup-3.jpg"--%>
+<%--                                        alt="메이크업 이미지 2"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>얄루</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/assets/images/makeup-12.jpg"--%>
+<%--                                        alt="메이크업 이미지 3"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>바이엘린</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/assets/images/makeup-5.jpg"--%>
+<%--                                        alt="메이크업 이미지 4"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>우현증메르시</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/assets/images/makeup-2.jpg"--%>
+<%--                                        alt="메이크업 이미지 1"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>뷰티진동희</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/assets/images/makeup-3.jpg"--%>
+<%--                                        alt="메이크업 이미지 2"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>얄루</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/assets/images/makeup-12.jpg"--%>
+<%--                                        alt="메이크업 이미지 3"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>바이엘린</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="recommend-item">--%>
+<%--                            <div class="recommend-item-img">--%>
+<%--                                <img--%>
+<%--                                        src="resources/assets/images/makeup-5.jpg"--%>
+<%--                                        alt="메이크업 이미지 4"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                            <div class="recommend-item-title">--%>
+<%--                                <p>서울특별시 강남구</p>--%>
+<%--                                <h2>우현증메르시</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="recommend-buttons">--%>
+<%--                    <button class="recommend-button left" id="prevButton">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/left-arrow.png"--%>
+<%--                        />--%>
+<%--                    </button>--%>
+<%--                    <div class="currentPage" id="currentPage"></div>--%>
+<%--                    <div class="slice">/</div>--%>
+<%--                    <div class="totalPages" id="totalPages"></div>--%>
+<%--                    <button class="recommend-button right" id="nextButton">--%>
+<%--                        <img--%>
+<%--                                src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/arrow/right-arrow.png"--%>
+<%--                        />--%>
+<%--                    </button>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </section>--%>
     </div>
     <div><%@ include file="/WEB-INF/views/common/footer.jsp" %></div>
-    <script src="resources/js/company/weddinghall/reviewSearchModal.js"></script>
 </body>
 </html>

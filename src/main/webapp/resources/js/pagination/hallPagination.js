@@ -3,7 +3,7 @@ function goToPage(page) {
     console.log("goToPage 함수 호출됨, 페이지 번호:", page);
     const pageSize = 9; // 페이지당 보여줄 업체 수
     const keyword = $('#keyword').val(); // 검색어
-    const url = keyword ? '/weddinghall/search' : '/weddinghall/ajax'; // 검색어가 있으면 POST, 없으면 GET
+    const url = keyword ? '/weddinghall/search' : '/weddinghall/page'; // 검색어가 있으면 POST, 없으면 GET
 
     console.log("goToPage 호출, page: " + page + ", keyword: " + keyword);
 

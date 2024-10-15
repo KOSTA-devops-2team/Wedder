@@ -92,4 +92,14 @@ public class CompanyServiceImpl implements CompanyService {
         return companyDao.selectStudioDetail(companyId);
     }
 
+    @Override
+    public List<CompanyDto> getDressDetail(int companyId) throws Exception {
+        return companyDao.selectDressDetail(companyId);
+    }
+
+    @Override
+    public List<CompanyDto> getMakeupDetail(int companyId) throws Exception {
+        return companyDao.selectMakeupDetail(companyId);
+    }
+
 }

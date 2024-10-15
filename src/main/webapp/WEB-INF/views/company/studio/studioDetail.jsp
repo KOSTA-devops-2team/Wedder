@@ -14,16 +14,16 @@
 <body>
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <div class="hd__inner1100">
-    <c:forEach var="studio" items="${studioDetail}">
+    <c:forEach var="company" items="${studioDetail}">
         <!-- 1. 업체 설명 + 이미지 캐러셀 -->
         <section class="description">
             <div class="main-title-container">
-                <h1>[${studio.location}] ${studio.companyName}</h1>
+                <h1>[${company.location}] ${company.companyName}</h1>
                 <div id="tags-container">
                     <!-- 태그 -->
                 </div>
                 <p>
-                    ${studio.introduce}
+                    ${company.introduce}
                 </p>
             </div>
             <div class="carousel-container">
@@ -43,44 +43,44 @@
         <!-- 2. 업체 정보 + 지도-->
         <section class="information">
             <div class="title-container">
-                <h2>${studio.companyName} 정보</h2>
+                <h2>${company.companyName} 정보</h2>
             </div>
 
             <div class="info-container">
                 <!-- 왼쪽 정보 -->
                 <table class="info-table">
                     <tr>
-                        <th>주소</th><td>${studio.companyAddress}</td>
+                        <th>주소</th><td>${company.companyAddress}</td>
                     </tr>
                     <tr>
-                        <th>연락처</th><td>${studio.phoneNum}</td>
+                        <th>연락처</th><td>${company.phoneNum}</td>
                     </tr>
                     <tr>
-                        <th>운영 시간</th><td>${studio.operationHours}</td>
+                        <th>운영 시간</th><td>${company.operationHours}</td>
                     </tr>
                     <tr>
                         <th>촬영 유형</th>
-                        <td>${studio.studioDto.shootType}</td>
+                        <td>${company.studioDto.shootType}</td>
                     </tr>
                     <tr>
                         <th>상품 구성</th>
-                        <td>${studio.studioDto.product}</td>
+                        <td>${company.studioDto.product}</td>
                     </tr>
                     <tr>
                         <th>촬영 소요 시간</th>
-                        <td>${studio.studioDto.shootDuration}</td>
+                        <td>${company.studioDto.shootDuration}</td>
                     </tr>
                     <tr>
                         <th>보유 소품</th>
-                        <td>${studio.studioDto.props}</td>
+                        <td>${company.studioDto.props}</td>
                     </tr>
                     <tr>
                         <th>촬영 의상</th>
-                        <td>${studio.studioDto.rentalClothing}</td>
+                        <td>${company.studioDto.rentalClothing}</td>
                     </tr>
                     <tr>
                         <th>헤어 변형 출장 업체</th>
-                        <td>${studio.studioDto.hairChangeAvailability}</td>
+                        <td>${company.studioDto.hairChangeAvailability}</td>
                     </tr>
                 </table>
                 <!-- 오른쪽 정보 -->
@@ -95,13 +95,12 @@
                     </div>
                 </div>
             </div>
-
         </section>
 
         <!-- 3. 일정 현황-->
         <section class="schedule">
             <div class="title-container">
-                <h2>${studio.companyName} 일정 현황</h2>
+                <h2>${company.companyName} 일정 현황</h2>
             </div>
 
             <div class="schedule-container">
@@ -110,43 +109,46 @@
                         ✔️ 촬영을 희망하는 날짜에 예약이 가능한지 확인해
                         보세요
                     </h4>
-                    <div id="calendar"></div>
-                    <img
-                            src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/calendar.png"
-                    />
-                </div>
-                <div class="schedule-choose">
-                    <div class="schedule-choose-container">
-                        <div>
-                            <span></span>
-                            <h3>가능한 일정만 보기</h3>
-                        </div>
-                        <div class="time-lists">
-                            <div class="time-list">
-                                <span>10:00</span>
-                                <span>[${studio.category}] ${studio.companyName}</span>
-                            </div>
-                            <div class="time-list">
-                                <span>12:00</span>
-                                <span>[${studio.category}] ${studio.companyName}</span>
-                            </div>
-                            <div class="time-list">
-                                <span>14:00</span>
-                                <span>[${studio.category}] ${studio.companyName}</span>
-                            </div>
-                            <div class="time-list">
-                                <span>16:00</span>
-                                <span>[${studio.category}] ${studio.companyName}</span>
-                            </div>
-                        </div>
+                    <div id="calendar">
+                        <%@ include file="/WEB-INF/views/company/weddinghall/companyCalendar.jsp" %>
                     </div>
-                <%--<a href="reservationOption">--%>
-                    <button class="schedule-button">예약하기</button>
-                    <%--</a>--%>
+<%--                    <img--%>
+<%--                            src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/calendar.png"--%>
+<%--                    />--%>
+<%--                </div>--%>
+<%--                <div class="schedule-choose">--%>
+<%--                    <div class="schedule-choose-container">--%>
+<%--                        <div>--%>
+<%--                            <span></span>--%>
+<%--                            <h3>가능한 일정만 보기</h3>--%>
+<%--                        </div>--%>
+<%--                        <div class="time-lists">--%>
+<%--                            <div class="time-list">--%>
+<%--                                <span>10:00</span>--%>
+<%--                                <span>[${company.category}] ${studio.companyName}</span>--%>
+<%--                            </div>--%>
+<%--                            <div class="time-list">--%>
+<%--                                <span>12:00</span>--%>
+<%--                                <span>[${company.category}] ${studio.companyName}</span>--%>
+<%--                            </div>--%>
+<%--                            <div class="time-list">--%>
+<%--                                <span>14:00</span>--%>
+<%--                                <span>[${company.category}] ${studio.companyName}</span>--%>
+<%--                            </div>--%>
+<%--                            <div class="time-list">--%>
+<%--                                <span>16:00</span>--%>
+<%--                                <span>[${company.category}] ${studio.companyName}</span>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                <a href="reservationOption">--%>
+<%--                    <button class="schedule-button">예약하기</button>--%>
+<%--                    </a>--%>
                 </div>
             </div>
         </section>
     </c:forEach>
+
         <!-- 4. 세부 옵션 -->
         <section class="estimator">
             <div class="title-container">

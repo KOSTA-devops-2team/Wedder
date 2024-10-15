@@ -103,36 +103,6 @@
     margin-left: 4px;
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-}
-
-.buttons button {
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    border: none;
-    margin: 0 10px;
-}
-
-.like-btn {
-    background-color: #ca1a5a;
-    padding: 10px 30px;
-}
-.like-btn:hover {
-    background-color: #f4699c;
-}
-
-.list-btn {
-    background-color: black;
-    padding: 10px 36px;
-}
-
-.list-btn:hover {
-    background-color: #717171;
-}
-
 /* 3. 예식일정 현황  */
 .schedule {
     margin-top: 100px;
@@ -192,6 +162,7 @@
 }
 
 .section h2 {
+    margin-top: 0;
     margin-bottom: 13px;
     font-size: 20px;
     color: #ca1a5a;
@@ -293,6 +264,40 @@
 
 .calculate-button:hover {
     background-color: #f4699c;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.buttons button {
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    margin: 0 10px;
+    height: 40px;
+}
+
+.like-btn {
+    width: 110px;
+    background-color: #ca1a5a;
+    padding: 10px 35px;
+}
+.like-btn:hover {
+    opacity: 80%;
+}
+
+.list-btn {
+    width: 110px;
+    background-color: black;
+    padding: 10px 35px;
+}
+
+.list-btn:hover {
+    opacity: 80%;
 }
 
 /* 5. 비슷한 가격대 웨딩홀 */

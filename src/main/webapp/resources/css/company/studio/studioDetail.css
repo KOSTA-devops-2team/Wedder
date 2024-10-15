@@ -107,45 +107,9 @@
 .schedule {
     margin-top: 100px;
 }
+
 .schedule-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     margin: 30px 50px;
-}
-
-.schedule-choose {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 40px;
-}
-
-.time-list {
-    background-color: #eeeeee;
-    padding: 18px 35px;
-    margin: 10px 0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.time-list-selected {
-    background-color: rgba(255, 203, 222, 0.3);
-    color: #ca1a5a;
-    border: 1px solid #ca1a5a;
-}
-
-.schedule-button {
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #000;
-    padding: 15px 30px;
-}
-
-.schedule-button:hover {
-    opacity: 0.7;
 }
 
 /* 4. 추가 옵션 */
@@ -161,7 +125,7 @@
 } */
 
 .section h2 {
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 10px;
     font-size: 19px;
     color: #ca1a5a;
@@ -205,7 +169,7 @@
 .buttons {
     display: flex;
     justify-content: center;
-    margin-top: 70px;
+    margin-top: 100px;
 }
 
 .buttons button {
@@ -214,22 +178,22 @@
     color: white;
     border: none;
     margin: 0 10px;
-    height: 40px;
+    height: 38px;
 }
 
 .like-btn {
-    width: 110px;
+    width: 100px;
     background-color: #ca1a5a;
-    padding: 10px 35px;
+    padding: 10px 30px;
 }
 .like-btn:hover {
     opacity: 80%;
 }
 
 .list-btn {
-    width: 110px;
+    width: 100px;
     background-color: black;
-    padding: 10px 35px;
+    padding: 10px 30px;
 }
 
 .list-btn:hover {
@@ -237,9 +201,9 @@
 }
 
 .estimate-btn {
-    width: 150px;
+    width: 140px;
     background-color: #717171;
-    padding: 10px 35px;
+    padding: 10px 30px;
 }
 
 .estimate-btn:hover {

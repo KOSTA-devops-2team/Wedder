@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // goToPage(1)
     $(".search-btn").on("click", function (e) {
         e.preventDefault()
         performSearch()
@@ -16,7 +17,7 @@ $(document).ready(function () {
         const category = $('#category').val();
         const page = 1; // 검색 시에는 첫 페이지로 고정
         const pageSize = 9; // 한 페이지에 표시할 개수
-        const url = keyword ? '/weddinghall/search' : '/weddinghall/page'; // 검색어가 있으면 POST, 없으면 GET
+        const url = keyword ? '/dress/search' : '/dress/page'; // 검색어가 있으면 POST, 없으면 GET
 
         console.log("검색 실행: keyword = " + keyword + ", page = " + page);
 
@@ -29,10 +30,10 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (data, status) {
-                if (data.hallList.length > 0) {
+                if (data.dressList.length > 0) {
                     console.log("search 상태:", status);  // 요청 상태
                     console.log("search 데이터:", data);  // 서버에서 반환된 데이터
-                    searchCompanyList(data.hallList);
+                    searchCompanyList(data.dressList);
                     updatePagination(data.pagination);
                 } else {
                     Swal.fire({
@@ -52,11 +53,12 @@ $(document).ready(function () {
         });
     }
 });
+
     function goToPage(page) {
 
         const pageSize = 9; // 페이지당 보여줄 업체 수
         const keyword = $('#keyword').val(); // 검색어
-        const url = keyword ? '/weddinghall/search' : '/weddinghall/page'; // 검색어가 있으면 POST, 없으면 GET
+        const url = keyword ? '/dress/search' : '/dress/page'; // 검색어가 있으면 POST, 없으면 GET
 
         console.log("goToPage 호출, page: " + page + ", keyword: " + keyword);
 
@@ -70,7 +72,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 console.log('pagination 응답 데이터:', response);
-                searchCompanyList(response.hallList);
+                searchCompanyList(response.dressList);
                 updatePagination(response.pagination);
             },
             error: function (status, error) {
@@ -80,46 +82,46 @@ $(document).ready(function () {
     }
 
     // 검색 결과를 처리하는 함수
-    function searchCompanyList(hallList) {
-        // hallList가 null이나 undefined일 경우 빈 배열로 설정
-        hallList = hallList || [];
+    function searchCompanyList(dressList) {
+        // dressList가 null이나 undefined일 경우 빈 배열로 설정
+        dressList = dressList || [];
         // $('.list-all').empty();
-        let hallListHtml = '';
-        hallList.forEach(function (hall) {
-            hallListHtml += `
-                    <div class="card">
-                    <a href="/weddinghall/detail/${hall.companyId}">
-                    <img class="card-img" src ="${hall.imgUrl}"/></a>
-                    <div class="card-info">
-                        <div class="weddinghall-name">
-                            ${hall.companyName}
-                            <a
-                                    href="${hall.instagramUrl}"
-                                    target="_blank"
-                                    class="instagram"
-                            >
-                                <img
-                                        src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/instagram.png"
-                                        alt="인스타 이미지"
-                                />
-                            </a>
+        let companyListHtml = '';
+        dressList.forEach(function (company) {
+            companyListHtml += `
+                        <div class="card">
+                        <a href="/dress/detail/${company.companyId}">
+                        <img class="card-img" src ="${company.imgUrl}"/></a>
+                        <div class="card-info">
+                            <div class="studio-name">
+                                ${company.companyName}
+                                <a
+                                        href="${company.instagramUrl}"
+                                        target="_blank"
+                                        class="instagram"
+                                >
+                                    <img
+                                            src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/common/instagram.png"
+                                            alt="인스타 이미지"
+                                    />
+                                </a>
+                            </div>
+                            <div class="dress-address">주소 : ${company.companyAddress}</div>
+                            <div class="phone-num">연락처 : ${company.phoneNum}</div>
+                            <div class="operation-hours">영업시간 : ${company.operationHours}</div>
+                            <div class="dress-type">상품 유형 : ${company.dressDto.dressType}</div>
+                            <div class="composition">상품 구성 : ${company.dressDto.composition}</div>
                         </div>
-                        <div class="weddinghall-address">주소 : ${hall.companyAddress}</div>
-                        <div class="phone-num">연락처 : ${hall.phoneNum}</div>
-                        <div class="operation-hours">영업시간 : ${hall.operationHours}</div>
-                        <div class="meal-price">식사비 : ${hall.hallDto.mealPrice}</div>
-                        <div class="minimum-guarantee">최소보증인원 : ${hall.hallDto.minPeople}</div>
-                    </div>
-                    </div>`;
-                })
-                $('.list-all').html(hallListHtml);
-            }
+                        </div>`;
+        })
+        $('.list-all').html(companyListHtml);
+    }
 
     // 페이지네이션 갱신 함수
     function updatePagination(pagination) {
         console.log("현재 페이지 번호:", pagination.page);
         let paginationHtml = '';
-        if (pagination && pagination.page && pagination.totalPageCnt)  {
+        if (pagination && pagination.page && pagination.totalPageCnt) {
             console.log("Total Page Count: ", pagination.totalPageCnt);
             console.log("Current Page: ", pagination.page);
 

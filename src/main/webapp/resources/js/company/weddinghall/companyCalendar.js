@@ -1,8 +1,31 @@
-let companyId = $(this).data("company-id");
 let availableDates = {}; // 예약 가능한 날짜 저장 객체
 let selectedData = {};  // 선택된 정보 저장 객체
 
 $(document).ready(function () {
+
+    const infoCalendar = document.getElementById("calendar-section1")
+    const companyId = infoCalendar.getAttribute("data-company-id");
+    const category = infoCalendar.getAttribute("data-category");
+    console.log("카테고리 값:", category);
+
+    const categoryMap = {
+        "웨딩홀": "weddinghall",
+        "스튜디오": "studio",
+        "메이크업": "makeup",
+        "드레스": "dress"
+    };
+    // 한글 카테고리를 영어로 변환
+    const categoryEng = categoryMap[category];
+
+    if (!categoryEng) {
+        console.error("카테고리 매핑 실패:", category);
+        return; // 잘못된 카테고리 값 처리
+    }
+
+    // 동적으로 URL 생성
+    const dateUrl = `/${categoryEng}/getAvailableDate`;
+    const timeUrl = `/${categoryEng}/getAvailableTime`;
+    console.log("동적으로 생성된 URL:", dateUrl, timeUrl);
 
     // 1. 선택한 업체에 대한 저장된 정보가 있으면 달력과 시간을 표시
     if (selectedData[companyId] && selectedData[companyId].date) {
@@ -28,7 +51,7 @@ $(document).ready(function () {
             // 시간대 요청해서 화면에 다시 그리기
             $.ajax({
                 type: 'GET',
-                url: "/weddinghall/getAvailableHallTime",
+                url: timeUrl,
                 contentType: "application/json",
                 data: {
                     companyId: companyId,
@@ -58,7 +81,7 @@ $(document).ready(function () {
     if (companyId) {
         $.ajax({
             type: 'GET',
-            url: "/weddinghall/getAvailableHallDate",
+            url: dateUrl,
             data: {
                 companyId: companyId
             },
@@ -98,7 +121,7 @@ $(document).ready(function () {
         if (companyId && selectedDate) {
             $.ajax({
                 type: 'GET',
-                url: "/weddinghall/getAvailableHallTime",
+                url: timeUrl,
                 contentType: "application/json",
                 data: {
                     companyId: companyId,
