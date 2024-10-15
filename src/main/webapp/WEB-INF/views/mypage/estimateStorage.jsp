@@ -336,7 +336,7 @@
               <div class="estimate-list">
                 <div class="product-img">
                   <img
-                    src="${pageContext.request.contextPath}/resources/images/weddingThumbnail.png"
+                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/studio/studio22_1.webp"
                     alt="스튜디오"
                   />
                 </div>
@@ -376,7 +376,7 @@
               <div class="estimate-list">
                 <div class="product-img">
                   <img
-                    src="${pageContext.request.contextPath}/resources/images/dressThumbnail.png"
+                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/Resevation-CG-Dress.png"
                     alt="드레스"
                   />
                 </div>
@@ -410,7 +410,8 @@
               <div class="estimate-list">
                 <div class="product-img">
                   <img
-                    src="${pageContext.request.contextPath}/resources/images/makeupThumbnail.png"
+                    src="https://wdrtest1.s3.ap-northeast-2.amazonaws.com/reservation/Reservation-CG-Makeup2.jpg
+"
                     alt="메이크업"
                   />
                 </div>
